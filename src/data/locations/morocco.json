@@ -1,0 +1,200 @@
+{
+  "morocco": [
+    {
+      "state": "Béni Mellal-Khénifra",
+      "cities": [
+        {
+          "name": "Beni Mellal",
+          "postal_code": "23000"
+        },
+        {
+          "name": "Khenifra",
+          "postal_code": "54000"
+        },
+        {
+          "name": "Azilal",
+          "postal_code": "22000"
+        }
+      ]
+    },
+    {
+      "state": "Casablanca-Settat",
+      "cities": [
+        {
+          "name": "Casablanca",
+          "postal_code": "20000"
+        },
+        {
+          "name": "Mohammedia",
+          "postal_code": "28800"
+        },
+        {
+          "name": "El Jadida",
+          "postal_code": "24000"
+        },
+        {
+          "name": "Settat",
+          "postal_code": "26000"
+        }
+      ]
+    },
+    {
+      "state": "Dakhla-Oued Ed-Dahab",
+      "cities": [
+        {
+          "name": "Dakhla",
+          "postal_code": "73000"
+        }
+      ]
+    },
+    {
+      "state": "Drâa-Tafilalet",
+      "cities": [
+        {
+          "name": "Errachidia",
+          "postal_code": "52000"
+        },
+        {
+          "name": "Ouarzazate",
+          "postal_code": "45000"
+        },
+        {
+          "name": "Zagora",
+          "postal_code": "47900"
+        }
+      ]
+    },
+    {
+      "state": "Fez-Meknes",
+      "cities": [
+        {
+          "name": "Fez",
+          "postal_code": "30000"
+        },
+        {
+          "name": "Meknes",
+          "postal_code": "50000"
+        },
+        {
+          "name": "Ifrane",
+          "postal_code": "53000"
+        }
+      ]
+    },
+    {
+      "state": "Guelmim-Oued Noun",
+      "cities": [
+        {
+          "name": "Guelmim",
+          "postal_code": "81000"
+        },
+        {
+          "name": "Tan-Tan",
+          "postal_code": "82000"
+        }
+      ]
+    },
+    {
+      "state": "Laâyoune-Sakia El Hamra",
+      "cities": [
+        {
+          "name": "Laayoune",
+          "postal_code": "70000"
+        },
+        {
+          "name": "Smara",
+          "postal_code": "72000"
+        }
+      ]
+    },
+    {
+      "state": "Marrakech-Safi",
+      "cities": [
+        {
+          "name": "Marrakech",
+          "postal_code": "40000"
+        },
+        {
+          "name": "Safi",
+          "postal_code": "46000"
+        },
+        {
+          "name": "Essaouira",
+          "postal_code": "44000"
+        }
+      ]
+    },
+    {
+      "state": "Oriental",
+      "cities": [
+        {
+          "name": "Oujda",
+          "postal_code": "60000"
+        },
+        {
+          "name": "Nador",
+          "postal_code": "62000"
+        },
+        {
+          "name": "Berkane",
+          "postal_code": "63300"
+        }
+      ]
+    },
+    {
+      "state": "Rabat-Salé-Kenitra",
+      "cities": [
+        {
+          "name": "Rabat",
+          "postal_code": "10000"
+        },
+        {
+          "name": "Salé",
+          "postal_code": "11000"
+        },
+        {
+          "name": "Kenitra",
+          "postal_code": "14000"
+        },
+        {
+          "name": "Temara",
+          "postal_code": "12000"
+        }
+      ]
+    },
+    {
+      "state": "Souss-Massa",
+      "cities": [
+        {
+          "name": "Agadir",
+          "postal_code": "80000"
+        },
+        {
+          "name": "Inezgane",
+          "postal_code": "80350"
+        },
+        {
+          "name": "Tiznit",
+          "postal_code": "85000"
+        }
+      ]
+    },
+    {
+      "state": "Tangier-Tetouan-Al Hoceima",
+      "cities": [
+        {
+          "name": "Tangier",
+          "postal_code": "90000"
+        },
+        {
+          "name": "Tetouan",
+          "postal_code": "93000"
+        },
+        {
+          "name": "Al Hoceima",
+          "postal_code": "32000"
+        }
+      ]
+    }
+  ]
+}

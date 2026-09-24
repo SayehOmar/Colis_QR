@@ -1,0 +1,130 @@
+import { useState } from "react";
+import type { StatsFilter } from "../dashboardAnalytics";
+import { useLanguage } from "../i18n/LanguageContext";
+
+interface StatsFilterBarProps {
+  filter: StatsFilter;
+  onChange: (next: StatsFilter) => void;
+  countries: string[];
+  cities: string[];
+  compact?: boolean;
+}
+
+export function StatsFilterBar({
+  filter,
+  onChange,
+  countries,
+  cities,
+  compact,
+}: StatsFilterBarProps) {
+  const { t } = useLanguage();
+  const [open, setOpen] = useState(false);
+
+  const set = (patch: Partial<StatsFilter>) => onChange({ ...filter, ...patch });
+
+  const hasActive =
+    Boolean(filter.dateFrom) ||
+    Boolean(filter.dateTo) ||
+    Boolean(filter.country) ||
+    Boolean(filter.city);
+
+  return (
+    <div className={compact ? "mb-2" : "mb-3"}>
+      <div className="flex items-center gap-2">
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className={`inline-flex h-8 w-8 items-center justify-center rounded-lg border transition ${
+            open || hasActive
+              ? "border-secondary bg-secondary-container text-secondary"
+              : "border-outline-variant/70 bg-white text-on-surface hover:border-secondary hover:text-secondary"
+          }`}
+          aria-expanded={open}
+          aria-label={t("dashFilterTitle")}
+          title={t("dashFilterTitle")}
+        >
+          <span className="material-symbols-outlined text-[18px]" aria-hidden>
+            filter_list
+          </span>
+        </button>
+        {hasActive ? (
+          <>
+            <span className="text-[10px] font-semibold text-secondary">
+              {t("dashFilterActive")}
+            </span>
+            <button
+              type="button"
+              onClick={() =>
+                onChange({ dateFrom: "", dateTo: "", country: "", city: "" })
+              }
+              className="text-[10px] font-semibold text-on-surface-variant hover:text-secondary hover:underline"
+            >
+              {t("dashFilterClear")}
+            </button>
+          </>
+        ) : null}
+      </div>
+
+      {open ? (
+        <div
+          className={`mt-2 rounded-xl border border-outline-variant/50 bg-surface-container-low/60 ${
+            compact ? "p-2" : "p-3"
+          }`}
+        >
+          <div
+            className={`grid gap-2 ${compact ? "grid-cols-2" : "grid-cols-2 sm:grid-cols-4"}`}
+          >
+            <label className="block text-[10px] font-medium text-on-surface-variant">
+              {t("dashFilterFrom")}
+              <input
+                type="date"
+                value={filter.dateFrom}
+                onChange={(e) => set({ dateFrom: e.target.value })}
+                className="app-input mt-0.5 !py-1.5 text-xs"
+              />
+            </label>
+            <label className="block text-[10px] font-medium text-on-surface-variant">
+              {t("dashFilterTo")}
+              <input
+                type="date"
+                value={filter.dateTo}
+                onChange={(e) => set({ dateTo: e.target.value })}
+                className="app-input mt-0.5 !py-1.5 text-xs"
+              />
+            </label>
+            <label className="block text-[10px] font-medium text-on-surface-variant">
+              {t("dashFilterCountry")}
+              <select
+                value={filter.country}
+                onChange={(e) => set({ country: e.target.value, city: "" })}
+                className="app-input mt-0.5 !py-1.5 text-xs"
+              >
+                <option value="">{t("dashFilterAll")}</option>
+                {countries.map((c) => (
+                  <option key={c} value={c}>
+                    {c}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className="block text-[10px] font-medium text-on-surface-variant">
+              {t("dashFilterCity")}
+              <select
+                value={filter.city}
+                onChange={(e) => set({ city: e.target.value })}
+                className="app-input mt-0.5 !py-1.5 text-xs"
+              >
+                <option value="">{t("dashFilterAll")}</option>
+                {cities.map((c) => (
+                  <option key={c} value={c}>
+                    {c}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+        </div>
+      ) : null}
+    </div>
+  );
+}

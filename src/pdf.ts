@@ -4,10 +4,12 @@ import type { ParsedPayloadFields } from "./types";
 
 const PDF_LABELS = {
   title: "EXPÉDITION TRANSFRONTALIÈRE",
-  subtitle: "Logistique France / Tunisie",
+  subtitle: "Logistique Europe / Afrique du Nord",
   sender: "EXPÉDITEUR",
   receiver: "DESTINATAIRE",
   oilLoad: "CHARGEMENT HUILE",
+  items: "ARTICLES",
+  idDoc: "PIÈCE D'IDENTITÉ",
   scanQr: "Scanner le code QR",
 } as const;
 
@@ -24,7 +26,7 @@ export async function generateShipmentPdf(
 
   const qrPanelWidth = pageWidth / 2 - panelPadding * 2;
   const qrPanelHeight = pageHeight - panelPadding * 2;
-  const qrSize = Math.min(qrPanelWidth, qrPanelHeight);
+  const qrSize = Math.min(qrPanelWidth, qrPanelHeight) * 0.92;
   const qrX = dividerX + (pageWidth / 2 - qrSize) / 2;
   const qrY = (pageHeight - qrSize) / 2;
 
@@ -39,46 +41,67 @@ export async function generateShipmentPdf(
   doc.line(dividerX, 10, dividerX, pageHeight - 10);
 
   doc.setFont("helvetica", "bold");
-  doc.setFontSize(32);
-  doc.text(PDF_LABELS.title, leftPadding, 24);
+  doc.setFontSize(28);
+  doc.text(PDF_LABELS.title, leftPadding, 20);
 
   doc.setFont("helvetica", "normal");
-  doc.setFontSize(18);
-  doc.text(PDF_LABELS.subtitle, leftPadding, 36);
+  doc.setFontSize(14);
+  doc.text(PDF_LABELS.subtitle, leftPadding, 28);
 
   doc.setFont("helvetica", "bold");
-  doc.setFontSize(18);
-  doc.text(PDF_LABELS.sender, leftPadding, 52);
+  doc.setFontSize(14);
+  doc.text(PDF_LABELS.sender, leftPadding, 40);
   doc.setFont("helvetica", "normal");
-  doc.setFontSize(28);
-  doc.text(fields.senderName, leftPadding, 64);
-  doc.setFontSize(22);
-  doc.text(fields.senderPhone, leftPadding, 76);
-
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(18);
-  doc.text(PDF_LABELS.receiver, leftPadding, 94);
-  doc.setFont("helvetica", "normal");
-  doc.setFontSize(28);
-  doc.text(fields.receiverName, leftPadding, 106);
-  doc.setFontSize(22);
-  doc.text(fields.receiverPhone, leftPadding, 118);
   doc.setFontSize(20);
-  doc.text(fields.address, leftPadding, 132, {
+  doc.text(fields.senderName, leftPadding, 50);
+  doc.setFontSize(14);
+  doc.text(fields.senderPhone, leftPadding, 58);
+  if (fields.idDocNumber) {
+    doc.setFontSize(12);
+    doc.text(
+      `${fields.idDocType === "cin" ? "CIN" : "Passport"}: ${fields.idDocNumber}`,
+      leftPadding,
+      66
+    );
+  }
+
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(14);
+  doc.text(PDF_LABELS.receiver, leftPadding, 78);
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(20);
+  doc.text(fields.receiverName, leftPadding, 88);
+  doc.setFontSize(14);
+  doc.text(fields.receiverPhone, leftPadding, 96);
+  doc.setFontSize(12);
+  doc.text(fields.address, leftPadding, 106, {
     maxWidth: dividerX - leftPadding - 10,
   });
 
+  let y = 128;
   doc.setFont("helvetica", "bold");
-  doc.setFontSize(18);
-  doc.text(PDF_LABELS.oilLoad, leftPadding, 162);
+  doc.setFontSize(14);
+  doc.text(PDF_LABELS.items, leftPadding, y);
   doc.setFont("helvetica", "normal");
-  doc.setFontSize(36);
-  doc.text(`${fields.oilLiters} L`, leftPadding, 178);
+  doc.setFontSize(12);
+  y += 8;
+  const itemsText = fields.items.length > 0 ? fields.items.join(", ") : "—";
+  doc.text(itemsText, leftPadding, y, {
+    maxWidth: dividerX - leftPadding - 10,
+  });
+
+  y += 18;
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(14);
+  doc.text(PDF_LABELS.oilLoad, leftPadding, y);
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(28);
+  doc.text(`${fields.oilLiters} L`, leftPadding, y + 12);
 
   doc.addImage(qrDataUrl, "PNG", qrX, qrY, qrSize, qrSize);
 
   doc.setFont("helvetica", "normal");
-  doc.setFontSize(16);
+  doc.setFontSize(14);
   doc.text(
     PDF_LABELS.scanQr,
     dividerX + pageWidth / 4,

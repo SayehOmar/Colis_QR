@@ -1,0 +1,230 @@
+{
+  "italy": [
+    {
+      "state": "Abruzzo",
+      "cities": [
+        { "name": "Chieti", "postal_code": "66100" },
+        { "name": "L'Aquila", "postal_code": "67100" },
+        { "name": "Pescara", "postal_code": "65121-65129" },
+        { "name": "Teramo", "postal_code": "64100" }
+      ]
+    },
+    {
+      "state": "Aosta Valley",
+      "cities": [
+        { "name": "Aosta", "postal_code": "11100" }
+      ]
+    },
+    {
+      "state": "Apulia",
+      "cities": [
+        { "name": "Bari", "postal_code": "70121-70131" },
+        { "name": "Brindisi", "postal_code": "72100" },
+        { "name": "Foggia", "postal_code": "71100" },
+        { "name": "Lecce", "postal_code": "73100" },
+        { "name": "Taranto", "postal_code": "74100" }
+      ]
+    },
+    {
+      "state": "Basilicata",
+      "cities": [
+        { "name": "Matera", "postal_code": "75100" },
+        { "name": "Potenza", "postal_code": "85100" }
+      ]
+    },
+    {
+      "state": "Calabria",
+      "cities": [
+        { "name": "Catanzaro", "postal_code": "88100" },
+        { "name": "Cosenza", "postal_code": "87100" },
+        { "name": "Crotone", "postal_code": "88900" },
+        { "name": "Reggio Calabria", "postal_code": "89121-89135" },
+        { "name": "Vibo Valentia", "postal_code": "89900" }
+      ]
+    },
+    {
+      "state": "Campania",
+      "cities": [
+        { "name": "Avellino", "postal_code": "83100" },
+        { "name": "Benevento", "postal_code": "82100" },
+        { "name": "Caserta", "postal_code": "81100" },
+        { "name": "Naples", "postal_code": "80121-80147" },
+        { "name": "Salerno", "postal_code": "84121-84135" }
+      ]
+    },
+    {
+      "state": "Emilia-Romagna",
+      "cities": [
+        { "name": "Bologna", "postal_code": "40121-40141" },
+        { "name": "Cesena", "postal_code": "47023" },
+        { "name": "Ferrara", "postal_code": "44100" },
+        { "name": "Forlì", "postal_code": "47100" },
+        { "name": "Modena", "postal_code": "41100" },
+        { "name": "Parma", "postal_code": "43100" },
+        { "name": "Piacenza", "postal_code": "29100" },
+        { "name": "Ravenna", "postal_code": "48100" },
+        { "name": "Reggio Emilia", "postal_code": "42100" },
+        { "name": "Rimini", "postal_code": "47900" }
+      ]
+    },
+    {
+      "state": "Friuli-Venezia Giulia",
+      "cities": [
+        { "name": "Gorizia", "postal_code": "34170" },
+        { "name": "Pordenone", "postal_code": "33170" },
+        { "name": "Trieste", "postal_code": "34121-34151" },
+        { "name": "Udine", "postal_code": "33100" }
+      ]
+    },
+    {
+      "state": "Lazio",
+      "cities": [
+        { "name": "Frosinone", "postal_code": "03100" },
+        { "name": "Latina", "postal_code": "04100" },
+        { "name": "Rieti", "postal_code": "02100" },
+        { "name": "Rome", "postal_code": "00118-00199" },
+        { "name": "Viterbo", "postal_code": "01100" }
+      ]
+    },
+    {
+      "state": "Liguria",
+      "cities": [
+        { "name": "Genoa", "postal_code": "16121-16167" },
+        { "name": "Imperia", "postal_code": "18100" },
+        { "name": "La Spezia", "postal_code": "19121-19137" },
+        { "name": "Savona", "postal_code": "17100" }
+      ]
+    },
+    {
+      "state": "Lombardy",
+      "cities": [
+        { "name": "Bergamo", "postal_code": "24121-24129" },
+        { "name": "Brescia", "postal_code": "25121-25136" },
+        { "name": "Como", "postal_code": "22100" },
+        { "name": "Cremona", "postal_code": "26100" },
+        { "name": "Lecco", "postal_code": "23900" },
+        { "name": "Lodi", "postal_code": "26900" },
+        { "name": "Mantua", "postal_code": "46100" },
+        { "name": "Milan", "postal_code": "20121-20162" },
+        { "name": "Pavia", "postal_code": "27100" },
+        { "name": "Sondrio", "postal_code": "23100" },
+        { "name": "Varese", "postal_code": "21100" }
+      ]
+    },
+    {
+      "state": "Marche",
+      "cities": [
+        { "name": "Ancona", "postal_code": "60121-60131" },
+        { "name": "Ascoli Piceno", "postal_code": "63100" },
+        { "name": "Macerata", "postal_code": "62100" },
+        { "name": "Pesaro", "postal_code": "61100" },
+        { "name": "Urbino", "postal_code": "61029" }
+      ]
+    },
+    {
+      "state": "Molise",
+      "cities": [
+        { "name": "Campobasso", "postal_code": "86100" },
+        { "name": "Isernia", "postal_code": "86170" }
+      ]
+    },
+    {
+      "state": "Piedmont",
+      "cities": [
+        { "name": "Alessandria", "postal_code": "15100" },
+        { "name": "Asti", "postal_code": "14100" },
+        { "name": "Biella", "postal_code": "13900" },
+        { "name": "Cuneo", "postal_code": "12100" },
+        { "name": "Novara", "postal_code": "28100" },
+        { "name": "Turin", "postal_code": "10121-10156" },
+        { "name": "Verbania", "postal_code": "28921-28925" },
+        { "name": "Vercelli", "postal_code": "13100" }
+      ]
+    },
+    {
+      "state": "Republic of San Marino",
+      "cities": [
+        { "name": "City of San Marino", "postal_code": "47890" }
+      ]
+    },
+    {
+      "state": "Sardinia",
+      "cities": [
+        { "name": "Cagliari", "postal_code": "09121-09134" },
+        { "name": "Carbonia", "postal_code": "09013" },
+        { "name": "Iglesias", "postal_code": "09016" },
+        { "name": "Lanusei", "postal_code": "08045" },
+        { "name": "Nuoro", "postal_code": "08100" },
+        { "name": "Olbia", "postal_code": "07026" },
+        { "name": "Oristano", "postal_code": "09170" },
+        { "name": "Sanluri", "postal_code": "09025" },
+        { "name": "Sassari", "postal_code": "07100" },
+        { "name": "Tempio Pausania", "postal_code": "07029" },
+        { "name": "Tortolì", "postal_code": "08048" },
+        { "name": "Villacidro", "postal_code": "09039" }
+      ]
+    },
+    {
+      "state": "Sicily",
+      "cities": [
+        { "name": "Agrigento", "postal_code": "92100" },
+        { "name": "Caltanissetta", "postal_code": "93100" },
+        { "name": "Catania", "postal_code": "95121-95131" },
+        { "name": "Enna", "postal_code": "94100" },
+        { "name": "Messina", "postal_code": "98121-98168" },
+        { "name": "Palermo", "postal_code": "90121-90151" },
+        { "name": "Ragusa", "postal_code": "97100" },
+        { "name": "Syracuse", "postal_code": "96100" },
+        { "name": "Trapani", "postal_code": "91100" }
+      ]
+    },
+    {
+      "state": "Trentino-Alto Adige/Südtirol",
+      "cities": [
+        { "name": "Bolzano", "postal_code": "39100" },
+        { "name": "Trento", "postal_code": "38100" }
+      ]
+    },
+    {
+      "state": "Tuscany",
+      "cities": [
+        { "name": "Arezzo", "postal_code": "52100" },
+        { "name": "Carrara", "postal_code": "54023" },
+        { "name": "Florence", "postal_code": "50121-50145" },
+        { "name": "Grosseto", "postal_code": "58100" },
+        { "name": "Livorno", "postal_code": "57121-57128" },
+        { "name": "Lucca", "postal_code": "55100" },
+        { "name": "Massa", "postal_code": "54100" },
+        { "name": "Pisa", "postal_code": "56121-56128" },
+        { "name": "Pistoia", "postal_code": "51100" },
+        { "name": "Prato", "postal_code": "59100" },
+        { "name": "Siena", "postal_code": "53100" }
+      ]
+    },
+    {
+      "state": "Umbria",
+      "cities": [
+        { "name": "Perugia", "postal_code": "06121-06135" },
+        { "name": "Terni", "postal_code": "05100" }
+      ]
+    },
+    {
+      "state": "Vatican City",
+      "cities": [
+        { "name": "Vatican City", "postal_code": "00120" }
+      ]
+    },
+    {
+      "state": "Veneto",
+      "cities": [
+        { "name": "Belluno", "postal_code": "32100" },
+        { "name": "Padua", "postal_code": "35121-35143" },
+        { "name": "Rovigo", "postal_code": "45100" },
+        { "name": "Treviso", "postal_code": "31100" },
+        { "name": "Venice", "postal_code": "30121-30176" },
+        { "name": "Verona", "postal_code": "37121-37142" },
+        { "name": "Vicenza", "postal_code": "36100" }
+      ]
+    }
+  ]
+}

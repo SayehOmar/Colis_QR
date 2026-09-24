@@ -1,0 +1,348 @@
+{
+  "tunisia": [
+    {
+      "state": "Ariana",
+      "cities": [
+        {
+          "name": "Ariana",
+          "postal_code": "2080"
+        },
+        {
+          "name": "La Soukra",
+          "postal_code": "2036"
+        },
+        {
+          "name": "Raoued",
+          "postal_code": "2081"
+        }
+      ]
+    },
+    {
+      "state": "Ben Arous",
+      "cities": [
+        {
+          "name": "Ben Arous",
+          "postal_code": "2013"
+        },
+        {
+          "name": "Hammam Lif",
+          "postal_code": "2050"
+        },
+        {
+          "name": "Rades",
+          "postal_code": "2040"
+        }
+      ]
+    },
+    {
+      "state": "Bizerte",
+      "cities": [
+        {
+          "name": "Bizerte",
+          "postal_code": "7000"
+        },
+        {
+          "name": "Menzel Bourguiba",
+          "postal_code": "7050"
+        }
+      ]
+    },
+    {
+      "state": "Béja",
+      "cities": [
+        {
+          "name": "Beja",
+          "postal_code": "9000"
+        },
+        {
+          "name": "Medjez el Bab",
+          "postal_code": "9070"
+        }
+      ]
+    },
+    {
+      "state": "Gabès",
+      "cities": [
+        {
+          "name": "Gabes",
+          "postal_code": "6000"
+        },
+        {
+          "name": "El Hamma",
+          "postal_code": "6020"
+        }
+      ]
+    },
+    {
+      "state": "Gafsa",
+      "cities": [
+        {
+          "name": "Gafsa",
+          "postal_code": "2100"
+        },
+        {
+          "name": "Metlaoui",
+          "postal_code": "2130"
+        }
+      ]
+    },
+    {
+      "state": "Jendouba",
+      "cities": [
+        {
+          "name": "Jendouba",
+          "postal_code": "8100"
+        },
+        {
+          "name": "Tabarka",
+          "postal_code": "8110"
+        }
+      ]
+    },
+    {
+      "state": "Kairouan",
+      "cities": [
+        {
+          "name": "Kairouan",
+          "postal_code": "3100"
+        },
+        {
+          "name": "Sbikha",
+          "postal_code": "3110"
+        }
+      ]
+    },
+    {
+      "state": "Kassérine",
+      "cities": [
+        {
+          "name": "Kasserine",
+          "postal_code": "1200"
+        },
+        {
+          "name": "Sbeitla",
+          "postal_code": "1250"
+        }
+      ]
+    },
+    {
+      "state": "Kebili",
+      "cities": [
+        {
+          "name": "Kebili",
+          "postal_code": "4200"
+        },
+        {
+          "name": "Douz",
+          "postal_code": "4260"
+        }
+      ]
+    },
+    {
+      "state": "Le Kef",
+      "cities": [
+        {
+          "name": "Le Kef",
+          "postal_code": "7100"
+        },
+        {
+          "name": "Dahmani",
+          "postal_code": "7180"
+        }
+      ]
+    },
+    {
+      "state": "Mahdia",
+      "cities": [
+        {
+          "name": "Mahdia",
+          "postal_code": "5100"
+        },
+        {
+          "name": "Ksour Essef",
+          "postal_code": "5180"
+        }
+      ]
+    },
+    {
+      "state": "Manubah",
+      "cities": [
+        {
+          "name": "Manouba",
+          "postal_code": "2010"
+        },
+        {
+          "name": "Den Den",
+          "postal_code": "2011"
+        },
+        {
+          "name": "Oued Ellil",
+          "postal_code": "2021"
+        }
+      ]
+    },
+    {
+      "state": "Monastir",
+      "cities": [
+        {
+          "name": "Monastir",
+          "postal_code": "5000"
+        },
+        {
+          "name": "Moknine",
+          "postal_code": "5050"
+        }
+      ]
+    },
+    {
+      "state": "Médenine",
+      "cities": [
+        {
+          "name": "Medenine",
+          "postal_code": "4100"
+        },
+        {
+          "name": "Zarzis",
+          "postal_code": "4170"
+        },
+        {
+          "name": "Djerba Houmt Souk",
+          "postal_code": "4180"
+        }
+      ]
+    },
+    {
+      "state": "Nabeul",
+      "cities": [
+        {
+          "name": "Nabeul",
+          "postal_code": "8000"
+        },
+        {
+          "name": "Hammamet",
+          "postal_code": "8050"
+        },
+        {
+          "name": "Kelibia",
+          "postal_code": "8090"
+        }
+      ]
+    },
+    {
+      "state": "Sfax",
+      "cities": [
+        {
+          "name": "Sfax",
+          "postal_code": "3000"
+        },
+        {
+          "name": "Sakiet Ezzit",
+          "postal_code": "3021"
+        },
+        {
+          "name": "Mahres",
+          "postal_code": "3100"
+        }
+      ]
+    },
+    {
+      "state": "Sidi Bou Zid",
+      "cities": [
+        {
+          "name": "Sidi Bouzid",
+          "postal_code": "9100"
+        },
+        {
+          "name": "Meknassy",
+          "postal_code": "9140"
+        }
+      ]
+    },
+    {
+      "state": "Siliana",
+      "cities": [
+        {
+          "name": "Siliana",
+          "postal_code": "6100"
+        },
+        {
+          "name": "Makthar",
+          "postal_code": "6140"
+        }
+      ]
+    },
+    {
+      "state": "Sousse",
+      "cities": [
+        {
+          "name": "Sousse",
+          "postal_code": "4000"
+        },
+        {
+          "name": "Msaken",
+          "postal_code": "4070"
+        },
+        {
+          "name": "Enfidha",
+          "postal_code": "4030"
+        }
+      ]
+    },
+    {
+      "state": "Tataouine",
+      "cities": [
+        {
+          "name": "Tataouine",
+          "postal_code": "3200"
+        },
+        {
+          "name": "Ghomrassen",
+          "postal_code": "3220"
+        }
+      ]
+    },
+    {
+      "state": "Tozeur",
+      "cities": [
+        {
+          "name": "Tozeur",
+          "postal_code": "2200"
+        },
+        {
+          "name": "Nefta",
+          "postal_code": "2240"
+        }
+      ]
+    },
+    {
+      "state": "Tunis",
+      "cities": [
+        {
+          "name": "Tunis",
+          "postal_code": "1000"
+        },
+        {
+          "name": "La Marsa",
+          "postal_code": "2070"
+        },
+        {
+          "name": "Le Bardo",
+          "postal_code": "2000"
+        }
+      ]
+    },
+    {
+      "state": "Zaghouan",
+      "cities": [
+        {
+          "name": "Zaghouan",
+          "postal_code": "1100"
+        },
+        {
+          "name": "El Fahs",
+          "postal_code": "1140"
+        }
+      ]
+    }
+  ]
+}

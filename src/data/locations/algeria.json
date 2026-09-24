@@ -1,0 +1,538 @@
+{
+  "algeria": [
+    {
+      "state": "Adrar",
+      "cities": [
+        {
+          "name": "Adrar",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Ain-Defla",
+      "cities": [
+        {
+          "name": "Ain-Defla",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Ain-Temouchent",
+      "cities": [
+        {
+          "name": "Ain-Temouchent",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Alger",
+      "cities": [
+        {
+          "name": "Alger",
+          "postal_code": "16000"
+        },
+        {
+          "name": "Bab El Oued",
+          "postal_code": "16002"
+        },
+        {
+          "name": "Hydra",
+          "postal_code": "16035"
+        }
+      ]
+    },
+    {
+      "state": "Annaba",
+      "cities": [
+        {
+          "name": "Annaba",
+          "postal_code": "23000"
+        }
+      ]
+    },
+    {
+      "state": "Batna",
+      "cities": [
+        {
+          "name": "Batna",
+          "postal_code": "05000"
+        }
+      ]
+    },
+    {
+      "state": "Bechar",
+      "cities": [
+        {
+          "name": "Bechar",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Bejaia",
+      "cities": [
+        {
+          "name": "Bejaia",
+          "postal_code": "06000"
+        }
+      ]
+    },
+    {
+      "state": "Biskra",
+      "cities": [
+        {
+          "name": "Biskra",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Blida",
+      "cities": [
+        {
+          "name": "Blida",
+          "postal_code": "09000"
+        }
+      ]
+    },
+    {
+      "state": "Bordj Baji Mokhtar",
+      "cities": [
+        {
+          "name": "Bordj Baji Mokhtar",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Bordj Bou Arrer",
+      "cities": [
+        {
+          "name": "Bordj Bou Arrer",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Bouira",
+      "cities": [
+        {
+          "name": "Bouira",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Boumerdes",
+      "cities": [
+        {
+          "name": "Boumerdes",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Béni Abbès",
+      "cities": [
+        {
+          "name": "Béni Abbès",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Chlef",
+      "cities": [
+        {
+          "name": "Chlef",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Constantine",
+      "cities": [
+        {
+          "name": "Constantine",
+          "postal_code": "25000"
+        }
+      ]
+    },
+    {
+      "state": "Djanet",
+      "cities": [
+        {
+          "name": "Djanet",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Djelfa",
+      "cities": [
+        {
+          "name": "Djelfa",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "El Bayadh",
+      "cities": [
+        {
+          "name": "El Bayadh",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "El M'Ghair",
+      "cities": [
+        {
+          "name": "El M'Ghair",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "El Menia",
+      "cities": [
+        {
+          "name": "El Menia",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "El Oued",
+      "cities": [
+        {
+          "name": "El Oued",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "El-Tarf",
+      "cities": [
+        {
+          "name": "El-Tarf",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Ghardaia",
+      "cities": [
+        {
+          "name": "Ghardaia",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Guelma",
+      "cities": [
+        {
+          "name": "Guelma",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Illizi",
+      "cities": [
+        {
+          "name": "Illizi",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "In Guezzam",
+      "cities": [
+        {
+          "name": "In Guezzam",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "In Salah",
+      "cities": [
+        {
+          "name": "In Salah",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Jijel",
+      "cities": [
+        {
+          "name": "Jijel",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Khenchela",
+      "cities": [
+        {
+          "name": "Khenchela",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Laghouat",
+      "cities": [
+        {
+          "name": "Laghouat",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "M'Sila",
+      "cities": [
+        {
+          "name": "M'Sila",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Mascara",
+      "cities": [
+        {
+          "name": "Mascara",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Medea",
+      "cities": [
+        {
+          "name": "Medea",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Mila",
+      "cities": [
+        {
+          "name": "Mila",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Mostaganem",
+      "cities": [
+        {
+          "name": "Mostaganem",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Naama",
+      "cities": [
+        {
+          "name": "Naama",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Oran",
+      "cities": [
+        {
+          "name": "Oran",
+          "postal_code": "31000"
+        },
+        {
+          "name": "Es Senia",
+          "postal_code": "31100"
+        }
+      ]
+    },
+    {
+      "state": "Ouargla",
+      "cities": [
+        {
+          "name": "Ouargla",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Ouled Djellal",
+      "cities": [
+        {
+          "name": "Ouled Djellal",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Oum El Bouaghi",
+      "cities": [
+        {
+          "name": "Oum El Bouaghi",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Relizane",
+      "cities": [
+        {
+          "name": "Relizane",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Saida",
+      "cities": [
+        {
+          "name": "Saida",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Setif",
+      "cities": [
+        {
+          "name": "Setif",
+          "postal_code": "19000"
+        }
+      ]
+    },
+    {
+      "state": "Sidi Bel Abbes",
+      "cities": [
+        {
+          "name": "Sidi Bel Abbes",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Skikda",
+      "cities": [
+        {
+          "name": "Skikda",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Souk-Ahras",
+      "cities": [
+        {
+          "name": "Souk-Ahras",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Tamanrasset",
+      "cities": [
+        {
+          "name": "Tamanrasset",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Tebessa",
+      "cities": [
+        {
+          "name": "Tebessa",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Tiaret",
+      "cities": [
+        {
+          "name": "Tiaret",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Timimoun",
+      "cities": [
+        {
+          "name": "Timimoun",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Tindouf",
+      "cities": [
+        {
+          "name": "Tindouf",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Tipaza",
+      "cities": [
+        {
+          "name": "Tipaza",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Tissemsilt",
+      "cities": [
+        {
+          "name": "Tissemsilt",
+          "postal_code": ""
+        }
+      ]
+    },
+    {
+      "state": "Tizi Ouzou",
+      "cities": [
+        {
+          "name": "Tizi Ouzou",
+          "postal_code": "15000"
+        }
+      ]
+    },
+    {
+      "state": "Tlemcen",
+      "cities": [
+        {
+          "name": "Tlemcen",
+          "postal_code": "13000"
+        }
+      ]
+    },
+    {
+      "state": "Touggourt",
+      "cities": [
+        {
+          "name": "Touggourt",
+          "postal_code": ""
+        }
+      ]
+    }
+  ]
+}

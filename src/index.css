@@ -4,5 +4,171 @@
 
 body {
   margin: 0;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, Segoe UI, sans-serif;
+}
+
+/* Keep Leaflet panes inside the dashboard map card */
+.leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100%;
+  max-height: 100%;
+  background: #eef2f6;
+  font: inherit;
+}
+
+.leaflet-pane {
+  z-index: 1 !important;
+}
+
+.leaflet-map-pane {
+  z-index: 1 !important;
+}
+
+.leaflet-overlay-pane {
+  z-index: 2 !important;
+}
+
+.leaflet-tooltip-pane,
+.leaflet-popup-pane {
+  z-index: 3 !important;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: inherit;
+  line-height: 1;
+  vertical-align: middle;
+  user-select: none;
+}
+
+@keyframes landingFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes landingStepIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes skeletonPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@keyframes expandGrow {
+  from {
+    opacity: 0;
+    transform: scale(0.82);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes drawerSlideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.skeleton-bone {
+  background: linear-gradient(90deg, #e8edf3 0%, #f4f6f9 50%, #e8edf3 100%);
+  background-size: 200% 100%;
+  animation: skeletonPulse 1.2s ease-in-out infinite;
+}
+
+.stat-expand-overlay {
+  animation: expandGrow 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.stats-drawer-panel {
+  animation: drawerSlideIn 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.landing-page {
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+.landing-hero-copy {
+  animation: landingFadeIn 0.85s ease both;
+}
+
+.landing-hero-cta {
+  animation: landingFadeIn 0.95s ease 0.15s both;
+}
+
+.landing-step {
+  animation: landingStepIn 0.55s ease both;
+}
+
+@layer components {
+  .app-page {
+    @apply min-h-screen bg-surface font-sans text-on-surface antialiased;
+  }
+
+  .app-card {
+    @apply rounded-2xl border border-outline-variant/60 bg-surface-container-lowest shadow-sm;
+  }
+
+  .app-input {
+    @apply mt-1 w-full rounded-lg border border-outline-variant bg-white px-3 py-2 text-on-surface outline-none transition focus:border-secondary focus:ring-2 focus:ring-secondary/20;
+  }
+
+  .app-label {
+    @apply block text-sm font-medium text-on-surface;
+  }
+
+  .app-btn-orange {
+    @apply inline-flex items-center justify-center rounded-xl bg-tertiary px-4 py-3 text-sm font-bold text-on-tertiary shadow-sm transition hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .app-btn-navy {
+    @apply inline-flex items-center justify-center rounded-xl bg-primary px-4 py-3 text-sm font-bold text-on-primary shadow-sm transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .app-btn-ghost {
+    @apply inline-flex items-center justify-center rounded-xl border border-outline-variant bg-white px-3 py-2 text-sm font-semibold text-on-surface transition hover:bg-surface-container-low;
+  }
+
+  .app-link {
+    @apply font-semibold text-secondary hover:underline;
+  }
+
+  .app-muted {
+    @apply text-on-surface-variant;
+  }
 }

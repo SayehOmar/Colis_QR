@@ -1,0 +1,159 @@
+{
+  "spain": [
+    {
+      "state": "Andalusia",
+      "cities": [
+        { "name": "Almería", "postal_code": "04001-04009" },
+        { "name": "Cádiz", "postal_code": "11001-11012" },
+        { "name": "Córdoba", "postal_code": "14001-14014" },
+        { "name": "Granada", "postal_code": "18001-18015" },
+        { "name": "Huelva", "postal_code": "21001-21007" },
+        { "name": "Jaén", "postal_code": "23001-23009" },
+        { "name": "Málaga", "postal_code": "29001-29018" },
+        { "name": "Seville", "postal_code": "41001-41020" }
+      ]
+    },
+    {
+      "state": "Aragon",
+      "cities": [
+        { "name": "Huesca", "postal_code": "22001-22006" },
+        { "name": "Teruel", "postal_code": "44001-44003" },
+        { "name": "Zaragoza", "postal_code": "50001-50022" }
+      ]
+    },
+    {
+      "state": "Asturias",
+      "cities": [
+        { "name": "Gijón", "postal_code": "33201-33213" },
+        { "name": "Oviedo", "postal_code": "33001-33013" }
+      ]
+    },
+    {
+      "state": "Balearic Islands",
+      "cities": [
+        { "name": "Ibiza", "postal_code": "07800" },
+        { "name": "Palma de Mallorca", "postal_code": "07001-07015" }
+      ]
+    },
+    {
+      "state": "Basque Country",
+      "cities": [
+        { "name": "Bilbao", "postal_code": "48001-48015" },
+        { "name": "San Sebastián", "postal_code": "20001-20018" },
+        { "name": "Vitoria-Gasteiz", "postal_code": "01001-01015" }
+      ]
+    },
+    {
+      "state": "Canary Islands",
+      "cities": [
+        { "name": "Las Palmas de Gran Canaria", "postal_code": "35001-35019" },
+        { "name": "Santa Cruz de Tenerife", "postal_code": "38001-38011" }
+      ]
+    },
+    {
+      "state": "Cantabria",
+      "cities": [
+        { "name": "Santander", "postal_code": "39001-39012" }
+      ]
+    },
+    {
+      "state": "Castile and León",
+      "cities": [
+        { "name": "Burgos", "postal_code": "09001-09007" },
+        { "name": "León", "postal_code": "24001-24010" },
+        { "name": "Palencia", "postal_code": "34001-34005" },
+        { "name": "Salamanca", "postal_code": "37001-37008" },
+        { "name": "Segovia", "postal_code": "40001-40006" },
+        { "name": "Soria", "postal_code": "42001-42005" },
+        { "name": "Valladolid", "postal_code": "47001-47016" },
+        { "name": "Zamora", "postal_code": "49001-49005" },
+        { "name": "Ávila", "postal_code": "05001-05006" }
+      ]
+    },
+    {
+      "state": "Castilla-La Mancha",
+      "cities": [
+        { "name": "Albacete", "postal_code": "02001-02008" },
+        { "name": "Ciudad Real", "postal_code": "13001-13005" },
+        { "name": "Cuenca", "postal_code": "16001-16004" },
+        { "name": "Guadalajara", "postal_code": "19001-19005" },
+        { "name": "Toledo", "postal_code": "45001-45008" }
+      ]
+    },
+    {
+      "state": "Catalonia",
+      "cities": [
+        { "name": "Barcelona", "postal_code": "08001-08042" },
+        { "name": "Girona", "postal_code": "17001-17007" },
+        { "name": "Lleida", "postal_code": "25001-25008" },
+        { "name": "Tarragona", "postal_code": "43001-43008" }
+      ]
+    },
+    {
+      "state": "Ceuta",
+      "cities": [
+        { "name": "Ceuta", "postal_code": "51001-51005" }
+      ]
+    },
+    {
+      "state": "Extremadura",
+      "cities": [
+        { "name": "Badajoz", "postal_code": "06001-06011" },
+        { "name": "Cáceres", "postal_code": "10001-10005" }
+      ]
+    },
+    {
+      "state": "Galicia",
+      "cities": [
+        { "name": "A Coruña", "postal_code": "15001-15011" },
+        { "name": "Lugo", "postal_code": "27001-27004" },
+        { "name": "Ourense", "postal_code": "32001-32005" },
+        { "name": "Pontevedra", "postal_code": "36001-36005" },
+        { "name": "Vigo", "postal_code": "36201-36216" }
+      ]
+    },
+    {
+      "state": "La Rioja",
+      "cities": [
+        { "name": "Logroño", "postal_code": "26001-26009" }
+      ]
+    },
+    {
+      "state": "Madrid",
+      "cities": [
+        { "name": "Alcalá de Henares", "postal_code": "28801-28807" },
+        { "name": "Getafe", "postal_code": "28901-28909" },
+        { "name": "Madrid", "postal_code": "28001-28055" },
+        { "name": "Móstoles", "postal_code": "28931-28938" }
+      ]
+    },
+    {
+      "state": "Melilla",
+      "cities": [
+        { "name": "Melilla", "postal_code": "52001-52006" }
+      ]
+    },
+    {
+      "state": "Murcia",
+      "cities": [
+        { "name": "Cartagena", "postal_code": "30201-30205" },
+        { "name": "Murcia", "postal_code": "30001-30012" }
+      ]
+    },
+    {
+      "state": "Navarre",
+      "cities": [
+        { "name": "Pamplona", "postal_code": "31001-31016" }
+      ]
+    },
+    {
+      "state": "Valencian Community",
+      "cities": [
+        { "name": "Alicante", "postal_code": "03001-03016" },
+        { "name": "Castellón de la Plana", "postal_code": "12001-12006" },
+        { "name": "Elche", "postal_code": "03201-03209" },
+        { "name": "Valencia", "postal_code": "46001-46025" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4616 @@
+[
+    {
+        "department": "Ain",
+        "department_code": "01",
+        "cities": [
+            {
+                "city": "Bourg-en-Bresse",
+                "postal_code": "01000"
+            },
+            {
+                "city": "Oyonnax",
+                "postal_code": "01100"
+            },
+            {
+                "city": "Ambérieu-en-Bugey",
+                "postal_code": "01500"
+            },
+            {
+                "city": "Bellegarde-sur-Valserine",
+                "postal_code": "01200"
+            },
+            {
+                "city": "Gex",
+                "postal_code": "01170"
+            },
+            {
+                "city": "Miribel",
+                "postal_code": "01700"
+            },
+            {
+                "city": "Belley",
+                "postal_code": "01300"
+            },
+            {
+                "city": "Saint-Genis-Pouilly",
+                "postal_code": "01630"
+            },
+            {
+                "city": "Divonne-les-Bains",
+                "postal_code": "01220"
+            },
+            {
+                "city": "Ferney-Voltaire",
+                "postal_code": "01210"
+            }
+        ]
+    },
+    {
+        "department": "Aisne",
+        "department_code": "02",
+        "cities": [
+            {
+                "city": "Saint-Quentin",
+                "postal_code": "02100"
+            },
+            {
+                "city": "Soissons",
+                "postal_code": "02200"
+            },
+            {
+                "city": "Laon",
+                "postal_code": "02000"
+            },
+            {
+                "city": "Château-Thierry",
+                "postal_code": "02400"
+            },
+            {
+                "city": "Tergnier",
+                "postal_code": "02700"
+            },
+            {
+                "city": "Chauny",
+                "postal_code": "02300"
+            },
+            {
+                "city": "Villers-Cotterêts",
+                "postal_code": "02600"
+            },
+            {
+                "city": "Hirson",
+                "postal_code": "02500"
+            },
+            {
+                "city": "Bohain-en-Vermandois",
+                "postal_code": "02110"
+            },
+            {
+                "city": "Gauchy",
+                "postal_code": "02430"
+            }
+        ]
+    },
+    {
+        "department": "Allier",
+        "department_code": "03",
+        "cities": [
+            {
+                "city": "Montluçon",
+                "postal_code": "03100"
+            },
+            {
+                "city": "Vichy",
+                "postal_code": "03200"
+            },
+            {
+                "city": "Moulins",
+                "postal_code": "03000"
+            },
+            {
+                "city": "Cusset",
+                "postal_code": "03300"
+            },
+            {
+                "city": "Yzeure",
+                "postal_code": "03400"
+            },
+            {
+                "city": "Domérat",
+                "postal_code": "03410"
+            },
+            {
+                "city": "Bellerive-sur-Allier",
+                "postal_code": "03700"
+            },
+            {
+                "city": "Commentry",
+                "postal_code": "03600"
+            },
+            {
+                "city": "Gannat",
+                "postal_code": "03800"
+            },
+            {
+                "city": "Saint-Pourçain-sur-Sioule",
+                "postal_code": "03500"
+            },
+            {
+                "city": "Désertines",
+                "postal_code": "03630"
+            }
+        ]
+    },
+    {
+        "department": "Alpes-de-Haute-Provence",
+        "department_code": "04",
+        "cities": [
+            {
+                "city": "Manosque",
+                "postal_code": "04100"
+            },
+            {
+                "city": "Digne-les-Bains",
+                "postal_code": "04000"
+            },
+            {
+                "city": "Sisteron",
+                "postal_code": "04200"
+            },
+            {
+                "city": "Château-Arnoux-Saint-Auban",
+                "postal_code": "04160"
+            },
+            {
+                "city": "Oraison",
+                "postal_code": "04700"
+            },
+            {
+                "city": "Forcalquier",
+                "postal_code": "04300"
+            },
+            {
+                "city": "Mées",
+                "postal_code": "04190"
+            },
+            {
+                "city": "Pierrevert",
+                "postal_code": "04860"
+            },
+            {
+                "city": "Villeneuve",
+                "postal_code": "04180"
+            },
+            {
+                "city": "Sainte-Tulle",
+                "postal_code": "04220"
+            }
+        ]
+    },
+    {
+        "department": "Alpes-Maritimes",
+        "department_code": "06",
+        "cities": [
+            {
+                "city": "Nice",
+                "postal_code": "06000-0610"
+            },
+            {
+                "city": "Antibes",
+                "postal_code": "06600-0616"
+            },
+            {
+                "city": "Cannes",
+                "postal_code": "06400-0615"
+            },
+            {
+                "city": "Grasse",
+                "postal_code": "06130-0652"
+            },
+            {
+                "city": "Cagnes-sur-Mer",
+                "postal_code": "06800"
+            },
+            {
+                "city": "Le Cannet",
+                "postal_code": "06110"
+            },
+            {
+                "city": "Saint-Laurent-du-Var",
+                "postal_code": "06700"
+            },
+            {
+                "city": "Vallauris",
+                "postal_code": "06220"
+            },
+            {
+                "city": "Menton",
+                "postal_code": "06500"
+            },
+            {
+                "city": "Mandelieu-la-Napoule",
+                "postal_code": "06210"
+            }
+        ]
+    },
+    {
+        "department": "Ardèche",
+        "department_code": "07",
+        "cities": [
+            {
+                "city": "Annonay",
+                "postal_code": "07100"
+            },
+            {
+                "city": "Aubenas",
+                "postal_code": "07200"
+            },
+            {
+                "city": "Guilherand-Granges",
+                "postal_code": "07500"
+            },
+            {
+                "city": "Tournon-sur-Rhône",
+                "postal_code": "07300"
+            },
+            {
+                "city": "Privas",
+                "postal_code": "07000"
+            },
+            {
+                "city": "Le Teil",
+                "postal_code": "07400"
+            },
+            {
+                "city": "Saint-Péray",
+                "postal_code": "07130"
+            },
+            {
+                "city": "Bourg-Saint-Andéol",
+                "postal_code": "07700"
+            },
+            {
+                "city": "La Voulte-sur-Rhône",
+                "postal_code": "07800"
+            },
+            {
+                "city": "Viviers",
+                "postal_code": "07220"
+            }
+        ]
+    },
+    {
+        "department": "Ardennes",
+        "department_code": "08",
+        "cities": [
+            {
+                "city": "Charleville-Mézières",
+                "postal_code": "08090"
+            },
+            {
+                "city": "Sedan",
+                "postal_code": "08200"
+            },
+            {
+                "city": "Rethel",
+                "postal_code": "08300"
+            },
+            {
+                "city": "Revin",
+                "postal_code": "08500"
+            },
+            {
+                "city": "Givet",
+                "postal_code": "08600"
+            },
+            {
+                "city": "Nouzonville",
+                "postal_code": "08700"
+            },
+            {
+                "city": "Bogny-sur-Meuse",
+                "postal_code": "08120"
+            },
+            {
+                "city": "Vouziers",
+                "postal_code": "08400"
+            },
+            {
+                "city": "Fumay",
+                "postal_code": "08170"
+            },
+            {
+                "city": "Vrigne-aux-Bois",
+                "postal_code": "08330"
+            }
+        ]
+    },
+    {
+        "department": "Ariège",
+        "department_code": "09",
+        "cities": [
+            {
+                "city": "Pamiers",
+                "postal_code": "09100"
+            },
+            {
+                "city": "Foix",
+                "postal_code": "09000"
+            },
+            {
+                "city": "Lavelanet",
+                "postal_code": "09300"
+            },
+            {
+                "city": "Saint-Girons",
+                "postal_code": "09200"
+            },
+            {
+                "city": "Saverdun",
+                "postal_code": "09700"
+            },
+            {
+                "city": "Tarascon-sur-Ariège",
+                "postal_code": "09400"
+            },
+            {
+                "city": "Mazères",
+                "postal_code": "09270"
+            },
+            {
+                "city": "Mirepoix",
+                "postal_code": "09500"
+            },
+            {
+                "city": "Varilhes",
+                "postal_code": "09120"
+            },
+            {
+                "city": "Laroque-d'Olmes",
+                "postal_code": "09600"
+            }
+        ]
+    },
+    {
+        "department": "Aube",
+        "department_code": "10",
+        "cities": [
+            {
+                "city": "Troyes",
+                "postal_code": "10000"
+            },
+            {
+                "city": "Romilly-sur-Seine",
+                "postal_code": "10100"
+            },
+            {
+                "city": "La Chapelle-Saint-Luc",
+                "postal_code": "10600"
+            },
+            {
+                "city": "Saint-André-les-Vergers",
+                "postal_code": "10120"
+            },
+            {
+                "city": "Sainte-Savine",
+                "postal_code": "10300"
+            },
+            {
+                "city": "Saint-Julien-les-Villas",
+                "postal_code": "10800"
+            },
+            {
+                "city": "Nogent-sur-Seine",
+                "postal_code": "10400"
+            },
+            {
+                "city": "Bar-sur-Aube",
+                "postal_code": "10200"
+            },
+            {
+                "city": "Pont-Sainte-Marie",
+                "postal_code": "10150"
+            },
+            {
+                "city": "Bar-sur-Seine",
+                "postal_code": "10110"
+            }
+        ]
+    },
+    {
+        "department": "Aude",
+        "department_code": "11",
+        "cities": [
+            {
+                "city": "Narbonne",
+                "postal_code": "11100"
+            },
+            {
+                "city": "Carcassonne",
+                "postal_code": "11000"
+            },
+            {
+                "city": "Castelnaudary",
+                "postal_code": "11400"
+            },
+            {
+                "city": "Lézignan-Corbières",
+                "postal_code": "11200"
+            },
+            {
+                "city": "Limoux",
+                "postal_code": "11300"
+            },
+            {
+                "city": "Coursan",
+                "postal_code": "11110"
+            },
+            {
+                "city": "Port-la-Nouvelle",
+                "postal_code": "11210"
+            },
+            {
+                "city": "Trèbes",
+                "postal_code": "11800"
+            },
+            {
+                "city": "Sigean",
+                "postal_code": "11130"
+            },
+            {
+                "city": "Cuxac-d'Aude",
+                "postal_code": "11590"
+            }
+        ]
+    },
+    {
+        "department": "Aveyron",
+        "department_code": "12",
+        "cities": [
+            {
+                "city": "Rodez",
+                "postal_code": "12000"
+            },
+            {
+                "city": "Millau",
+                "postal_code": "12100"
+            },
+            {
+                "city": "Villefranche-de-Rouergue",
+                "postal_code": "12200"
+            },
+            {
+                "city": "Onet-le-Château",
+                "postal_code": "12850"
+            },
+            {
+                "city": "Saint-Affrique",
+                "postal_code": "12400"
+            },
+            {
+                "city": "Decazeville",
+                "postal_code": "12300"
+            },
+            {
+                "city": "Luc-la-Primaube",
+                "postal_code": "12450"
+            },
+            {
+                "city": "Capdenac-Gare",
+                "postal_code": "12700"
+            },
+            {
+                "city": "Espalion",
+                "postal_code": "12500"
+            },
+            {
+                "city": "Aubin",
+                "postal_code": "12110"
+            }
+        ]
+    },
+    {
+        "department": "Bas-Rhin",
+        "department_code": "67",
+        "cities": [
+            {
+                "city": "Strasbourg",
+                "postal_code": "67000-6710"
+            },
+            {
+                "city": "Haguenau",
+                "postal_code": "67500"
+            },
+            {
+                "city": "Schiltigheim",
+                "postal_code": "67300"
+            },
+            {
+                "city": "Illkirch-Graffenstaden",
+                "postal_code": "67400"
+            },
+            {
+                "city": "Sélestat",
+                "postal_code": "67600"
+            },
+            {
+                "city": "Bischheim",
+                "postal_code": "67800"
+            },
+            {
+                "city": "Lingolsheim",
+                "postal_code": "67380"
+            },
+            {
+                "city": "Bischwiller",
+                "postal_code": "67240"
+            },
+            {
+                "city": "Saverne",
+                "postal_code": "67700"
+            },
+            {
+                "city": "Obernai",
+                "postal_code": "67210"
+            }
+        ]
+    },
+    {
+        "department": "Bouches-du-Rhône",
+        "department_code": "13",
+        "cities": [
+            {
+                "city": "Marseille",
+                "postal_code": "13001-1300"
+            },
+            {
+                "city": "Aix-en-Provence",
+                "postal_code": "13080-1309"
+            },
+            {
+                "city": "Arles",
+                "postal_code": "13104-1312"
+            },
+            {
+                "city": "Martigues",
+                "postal_code": "13117-1350"
+            },
+            {
+                "city": "Aubagne",
+                "postal_code": "13400"
+            },
+            {
+                "city": "Istres",
+                "postal_code": "13118-1380"
+            },
+            {
+                "city": "Salon-de-Provence",
+                "postal_code": "13300"
+            },
+            {
+                "city": "Vitrolles",
+                "postal_code": "13127"
+            },
+            {
+                "city": "Marignane",
+                "postal_code": "13700"
+            },
+            {
+                "city": "La Ciotat",
+                "postal_code": "13600"
+            }
+        ]
+    },
+    {
+        "department": "Calvados",
+        "department_code": "14",
+        "cities": [
+            {
+                "city": "Caen",
+                "postal_code": "14000"
+            },
+            {
+                "city": "Hérouville-Saint-Clair",
+                "postal_code": "14200"
+            },
+            {
+                "city": "Lisieux",
+                "postal_code": "14100"
+            },
+            {
+                "city": "Bayeux",
+                "postal_code": "14400"
+            },
+            {
+                "city": "Vire",
+                "postal_code": "14500"
+            },
+            {
+                "city": "Ifs",
+                "postal_code": "14123"
+            },
+            {
+                "city": "Mondeville",
+                "postal_code": "14120"
+            },
+            {
+                "city": "Ouistreham",
+                "postal_code": "14150"
+            },
+            {
+                "city": "Falaise",
+                "postal_code": "14700"
+            },
+            {
+                "city": "Honfleur",
+                "postal_code": "14600"
+            }
+        ]
+    },
+    {
+        "department": "Cantal",
+        "department_code": "15",
+        "cities": [
+            {
+                "city": "Aurillac",
+                "postal_code": "15000"
+            },
+            {
+                "city": "Saint-Flour",
+                "postal_code": "15100"
+            },
+            {
+                "city": "Arpajon-sur-Cère",
+                "postal_code": "15130"
+            },
+            {
+                "city": "Mauriac",
+                "postal_code": "15200"
+            },
+            {
+                "city": "Ytrac",
+                "postal_code": "15000"
+            },
+            {
+                "city": "Riom-ès-Montagnes",
+                "postal_code": "15400"
+            },
+            {
+                "city": "Maurs",
+                "postal_code": "15600"
+            },
+            {
+                "city": "Murat",
+                "postal_code": "15300"
+            },
+            {
+                "city": "Vic-sur-Cère",
+                "postal_code": "15800"
+            },
+            {
+                "city": "Naucelles",
+                "postal_code": "15000"
+            }
+        ]
+    },
+    {
+        "department": "Charente",
+        "department_code": "16",
+        "cities": [
+            {
+                "city": "Angoulême",
+                "postal_code": "16000"
+            },
+            {
+                "city": "Cognac",
+                "postal_code": "16100"
+            },
+            {
+                "city": "Soyaux",
+                "postal_code": "16800"
+            },
+            {
+                "city": "Ruelle-sur-Touvre",
+                "postal_code": "16600"
+            },
+            {
+                "city": "La Couronne",
+                "postal_code": "16400"
+            },
+            {
+                "city": "Saint-Yrieix-sur-Charente",
+                "postal_code": "16710"
+            },
+            {
+                "city": "Gond-Pontouvre",
+                "postal_code": "16160"
+            },
+            {
+                "city": "L'Isle-d'Espagnac",
+                "postal_code": "16340"
+            },
+            {
+                "city": "Champniers",
+                "postal_code": "16430"
+            },
+            {
+                "city": "Barbezieux-Saint-Hilaire",
+                "postal_code": "16300"
+            }
+        ]
+    },
+    {
+        "department": "Charente-Maritime",
+        "department_code": "17",
+        "cities": [
+            {
+                "city": "La Rochelle",
+                "postal_code": "17000"
+            },
+            {
+                "city": "Saintes",
+                "postal_code": "17100"
+            },
+            {
+                "city": "Rochefort",
+                "postal_code": "17300"
+            },
+            {
+                "city": "Royan",
+                "postal_code": "17200"
+            },
+            {
+                "city": "Aytré",
+                "postal_code": "17440"
+            },
+            {
+                "city": "Tonnay-Charente",
+                "postal_code": "17430"
+            },
+            {
+                "city": "Saint-Jean-d'Angély",
+                "postal_code": "17400"
+            },
+            {
+                "city": "Lagord",
+                "postal_code": "17140"
+            },
+            {
+                "city": "Périgny",
+                "postal_code": "17180"
+            },
+            {
+                "city": "Saujon",
+                "postal_code": "17600"
+            }
+        ]
+    },
+    {
+        "department": "Cher",
+        "department_code": "18",
+        "cities": [
+            {
+                "city": "Bourges",
+                "postal_code": "18000"
+            },
+            {
+                "city": "Vierzon",
+                "postal_code": "18100"
+            },
+            {
+                "city": "Saint-Amand-Montrond",
+                "postal_code": "18200"
+            },
+            {
+                "city": "Saint-Doulchard",
+                "postal_code": "18230"
+            },
+            {
+                "city": "Mehun-sur-Yèvre",
+                "postal_code": "18500"
+            },
+            {
+                "city": "Saint-Florent-sur-Cher",
+                "postal_code": "18400"
+            },
+            {
+                "city": "Aubigny-sur-Nère",
+                "postal_code": "18700"
+            },
+            {
+                "city": "Saint-Germain-du-Puy",
+                "postal_code": "18390"
+            },
+            {
+                "city": "Dun-sur-Auron",
+                "postal_code": "18130"
+            },
+            {
+                "city": "Trouy",
+                "postal_code": "18570"
+            }
+        ]
+    },
+    {
+        "department": "Corrèze",
+        "department_code": "19",
+        "cities": [
+            {
+                "city": "Tulle",
+                "postal_code": "19000"
+            },
+            {
+                "city": "Ussel",
+                "postal_code": "19200"
+            },
+            {
+                "city": "Malemort-sur-Corrèze",
+                "postal_code": "19360"
+            },
+            {
+                "city": "Saint-Pantaléon-de-Larche",
+                "postal_code": "19600"
+            },
+            {
+                "city": "Égletons",
+                "postal_code": "19300"
+            },
+            {
+                "city": "Allassac",
+                "postal_code": "19240"
+            },
+            {
+                "city": "Objat",
+                "postal_code": "19130"
+            },
+            {
+                "city": "Ussac",
+                "postal_code": "19270"
+            },
+            {
+                "city": "Bort-les-Orgues",
+                "postal_code": "19110"
+            },
+            {
+                "city": "Uzerche",
+                "postal_code": "19140"
+            }
+        ]
+    },
+    {
+        "department": "Corse-du-sud",
+        "department_code": "2a",
+        "cities": [
+            {
+                "city": "Ajaccio",
+                "postal_code": "20000-2009"
+            },
+            {
+                "city": "Porto-Vecchio",
+                "postal_code": "20137"
+            },
+            {
+                "city": "Propriano",
+                "postal_code": "20110"
+            },
+            {
+                "city": "Bastelicaccia",
+                "postal_code": "20129"
+            },
+            {
+                "city": "Alata",
+                "postal_code": "20167"
+            },
+            {
+                "city": "Sartène",
+                "postal_code": "20100"
+            },
+            {
+                "city": "Bonifacio",
+                "postal_code": "20169"
+            },
+            {
+                "city": "Afa",
+                "postal_code": "20167"
+            },
+            {
+                "city": "Grosseto-Prugna",
+                "postal_code": "20128-2016"
+            },
+            {
+                "city": "Zonza",
+                "postal_code": "20124-2014"
+            }
+        ]
+    },
+    {
+        "department": "Côte-d'or",
+        "department_code": "21",
+        "cities": [
+            {
+                "city": "Dijon",
+                "postal_code": "21000-2110"
+            },
+            {
+                "city": "Beaune",
+                "postal_code": "21200"
+            },
+            {
+                "city": "Chenôve",
+                "postal_code": "21300"
+            },
+            {
+                "city": "Talant",
+                "postal_code": "21240"
+            },
+            {
+                "city": "Chevigny-Saint-Sauveur",
+                "postal_code": "21800"
+            },
+            {
+                "city": "Quetigny",
+                "postal_code": "21800"
+            },
+            {
+                "city": "Longvic",
+                "postal_code": "21600"
+            },
+            {
+                "city": "Fontaine-lès-Dijon",
+                "postal_code": "21121"
+            },
+            {
+                "city": "Auxonne",
+                "postal_code": "21130"
+            },
+            {
+                "city": "Saint-Apollinaire",
+                "postal_code": "21850"
+            }
+        ]
+    },
+    {
+        "department": "Côtes-d'armor",
+        "department_code": "22",
+        "cities": [
+            {
+                "city": "Saint-Brieuc",
+                "postal_code": "22000"
+            },
+            {
+                "city": "Lannion",
+                "postal_code": "22300"
+            },
+            {
+                "city": "Plérin",
+                "postal_code": "22190"
+            },
+            {
+                "city": "Lamballe",
+                "postal_code": "22400"
+            },
+            {
+                "city": "Ploufragan",
+                "postal_code": "22440"
+            },
+            {
+                "city": "Dinan",
+                "postal_code": "22100"
+            },
+            {
+                "city": "Loudéac",
+                "postal_code": "22600"
+            },
+            {
+                "city": "Paimpol",
+                "postal_code": "22500"
+            },
+            {
+                "city": "Trégueux",
+                "postal_code": "22950"
+            },
+            {
+                "city": "Guingamp",
+                "postal_code": "22200"
+            }
+        ]
+    },
+    {
+        "department": "Creuse",
+        "department_code": "23",
+        "cities": [
+            {
+                "city": "Guéret",
+                "postal_code": "23000"
+            },
+            {
+                "city": "La Souterraine",
+                "postal_code": "23300"
+            },
+            {
+                "city": "Aubusson",
+                "postal_code": "23200"
+            },
+            {
+                "city": "Bourganeuf",
+                "postal_code": "23400"
+            },
+            {
+                "city": "Sainte-Feyre",
+                "postal_code": "23000"
+            },
+            {
+                "city": "Saint-Sulpice-le-Guérétois",
+                "postal_code": "23000"
+            },
+            {
+                "city": "Saint-Vaury",
+                "postal_code": "23320"
+            },
+            {
+                "city": "Felletin",
+                "postal_code": "23500"
+            },
+            {
+                "city": "Ahun",
+                "postal_code": "23150"
+            },
+            {
+                "city": "Évaux-les-Bains",
+                "postal_code": "23110"
+            }
+        ]
+    },
+    {
+        "department": "Deux-Sèvres",
+        "department_code": "79",
+        "cities": [
+            {
+                "city": "Niort",
+                "postal_code": "79000"
+            },
+            {
+                "city": "Bressuire",
+                "postal_code": "79300"
+            },
+            {
+                "city": "Parthenay",
+                "postal_code": "79200"
+            },
+            {
+                "city": "Thouars",
+                "postal_code": "79100"
+            },
+            {
+                "city": "Mauléon",
+                "postal_code": "79700"
+            },
+            {
+                "city": "Saint-Maixent-l'École",
+                "postal_code": "79400"
+            },
+            {
+                "city": "La Crèche",
+                "postal_code": "79260"
+            },
+            {
+                "city": "Nueil-les-Aubiers",
+                "postal_code": "79250"
+            },
+            {
+                "city": "Chauray",
+                "postal_code": "79180"
+            },
+            {
+                "city": "Aiffres",
+                "postal_code": "79230"
+            }
+        ]
+    },
+    {
+        "department": "Dordogne",
+        "department_code": "24",
+        "cities": [
+            {
+                "city": "Périgueux",
+                "postal_code": "24000"
+            },
+            {
+                "city": "Bergerac",
+                "postal_code": "24100"
+            },
+            {
+                "city": "Sarlat-la-Canéda",
+                "postal_code": "24200"
+            },
+            {
+                "city": "Coulounieix-Chamiers",
+                "postal_code": "24660"
+            },
+            {
+                "city": "Trélissac",
+                "postal_code": "24750"
+            },
+            {
+                "city": "Boulazac",
+                "postal_code": "24750"
+            },
+            {
+                "city": "Terrasson-Lavilledieu",
+                "postal_code": "24120"
+            },
+            {
+                "city": "Montpon-Ménestérol",
+                "postal_code": "24700"
+            },
+            {
+                "city": "Saint-Astier",
+                "postal_code": "24110"
+            },
+            {
+                "city": "Chancelade",
+                "postal_code": "24650"
+            }
+        ]
+    },
+    {
+        "department": "Doubs",
+        "department_code": "25",
+        "cities": [
+            {
+                "city": "Besançon",
+                "postal_code": "25000"
+            },
+            {
+                "city": "Montbéliard",
+                "postal_code": "25200"
+            },
+            {
+                "city": "Pontarlier",
+                "postal_code": "25300"
+            },
+            {
+                "city": "Audincourt",
+                "postal_code": "25400"
+            },
+            {
+                "city": "Valentigney",
+                "postal_code": "25700"
+            },
+            {
+                "city": "Morteau",
+                "postal_code": "25500"
+            },
+            {
+                "city": "Bethoncourt",
+                "postal_code": "25200"
+            },
+            {
+                "city": "Seloncourt",
+                "postal_code": "25230"
+            },
+            {
+                "city": "Baume-les-Dames",
+                "postal_code": "25110"
+            },
+            {
+                "city": "Grand-Charmont",
+                "postal_code": "25200"
+            }
+        ]
+    },
+    {
+        "department": "Drôme",
+        "department_code": "26",
+        "cities": [
+            {
+                "city": "Valence",
+                "postal_code": "26000"
+            },
+            {
+                "city": "Montélimar",
+                "postal_code": "26200"
+            },
+            {
+                "city": "Romans-sur-Isère",
+                "postal_code": "26100"
+            },
+            {
+                "city": "Bourg-lès-Valence",
+                "postal_code": "26500"
+            },
+            {
+                "city": "Pierrelatte",
+                "postal_code": "26700"
+            },
+            {
+                "city": "Bourg-de-Péage",
+                "postal_code": "26300"
+            },
+            {
+                "city": "Portes-lès-Valence",
+                "postal_code": "26800"
+            },
+            {
+                "city": "Livron-sur-Drôme",
+                "postal_code": "26250"
+            },
+            {
+                "city": "Saint-Paul-Trois-Châteaux",
+                "postal_code": "26130"
+            },
+            {
+                "city": "Crest",
+                "postal_code": "26400"
+            }
+        ]
+    },
+    {
+        "department": "Essonne",
+        "department_code": "91",
+        "cities": [
+            {
+                "city": "Évry",
+                "postal_code": "91090"
+            },
+            {
+                "city": "Corbeil-Essonnes",
+                "postal_code": "91100"
+            },
+            {
+                "city": "Massy",
+                "postal_code": "91300"
+            },
+            {
+                "city": "Savigny-sur-Orge",
+                "postal_code": "91600"
+            },
+            {
+                "city": "Sainte-Geneviève-des-Bois",
+                "postal_code": "91700"
+            },
+            {
+                "city": "Viry-Châtillon",
+                "postal_code": "91170"
+            },
+            {
+                "city": "Athis-Mons",
+                "postal_code": "91200"
+            },
+            {
+                "city": "Palaiseau",
+                "postal_code": "91120"
+            },
+            {
+                "city": "Yerres",
+                "postal_code": "91330"
+            },
+            {
+                "city": "Draveil",
+                "postal_code": "91210"
+            }
+        ]
+    },
+    {
+        "department": "Eure",
+        "department_code": "27",
+        "cities": [
+            {
+                "city": "Évreux",
+                "postal_code": "27000"
+            },
+            {
+                "city": "Vernon",
+                "postal_code": "27200"
+            },
+            {
+                "city": "Louviers",
+                "postal_code": "27400"
+            },
+            {
+                "city": "Val-de-Reuil",
+                "postal_code": "27100"
+            },
+            {
+                "city": "Gisors",
+                "postal_code": "27140"
+            },
+            {
+                "city": "Bernay",
+                "postal_code": "27300"
+            },
+            {
+                "city": "Pont-Audemer",
+                "postal_code": "27500"
+            },
+            {
+                "city": "Andelys",
+                "postal_code": "27700"
+            },
+            {
+                "city": "Gaillon",
+                "postal_code": "27600"
+            },
+            {
+                "city": "Verneuil-sur-Avre",
+                "postal_code": "27130"
+            }
+        ]
+    },
+    {
+        "department": "Eure-et-Loir",
+        "department_code": "28",
+        "cities": [
+            {
+                "city": "Chartres",
+                "postal_code": "28000"
+            },
+            {
+                "city": "Dreux",
+                "postal_code": "28100"
+            },
+            {
+                "city": "Lucé",
+                "postal_code": "28110"
+            },
+            {
+                "city": "Châteaudun",
+                "postal_code": "28200"
+            },
+            {
+                "city": "Vernouillet",
+                "postal_code": "28500"
+            },
+            {
+                "city": "Nogent-le-Rotrou",
+                "postal_code": "28400"
+            },
+            {
+                "city": "Mainvilliers",
+                "postal_code": "28300"
+            },
+            {
+                "city": "Luisant",
+                "postal_code": "28600"
+            },
+            {
+                "city": "Épernon",
+                "postal_code": "28230"
+            },
+            {
+                "city": "Lèves",
+                "postal_code": "28300"
+            }
+        ]
+    },
+    {
+        "department": "Finistère",
+        "department_code": "29",
+        "cities": [
+            {
+                "city": "Brest",
+                "postal_code": "29200"
+            },
+            {
+                "city": "Quimper",
+                "postal_code": "29000"
+            },
+            {
+                "city": "Concarneau",
+                "postal_code": "29900"
+            },
+            {
+                "city": "Morlaix",
+                "postal_code": "29600"
+            },
+            {
+                "city": "Douarnenez",
+                "postal_code": "29100"
+            },
+            {
+                "city": "Landerneau",
+                "postal_code": "29800"
+            },
+            {
+                "city": "Guipavas",
+                "postal_code": "29490"
+            },
+            {
+                "city": "Plougastel-Daoulas",
+                "postal_code": "29470"
+            },
+            {
+                "city": "Plouzané",
+                "postal_code": "29280"
+            },
+            {
+                "city": "Quimperlé",
+                "postal_code": "29300"
+            }
+        ]
+    },
+    {
+        "department": "Gard",
+        "department_code": "30",
+        "cities": [
+            {
+                "city": "Nîmes",
+                "postal_code": "30000-3090"
+            },
+            {
+                "city": "Alès",
+                "postal_code": "30100"
+            },
+            {
+                "city": "Bagnols-sur-Cèze",
+                "postal_code": "30200"
+            },
+            {
+                "city": "Beaucaire",
+                "postal_code": "30300"
+            },
+            {
+                "city": "Saint-Gilles",
+                "postal_code": "30800"
+            },
+            {
+                "city": "Villeneuve-lès-Avignon",
+                "postal_code": "30400"
+            },
+            {
+                "city": "Vauvert",
+                "postal_code": "30600"
+            },
+            {
+                "city": "Pont-Saint-Esprit",
+                "postal_code": "30130"
+            },
+            {
+                "city": "Marguerittes",
+                "postal_code": "30320"
+            },
+            {
+                "city": "Angles",
+                "postal_code": "30133"
+            }
+        ]
+    },
+    {
+        "department": "Gers",
+        "department_code": "32",
+        "cities": [
+            {
+                "city": "Auch",
+                "postal_code": "32810"
+            },
+            {
+                "city": "Condom",
+                "postal_code": "32100"
+            },
+            {
+                "city": "L'Isle-Jourdain",
+                "postal_code": "32600"
+            },
+            {
+                "city": "Fleurance",
+                "postal_code": "32500"
+            },
+            {
+                "city": "Eauze",
+                "postal_code": "32800"
+            },
+            {
+                "city": "Mirande",
+                "postal_code": "32300"
+            },
+            {
+                "city": "Lectoure",
+                "postal_code": "32700"
+            },
+            {
+                "city": "Vic-Fezensac",
+                "postal_code": "32190"
+            },
+            {
+                "city": "Gimont",
+                "postal_code": "32200"
+            },
+            {
+                "city": "Pavie",
+                "postal_code": "32550"
+            }
+        ]
+    },
+    {
+        "department": "Gironde",
+        "department_code": "33",
+        "cities": [
+            {
+                "city": "Bordeaux",
+                "postal_code": "33000-3310"
+            },
+            {
+                "city": "Mérignac",
+                "postal_code": "33700"
+            },
+            {
+                "city": "Pessac",
+                "postal_code": "33600"
+            },
+            {
+                "city": "Talence",
+                "postal_code": "33400"
+            },
+            {
+                "city": "Villenave-d'Ornon",
+                "postal_code": "33140"
+            },
+            {
+                "city": "Saint-Médard-en-Jalles",
+                "postal_code": "33160"
+            },
+            {
+                "city": "Bègles",
+                "postal_code": "33130"
+            },
+            {
+                "city": "La Teste-de-Buch",
+                "postal_code": "33260"
+            },
+            {
+                "city": "Libourne",
+                "postal_code": "33500"
+            },
+            {
+                "city": "Gradignan",
+                "postal_code": "33170"
+            }
+        ]
+    },
+    {
+        "department": "Guadeloupe",
+        "department_code": "971",
+        "cities": [
+            {
+                "city": "Abymes",
+                "postal_code": "97142"
+            },
+            {
+                "city": "Saint-Martin",
+                "postal_code": "97150"
+            },
+            {
+                "city": "Baie-Mahault",
+                "postal_code": "97122"
+            },
+            {
+                "city": "Gosier",
+                "postal_code": "97190"
+            },
+            {
+                "city": "Sainte-Anne",
+                "postal_code": "97180"
+            },
+            {
+                "city": "Petit-Bourg",
+                "postal_code": "97170"
+            },
+            {
+                "city": "Moule",
+                "postal_code": "97160"
+            },
+            {
+                "city": "Sainte-Rose",
+                "postal_code": "97115"
+            },
+            {
+                "city": "Capesterre-Belle-Eau",
+                "postal_code": "97130"
+            },
+            {
+                "city": "Morne-à-l'Eau",
+                "postal_code": "97111"
+            }
+        ]
+    },
+    {
+        "department": "Guyane",
+        "department_code": "973",
+        "cities": [
+            {
+                "city": "Cayenne",
+                "postal_code": "97300"
+            },
+            {
+                "city": "Saint-Laurent-du-Maroni",
+                "postal_code": "97320"
+            },
+            {
+                "city": "Matoury",
+                "postal_code": "97351"
+            },
+            {
+                "city": "Kourou",
+                "postal_code": "97310"
+            },
+            {
+                "city": "Remire-Montjoly",
+                "postal_code": "97354"
+            },
+            {
+                "city": "MACOURIA TONATE",
+                "postal_code": "97355"
+            },
+            {
+                "city": "Mana",
+                "postal_code": "97360"
+            },
+            {
+                "city": "Maripasoula",
+                "postal_code": "97370"
+            },
+            {
+                "city": "Apatou",
+                "postal_code": "97317"
+            },
+            {
+                "city": "Grand-Santi",
+                "postal_code": "97340"
+            }
+        ]
+    },
+    {
+        "department": "Haut-Rhin",
+        "department_code": "68",
+        "cities": [
+            {
+                "city": "Mulhouse",
+                "postal_code": "68100-6820"
+            },
+            {
+                "city": "Colmar",
+                "postal_code": "68000"
+            },
+            {
+                "city": "Saint-Louis",
+                "postal_code": "68128"
+            },
+            {
+                "city": "Illzach",
+                "postal_code": "68110"
+            },
+            {
+                "city": "Wittenheim",
+                "postal_code": "68270"
+            },
+            {
+                "city": "Kingersheim",
+                "postal_code": "68260"
+            },
+            {
+                "city": "Rixheim",
+                "postal_code": "68170"
+            },
+            {
+                "city": "Riedisheim",
+                "postal_code": "68400"
+            },
+            {
+                "city": "Guebwiller",
+                "postal_code": "68500"
+            },
+            {
+                "city": "Cernay",
+                "postal_code": "68700"
+            }
+        ]
+    },
+    {
+        "department": "Haute-corse",
+        "department_code": "2b",
+        "cities": [
+            {
+                "city": "Bastia",
+                "postal_code": "20200-2060"
+            },
+            {
+                "city": "Borgo",
+                "postal_code": "20290"
+            },
+            {
+                "city": "Corte",
+                "postal_code": "20250"
+            },
+            {
+                "city": "Biguglia",
+                "postal_code": "20620"
+            },
+            {
+                "city": "Calvi",
+                "postal_code": "20260"
+            },
+            {
+                "city": "Furiani",
+                "postal_code": "20600"
+            },
+            {
+                "city": "Lucciana",
+                "postal_code": "20290"
+            },
+            {
+                "city": "Ghisonaccia",
+                "postal_code": "20240"
+            },
+            {
+                "city": "Prunelli-di-Fiumorbo",
+                "postal_code": "20243"
+            },
+            {
+                "city": "Ville-di-Pietrabugno",
+                "postal_code": "20200"
+            }
+        ]
+    },
+    {
+        "department": "Haute-Garonne",
+        "department_code": "31",
+        "cities": [
+            {
+                "city": "Toulouse",
+                "postal_code": "31000-3110"
+            },
+            {
+                "city": "Colomiers",
+                "postal_code": "31770"
+            },
+            {
+                "city": "Tournefeuille",
+                "postal_code": "31170"
+            },
+            {
+                "city": "Muret",
+                "postal_code": "31600"
+            },
+            {
+                "city": "Blagnac",
+                "postal_code": "31700"
+            },
+            {
+                "city": "Plaisance-du-Touch",
+                "postal_code": "31830"
+            },
+            {
+                "city": "Cugnaux",
+                "postal_code": "31270"
+            },
+            {
+                "city": "Balma",
+                "postal_code": "31130"
+            },
+            {
+                "city": "L'Union",
+                "postal_code": "31240"
+            },
+            {
+                "city": "Saint-Gaudens",
+                "postal_code": "31800"
+            }
+        ]
+    },
+    {
+        "department": "Haute-Loire",
+        "department_code": "43",
+        "cities": [
+            {
+                "city": "Le Puy-en-Velay",
+                "postal_code": "43000"
+            },
+            {
+                "city": "Monistrol-sur-Loire",
+                "postal_code": "43120"
+            },
+            {
+                "city": "Yssingeaux",
+                "postal_code": "43200"
+            },
+            {
+                "city": "Brioude",
+                "postal_code": "43100"
+            },
+            {
+                "city": "Sainte-Sigolène",
+                "postal_code": "43600"
+            },
+            {
+                "city": "Aurec-sur-Loire",
+                "postal_code": "43110"
+            },
+            {
+                "city": "Saint-Just-Malmont",
+                "postal_code": "43240"
+            },
+            {
+                "city": "Brives-Charensac",
+                "postal_code": "43700"
+            },
+            {
+                "city": "Langeac",
+                "postal_code": "43300"
+            },
+            {
+                "city": "Bas-en-Basset",
+                "postal_code": "43210"
+            }
+        ]
+    },
+    {
+        "department": "Haute-Marne",
+        "department_code": "52",
+        "cities": [
+            {
+                "city": "Saint-Dizier",
+                "postal_code": "52100"
+            },
+            {
+                "city": "Chaumont",
+                "postal_code": "52000"
+            },
+            {
+                "city": "Langres",
+                "postal_code": "52200"
+            },
+            {
+                "city": "Nogent",
+                "postal_code": "52800"
+            },
+            {
+                "city": "Joinville",
+                "postal_code": "52300"
+            },
+            {
+                "city": "Wassy",
+                "postal_code": "52130"
+            },
+            {
+                "city": "Chalindrey",
+                "postal_code": "52600"
+            },
+            {
+                "city": "Bourbonne-les-Bains",
+                "postal_code": "52400"
+            },
+            {
+                "city": "Val-de-Meuse",
+                "postal_code": "52140"
+            },
+            {
+                "city": "Montier-en-Der",
+                "postal_code": "52220"
+            }
+        ]
+    },
+    {
+        "department": "Haute-Saône",
+        "department_code": "70",
+        "cities": [
+            {
+                "city": "Vesoul",
+                "postal_code": "70000"
+            },
+            {
+                "city": "Héricourt",
+                "postal_code": "70400"
+            },
+            {
+                "city": "Luré",
+                "postal_code": "70200"
+            },
+            {
+                "city": "Luxeuil-les-Bains",
+                "postal_code": "70300"
+            },
+            {
+                "city": "Gray",
+                "postal_code": "70100"
+            },
+            {
+                "city": "Fougerolles",
+                "postal_code": "70220"
+            },
+            {
+                "city": "Champagney",
+                "postal_code": "70290"
+            },
+            {
+                "city": "Saint-Loup-sur-Semouse",
+                "postal_code": "70800"
+            },
+            {
+                "city": "Échenoz-la-Méline",
+                "postal_code": "70000"
+            },
+            {
+                "city": "Port-sur-Saône",
+                "postal_code": "70170"
+            }
+        ]
+    },
+    {
+        "department": "Haute-Savoie",
+        "department_code": "74",
+        "cities": [
+            {
+                "city": "Annecy",
+                "postal_code": "74000"
+            },
+            {
+                "city": "Thonon-les-Bains",
+                "postal_code": "74200"
+            },
+            {
+                "city": "Annemasse",
+                "postal_code": "74100"
+            },
+            {
+                "city": "Annecy-le-Vieux",
+                "postal_code": "74940"
+            },
+            {
+                "city": "Cluses",
+                "postal_code": "74300"
+            },
+            {
+                "city": "Seynod",
+                "postal_code": "74600"
+            },
+            {
+                "city": "Cran-Gevrier",
+                "postal_code": "74960"
+            },
+            {
+                "city": "Sallanches",
+                "postal_code": "74700"
+            },
+            {
+                "city": "Rumilly",
+                "postal_code": "74150"
+            },
+            {
+                "city": "Bonneville",
+                "postal_code": "74130"
+            }
+        ]
+    },
+    {
+        "department": "Haute-Vienne",
+        "department_code": "87",
+        "cities": [
+            {
+                "city": "Limoges",
+                "postal_code": "87000-8710"
+            },
+            {
+                "city": "Saint-Junien",
+                "postal_code": "87200"
+            },
+            {
+                "city": "Panazol",
+                "postal_code": "87350"
+            },
+            {
+                "city": "Couzeix",
+                "postal_code": "87270"
+            },
+            {
+                "city": "Isle",
+                "postal_code": "87170"
+            },
+            {
+                "city": "Saint-Yrieix-la-Perche",
+                "postal_code": "87500"
+            },
+            {
+                "city": "Le Palais-sur-Vienne",
+                "postal_code": "87410"
+            },
+            {
+                "city": "Feytiat",
+                "postal_code": "87220"
+            },
+            {
+                "city": "Aixe-sur-Vienne",
+                "postal_code": "87700"
+            },
+            {
+                "city": "Ambazac",
+                "postal_code": "87240"
+            }
+        ]
+    },
+    {
+        "department": "Hautes-Alpes",
+        "department_code": "05",
+        "cities": [
+            {
+                "city": "Gap",
+                "postal_code": "05000"
+            },
+            {
+                "city": "Briançon",
+                "postal_code": "05100"
+            },
+            {
+                "city": "Embrun",
+                "postal_code": "05200"
+            },
+            {
+                "city": "Laragne-Montéglin",
+                "postal_code": "05300"
+            },
+            {
+                "city": "Veynes",
+                "postal_code": "05400"
+            },
+            {
+                "city": "Chorges",
+                "postal_code": "05230"
+            },
+            {
+                "city": "Guillestre",
+                "postal_code": "05600"
+            },
+            {
+                "city": "L'Argentière-la-Bessée",
+                "postal_code": "05120"
+            },
+            {
+                "city": "La Bâtie-Neuve",
+                "postal_code": "05230"
+            },
+            {
+                "city": "Tallard",
+                "postal_code": "05130"
+            }
+        ]
+    },
+    {
+        "department": "Hautes-Pyrénées",
+        "department_code": "65",
+        "cities": [
+            {
+                "city": "Tarbes",
+                "postal_code": "65000"
+            },
+            {
+                "city": "Lourdes",
+                "postal_code": "65100"
+            },
+            {
+                "city": "Bagnères-de-Bigorre",
+                "postal_code": "65200"
+            },
+            {
+                "city": "Aureilhan",
+                "postal_code": "65800"
+            },
+            {
+                "city": "Lannemezan",
+                "postal_code": "65300"
+            },
+            {
+                "city": "Vic-en-Bigorre",
+                "postal_code": "65500"
+            },
+            {
+                "city": "Séméac",
+                "postal_code": "65600"
+            },
+            {
+                "city": "Bordères-sur-l'Échez",
+                "postal_code": "65320"
+            },
+            {
+                "city": "Juillan",
+                "postal_code": "65290"
+            },
+            {
+                "city": "Barbazan-Debat",
+                "postal_code": "65690"
+            }
+        ]
+    },
+    {
+        "department": "Hauts-de-Seine",
+        "department_code": "92",
+        "cities": [
+            {
+                "city": "Boulogne-Billancourt",
+                "postal_code": "92100"
+            },
+            {
+                "city": "Nanterre",
+                "postal_code": "92000"
+            },
+            {
+                "city": "Courbevoie",
+                "postal_code": "92400"
+            },
+            {
+                "city": "Colombes",
+                "postal_code": "92700"
+            },
+            {
+                "city": "Asnières-sur-Seine",
+                "postal_code": "92600"
+            },
+            {
+                "city": "Rueil-Malmaison",
+                "postal_code": "92500"
+            },
+            {
+                "city": "Issy-les-Moulineaux",
+                "postal_code": "92130"
+            },
+            {
+                "city": "Levallois-Perret",
+                "postal_code": "92300"
+            },
+            {
+                "city": "Antony",
+                "postal_code": "92160"
+            },
+            {
+                "city": "Neuilly-sur-Seine",
+                "postal_code": "92200"
+            }
+        ]
+    },
+    {
+        "department": "Hérault",
+        "department_code": "34",
+        "cities": [
+            {
+                "city": "Montpellier",
+                "postal_code": "34000-3407"
+            },
+            {
+                "city": "Béziers",
+                "postal_code": "34500"
+            },
+            {
+                "city": "Sète",
+                "postal_code": "34200"
+            },
+            {
+                "city": "Lunel",
+                "postal_code": "34400"
+            },
+            {
+                "city": "Frontignan",
+                "postal_code": "34110"
+            },
+            {
+                "city": "Agde",
+                "postal_code": "34300"
+            },
+            {
+                "city": "Lattes",
+                "postal_code": "34970"
+            },
+            {
+                "city": "Mauguio",
+                "postal_code": "34130"
+            },
+            {
+                "city": "Castelnau-le-Lez",
+                "postal_code": "34170"
+            },
+            {
+                "city": "Mèze",
+                "postal_code": "34140"
+            }
+        ]
+    },
+    {
+        "department": "ille-et-Vilaine",
+        "department_code": "35",
+        "cities": [
+            {
+                "city": "Rennes",
+                "postal_code": "35000-3520"
+            },
+            {
+                "city": "Saint-Malo",
+                "postal_code": "35400"
+            },
+            {
+                "city": "Fougères",
+                "postal_code": "35300"
+            },
+            {
+                "city": "Vitré",
+                "postal_code": "35500"
+            },
+            {
+                "city": "Bruz",
+                "postal_code": "35170"
+            },
+            {
+                "city": "Cesson-Sévigné",
+                "postal_code": "35510"
+            },
+            {
+                "city": "Dinard",
+                "postal_code": "35800"
+            },
+            {
+                "city": "Betton",
+                "postal_code": "35830"
+            },
+            {
+                "city": "Saint-Jacques-de-la-Lande",
+                "postal_code": "35136"
+            },
+            {
+                "city": "Redon",
+                "postal_code": "35600"
+            }
+        ]
+    },
+    {
+        "department": "Indre",
+        "department_code": "36",
+        "cities": [
+            {
+                "city": "Châteauroux",
+                "postal_code": "36000"
+            },
+            {
+                "city": "Issoudun",
+                "postal_code": "36100"
+            },
+            {
+                "city": "Déols",
+                "postal_code": "36130"
+            },
+            {
+                "city": "Le Blanc",
+                "postal_code": "36300"
+            },
+            {
+                "city": "Le Poinçonnet",
+                "postal_code": "36330"
+            },
+            {
+                "city": "Argenton-sur-Creuse",
+                "postal_code": "36200"
+            },
+            {
+                "city": "Buzançais",
+                "postal_code": "36500"
+            },
+            {
+                "city": "La Châtre",
+                "postal_code": "36400"
+            },
+            {
+                "city": "Ardentes",
+                "postal_code": "36120"
+            },
+            {
+                "city": "Saint-Maur",
+                "postal_code": "36250"
+            }
+        ]
+    },
+    {
+        "department": "Indre-et-Loire",
+        "department_code": "37",
+        "cities": [
+            {
+                "city": "Tours",
+                "postal_code": "37000-3710"
+            },
+            {
+                "city": "Joué-lès-Tours",
+                "postal_code": "37300"
+            },
+            {
+                "city": "Saint-Cyr-sur-Loire",
+                "postal_code": "37540"
+            },
+            {
+                "city": "Saint-Pierre-des-Corps",
+                "postal_code": "37700"
+            },
+            {
+                "city": "Saint-Avertin",
+                "postal_code": "37550"
+            },
+            {
+                "city": "Amboise",
+                "postal_code": "37530"
+            },
+            {
+                "city": "Chambray-lès-Tours",
+                "postal_code": "37170"
+            },
+            {
+                "city": "Montlouis-sur-Loire",
+                "postal_code": "37270"
+            },
+            {
+                "city": "Fondettes",
+                "postal_code": "37230"
+            },
+            {
+                "city": "La Riche",
+                "postal_code": "37520"
+            }
+        ]
+    },
+    {
+        "department": "Isère",
+        "department_code": "38",
+        "cities": [
+            {
+                "city": "Grenoble",
+                "postal_code": "38000-3810"
+            },
+            {
+                "city": "Échirolles",
+                "postal_code": "38130"
+            },
+            {
+                "city": "Saint-Martin-d'Hères",
+                "postal_code": "38400"
+            },
+            {
+                "city": "Vienne",
+                "postal_code": "38200"
+            },
+            {
+                "city": "Bourgoin-Jallieu",
+                "postal_code": "38300"
+            },
+            {
+                "city": "Fontaine",
+                "postal_code": "38600"
+            },
+            {
+                "city": "Voiron",
+                "postal_code": "38500"
+            },
+            {
+                "city": "Villefontaine",
+                "postal_code": "38090"
+            },
+            {
+                "city": "Meylan",
+                "postal_code": "38240"
+            },
+            {
+                "city": "Saint-Égrève",
+                "postal_code": "38120"
+            }
+        ]
+    },
+    {
+        "department": "Jura",
+        "department_code": "39",
+        "cities": [
+            {
+                "city": "Dole",
+                "postal_code": "39100"
+            },
+            {
+                "city": "Lons-le-Saunier",
+                "postal_code": "39570"
+            },
+            {
+                "city": "Saint-Claude",
+                "postal_code": "39200"
+            },
+            {
+                "city": "Champagnole",
+                "postal_code": "39300"
+            },
+            {
+                "city": "Morez",
+                "postal_code": "39400"
+            },
+            {
+                "city": "Poligny",
+                "postal_code": "39800"
+            },
+            {
+                "city": "Tavaux",
+                "postal_code": "39500"
+            },
+            {
+                "city": "Arbois",
+                "postal_code": "39600"
+            },
+            {
+                "city": "Montmorot",
+                "postal_code": "39570"
+            },
+            {
+                "city": "Salins-les-Bains",
+                "postal_code": "39110"
+            }
+        ]
+    },
+    {
+        "department": "Landes",
+        "department_code": "40",
+        "cities": [
+            {
+                "city": "Mont-de-Marsan",
+                "postal_code": "40000"
+            },
+            {
+                "city": "Dax",
+                "postal_code": "40100"
+            },
+            {
+                "city": "Saint-Paul-lès-Dax",
+                "postal_code": "40990"
+            },
+            {
+                "city": "Biscarrosse",
+                "postal_code": "40600"
+            },
+            {
+                "city": "Tarnos",
+                "postal_code": "40220"
+            },
+            {
+                "city": "Saint-Pierre-du-Mont",
+                "postal_code": "40280"
+            },
+            {
+                "city": "Capbreton",
+                "postal_code": "40130"
+            },
+            {
+                "city": "Saint-Vincent-de-Tyrosse",
+                "postal_code": "40230"
+            },
+            {
+                "city": "Soustons",
+                "postal_code": "40140"
+            },
+            {
+                "city": "Mimizan",
+                "postal_code": "40200"
+            }
+        ]
+    },
+    {
+        "department": "Loir-et-Cher",
+        "department_code": "41",
+        "cities": [
+            {
+                "city": "Blois",
+                "postal_code": "41000"
+            },
+            {
+                "city": "Romorantin-Lanthenay",
+                "postal_code": "41200"
+            },
+            {
+                "city": "Vendôme",
+                "postal_code": "41100"
+            },
+            {
+                "city": "Vineuil",
+                "postal_code": "41350"
+            },
+            {
+                "city": "Mer",
+                "postal_code": "41500"
+            },
+            {
+                "city": "Salbris",
+                "postal_code": "41300"
+            },
+            {
+                "city": "Lamotte-Beuvron",
+                "postal_code": "41600"
+            },
+            {
+                "city": "Selles-sur-Cher",
+                "postal_code": "41130"
+            },
+            {
+                "city": "La Chaussée-Saint-Victor",
+                "postal_code": "41260"
+            },
+            {
+                "city": "Saint-Laurent-Nouan",
+                "postal_code": "41220"
+            }
+        ]
+    },
+    {
+        "department": "Loire",
+        "department_code": "42",
+        "cities": [
+            {
+                "city": "Saint-Étienne",
+                "postal_code": "42000-4210"
+            },
+            {
+                "city": "Roanne",
+                "postal_code": "42300"
+            },
+            {
+                "city": "Saint-Chamond",
+                "postal_code": "42400"
+            },
+            {
+                "city": "Firminy",
+                "postal_code": "42700"
+            },
+            {
+                "city": "Montbrison",
+                "postal_code": "42600"
+            },
+            {
+                "city": "Rive-de-Gier",
+                "postal_code": "42800"
+            },
+            {
+                "city": "Saint-Just-Saint-Rambert",
+                "postal_code": "42170"
+            },
+            {
+                "city": "Le Chambon-Feugerolles",
+                "postal_code": "42500"
+            },
+            {
+                "city": "Riorges",
+                "postal_code": "42153"
+            },
+            {
+                "city": "Roche-la-Molière",
+                "postal_code": "42230"
+            }
+        ]
+    },
+    {
+        "department": "Loire-Atlantique",
+        "department_code": "44",
+        "cities": [
+            {
+                "city": "Nantes",
+                "postal_code": "44000-4410"
+            },
+            {
+                "city": "Saint-Nazaire",
+                "postal_code": "44600"
+            },
+            {
+                "city": "Saint-Herblain",
+                "postal_code": "44800"
+            },
+            {
+                "city": "Rezé",
+                "postal_code": "44400"
+            },
+            {
+                "city": "Saint-Sébastien-sur-Loire",
+                "postal_code": "44230"
+            },
+            {
+                "city": "Orvault",
+                "postal_code": "44700"
+            },
+            {
+                "city": "Vertou",
+                "postal_code": "44120"
+            },
+            {
+                "city": "Couëron",
+                "postal_code": "44220"
+            },
+            {
+                "city": "Carquefou",
+                "postal_code": "44470"
+            },
+            {
+                "city": "La Chapelle-sur-Erdre",
+                "postal_code": "44240"
+            }
+        ]
+    },
+    {
+        "department": "Loiret",
+        "department_code": "45",
+        "cities": [
+            {
+                "city": "Orléans",
+                "postal_code": "45000-4510"
+            },
+            {
+                "city": "Fleury-les-Aubrais",
+                "postal_code": "45400"
+            },
+            {
+                "city": "Olivet",
+                "postal_code": "45160"
+            },
+            {
+                "city": "Saint-Jean-de-Braye",
+                "postal_code": "45800"
+            },
+            {
+                "city": "Saint-Jean-de-la-Ruelle",
+                "postal_code": "45140"
+            },
+            {
+                "city": "Montargis",
+                "postal_code": "45200"
+            },
+            {
+                "city": "Gien",
+                "postal_code": "45500"
+            },
+            {
+                "city": "Saran",
+                "postal_code": "45770"
+            },
+            {
+                "city": "Châlette-sur-Loing",
+                "postal_code": "45120"
+            },
+            {
+                "city": "Amilly",
+                "postal_code": "45200"
+            }
+        ]
+    },
+    {
+        "department": "Lot",
+        "department_code": "46",
+        "cities": [
+            {
+                "city": "Cahors",
+                "postal_code": "46000"
+            },
+            {
+                "city": "Figeac",
+                "postal_code": "46100"
+            },
+            {
+                "city": "Gourdon",
+                "postal_code": "46300"
+            },
+            {
+                "city": "Souillac",
+                "postal_code": "46200"
+            },
+            {
+                "city": "Saint-Céré",
+                "postal_code": "46400"
+            },
+            {
+                "city": "Gramat",
+                "postal_code": "46500"
+            },
+            {
+                "city": "Pradines",
+                "postal_code": "46090"
+            },
+            {
+                "city": "Prayssac",
+                "postal_code": "46220"
+            },
+            {
+                "city": "Puy-l'Évêque",
+                "postal_code": "46700"
+            },
+            {
+                "city": "Castelnau-Montratier",
+                "postal_code": "46170"
+            }
+        ]
+    },
+    {
+        "department": "Lot-et-Garonne",
+        "department_code": "47",
+        "cities": [
+            {
+                "city": "Agen",
+                "postal_code": "47000"
+            },
+            {
+                "city": "Villeneuve-sur-Lot",
+                "postal_code": "47300"
+            },
+            {
+                "city": "Marmande",
+                "postal_code": "47200"
+            },
+            {
+                "city": "Le Passage",
+                "postal_code": "47520"
+            },
+            {
+                "city": "Tonneins",
+                "postal_code": "47400"
+            },
+            {
+                "city": "Nérac",
+                "postal_code": "47600"
+            },
+            {
+                "city": "Sainte-Livrade-sur-Lot",
+                "postal_code": "47110"
+            },
+            {
+                "city": "Bon-Encontre",
+                "postal_code": "47240"
+            },
+            {
+                "city": "Boé",
+                "postal_code": "47550"
+            },
+            {
+                "city": "Fumel",
+                "postal_code": "47500"
+            }
+        ]
+    },
+    {
+        "department": "Lozère",
+        "department_code": "48",
+        "cities": [
+            {
+                "city": "Mende",
+                "postal_code": "48000"
+            },
+            {
+                "city": "Marvejols",
+                "postal_code": "48100"
+            },
+            {
+                "city": "Saint-Chély-d'Apcher",
+                "postal_code": "48200"
+            },
+            {
+                "city": "Langogne",
+                "postal_code": "48300"
+            },
+            {
+                "city": "La Canourgue",
+                "postal_code": "48500"
+            },
+            {
+                "city": "Florac",
+                "postal_code": "48400"
+            },
+            {
+                "city": "Saint-Alban-sur-Limagnole",
+                "postal_code": "48120"
+            },
+            {
+                "city": "Chanac",
+                "postal_code": "48230"
+            },
+            {
+                "city": "Montrodat",
+                "postal_code": "48100"
+            },
+            {
+                "city": "Chirac",
+                "postal_code": "48100"
+            }
+        ]
+    },
+    {
+        "department": "Maine-et-Loire",
+        "department_code": "49",
+        "cities": [
+            {
+                "city": "Angers",
+                "postal_code": "49000-4910"
+            },
+            {
+                "city": "Cholet",
+                "postal_code": "49280"
+            },
+            {
+                "city": "Saumur",
+                "postal_code": "49400"
+            },
+            {
+                "city": "Avrillé",
+                "postal_code": "49240"
+            },
+            {
+                "city": "Trélazé",
+                "postal_code": "49800"
+            },
+            {
+                "city": "Ponts-de-Cé",
+                "postal_code": "49130"
+            },
+            {
+                "city": "Saint-Barthélemy-d'Anjou",
+                "postal_code": "49124"
+            },
+            {
+                "city": "Doué-la-Fontaine",
+                "postal_code": "49700"
+            },
+            {
+                "city": "Chemillé",
+                "postal_code": "49120"
+            },
+            {
+                "city": "Montreuil-Juigné",
+                "postal_code": "49460"
+            }
+        ]
+    },
+    {
+        "department": "Manche",
+        "department_code": "50",
+        "cities": [
+            {
+                "city": "Cherbourg-Octeville",
+                "postal_code": "50100-5013"
+            },
+            {
+                "city": "Saint-Lô",
+                "postal_code": "50000"
+            },
+            {
+                "city": "Équeurdreville-Hainneville",
+                "postal_code": "50120"
+            },
+            {
+                "city": "Tourlaville",
+                "postal_code": "50110"
+            },
+            {
+                "city": "Granville",
+                "postal_code": "50400"
+            },
+            {
+                "city": "Coutances",
+                "postal_code": "50200"
+            },
+            {
+                "city": "Avranches",
+                "postal_code": "50300"
+            },
+            {
+                "city": "Valognes",
+                "postal_code": "50700"
+            },
+            {
+                "city": "Carentan",
+                "postal_code": "50500"
+            },
+            {
+                "city": "Querqueville",
+                "postal_code": "50460"
+            }
+        ]
+    },
+    {
+        "department": "Marne",
+        "department_code": "51",
+        "cities": [
+            {
+                "city": "Reims",
+                "postal_code": "51100"
+            },
+            {
+                "city": "Châlons-en-Champagne",
+                "postal_code": "51000"
+            },
+            {
+                "city": "Épernay",
+                "postal_code": "51200"
+            },
+            {
+                "city": "Vitry-le-François",
+                "postal_code": "51300"
+            },
+            {
+                "city": "Tinqueux",
+                "postal_code": "51430"
+            },
+            {
+                "city": "Bétheny",
+                "postal_code": "51450"
+            },
+            {
+                "city": "Cormontreuil",
+                "postal_code": "51350"
+            },
+            {
+                "city": "Fismes",
+                "postal_code": "51170"
+            },
+            {
+                "city": "Saint-Memmie",
+                "postal_code": "51470"
+            },
+            {
+                "city": "Sézanne",
+                "postal_code": "51120"
+            }
+        ]
+    },
+    {
+        "department": "Martinique",
+        "department_code": "972",
+        "cities": [
+            {
+                "city": "Fort-de-France",
+                "postal_code": "97234"
+            },
+            {
+                "city": "Lamentin",
+                "postal_code": "97232"
+            },
+            {
+                "city": "Robert",
+                "postal_code": "97231"
+            },
+            {
+                "city": "SHOELCHER",
+                "postal_code": "97233"
+            },
+            {
+                "city": "François",
+                "postal_code": "97240"
+            },
+            {
+                "city": "Sainte-Marie",
+                "postal_code": "97230"
+            },
+            {
+                "city": "Ducos",
+                "postal_code": "97224"
+            },
+            {
+                "city": "Saint-Joseph",
+                "postal_code": "97212"
+            },
+            {
+                "city": "Trinité",
+                "postal_code": "97220"
+            },
+            {
+                "city": "Rivière-Pilote",
+                "postal_code": "97211"
+            }
+        ]
+    },
+    {
+        "department": "Mayenne",
+        "department_code": "53",
+        "cities": [
+            {
+                "city": "Laval",
+                "postal_code": "53000"
+            },
+            {
+                "city": "Mayenne",
+                "postal_code": "53100"
+            },
+            {
+                "city": "Château-Gontier",
+                "postal_code": "53200"
+            },
+            {
+                "city": "Évron",
+                "postal_code": "53600"
+            },
+            {
+                "city": "Saint-Berthevin",
+                "postal_code": "53940"
+            },
+            {
+                "city": "Ernée",
+                "postal_code": "53500"
+            },
+            {
+                "city": "Bonchamp-lès-Laval",
+                "postal_code": "53960"
+            },
+            {
+                "city": "Changé",
+                "postal_code": "53810"
+            },
+            {
+                "city": "Craon",
+                "postal_code": "53400"
+            },
+            {
+                "city": "Louverné",
+                "postal_code": "53950"
+            }
+        ]
+    },
+    {
+        "department": "Mayotte",
+        "department_code": "976",
+        "cities": [
+            {
+                "city": "Mamoudzou",
+                "postal_code": "97600"
+            },
+            {
+                "city": "Koungou",
+                "postal_code": "97600"
+            },
+            {
+                "city": "Dzaoudzi",
+                "postal_code": "97610"
+            },
+            {
+                "city": "Dembeni",
+                "postal_code": "97660"
+            },
+            {
+                "city": "Tsingoni",
+                "postal_code": "97680"
+            },
+            {
+                "city": "Sada",
+                "postal_code": "97640"
+            },
+            {
+                "city": "Bandraboua",
+                "postal_code": "97650"
+            },
+            {
+                "city": "Pamandzi",
+                "postal_code": "97610"
+            },
+            {
+                "city": "Ouangani",
+                "postal_code": "97670"
+            },
+            {
+                "city": "Chirongui",
+                "postal_code": "97620"
+            }
+        ]
+    },
+    {
+        "department": "Meurthe-et-Moselle",
+        "department_code": "54",
+        "cities": [
+            {
+                "city": "Nancy",
+                "postal_code": "54100"
+            },
+            {
+                "city": "Vandœuvre-lès-Nancy",
+                "postal_code": "54500"
+            },
+            {
+                "city": "Lunéville",
+                "postal_code": "54300"
+            },
+            {
+                "city": "Toul",
+                "postal_code": "54200"
+            },
+            {
+                "city": "Laxou",
+                "postal_code": "54520"
+            },
+            {
+                "city": "Villers-lès-Nancy",
+                "postal_code": "54600"
+            },
+            {
+                "city": "Pont-à-Mousson",
+                "postal_code": "54700"
+            },
+            {
+                "city": "Longwy",
+                "postal_code": "54400"
+            },
+            {
+                "city": "Dombasle-sur-Meurthe",
+                "postal_code": "54110"
+            },
+            {
+                "city": "Saint-Max",
+                "postal_code": "54130"
+            }
+        ]
+    },
+    {
+        "department": "Meuse",
+        "department_code": "55",
+        "cities": [
+            {
+                "city": "Verdun",
+                "postal_code": "55100"
+            },
+            {
+                "city": "Bar-le-Duc",
+                "postal_code": "55000"
+            },
+            {
+                "city": "Commercy",
+                "postal_code": "55200"
+            },
+            {
+                "city": "Saint-Mihiel",
+                "postal_code": "55300"
+            },
+            {
+                "city": "Ligny-en-Barrois",
+                "postal_code": "55500"
+            },
+            {
+                "city": "Étain",
+                "postal_code": "55400"
+            },
+            {
+                "city": "Belleville-sur-Meuse",
+                "postal_code": "55430"
+            },
+            {
+                "city": "Revigny-sur-Ornain",
+                "postal_code": "55800"
+            },
+            {
+                "city": "Thierville-sur-Meuse",
+                "postal_code": "55840"
+            },
+            {
+                "city": "Ancerville",
+                "postal_code": "55170"
+            }
+        ]
+    },
+    {
+        "department": "Morbihan",
+        "department_code": "56",
+        "cities": [
+            {
+                "city": "Lorient",
+                "postal_code": "56100"
+            },
+            {
+                "city": "Vannes",
+                "postal_code": "56000"
+            },
+            {
+                "city": "Lanester",
+                "postal_code": "56600"
+            },
+            {
+                "city": "Ploemeur",
+                "postal_code": "56270"
+            },
+            {
+                "city": "Hennebont",
+                "postal_code": "56700"
+            },
+            {
+                "city": "Pontivy",
+                "postal_code": "56300"
+            },
+            {
+                "city": "Auray",
+                "postal_code": "56400"
+            },
+            {
+                "city": "Guidel",
+                "postal_code": "56520"
+            },
+            {
+                "city": "Saint-Avé",
+                "postal_code": "56890"
+            },
+            {
+                "city": "Quéven",
+                "postal_code": "56530"
+            }
+        ]
+    },
+    {
+        "department": "Moselle",
+        "department_code": "57",
+        "cities": [
+            {
+                "city": "Metz",
+                "postal_code": "57000-5705"
+            },
+            {
+                "city": "Thionville",
+                "postal_code": "57100"
+            },
+            {
+                "city": "Montigny-lès-Metz",
+                "postal_code": "57158"
+            },
+            {
+                "city": "Sarreguemines",
+                "postal_code": "57200"
+            },
+            {
+                "city": "Forbach",
+                "postal_code": "57600"
+            },
+            {
+                "city": "Saint-Avold",
+                "postal_code": "57500"
+            },
+            {
+                "city": "Yutz",
+                "postal_code": "57970"
+            },
+            {
+                "city": "Hayange",
+                "postal_code": "57700"
+            },
+            {
+                "city": "Creutzwald",
+                "postal_code": "57150"
+            },
+            {
+                "city": "Freyming-Merlebach",
+                "postal_code": "57800"
+            }
+        ]
+    },
+    {
+        "department": "Nièvre",
+        "department_code": "58",
+        "cities": [
+            {
+                "city": "Nevers",
+                "postal_code": "58000"
+            },
+            {
+                "city": "Cosne-Cours-sur-Loire",
+                "postal_code": "58200"
+            },
+            {
+                "city": "Varennes-Vauzelles",
+                "postal_code": "58640"
+            },
+            {
+                "city": "Decize",
+                "postal_code": "58300"
+            },
+            {
+                "city": "La Charité-sur-Loire",
+                "postal_code": "58400"
+            },
+            {
+                "city": "Fourchambault",
+                "postal_code": "58180"
+            },
+            {
+                "city": "Clamecy",
+                "postal_code": "58500"
+            },
+            {
+                "city": "Imphy",
+                "postal_code": "58160"
+            },
+            {
+                "city": "Garchizy",
+                "postal_code": "58600"
+            },
+            {
+                "city": "La Machine",
+                "postal_code": "58260"
+            }
+        ]
+    },
+    {
+        "department": "Nord",
+        "department_code": "59",
+        "cities": [
+            {
+                "city": "Lille",
+                "postal_code": "59000-5916"
+            },
+            {
+                "city": "Roubaix",
+                "postal_code": "59100"
+            },
+            {
+                "city": "Dunkerque",
+                "postal_code": "59140-5924"
+            },
+            {
+                "city": "Tourcoing",
+                "postal_code": "59200"
+            },
+            {
+                "city": "Villeneuve-d'Ascq",
+                "postal_code": "59491-5949"
+            },
+            {
+                "city": "Valenciennes",
+                "postal_code": "59300"
+            },
+            {
+                "city": "Douai",
+                "postal_code": "59500"
+            },
+            {
+                "city": "Wattrelos",
+                "postal_code": "59150"
+            },
+            {
+                "city": "Marcq-en-Baroeul",
+                "postal_code": "59700"
+            },
+            {
+                "city": "Maubeuge",
+                "postal_code": "59600"
+            }
+        ]
+    },
+    {
+        "department": "Oise",
+        "department_code": "60",
+        "cities": [
+            {
+                "city": "Beauvais",
+                "postal_code": "60155"
+            },
+            {
+                "city": "Compiègne",
+                "postal_code": "60200"
+            },
+            {
+                "city": "Creil",
+                "postal_code": "60100"
+            },
+            {
+                "city": "Nogent-sur-Oise",
+                "postal_code": "60180"
+            },
+            {
+                "city": "Senlis",
+                "postal_code": "60300"
+            },
+            {
+                "city": "Noyon",
+                "postal_code": "60400"
+            },
+            {
+                "city": "Crépy-en-Valois",
+                "postal_code": "60800"
+            },
+            {
+                "city": "Méru",
+                "postal_code": "60110"
+            },
+            {
+                "city": "Montataire",
+                "postal_code": "60160"
+            },
+            {
+                "city": "Pont-Sainte-Maxence",
+                "postal_code": "60700"
+            }
+        ]
+    },
+    {
+        "department": "Orne",
+        "department_code": "61",
+        "cities": [
+            {
+                "city": "Alençon",
+                "postal_code": "61000"
+            },
+            {
+                "city": "Flers",
+                "postal_code": "61100"
+            },
+            {
+                "city": "Argentan",
+                "postal_code": "61200"
+            },
+            {
+                "city": "L'Aigle",
+                "postal_code": "61300"
+            },
+            {
+                "city": "La Ferté-Macé",
+                "postal_code": "61600"
+            },
+            {
+                "city": "Sées",
+                "postal_code": "61500"
+            },
+            {
+                "city": "Mortagne-au-Perche",
+                "postal_code": "61400"
+            },
+            {
+                "city": "Domfront",
+                "postal_code": "61700"
+            },
+            {
+                "city": "Vimoutiers",
+                "postal_code": "61120"
+            },
+            {
+                "city": "Saint-Germain-du-Corbéis",
+                "postal_code": "61000"
+            }
+        ]
+    },
+    {
+        "department": "Paris",
+        "department_code": "75",
+        "cities": [
+            {
+                "city": "Paris",
+                "postal_code": "75001-7500"
+            }
+        ]
+    },
+    {
+        "department": "Pas-de-Calais",
+        "department_code": "62",
+        "cities": [
+            {
+                "city": "Calais",
+                "postal_code": "62100"
+            },
+            {
+                "city": "Boulogne-sur-Mer",
+                "postal_code": "62200"
+            },
+            {
+                "city": "Arras",
+                "postal_code": "62000"
+            },
+            {
+                "city": "Lens",
+                "postal_code": "62300"
+            },
+            {
+                "city": "Liévin",
+                "postal_code": "62800"
+            },
+            {
+                "city": "Béthune",
+                "postal_code": "62400"
+            },
+            {
+                "city": "Hénin-Beaumont",
+                "postal_code": "62110"
+            },
+            {
+                "city": "Bruay-la-Buissière",
+                "postal_code": "62700"
+            },
+            {
+                "city": "Avion",
+                "postal_code": "62210"
+            },
+            {
+                "city": "Carvin",
+                "postal_code": "62220"
+            }
+        ]
+    },
+    {
+        "department": "Puy-de-Dôme",
+        "department_code": "63",
+        "cities": [
+            {
+                "city": "Clermont-Ferrand",
+                "postal_code": "63000-6310"
+            },
+            {
+                "city": "Cournon-d'Auvergne",
+                "postal_code": "63800"
+            },
+            {
+                "city": "Riom",
+                "postal_code": "63200"
+            },
+            {
+                "city": "Chamalières",
+                "postal_code": "63400"
+            },
+            {
+                "city": "Issoire",
+                "postal_code": "63500"
+            },
+            {
+                "city": "Thiers",
+                "postal_code": "63300"
+            },
+            {
+                "city": "Beaumont",
+                "postal_code": "63110"
+            },
+            {
+                "city": "Pont-du-Château",
+                "postal_code": "63430"
+            },
+            {
+                "city": "Gerzat",
+                "postal_code": "63360"
+            },
+            {
+                "city": "Aubière",
+                "postal_code": "63170"
+            }
+        ]
+    },
+    {
+        "department": "Pyrénées-Atlantiques",
+        "department_code": "64",
+        "cities": [
+            {
+                "city": "Pau",
+                "postal_code": "64000"
+            },
+            {
+                "city": "Bayonne",
+                "postal_code": "64100"
+            },
+            {
+                "city": "Anglet",
+                "postal_code": "64600"
+            },
+            {
+                "city": "Biarritz",
+                "postal_code": "64200"
+            },
+            {
+                "city": "Hendaye",
+                "postal_code": "64700"
+            },
+            {
+                "city": "Saint-Jean-de-Luz",
+                "postal_code": "64500"
+            },
+            {
+                "city": "Billère",
+                "postal_code": "64140"
+            },
+            {
+                "city": "Lons",
+                "postal_code": "64140"
+            },
+            {
+                "city": "Oloron-Sainte-Marie",
+                "postal_code": "64400"
+            },
+            {
+                "city": "Orthez",
+                "postal_code": "64300"
+            }
+        ]
+    },
+    {
+        "department": "Pyrénées-Orientales",
+        "department_code": "66",
+        "cities": [
+            {
+                "city": "Perpignan",
+                "postal_code": "66000-6610"
+            },
+            {
+                "city": "Canet-en-Roussillon",
+                "postal_code": "66140"
+            },
+            {
+                "city": "Saint-Estève",
+                "postal_code": "66240"
+            },
+            {
+                "city": "Saint-Cyprien",
+                "postal_code": "66750"
+            },
+            {
+                "city": "Argelès-sur-Mer",
+                "postal_code": "66700"
+            },
+            {
+                "city": "Cabestany",
+                "postal_code": "66330"
+            },
+            {
+                "city": "Saint-Laurent-de-la-Salanque",
+                "postal_code": "66250"
+            },
+            {
+                "city": "Rivesaltes",
+                "postal_code": "66600"
+            },
+            {
+                "city": "Céret",
+                "postal_code": "66400"
+            },
+            {
+                "city": "Elne",
+                "postal_code": "66200"
+            }
+        ]
+    },
+    {
+        "department": "Réunion",
+        "department_code": "974",
+        "cities": [
+            {
+                "city": "Saint-Denis",
+                "postal_code": "97490"
+            },
+            {
+                "city": "Saint-Paul",
+                "postal_code": "97460"
+            },
+            {
+                "city": "Saint-Pierre",
+                "postal_code": "97432"
+            },
+            {
+                "city": "Tampon",
+                "postal_code": "97430"
+            },
+            {
+                "city": "Saint-André",
+                "postal_code": "97440"
+            },
+            {
+                "city": "Saint-Louis",
+                "postal_code": "97450"
+            },
+            {
+                "city": "Port",
+                "postal_code": "97420"
+            },
+            {
+                "city": "Saint-Joseph",
+                "postal_code": "97480"
+            },
+            {
+                "city": "Saint-Benoît",
+                "postal_code": "97470"
+            },
+            {
+                "city": "Saint-Leu",
+                "postal_code": "97436"
+            }
+        ]
+    },
+    {
+        "department": "Rhône",
+        "department_code": "69",
+        "cities": [
+            {
+                "city": "Lyon",
+                "postal_code": "69001-6900"
+            },
+            {
+                "city": "Villeurbanne",
+                "postal_code": "69100"
+            },
+            {
+                "city": "Vénissieux",
+                "postal_code": "69200"
+            },
+            {
+                "city": "Saint-Priest",
+                "postal_code": "69800"
+            },
+            {
+                "city": "Caluire-et-Cuire",
+                "postal_code": "69300"
+            },
+            {
+                "city": "Vaulx-en-Velin",
+                "postal_code": "69120"
+            },
+            {
+                "city": "Bron",
+                "postal_code": "69500"
+            },
+            {
+                "city": "Villefranche-sur-Saône",
+                "postal_code": "69400"
+            },
+            {
+                "city": "Rillieux-la-Pape",
+                "postal_code": "69140"
+            },
+            {
+                "city": "Meyzieu",
+                "postal_code": "69330"
+            }
+        ]
+    },
+    {
+        "department": "Saône-et-Loire",
+        "department_code": "71",
+        "cities": [
+            {
+                "city": "Chalon-sur-Saône",
+                "postal_code": "71100"
+            },
+            {
+                "city": "Mâcon",
+                "postal_code": "71870"
+            },
+            {
+                "city": "Le Creusot",
+                "postal_code": "71200"
+            },
+            {
+                "city": "Montceau-les-Mines",
+                "postal_code": "71300"
+            },
+            {
+                "city": "Autun",
+                "postal_code": "71400"
+            },
+            {
+                "city": "Paray-le-Monial",
+                "postal_code": "71600"
+            },
+            {
+                "city": "Saint-Vallier",
+                "postal_code": "71230"
+            },
+            {
+                "city": "Digoin",
+                "postal_code": "71160"
+            },
+            {
+                "city": "Gueugnon",
+                "postal_code": "71130"
+            },
+            {
+                "city": "Charnay-lès-Mâcon",
+                "postal_code": "71850"
+            }
+        ]
+    },
+    {
+        "department": "Sarthe",
+        "department_code": "72",
+        "cities": [
+            {
+                "city": "Le Mans",
+                "postal_code": "72000-7210"
+            },
+            {
+                "city": "La Flèche",
+                "postal_code": "72200"
+            },
+            {
+                "city": "Sablé-sur-Sarthe",
+                "postal_code": "72300"
+            },
+            {
+                "city": "Allonnes",
+                "postal_code": "72700"
+            },
+            {
+                "city": "La Ferté-Bernard",
+                "postal_code": "72400"
+            },
+            {
+                "city": "Coulaines",
+                "postal_code": "72190"
+            },
+            {
+                "city": "Changé",
+                "postal_code": "72560"
+            },
+            {
+                "city": "Mamers",
+                "postal_code": "72600"
+            },
+            {
+                "city": "Arnage",
+                "postal_code": "72230"
+            },
+            {
+                "city": "Parigné-l'Évêque",
+                "postal_code": "72250"
+            }
+        ]
+    },
+    {
+        "department": "Savoie",
+        "department_code": "73",
+        "cities": [
+            {
+                "city": "Chambéry",
+                "postal_code": "73000"
+            },
+            {
+                "city": "Aix-les-Bains",
+                "postal_code": "73100"
+            },
+            {
+                "city": "Albertville",
+                "postal_code": "73200"
+            },
+            {
+                "city": "La Motte-Servolex",
+                "postal_code": "73290"
+            },
+            {
+                "city": "Saint-Jean-de-Maurienne",
+                "postal_code": "73300"
+            },
+            {
+                "city": "Bourg-Saint-Maurice",
+                "postal_code": "73700"
+            },
+            {
+                "city": "La Ravoire",
+                "postal_code": "73490"
+            },
+            {
+                "city": "Ugine",
+                "postal_code": "73400"
+            },
+            {
+                "city": "Cognin",
+                "postal_code": "73160"
+            },
+            {
+                "city": "Saint-Alban-Leysse",
+                "postal_code": "73230"
+            }
+        ]
+    },
+    {
+        "department": "Seine-et-Marne",
+        "department_code": "77",
+        "cities": [
+            {
+                "city": "Chelles",
+                "postal_code": "77500"
+            },
+            {
+                "city": "Meaux",
+                "postal_code": "77100"
+            },
+            {
+                "city": "Melun",
+                "postal_code": "77000"
+            },
+            {
+                "city": "Pontault-Combault",
+                "postal_code": "77340"
+            },
+            {
+                "city": "Savigny-le-Temple",
+                "postal_code": "77176"
+            },
+            {
+                "city": "Champs-sur-Marne",
+                "postal_code": "77420"
+            },
+            {
+                "city": "Villeparisis",
+                "postal_code": "77270"
+            },
+            {
+                "city": "Roissy-en-Brie",
+                "postal_code": "77680"
+            },
+            {
+                "city": "Torcy",
+                "postal_code": "77200"
+            },
+            {
+                "city": "Combs-la-Ville",
+                "postal_code": "77380"
+            }
+        ]
+    },
+    {
+        "department": "Seine-Maritime",
+        "department_code": "76",
+        "cities": [
+            {
+                "city": "Le Havre",
+                "postal_code": "76600-7661"
+            },
+            {
+                "city": "Rouen",
+                "postal_code": "76000-7610"
+            },
+            {
+                "city": "Dieppe",
+                "postal_code": "76200"
+            },
+            {
+                "city": "Sotteville-lès-Rouen",
+                "postal_code": "76300"
+            },
+            {
+                "city": "Saint-Étienne-du-Rouvray",
+                "postal_code": "76800"
+            },
+            {
+                "city": "Le Grand-Quevilly",
+                "postal_code": "76120"
+            },
+            {
+                "city": "Le Petit-Quevilly",
+                "postal_code": "76140"
+            },
+            {
+                "city": "Mont-Saint-Aignan",
+                "postal_code": "76130"
+            },
+            {
+                "city": "Fécamp",
+                "postal_code": "76400"
+            },
+            {
+                "city": "Elbeuf",
+                "postal_code": "76500"
+            }
+        ]
+    },
+    {
+        "department": "Seine-Saint-Denis",
+        "department_code": "93",
+        "cities": [
+            {
+                "city": "Saint-Denis",
+                "postal_code": "93200-9321"
+            },
+            {
+                "city": "Montreuil",
+                "postal_code": "93100"
+            },
+            {
+                "city": "Aulnay-sous-Bois",
+                "postal_code": "93600"
+            },
+            {
+                "city": "Aubervilliers",
+                "postal_code": "93300"
+            },
+            {
+                "city": "Drancy",
+                "postal_code": "93700"
+            },
+            {
+                "city": "Noisy-le-Grand",
+                "postal_code": "93160"
+            },
+            {
+                "city": "Bondy",
+                "postal_code": "93140"
+            },
+            {
+                "city": "Pantin",
+                "postal_code": "93500"
+            },
+            {
+                "city": "Épinay-sur-Seine",
+                "postal_code": "93800"
+            },
+            {
+                "city": "Sevran",
+                "postal_code": "93270"
+            }
+        ]
+    },
+    {
+        "department": "Somme",
+        "department_code": "80",
+        "cities": [
+            {
+                "city": "Amiens",
+                "postal_code": "80000-8008"
+            },
+            {
+                "city": "Abbeville",
+                "postal_code": "80132"
+            },
+            {
+                "city": "Albert",
+                "postal_code": "80300"
+            },
+            {
+                "city": "Péronne",
+                "postal_code": "80200"
+            },
+            {
+                "city": "Doullens",
+                "postal_code": "80600"
+            },
+            {
+                "city": "Corbie",
+                "postal_code": "80800"
+            },
+            {
+                "city": "Roye",
+                "postal_code": "80700"
+            },
+            {
+                "city": "Montdidier",
+                "postal_code": "80500"
+            },
+            {
+                "city": "Longueau",
+                "postal_code": "80330"
+            },
+            {
+                "city": "Ham",
+                "postal_code": "80400"
+            }
+        ]
+    },
+    {
+        "department": "Tarn",
+        "department_code": "81",
+        "cities": [
+            {
+                "city": "Albi",
+                "postal_code": "81990"
+            },
+            {
+                "city": "Castres",
+                "postal_code": "81100"
+            },
+            {
+                "city": "Gaillac",
+                "postal_code": "81600"
+            },
+            {
+                "city": "Graulhet",
+                "postal_code": "81300"
+            },
+            {
+                "city": "Lavaur",
+                "postal_code": "81500"
+            },
+            {
+                "city": "Carmaux",
+                "postal_code": "81400"
+            },
+            {
+                "city": "Mazamet",
+                "postal_code": "81200"
+            },
+            {
+                "city": "Saint-Sulpice",
+                "postal_code": "81370"
+            },
+            {
+                "city": "Saint-Juéry",
+                "postal_code": "81160"
+            },
+            {
+                "city": "Aussillon",
+                "postal_code": "81200"
+            }
+        ]
+    },
+    {
+        "department": "Tarn-et-Garonne",
+        "department_code": "82",
+        "cities": [
+            {
+                "city": "Montauban",
+                "postal_code": "82000"
+            },
+            {
+                "city": "Castelsarrasin",
+                "postal_code": "82100"
+            },
+            {
+                "city": "Moissac",
+                "postal_code": "82200"
+            },
+            {
+                "city": "Caussade",
+                "postal_code": "82300"
+            },
+            {
+                "city": "Montech",
+                "postal_code": "82700"
+            },
+            {
+                "city": "Valence",
+                "postal_code": "82400"
+            },
+            {
+                "city": "Nègrepelisse",
+                "postal_code": "82800"
+            },
+            {
+                "city": "Verdun-sur-Garonne",
+                "postal_code": "82600"
+            },
+            {
+                "city": "Beaumont-de-Lomagne",
+                "postal_code": "82500"
+            },
+            {
+                "city": "Bressols",
+                "postal_code": "82710"
+            }
+        ]
+    },
+    {
+        "department": "Territoire De Belfort",
+        "department_code": "90",
+        "cities": [
+            {
+                "city": "Belfort",
+                "postal_code": "90000"
+            },
+            {
+                "city": "Delle",
+                "postal_code": "90100"
+            },
+            {
+                "city": "Valdoie",
+                "postal_code": "90300"
+            },
+            {
+                "city": "Beaucourt",
+                "postal_code": "90500"
+            },
+            {
+                "city": "Bavilliers",
+                "postal_code": "90850"
+            },
+            {
+                "city": "Danjoutin",
+                "postal_code": "90400"
+            },
+            {
+                "city": "Offemont",
+                "postal_code": "90300"
+            },
+            {
+                "city": "Giromagny",
+                "postal_code": "90200"
+            },
+            {
+                "city": "Essert",
+                "postal_code": "90850"
+            },
+            {
+                "city": "Grandvillars",
+                "postal_code": "90600"
+            }
+        ]
+    },
+    {
+        "department": "Val-d'oise",
+        "department_code": "95",
+        "cities": [
+            {
+                "city": "Argenteuil",
+                "postal_code": "95100"
+            },
+            {
+                "city": "Sarcelles",
+                "postal_code": "95200"
+            },
+            {
+                "city": "Cergy",
+                "postal_code": "95000-9580"
+            },
+            {
+                "city": "Garges-lès-Gonesse",
+                "postal_code": "95140"
+            },
+            {
+                "city": "Franconville",
+                "postal_code": "95130"
+            },
+            {
+                "city": "Goussainville",
+                "postal_code": "95190"
+            },
+            {
+                "city": "Pontoise",
+                "postal_code": "95300"
+            },
+            {
+                "city": "Bezons",
+                "postal_code": "95870"
+            },
+            {
+                "city": "Ermont",
+                "postal_code": "95120"
+            },
+            {
+                "city": "Villiers-le-Bel",
+                "postal_code": "95400"
+            }
+        ]
+    },
+    {
+        "department": "Val-de-Marne",
+        "department_code": "94",
+        "cities": [
+            {
+                "city": "Créteil",
+                "postal_code": "94000"
+            },
+            {
+                "city": "Vitry-sur-Seine",
+                "postal_code": "94400"
+            },
+            {
+                "city": "Saint-Maur-des-Fossés",
+                "postal_code": "94100-9421"
+            },
+            {
+                "city": "Champigny-sur-Marne",
+                "postal_code": "94500"
+            },
+            {
+                "city": "Ivry-sur-Seine",
+                "postal_code": "94200"
+            },
+            {
+                "city": "Villejuif",
+                "postal_code": "94800"
+            },
+            {
+                "city": "Maisons-Alfort",
+                "postal_code": "94700"
+            },
+            {
+                "city": "Fontenay-sous-Bois",
+                "postal_code": "94120"
+            },
+            {
+                "city": "Vincennes",
+                "postal_code": "94300"
+            },
+            {
+                "city": "Alfortville",
+                "postal_code": "94140"
+            }
+        ]
+    },
+    {
+        "department": "Var",
+        "department_code": "83",
+        "cities": [
+            {
+                "city": "Toulon",
+                "postal_code": "83000-8310"
+            },
+            {
+                "city": "La Seyne-sur-Mer",
+                "postal_code": "83500"
+            },
+            {
+                "city": "Hyères",
+                "postal_code": "83400"
+            },
+            {
+                "city": "Fréjus",
+                "postal_code": "83600-8337"
+            },
+            {
+                "city": "Draguignan",
+                "postal_code": "83300"
+            },
+            {
+                "city": "Six-Fours-les-Plages",
+                "postal_code": "83140"
+            },
+            {
+                "city": "Saint-Raphaël",
+                "postal_code": "83700-8353"
+            },
+            {
+                "city": "La Garde",
+                "postal_code": "83130"
+            },
+            {
+                "city": "La Valette-du-Var",
+                "postal_code": "83160"
+            },
+            {
+                "city": "Sanary-sur-Mer",
+                "postal_code": "83110"
+            }
+        ]
+    },
+    {
+        "department": "Vaucluse",
+        "department_code": "84",
+        "cities": [
+            {
+                "city": "Avignon",
+                "postal_code": "84000"
+            },
+            {
+                "city": "Orange",
+                "postal_code": "84100"
+            },
+            {
+                "city": "Carpentras",
+                "postal_code": "84200"
+            },
+            {
+                "city": "Cavaillon",
+                "postal_code": "84300"
+            },
+            {
+                "city": "L'Isle-sur-la-Sorgue",
+                "postal_code": "84800"
+            },
+            {
+                "city": "Pertuis",
+                "postal_code": "84120"
+            },
+            {
+                "city": "Sorgues",
+                "postal_code": "84700"
+            },
+            {
+                "city": "Le Pontet",
+                "postal_code": "84130"
+            },
+            {
+                "city": "Bollène",
+                "postal_code": "84500"
+            },
+            {
+                "city": "Apt",
+                "postal_code": "84400"
+            }
+        ]
+    },
+    {
+        "department": "Vendée",
+        "department_code": "85",
+        "cities": [
+            {
+                "city": "La Roche-sur-Yon",
+                "postal_code": "85000"
+            },
+            {
+                "city": "Challans",
+                "postal_code": "85300"
+            },
+            {
+                "city": "Sables-d'Olonne",
+                "postal_code": "85180"
+            },
+            {
+                "city": "Herbiers",
+                "postal_code": "85500"
+            },
+            {
+                "city": "Fontenay-le-Comte",
+                "postal_code": "85200"
+            },
+            {
+                "city": "Château-d'Olonne",
+                "postal_code": "85180"
+            },
+            {
+                "city": "Olonne-sur-Mer",
+                "postal_code": "85340"
+            },
+            {
+                "city": "Saint-Hilaire-de-Riez",
+                "postal_code": "85270"
+            },
+            {
+                "city": "Luçon",
+                "postal_code": "85400"
+            },
+            {
+                "city": "Chantonnay",
+                "postal_code": "85110"
+            }
+        ]
+    },
+    {
+        "department": "Vienne",
+        "department_code": "86",
+        "cities": [
+            {
+                "city": "Poitiers",
+                "postal_code": "86000"
+            },
+            {
+                "city": "Châtellerault",
+                "postal_code": "86100"
+            },
+            {
+                "city": "Buxerolles",
+                "postal_code": "86180"
+            },
+            {
+                "city": "Loudun",
+                "postal_code": "86200"
+            },
+            {
+                "city": "Saint-Benoît",
+                "postal_code": "86280"
+            },
+            {
+                "city": "Chauvigny",
+                "postal_code": "86300"
+            },
+            {
+                "city": "Montmorillon",
+                "postal_code": "86500"
+            },
+            {
+                "city": "Migné-Auxances",
+                "postal_code": "86440"
+            },
+            {
+                "city": "Jaunay-Clan",
+                "postal_code": "86130"
+            },
+            {
+                "city": "Naintré",
+                "postal_code": "86530"
+            }
+        ]
+    },
+    {
+        "department": "Vosges",
+        "department_code": "88",
+        "cities": [
+            {
+                "city": "Épinal",
+                "postal_code": "88000"
+            },
+            {
+                "city": "Saint-Dié-des-Vosges",
+                "postal_code": "88100"
+            },
+            {
+                "city": "Gérardmer",
+                "postal_code": "88400"
+            },
+            {
+                "city": "Golbey",
+                "postal_code": "88190"
+            },
+            {
+                "city": "Thaon-les-Vosges",
+                "postal_code": "88150"
+            },
+            {
+                "city": "Remiremont",
+                "postal_code": "88200"
+            },
+            {
+                "city": "Neufchâteau",
+                "postal_code": "88300"
+            },
+            {
+                "city": "Raon-l'Étape",
+                "postal_code": "88110"
+            },
+            {
+                "city": "Mirecourt",
+                "postal_code": "88500"
+            },
+            {
+                "city": "Rambervillers",
+                "postal_code": "88700"
+            }
+        ]
+    },
+    {
+        "department": "Yonne",
+        "department_code": "89",
+        "cities": [
+            {
+                "city": "Auxerre",
+                "postal_code": "89000-8929"
+            },
+            {
+                "city": "Sens",
+                "postal_code": "89100"
+            },
+            {
+                "city": "Joigny",
+                "postal_code": "89300"
+            },
+            {
+                "city": "Migennes",
+                "postal_code": "89400"
+            },
+            {
+                "city": "Avallon",
+                "postal_code": "89200"
+            },
+            {
+                "city": "Tonnerre",
+                "postal_code": "89700"
+            },
+            {
+                "city": "Villeneuve-sur-Yonne",
+                "postal_code": "89500"
+            },
+            {
+                "city": "Saint-Florentin",
+                "postal_code": "89600"
+            },
+            {
+                "city": "Paron",
+                "postal_code": "89100"
+            },
+            {
+                "city": "Monéteau",
+                "postal_code": "89470"
+            }
+        ]
+    },
+    {
+        "department": "Yvelines",
+        "department_code": "78",
+        "cities": [
+            {
+                "city": "Versailles",
+                "postal_code": "78000"
+            },
+            {
+                "city": "Sartrouville",
+                "postal_code": "78500"
+            },
+            {
+                "city": "Mantes-la-Jolie",
+                "postal_code": "78200"
+            },
+            {
+                "city": "Saint-Germain-en-Laye",
+                "postal_code": "78100"
+            },
+            {
+                "city": "Poissy",
+                "postal_code": "78300"
+            },
+            {
+                "city": "Conflans-Sainte-Honorine",
+                "postal_code": "78700"
+            },
+            {
+                "city": "Montigny-le-Bretonneux",
+                "postal_code": "78180"
+            },
+            {
+                "city": "Mureaux",
+                "postal_code": "78130"
+            },
+            {
+                "city": "Houilles",
+                "postal_code": "78800"
+            },
+            {
+                "city": "Plaisir",
+                "postal_code": "78370"
+            }
+        ]
+    }
+]

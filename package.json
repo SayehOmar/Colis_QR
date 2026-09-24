@@ -9,13 +9,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@apollo/client": "^3.12.4",
     "@marsidev/react-turnstile": "^1.1.0",
+    "@react-oauth/google": "^0.12.2",
+    "graphql": "^16.10.0",
     "jspdf": "^2.5.2",
+    "leaflet": "^1.9.4",
     "qrcode": "^1.5.4",
+    "qrcode.react": "^4.2.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-leaflet": "^4.2.1",
+    "react-router-dom": "^7.1.1"
   },
   "devDependencies": {
+    "@types/leaflet": "^1.9.22",
     "@types/qrcode": "^1.5.5",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",

@@ -1,0 +1,307 @@
+{
+  "germany": [
+    {
+      "state": "Baden-Württemberg",
+      "cities": [
+        { "name": "Aalen", "postal_code": "73430-73434" },
+        { "name": "Bad Mergentheim", "postal_code": "97980" },
+        { "name": "Baden-Baden", "postal_code": "76530-76534" },
+        { "name": "Bruchsal", "postal_code": "76646" },
+        { "name": "Esslingen", "postal_code": "73728-73734" },
+        { "name": "Freiburg im Breisgau", "postal_code": "79098-79117" },
+        { "name": "Freudenstadt", "postal_code": "72250" },
+        { "name": "Friedrichshafen", "postal_code": "88045-88048" },
+        { "name": "Göppingen", "postal_code": "73033-73037" },
+        { "name": "Hechingen", "postal_code": "72379" },
+        { "name": "Heidelberg", "postal_code": "69115-69126" },
+        { "name": "Heilbronn", "postal_code": "74072-74081" },
+        { "name": "Karlsruhe", "postal_code": "76131-76229" },
+        { "name": "Konstanz", "postal_code": "78462-78467" },
+        { "name": "Ludwigsburg", "postal_code": "71634-71642" },
+        { "name": "Mannheim", "postal_code": "68159-68309" },
+        { "name": "Offenburg", "postal_code": "77652-77656" },
+        { "name": "Pforzheim", "postal_code": "75172-75181" },
+        { "name": "Ravensburg", "postal_code": "88212-88214" },
+        { "name": "Reutlingen", "postal_code": "72760-72770" },
+        { "name": "Schwäbisch Gmünd", "postal_code": "73525-73529" },
+        { "name": "Schwäbisch Hall", "postal_code": "74523" },
+        { "name": "Stuttgart", "postal_code": "70173-70599" },
+        { "name": "Tübingen", "postal_code": "72070-72076" },
+        { "name": "Ulm", "postal_code": "89073-89081" }
+      ]
+    },
+    {
+      "state": "Bavaria",
+      "cities": [
+        { "name": "Amberg", "postal_code": "92224" },
+        { "name": "Ansbach", "postal_code": "91522" },
+        { "name": "Aschaffenburg", "postal_code": "63739-63743" },
+        { "name": "Augsburg", "postal_code": "86150-86199" },
+        { "name": "Bad Reichenhall", "postal_code": "83435" },
+        { "name": "Bamberg", "postal_code": "96047-96052" },
+        { "name": "Bayreuth", "postal_code": "95444-95448" },
+        { "name": "Berchtesgaden", "postal_code": "83471" },
+        { "name": "Coburg", "postal_code": "96450" },
+        { "name": "Dachau", "postal_code": "85221" },
+        { "name": "Deggendorf", "postal_code": "94469" },
+        { "name": "Dinkelsbühl", "postal_code": "91550" },
+        { "name": "Donauwörth", "postal_code": "86609" },
+        { "name": "Erlangen", "postal_code": "91052-91058" },
+        { "name": "Freising", "postal_code": "85354-85356" },
+        { "name": "Fürth", "postal_code": "90762-90768" },
+        { "name": "Füssen", "postal_code": "87629" },
+        { "name": "Garmisch-Partenkirchen", "postal_code": "82467" },
+        { "name": "Ingolstadt", "postal_code": "85049-85059" },
+        { "name": "Kempten", "postal_code": "87435-87439" },
+        { "name": "Landshut", "postal_code": "84028-84036" },
+        { "name": "Lindau", "postal_code": "88131" },
+        { "name": "Memmingen", "postal_code": "87700" },
+        { "name": "Mittenwald", "postal_code": "82481" },
+        { "name": "Munich", "postal_code": "80331-81929" },
+        { "name": "Nördlingen", "postal_code": "86720" },
+        { "name": "Nürnberg", "postal_code": "90402-90491" },
+        { "name": "Passau", "postal_code": "94032-94036" },
+        { "name": "Regensburg", "postal_code": "93047-93059" },
+        { "name": "Rothenburg ob der Tauber", "postal_code": "91541" },
+        { "name": "Würzburg", "postal_code": "97070-97084" }
+      ]
+    },
+    {
+      "state": "Berlin",
+      "cities": [
+        { "name": "Berlin", "postal_code": "10115-14199" },
+        { "name": "Charlottenburg (district)", "postal_code": "10585-10629" },
+        { "name": "Spandau (area)", "postal_code": "13581-13599" },
+        { "name": "Tempelhof (area)", "postal_code": "12099-12109" },
+        { "name": "Tiergarten (area)", "postal_code": "10557-10785" }
+      ]
+    },
+    {
+      "state": "Brandenburg",
+      "cities": [
+        { "name": "Brandenburg", "postal_code": "14770-14776" },
+        { "name": "Cottbus", "postal_code": "03042-03055" },
+        { "name": "Eberswalde", "postal_code": "16225-16227" },
+        { "name": "Frankfurt an der Oder", "postal_code": "15230-15236" },
+        { "name": "Potsdam", "postal_code": "14467-14482" },
+        { "name": "Schwedt", "postal_code": "16303" }
+      ]
+    },
+    {
+      "state": "Bremen",
+      "cities": [
+        { "name": "Bremen", "postal_code": "28195-28779" },
+        { "name": "Bremerhaven", "postal_code": "27568-27580" }
+      ]
+    },
+    {
+      "state": "Hamburg",
+      "cities": [
+        { "name": "Hamburg", "postal_code": "20095-21149" },
+        { "name": "Altona (district)", "postal_code": "22765-22769" }
+      ]
+    },
+    {
+      "state": "Hessen",
+      "cities": [
+        { "name": "Bad Homburg", "postal_code": "61348-61352" },
+        { "name": "Darmstadt", "postal_code": "64283-64297" },
+        { "name": "Frankfurt am Main", "postal_code": "60311-65936" },
+        { "name": "Fulda", "postal_code": "36037-36043" },
+        { "name": "Giessen", "postal_code": "35390-35398" },
+        { "name": "Hanau", "postal_code": "63450-63457" },
+        { "name": "Kassel", "postal_code": "34117-34134" },
+        { "name": "Lorsch", "postal_code": "64653" },
+        { "name": "Marburg", "postal_code": "35037-35043" },
+        { "name": "Offenbach", "postal_code": "63065-63075" },
+        { "name": "Rüdesheim", "postal_code": "65385" },
+        { "name": "Wiesbaden", "postal_code": "65183-65207" }
+      ]
+    },
+    {
+      "state": "Lower Saxony",
+      "cities": [
+        { "name": "Bad Gandersheim", "postal_code": "37581" },
+        { "name": "Bad Harzburg", "postal_code": "38667" },
+        { "name": "Braunschweig", "postal_code": "38100-38126" },
+        { "name": "Celle", "postal_code": "29221-29227" },
+        { "name": "Cuxhaven", "postal_code": "27472-27478" },
+        { "name": "Delmenhorst", "postal_code": "27749-27755" },
+        { "name": "Emden", "postal_code": "26721-26725" },
+        { "name": "Goslar", "postal_code": "38640-38644" },
+        { "name": "Göttingen", "postal_code": "37073-37085" },
+        { "name": "Hameln", "postal_code": "31785-31789" },
+        { "name": "Hannover", "postal_code": "30159-30459" },
+        { "name": "Helmstedt", "postal_code": "38350" },
+        { "name": "Hildesheim", "postal_code": "31134-31141" },
+        { "name": "Lüneburg", "postal_code": "21335-21339" },
+        { "name": "Oldenburg", "postal_code": "26121-26135" },
+        { "name": "Osnabrück", "postal_code": "49074-49090" },
+        { "name": "Salzgitter", "postal_code": "38226-38239" },
+        { "name": "Stade", "postal_code": "21680-21684" },
+        { "name": "Wilhelmshaven", "postal_code": "26382-26389" },
+        { "name": "Wolfsburg", "postal_code": "38440-38448" }
+      ]
+    },
+    {
+      "state": "Mecklenburg-West Pomerania",
+      "cities": [
+        { "name": "Greifswald", "postal_code": "17489-17493" },
+        { "name": "Güstrow", "postal_code": "18273" },
+        { "name": "Neubrandenburg", "postal_code": "17033-17036" },
+        { "name": "Peenemünde", "postal_code": "17449" },
+        { "name": "Rostock", "postal_code": "18055-18147" },
+        { "name": "Schwerin", "postal_code": "19053-19063" },
+        { "name": "Stralsund", "postal_code": "18435-18439" },
+        { "name": "Wismar", "postal_code": "23966-23970" }
+      ]
+    },
+    {
+      "state": "North Rhine-Westphalia",
+      "cities": [
+        { "name": "Aachen", "postal_code": "52062-52080" },
+        { "name": "Arnsberg", "postal_code": "59755-59823" },
+        { "name": "Bad Godesberg", "postal_code": "53173-53179" },
+        { "name": "Bergisch Gladbach", "postal_code": "51427-51469" },
+        { "name": "Bielefeld", "postal_code": "33602-33739" },
+        { "name": "Bocholt", "postal_code": "46395-46399" },
+        { "name": "Bochum", "postal_code": "44787-44894" },
+        { "name": "Bonn", "postal_code": "53111-53229" },
+        { "name": "Bottrop", "postal_code": "46236-46244" },
+        { "name": "Brühl", "postal_code": "50321" },
+        { "name": "Castrop-Rauxel", "postal_code": "44575-44581" },
+        { "name": "Cologne", "postal_code": "50667-51149" },
+        { "name": "Detmold", "postal_code": "32756-32760" },
+        { "name": "Dorsten", "postal_code": "46282-46286" },
+        { "name": "Dortmund", "postal_code": "44135-44388" },
+        { "name": "Duisburg", "postal_code": "47051-47279" },
+        { "name": "Düren", "postal_code": "52349-52355" },
+        { "name": "Düsseldorf", "postal_code": "40210-40629" },
+        { "name": "Essen", "postal_code": "45127-45359" },
+        { "name": "Gelsenkirchen", "postal_code": "45879-45899" },
+        { "name": "Gladbeck", "postal_code": "45964-45968" },
+        { "name": "Gütersloh", "postal_code": "33330-33335" },
+        { "name": "Hagen", "postal_code": "58089-58135" },
+        { "name": "Hamm", "postal_code": "59063-59077" },
+        { "name": "Herne", "postal_code": "44623-44653" },
+        { "name": "Hürth", "postal_code": "50354" },
+        { "name": "Iserlohn", "postal_code": "58636-58644" },
+        { "name": "Jülich", "postal_code": "52428" },
+        { "name": "Kleve", "postal_code": "47533" },
+        { "name": "Königswinter", "postal_code": "53639" },
+        { "name": "Krefeld", "postal_code": "47798-47839" },
+        { "name": "Leverkusen", "postal_code": "51371-51381" },
+        { "name": "Lüdenscheid", "postal_code": "58507-58515" },
+        { "name": "Lünen", "postal_code": "44532-44536" },
+        { "name": "Marl", "postal_code": "45768-45772" },
+        { "name": "Minden", "postal_code": "32423-32429" },
+        { "name": "Moers", "postal_code": "47441-47447" },
+        { "name": "Mönchengladbach", "postal_code": "41061-41239" },
+        { "name": "Mülheim an der Ruhr", "postal_code": "45468-45481" },
+        { "name": "Münster", "postal_code": "48143-48167" },
+        { "name": "Neuss", "postal_code": "41460-41472" },
+        { "name": "Paderborn", "postal_code": "33098-33106" },
+        { "name": "Recklinghausen", "postal_code": "45657-45665" },
+        { "name": "Remscheid", "postal_code": "42853-42899" },
+        { "name": "Rheine", "postal_code": "48429-48432" },
+        { "name": "Siegen", "postal_code": "57072-57080" },
+        { "name": "Soest", "postal_code": "59494" },
+        { "name": "Solingen", "postal_code": "42651-42719" },
+        { "name": "Wesel", "postal_code": "46483-46487" },
+        { "name": "Witten", "postal_code": "58452-58456" },
+        { "name": "Wuppertal", "postal_code": "42103-42399" }
+      ]
+    },
+    {
+      "state": "Rhineland-Palatinate",
+      "cities": [
+        { "name": "Bad Kreuznach", "postal_code": "55543-55545" },
+        { "name": "Bingen", "postal_code": "55411" },
+        { "name": "Boppard", "postal_code": "56154" },
+        { "name": "Frankenthal", "postal_code": "67227" },
+        { "name": "Kaiserslautern", "postal_code": "67655-67663" },
+        { "name": "Koblenz", "postal_code": "56068-56077" },
+        { "name": "Landau", "postal_code": "76829" },
+        { "name": "Ludwigshafen", "postal_code": "67059-67071" },
+        { "name": "Mainz", "postal_code": "55116-55131" },
+        { "name": "Neustadt an der Weinstrasse", "postal_code": "67433-67435" },
+        { "name": "Speyer", "postal_code": "67346" },
+        { "name": "Trier", "postal_code": "54290-54296" },
+        { "name": "Worms", "postal_code": "67547-67551" }
+      ]
+    },
+    {
+      "state": "Saarland",
+      "cities": [
+        { "name": "Homburg", "postal_code": "66424" },
+        { "name": "Reinheim", "postal_code": "66453" },
+        { "name": "Saarbrücken", "postal_code": "66111-66133" },
+        { "name": "Saarlouis", "postal_code": "66740" }
+      ]
+    },
+    {
+      "state": "Saxony",
+      "cities": [
+        { "name": "Altenburg", "postal_code": "04600" },
+        { "name": "Annaberg-Buchholz", "postal_code": "09456" },
+        { "name": "Bautzen", "postal_code": "02625" },
+        { "name": "Chemnitz", "postal_code": "09111-09131" },
+        { "name": "Dresden", "postal_code": "01067-01328" },
+        { "name": "Freiberg", "postal_code": "09599" },
+        { "name": "Görlitz", "postal_code": "02826-02828" },
+        { "name": "Hoyerswerda", "postal_code": "02977" },
+        { "name": "Leipzig", "postal_code": "04103-04357" },
+        { "name": "Meissen", "postal_code": "01662" },
+        { "name": "Torgau", "postal_code": "04860" },
+        { "name": "Zittau", "postal_code": "02763" },
+        { "name": "Zwickau", "postal_code": "08056-08066" }
+      ]
+    },
+    {
+      "state": "Saxony-Anhalt",
+      "cities": [
+        { "name": "Bernburg", "postal_code": "06406" },
+        { "name": "Dessau", "postal_code": "06842-06849" },
+        { "name": "Eisleben", "postal_code": "06295" },
+        { "name": "Halberstadt", "postal_code": "38820" },
+        { "name": "Halle", "postal_code": "06108-06132" },
+        { "name": "Köthen", "postal_code": "06366" },
+        { "name": "Merseburg", "postal_code": "06217" },
+        { "name": "Naumburg", "postal_code": "06618" },
+        { "name": "Quedlinburg", "postal_code": "06484" },
+        { "name": "Stendal", "postal_code": "39576" },
+        { "name": "Wernigerode", "postal_code": "38855" },
+        { "name": "Wittenberg", "postal_code": "06886" }
+      ]
+    },
+    {
+      "state": "Schleswig-Holstein",
+      "cities": [
+        { "name": "Büsum", "postal_code": "25761" },
+        { "name": "Eutin", "postal_code": "23701" },
+        { "name": "Flensburg", "postal_code": "24937-24944" },
+        { "name": "Glückstadt", "postal_code": "25348" },
+        { "name": "Kiel", "postal_code": "24103-24159" },
+        { "name": "Lübeck", "postal_code": "23552-23570" },
+        { "name": "Rendsburg", "postal_code": "24768" },
+        { "name": "Schleswig", "postal_code": "24837" }
+      ]
+    },
+    {
+      "state": "Thuringia",
+      "cities": [
+        { "name": "Arnstadt", "postal_code": "99310" },
+        { "name": "Eisenach", "postal_code": "99817" },
+        { "name": "Erfurt", "postal_code": "99084-99099" },
+        { "name": "Gera", "postal_code": "07545-07554" },
+        { "name": "Gotha", "postal_code": "99867" },
+        { "name": "Jena", "postal_code": "07743-07751" },
+        { "name": "Meiningen", "postal_code": "98617" },
+        { "name": "Mühlhausen", "postal_code": "99974" },
+        { "name": "Nordhausen", "postal_code": "99734" },
+        { "name": "Suhl", "postal_code": "98527-98529" },
+        { "name": "Weimar", "postal_code": "99423-99428" }
+      ]
+    }
+  ]
+}

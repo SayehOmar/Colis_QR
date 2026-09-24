@@ -1,0 +1,18 @@
+export const graphqlUri =
+  import.meta.env.VITE_GRAPHQL_URI ?? "https://api.example.com/graphql";
+
+export const apiBaseUrl =
+  import.meta.env.VITE_API_URL ??
+  graphqlUri.replace(/\/graphql\/?$/, "");
+
+export const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID ?? "";
+
+/** Quick-access code; must match pc-backend BYPASS. */
+export const authBypass =
+  (import.meta.env.VITE_BYPASS ?? import.meta.env.VITE_bypass ?? "").trim();
+
+export const AUTH_TOKEN_KEY = "transporteur-auth-token";
+
+export function isAuthBypassIdentity(value: string): boolean {
+  return Boolean(authBypass) && value.trim().toLowerCase() === authBypass.toLowerCase();
+}
