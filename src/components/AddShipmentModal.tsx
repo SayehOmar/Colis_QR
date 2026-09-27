@@ -237,7 +237,7 @@ export function AddShipmentModal({ onClose }: AddShipmentModalProps) {
                   className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
                     selected
                       ? "bg-tertiary text-on-tertiary"
-                      : "border border-outline-variant bg-white text-on-surface hover:border-secondary"
+                      : "border border-outline-variant bg-surface-container-lowest text-on-surface hover:border-secondary"
                   }`}
                 >
                   {item}

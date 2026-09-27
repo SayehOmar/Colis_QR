@@ -75,7 +75,9 @@ export default function LoginPage() {
           <p className="app-muted mt-2 text-sm">{t("loginSubtitle")}</p>
         </header>
 
-        <LanguageSwitcher variant="light" />
+        <div className="mb-2 flex items-center justify-center gap-2">
+          <LanguageSwitcher variant="light" />
+        </div>
 
         <form onSubmit={handleSubmit} className="app-card mt-4 space-y-4 p-6">
           <label className="app-label">

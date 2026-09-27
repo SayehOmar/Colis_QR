@@ -77,7 +77,7 @@ export function PasswordField({
           minLength={minLength}
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="w-full rounded-lg border border-outline-variant bg-white px-3 py-2 pr-11 text-on-surface outline-none transition focus:border-secondary focus:ring-2 focus:ring-secondary/20"
+          className="w-full rounded-lg border border-outline-variant bg-surface-container-lowest px-3 py-2 pr-11 text-on-surface outline-none transition focus:border-secondary focus:ring-2 focus:ring-secondary/20"
         />
         <button
           type="button"

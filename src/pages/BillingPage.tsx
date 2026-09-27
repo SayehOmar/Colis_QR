@@ -318,7 +318,7 @@ export default function BillingPage() {
                 className={`relative flex flex-col rounded-2xl border p-5 transition ${
                   isFeatured
                     ? "border-tertiary/70 bg-gradient-to-b from-tertiary/10 to-white shadow-sm"
-                    : "border-outline-variant/60 bg-white hover:border-secondary/40"
+                    : "border-outline-variant/60 bg-surface-container-lowest hover:border-secondary/40"
                 }`}
                 style={{
                   animation: `slideUp 0.45s ease ${index * 0.08}s both`,

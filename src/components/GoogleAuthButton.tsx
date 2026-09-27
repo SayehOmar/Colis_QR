@@ -54,7 +54,7 @@ export function GoogleAuthButton({
           type="button"
           disabled={disabled}
           onClick={() => onError(t("googleNotConfigured"))}
-          className="flex w-full items-center justify-center gap-3 rounded-xl border border-slate-600 bg-white px-4 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100 disabled:opacity-60"
+          className="flex w-full items-center justify-center gap-3 rounded-xl border border-outline-variant bg-surface-container-lowest px-4 py-3 text-sm font-semibold text-on-surface transition hover:bg-surface-container-low disabled:opacity-60"
         >
           <GoogleMark />
           {t("googleSignIn")}

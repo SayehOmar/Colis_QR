@@ -90,7 +90,9 @@ export default function SignupPage() {
           <p className="app-muted mt-2 text-sm">{t("signupSubtitle")}</p>
         </header>
 
-        <LanguageSwitcher variant="light" />
+        <div className="mb-2 flex items-center justify-center gap-2">
+          <LanguageSwitcher variant="light" />
+        </div>
 
         <form onSubmit={handleSubmit} className="app-card mt-4 space-y-4 p-6">
           {!bypass && (

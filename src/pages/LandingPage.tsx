@@ -73,8 +73,19 @@ export default function LandingPage() {
     <div className="landing-page bg-surface font-sans text-on-surface antialiased selection:bg-tertiary/15 selection:text-tertiary">
       <header className="sticky top-0 z-50 w-full border-b border-outline-variant/40 bg-surface/90 backdrop-blur-md">
         <div className="mx-auto flex h-14 w-full max-w-[1400px] items-center gap-2 px-3 sm:h-16 sm:gap-4 sm:px-6 lg:gap-6 lg:px-8">
-          <Link to="/" className="shrink-0 whitespace-nowrap text-base font-extrabold tracking-tight text-primary sm:text-lg">
-            {t("brandName")}
+          <Link
+            to="/"
+            className="flex shrink-0 items-center gap-2"
+            aria-label={t("brandName")}
+          >
+            <img
+              src="/logo.svg"
+              alt={t("brandName")}
+              className="h-9 w-9 rounded-lg object-cover shadow-sm sm:h-10 sm:w-10"
+            />
+            <span className="hidden whitespace-nowrap text-base font-extrabold tracking-tight text-primary sm:inline sm:text-lg">
+              {t("brandName")}
+            </span>
           </Link>
 
           <nav className="hidden min-w-0 flex-1 items-center justify-evenly gap-3 text-sm font-medium text-on-surface-variant xl:flex">
@@ -203,7 +214,7 @@ export default function LandingPage() {
                   to="/signup"
                   className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-on-primary shadow-md transition-all hover:brightness-110 lg:w-auto"
                 >
-                  <Icon name="local_shipping" className="text-[18px] text-white" />
+                  <Icon name="local_shipping" className="text-[18px] text-on-primary" />
                   {t("landingCtaCarrierTrial")}
                 </Link>
               </div>
@@ -758,10 +769,17 @@ export default function LandingPage() {
       <footer className="border-t border-outline-variant/40 bg-surface py-8">
         <div className="mx-auto flex max-w-[1240px] flex-col items-center justify-between gap-4 px-4 sm:flex-row sm:px-6">
           <div className="flex items-center gap-3">
-            <span className="text-base font-extrabold text-primary">{t("brandName")}</span>
-            <span className="text-xs font-medium text-on-surface-variant">
-              {t("landingCorridor")}
-            </span>
+            <img
+              src="/logo.svg"
+              alt={t("brandName")}
+              className="h-9 w-9 rounded-lg object-cover shadow-sm"
+            />
+            <div className="flex flex-col">
+              <span className="text-base font-extrabold text-primary">{t("brandName")}</span>
+              <span className="text-xs font-medium text-on-surface-variant">
+                {t("landingCorridor")}
+              </span>
+            </div>
           </div>
           <nav className="flex items-center gap-4 text-xs font-medium text-on-surface-variant">
             <a className="transition-colors hover:text-on-surface" href="#how-it-works">

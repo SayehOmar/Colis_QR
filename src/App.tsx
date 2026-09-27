@@ -5,6 +5,7 @@ import DashboardPage from "./pages/DashboardPage";
 import HomeRolePage from "./pages/HomeRolePage";
 import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/LoginPage";
+import ProfilePage from "./pages/ProfilePage";
 import ShipmentFormPage from "./pages/ShipmentFormPage";
 import SignupPage from "./pages/SignupPage";
 
@@ -21,6 +22,14 @@ export default function App() {
         element={
           <ProtectedRoute>
             <BillingPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/profile"
+        element={
+          <ProtectedRoute requireAccess>
+            <ProfilePage />
           </ProtectedRoute>
         }
       />

@@ -46,7 +46,7 @@ export function StatsFilterBar({
           className={`inline-flex h-8 w-8 items-center justify-center rounded-lg border transition ${
             open || hasActive
               ? "border-secondary bg-secondary-container text-secondary"
-              : "border-outline-variant/70 bg-white text-on-surface hover:border-secondary hover:text-secondary"
+              : "border-outline-variant/70 bg-surface-container-lowest text-on-surface hover:border-secondary hover:text-secondary"
           }`}
           aria-expanded={open}
           aria-label={t("dashFilterTitle")}

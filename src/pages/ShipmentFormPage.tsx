@@ -262,7 +262,9 @@ export default function ShipmentFormPage() {
               {t("backToHome")}
             </Link>
           </div>
-          <LanguageSwitcher variant="light" />
+          <div className="flex items-center gap-2">
+            <LanguageSwitcher variant="light" />
+          </div>
         </header>
 
         <form onSubmit={handleSubmit} className="app-card space-y-8 p-5 sm:p-8">
@@ -307,7 +309,7 @@ export default function ShipmentFormPage() {
                     className={`rounded-lg px-3 py-2 text-xs font-bold transition ${
                       form.idDocType === "cin"
                         ? "bg-primary text-on-primary"
-                        : "border border-outline-variant bg-white text-on-surface"
+                        : "border border-outline-variant bg-surface-container-lowest text-on-surface"
                     }`}
                   >
                     {t("idCin")}
@@ -324,7 +326,7 @@ export default function ShipmentFormPage() {
                     className={`rounded-lg px-3 py-2 text-xs font-bold transition ${
                       form.idDocType === "passport"
                         ? "bg-primary text-on-primary"
-                        : "border border-outline-variant bg-white text-on-surface"
+                        : "border border-outline-variant bg-surface-container-lowest text-on-surface"
                     }`}
                   >
                     {t("idPassport")}
@@ -491,7 +493,7 @@ export default function ShipmentFormPage() {
                 </span>
               </label>
 
-              <div className="mt-4 rounded-lg border border-secondary/25 bg-white px-3 py-3">
+              <div className="mt-4 rounded-lg border border-secondary/25 bg-surface-container-lowest px-3 py-3">
                 <p className="text-[11px] font-semibold uppercase tracking-wide text-secondary">
                   {t("deliveryAddressCombined")}
                 </p>
@@ -551,7 +553,7 @@ export default function ShipmentFormPage() {
                     className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
                       selected
                         ? "bg-tertiary text-on-tertiary"
-                        : "border border-outline-variant bg-white text-on-surface hover:border-secondary"
+                        : "border border-outline-variant bg-surface-container-lowest text-on-surface hover:border-secondary"
                     }`}
                   >
                     {item}

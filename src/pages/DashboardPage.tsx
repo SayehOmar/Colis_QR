@@ -79,7 +79,7 @@ function ExpandButton({
         e.stopPropagation();
         onClick();
       }}
-      className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-outline-variant/70 bg-white text-on-surface transition hover:border-secondary hover:text-secondary"
+      className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-outline-variant/70 bg-surface-container-lowest text-on-surface transition hover:border-secondary hover:text-secondary"
       aria-label={label}
       title={label}
     >
@@ -337,7 +337,7 @@ function OrdersPanel({
   return (
     <div className="h-full min-h-0 overflow-auto">
       <table className="w-max min-w-full border-separate border-spacing-0 text-sm">
-        <thead className="bg-primary text-left text-xs uppercase tracking-wide text-white">
+        <thead className="bg-primary text-left text-xs uppercase tracking-wide text-on-primary">
           <tr>
             <th className="sticky top-0 z-10 bg-primary px-3 py-3">{t("shipmentCode")}</th>
             <th className="sticky top-0 z-10 bg-primary px-3 py-3">{t("scannerId")}</th>
@@ -386,7 +386,7 @@ function OrdersPanel({
             <th className="sticky top-10 z-10 min-w-[4rem] bg-slate-800 px-3 py-2" />
           </tr>
         </thead>
-        <tbody className="divide-y divide-outline-variant/30 bg-white">
+        <tbody className="divide-y divide-outline-variant/30 bg-surface-container-lowest">
           {visible.length === 0 ? (
             <tr>
               <td colSpan={21} className="px-4 py-10 text-center text-on-surface-variant">
@@ -589,7 +589,7 @@ export default function DashboardPage() {
         />
       )}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 flex w-[min(100%,300px)] flex-col border-r border-outline-variant/50 bg-white shadow-xl transition-transform duration-300 ${
+        className={`fixed inset-y-0 left-0 z-50 flex w-[min(100%,300px)] flex-col border-r border-outline-variant/50 bg-surface-container-lowest shadow-xl transition-transform duration-300 ${
           drawerOpen ? "translate-x-0 stats-drawer-panel" : "-translate-x-full"
         }`}
       >
@@ -637,7 +637,7 @@ export default function DashboardPage() {
             <button
               type="button"
               onClick={() => setDrawerOpen(true)}
-              className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-outline-variant bg-white text-on-surface shadow-sm transition hover:border-secondary hover:text-secondary"
+              className="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-outline-variant bg-surface-container-lowest text-on-surface shadow-sm transition hover:border-secondary hover:text-secondary"
               aria-label={t("dashOpenDrawer")}
               title={t("dashOpenDrawer")}
             >
@@ -662,6 +662,9 @@ export default function DashboardPage() {
           </div>
           <div className="flex flex-wrap items-center gap-2 sm:gap-3">
             <LanguageSwitcher variant="nav" />
+            <Link to="/profile" className="app-btn-ghost text-xs">
+              {t("profileTitle")}
+            </Link>
             <Link to="/billing" className="app-btn-ghost text-xs">
               {t("billingManage")}
             </Link>
@@ -851,7 +854,7 @@ export default function DashboardPage() {
       {/* Fullscreen expanded statistic */}
       {expanded && (
         <div className="fixed inset-0 z-[5000] flex bg-primary/50 backdrop-blur-sm">
-          <div className="stat-expand-overlay flex h-full w-full flex-col overflow-hidden bg-white shadow-2xl">
+          <div className="stat-expand-overlay flex h-full w-full flex-col overflow-hidden bg-surface-container-lowest shadow-2xl">
             <div className="flex shrink-0 items-center justify-between gap-3 border-b border-outline-variant/40 px-4 py-3 sm:px-6">
               <h2 className="text-lg font-extrabold text-on-surface">{panelTitle(expanded)}</h2>
               <ExpandButton

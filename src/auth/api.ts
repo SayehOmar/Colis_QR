@@ -10,6 +10,8 @@ export interface AuthUser {
   subscription_status?: string | null;
   subscription_plan?: string | null;
   subscription_ends_at?: string | null;
+  can_change_password?: boolean;
+  auth_provider?: "password" | "google" | string;
 }
 
 export interface AuthResponse {
@@ -107,6 +109,45 @@ export async function authMe(token: string): Promise<AuthUser> {
     throw new Error(await parseError(response));
   }
   return response.json();
+}
+
+export async function updateProfile(
+  token: string,
+  name: string
+): Promise<AuthUser> {
+  const response = await fetch(`${apiBaseUrl}/auth/profile`, {
+    method: "PATCH",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ name }),
+  });
+  if (!response.ok) {
+    throw new Error(await parseError(response));
+  }
+  return response.json();
+}
+
+export async function changePassword(
+  token: string,
+  currentPassword: string,
+  newPassword: string
+): Promise<void> {
+  const response = await fetch(`${apiBaseUrl}/auth/password`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      current_password: currentPassword,
+      new_password: newPassword,
+    }),
+  });
+  if (!response.ok) {
+    throw new Error(await parseError(response));
+  }
 }
 
 export async function fetchBillingPlans(): Promise<BillingPlan[]> {

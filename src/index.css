@@ -2,9 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-primary: 11 22 35;
+  --color-on-primary: 255 255 255;
+  --color-primary-container: 11 22 35;
+  --color-secondary: 0 168 168;
+  --color-on-secondary: 255 255 255;
+  --color-secondary-container: 230 247 247;
+  --color-secondary-fixed: 178 232 232;
+  --color-tertiary: 255 122 0;
+  --color-on-tertiary: 255 255 255;
+  --color-tertiary-container: 255 240 224;
+  --color-on-tertiary-fixed: 154 74 0;
+  --color-accent: 196 165 116;
+  --color-surface: 248 249 250;
+  --color-on-surface: 11 22 35;
+  --color-on-surface-variant: 102 112 133;
+  --color-surface-container: 238 242 246;
+  --color-surface-container-low: 241 243 245;
+  --color-surface-container-lowest: 255 255 255;
+  --color-surface-container-high: 229 231 235;
+  --color-outline: 152 162 179;
+  --color-outline-variant: 208 213 221;
+}
+
 body {
   margin: 0;
   font-family: "Plus Jakarta Sans", system-ui, -apple-system, Segoe UI, sans-serif;
+  background: rgb(var(--color-surface));
+  color: rgb(var(--color-on-surface));
 }
 
 /* Keep Leaflet panes inside the dashboard map card */
@@ -13,7 +39,7 @@ body {
   height: 100% !important;
   max-width: 100%;
   max-height: 100%;
-  background: #eef2f6;
+  background: rgb(var(--color-surface-container));
   font: inherit;
 }
 
@@ -106,7 +132,12 @@ body {
 }
 
 .skeleton-bone {
-  background: linear-gradient(90deg, #e8edf3 0%, #f4f6f9 50%, #e8edf3 100%);
+  background: linear-gradient(
+    90deg,
+    rgb(var(--color-surface-container)) 0%,
+    rgb(var(--color-surface-container-low)) 50%,
+    rgb(var(--color-surface-container)) 100%
+  );
   background-size: 200% 100%;
   animation: skeletonPulse 1.2s ease-in-out infinite;
 }
@@ -145,7 +176,7 @@ body {
   }
 
   .app-input {
-    @apply mt-1 w-full rounded-lg border border-outline-variant bg-white px-3 py-2 text-on-surface outline-none transition focus:border-secondary focus:ring-2 focus:ring-secondary/20;
+    @apply mt-1 w-full rounded-lg border border-outline-variant bg-surface-container-lowest px-3 py-2 text-on-surface outline-none transition focus:border-secondary focus:ring-2 focus:ring-secondary/20;
   }
 
   .app-label {
@@ -161,7 +192,7 @@ body {
   }
 
   .app-btn-ghost {
-    @apply inline-flex items-center justify-center rounded-xl border border-outline-variant bg-white px-3 py-2 text-sm font-semibold text-on-surface transition hover:bg-surface-container-low;
+    @apply inline-flex items-center justify-center rounded-xl border border-outline-variant bg-surface-container-lowest px-3 py-2 text-sm font-semibold text-on-surface transition hover:bg-surface-container-low;
   }
 
   .app-link {

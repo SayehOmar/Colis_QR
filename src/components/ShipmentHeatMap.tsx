@@ -281,9 +281,9 @@ export function ShipmentHeatMap({
 
   return (
     <div
-      className={`flex flex-col overflow-hidden rounded-xl border border-outline-variant/50 bg-white ${heightClass}`}
+      className={`flex flex-col overflow-hidden rounded-xl border border-outline-variant/50 bg-surface-container-lowest ${heightClass}`}
     >
-      <div className="flex shrink-0 flex-wrap items-center gap-1.5 border-b border-outline-variant/40 bg-white px-3 py-2">
+      <div className="flex shrink-0 flex-wrap items-center gap-1.5 border-b border-outline-variant/40 bg-surface-container-lowest px-3 py-2">
         <span className="mr-1 text-[10px] font-bold uppercase tracking-wide text-on-surface-variant">
           {t("dashMapFilter")}
         </span>
@@ -303,7 +303,7 @@ export function ShipmentHeatMap({
               }}
               className={`rounded-lg border px-2.5 py-1 text-[11px] font-semibold transition ${
                 active
-                  ? "border-primary bg-primary text-white shadow-sm"
+                  ? "border-primary bg-primary text-on-primary shadow-sm"
                   : "border-outline-variant/80 bg-surface-container-low text-on-surface hover:border-secondary"
               } ${hasData && !active ? "ring-1 ring-tertiary/35" : ""}`}
               title={t(option.labelKey)}
@@ -314,7 +314,7 @@ export function ShipmentHeatMap({
         })}
       </div>
 
-      <div className="relative min-h-0 flex-1 overflow-hidden bg-[#EEF2F6]">
+      <div className="relative min-h-0 flex-1 overflow-hidden bg-surface-container">
         {mapReady && activeMap ? (
           <MapContainer
             key={`${mapInstanceKey}-${activeMap.code}-${activeMap.epoch}-${expanded ? "full" : "card"}`}
@@ -341,7 +341,7 @@ export function ShipmentHeatMap({
         ) : null}
 
         {loading && (
-          <div className="absolute inset-0 z-10 flex items-center justify-center bg-[#EEF2F6] text-sm text-on-surface-variant">
+          <div className="absolute inset-0 z-10 flex items-center justify-center bg-surface-container text-sm text-on-surface-variant">
             {t("loading")}
           </div>
         )}
@@ -354,7 +354,7 @@ export function ShipmentHeatMap({
       </div>
 
       {/* Legend in document flow — cannot clip outside the card */}
-      <div className="flex shrink-0 items-center justify-between gap-3 border-t border-outline-variant/40 bg-white px-3 py-2">
+      <div className="flex shrink-0 items-center justify-between gap-3 border-t border-outline-variant/40 bg-surface-container-lowest px-3 py-2">
         <div className="min-w-0">
           <p className="text-[10px] font-bold uppercase tracking-wide text-on-surface-variant">
             {t(countryLabelKey)}

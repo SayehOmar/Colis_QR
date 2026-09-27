@@ -183,7 +183,7 @@ export function CalendarNotesFab() {
       </button>
 
       {panelOpen ? (
-        <div className="fixed bottom-[5.5rem] right-5 z-[4000] w-[min(100vw-1.5rem,22rem)] overflow-hidden rounded-2xl border border-outline-variant/60 bg-white shadow-2xl">
+        <div className="fixed bottom-[5.5rem] right-5 z-[4000] w-[min(100vw-1.5rem,22rem)] overflow-hidden rounded-2xl border border-outline-variant/60 bg-surface-container-lowest shadow-2xl">
           <div className="flex items-center justify-between border-b border-outline-variant/40 bg-primary px-4 py-3 text-on-primary">
             <div>
               <p className="text-sm font-bold">{t("dashCalendarTitle")}</p>
@@ -271,7 +271,7 @@ export function CalendarNotesFab() {
           />
           <form
             onSubmit={handleSave}
-            className="relative z-10 w-[min(100%,22rem)] rounded-2xl border border-outline-variant/60 bg-white p-4 shadow-2xl"
+            className="relative z-10 w-[min(100%,22rem)] rounded-2xl border border-outline-variant/60 bg-surface-container-lowest p-4 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="mb-3 flex items-start justify-between gap-2">
