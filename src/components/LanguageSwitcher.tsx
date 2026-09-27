@@ -1,10 +1,10 @@
 import { useLanguage } from "../i18n/LanguageContext";
 import { Language } from "../i18n/translations";
 
-const FLAGS: { code: Language; label: string; flag: string }[] = [
-  { code: "fr", label: "Français", flag: "🇫🇷" },
-  { code: "en", label: "English", flag: "🇬🇧" },
-  { code: "ar", label: "العربية", flag: "🇹🇳" },
+const FLAGS: { code: Language; label: string; src: string }[] = [
+  { code: "fr", label: "Français", src: "/france.svg" },
+  { code: "en", label: "English", src: "/GB.svg" },
+  { code: "ar", label: "العربية", src: "/tunisia.svg" },
 ];
 
 interface LanguageSwitcherProps {
@@ -25,7 +25,7 @@ export function LanguageSwitcher({ variant = "dark" }: LanguageSwitcherProps) {
       role="group"
       aria-label="Language"
     >
-      {FLAGS.map(({ code, label, flag }) => {
+      {FLAGS.map(({ code, label, src }) => {
         const active = language === code;
         return (
           <button
@@ -38,16 +38,20 @@ export function LanguageSwitcher({ variant = "dark" }: LanguageSwitcherProps) {
             className={
               active
                 ? isNav
-                  ? "flex h-8 w-8 items-center justify-center rounded-full ring-2 ring-secondary ring-offset-1 text-base leading-none"
-                  : "flex h-10 w-10 items-center justify-center rounded-full ring-2 ring-amber-400 ring-offset-2 ring-offset-slate-950 text-xl leading-none"
+                  ? "flex h-8 w-8 items-center justify-center overflow-hidden rounded-full ring-2 ring-secondary ring-offset-1"
+                  : "flex h-10 w-10 items-center justify-center overflow-hidden rounded-full ring-2 ring-amber-400 ring-offset-2 ring-offset-slate-950"
                 : isNav
-                  ? "flex h-8 w-8 items-center justify-center rounded-full text-base leading-none opacity-70 transition hover:opacity-100 hover:bg-surface-container-low"
-                  : "flex h-10 w-10 items-center justify-center rounded-full text-xl leading-none opacity-70 transition hover:opacity-100 hover:bg-slate-800"
+                  ? "flex h-8 w-8 items-center justify-center overflow-hidden rounded-full opacity-70 transition hover:opacity-100 hover:bg-surface-container-low"
+                  : "flex h-10 w-10 items-center justify-center overflow-hidden rounded-full opacity-70 transition hover:opacity-100 hover:bg-slate-800"
             }
           >
-            <span aria-hidden className="select-none">
-              {flag}
-            </span>
+            <img
+              src={src}
+              alt=""
+              aria-hidden
+              className="h-full w-full object-cover select-none"
+              draggable={false}
+            />
           </button>
         );
       })}

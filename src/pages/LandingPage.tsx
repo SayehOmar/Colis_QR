@@ -1,50 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { HowItWorksScrollDemo } from "../components/HowItWorksScrollDemo";
 import { LanguageSwitcher } from "../components/LanguageSwitcher";
 import { useLanguage } from "../i18n/LanguageContext";
-import type { TranslationKey } from "../i18n/translations";
-
-const STEPS: {
-  title: TranslationKey;
-  body: TranslationKey;
-  foot: TranslationKey;
-  icon: string;
-  iconClass: string;
-  footClass: string;
-}[] = [
-  {
-    title: "landingStep1Title",
-    body: "landingStep1Body",
-    foot: "landingStep1Foot",
-    icon: "edit_document",
-    iconClass: "text-sky-600",
-    footClass: "text-sky-600",
-  },
-  {
-    title: "landingStep2Title",
-    body: "landingStep2Body",
-    foot: "landingStep2Foot",
-    icon: "qr_code_2",
-    iconClass: "text-tertiary",
-    footClass: "text-tertiary",
-  },
-  {
-    title: "landingStep3Title",
-    body: "landingStep3Body",
-    foot: "landingStep3Foot",
-    icon: "phone_iphone",
-    iconClass: "text-green-600",
-    footClass: "text-green-600",
-  },
-  {
-    title: "landingStep4Title",
-    body: "landingStep4Body",
-    foot: "landingStep4Foot",
-    icon: "speed",
-    iconClass: "text-primary",
-    footClass: "text-primary",
-  },
-];
 
 function Icon({ name, className = "" }: { name: string; className?: string }) {
   return (
@@ -67,7 +25,40 @@ export default function LandingPage() {
     return () => window.removeEventListener("keydown", onKey);
   }, [menuOpen]);
 
+  useEffect(() => {
+    const nodes = Array.from(
+      document.querySelectorAll<HTMLElement>(".landing-reveal"),
+    );
+    if (!nodes.length) return;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (reduceMotion) {
+      nodes.forEach((node) => node.classList.add("is-visible"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" },
+    );
+
+    nodes.forEach((node) => observer.observe(node));
+    return () => observer.disconnect();
+  }, []);
+
   const closeMenu = () => setMenuOpen(false);
+
+  const contactEmail = "sayehomar@gmail.com";
+  const contactPhoneDisplay = "216-24674352";
+  const contactWhatsAppHref = "https://wa.me/21624674352";
 
   return (
     <div className="landing-page bg-surface font-sans text-on-surface antialiased selection:bg-tertiary/15 selection:text-tertiary">
@@ -125,13 +116,13 @@ export default function LandingPage() {
             <LanguageSwitcher variant="nav" />
             <Link
               to="/client"
-              className="hidden whitespace-nowrap items-center justify-center rounded-lg border border-outline-variant px-3 py-1.5 text-xs font-semibold text-on-surface transition-all hover:bg-surface-container-low lg:inline-flex"
+              className="landing-btn landing-btn-outline hidden whitespace-nowrap items-center justify-center rounded-lg border border-outline-variant px-3 py-1.5 text-xs font-semibold text-on-surface lg:inline-flex"
             >
               {t("landingCtaClient")}
             </Link>
             <Link
               to="/signup"
-              className="inline-flex max-w-[9.5rem] items-center justify-center truncate rounded-lg bg-primary px-2.5 py-1.5 text-xs font-semibold text-on-primary shadow-sm transition-all hover:brightness-110 sm:max-w-none sm:px-3.5"
+              className="landing-btn inline-flex max-w-[9.5rem] items-center justify-center truncate rounded-lg bg-primary px-2.5 py-1.5 text-xs font-semibold text-on-primary shadow-sm sm:max-w-none sm:px-3.5"
             >
               <span className="lg:hidden">{t("landingCtaCarrierShort")}</span>
               <span className="hidden lg:inline">{t("landingCtaCarrier")}</span>
@@ -211,16 +202,18 @@ export default function LandingPage() {
         {/* HERO */}
         <section className="relative border-b border-outline-variant/30 bg-gradient-to-b from-surface via-surface-container-low/40 to-surface pb-14 pt-10 sm:pb-20 sm:pt-16">
           <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
-            <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-              <h1 className="landing-hero-copy text-3xl font-extrabold leading-[1.15] tracking-tight text-on-surface sm:text-5xl">
-                {t("landingHeroTitle")}
-                <br className="hidden sm:block" />{" "}
-                <span className="text-on-surface">
-                  {t("landingHeroReimagined")}{" "}
+            <div className="mx-auto flex w-full max-w-6xl flex-col items-center text-center">
+              <h1 className="landing-hero-copy landing-hero-title text-on-surface">
+                <span className="landing-hero-lead">{t("landingHeroTitle")}</span>
+                <br />
+                <span className="landing-hero-line2">
+                  <span className="landing-hero-lead">
+                    {t("landingHeroReimagined")}{" "}
+                  </span>
+                  <span className="landing-hero-brand-gradient">
+                    {t("landingHeroBrand")}
+                  </span>
                 </span>
-                <span className="text-secondary">{t("landingHeroSmart")}</span>{" "}
-                <span className="text-tertiary">{t("landingHeroQr")}</span>{" "}
-                <span className="text-accent">{t("landingHeroLogistics")}</span>
               </h1>
 
               <p className="landing-hero-copy mt-4 max-w-2xl text-base leading-relaxed text-on-surface-variant sm:text-lg">
@@ -242,14 +235,14 @@ export default function LandingPage() {
               <div className="landing-hero-cta mt-6 flex w-full max-w-xl flex-col items-stretch gap-3 lg:max-w-none lg:flex-row lg:justify-center">
                 <Link
                   to="/client"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-tertiary px-6 py-3 text-sm font-bold text-on-tertiary shadow-md transition-all hover:brightness-95 lg:w-auto"
+                  className="landing-btn inline-flex w-full items-center justify-center gap-2 rounded-xl bg-tertiary px-6 py-3 text-sm font-bold text-on-tertiary shadow-md lg:w-auto"
                 >
                   <Icon name="description" className="text-[18px]" />
                   {t("landingCtaClientFull")}
                 </Link>
                 <Link
                   to="/signup"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-on-primary shadow-md transition-all hover:brightness-110 lg:w-auto"
+                  className="landing-btn inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-on-primary shadow-md lg:w-auto"
                 >
                   <Icon
                     name="local_shipping"
@@ -502,62 +495,9 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* HOW IT WORKS */}
-        <section className="bg-surface py-14 sm:py-20" id="how-it-works">
-          <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
-            <div className="mx-auto mb-12 max-w-2xl text-center">
-              <h2 className="text-2xl font-extrabold tracking-tight text-on-surface sm:text-3xl">
-                {t("landingHowTitle")}
-              </h2>
-              <p className="mt-2 text-sm text-on-surface-variant sm:text-base">
-                {t("landingHowSupport")}
-              </p>
-            </div>
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {STEPS.map((step, index) => (
-                <div
-                  key={step.title}
-                  className="landing-step flex flex-col justify-between rounded-2xl border border-outline-variant/60 bg-surface-container-lowest p-5 shadow-sm transition-colors hover:border-secondary/40"
-                  style={{ animationDelay: `${0.08 + index * 0.1}s` }}
-                >
-                  <div>
-                    <div className="mb-4 flex items-center justify-between">
-                      <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-surface-container text-xs font-bold text-on-surface">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                      <Icon
-                        name={step.icon}
-                        className={`text-[20px] ${step.iconClass}`}
-                      />
-                    </div>
-                    <h3 className="mb-2 text-base font-bold text-on-surface">
-                      {t(step.title)}
-                    </h3>
-                    <p className="text-xs leading-relaxed text-on-surface-variant">
-                      {t(step.body)}
-                    </p>
-                  </div>
-                  <div
-                    className={`mt-4 flex items-center gap-1 border-t border-surface-container pt-3 text-[11px] font-medium ${step.footClass}`}
-                  >
-                    <Icon
-                      name={
-                        index === 0
-                          ? "bolt"
-                          : index === 1
-                            ? "print"
-                            : index === 2
-                              ? "wifi_off"
-                              : "sync"
-                      }
-                      className="text-[14px]"
-                    />
-                    {t(step.foot)}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* HOW IT WORKS — scroll demo from work/task.txt */}
+        <section id="how-it-works" className="landing-reveal">
+          <HowItWorksScrollDemo />
         </section>
 
         {/* B2B SUITE */}
@@ -566,7 +506,7 @@ export default function LandingPage() {
           id="suite"
         >
           <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
-            <div className="mx-auto mb-12 max-w-2xl text-center">
+            <div className="landing-reveal mx-auto mb-12 max-w-2xl text-center">
               <span className="text-xs font-bold uppercase tracking-wider text-secondary">
                 {t("landingSuiteEyebrow")}
               </span>
@@ -614,10 +554,10 @@ export default function LandingPage() {
                     ] as const,
                   },
                 ] as const
-              ).map((card) => (
+              ).map((card, index) => (
                 <div
                   key={card.title}
-                  className="flex flex-col justify-between rounded-2xl border border-outline-variant/60 bg-surface-container-lowest p-6 shadow-sm"
+                  className={`landing-reveal landing-reveal-delay-${index + 1} flex flex-col justify-between rounded-2xl border border-outline-variant/60 bg-surface-container-lowest p-6 shadow-sm`}
                 >
                   <div>
                     <div className="mb-4 flex items-center gap-3">
@@ -654,7 +594,7 @@ export default function LandingPage() {
         {/* WHO IS IT FOR */}
         <section className="bg-surface py-14 sm:py-20" id="who-is-it-for">
           <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
-            <div className="mx-auto mb-12 max-w-2xl text-center">
+            <div className="landing-reveal mx-auto mb-12 max-w-2xl text-center">
               <h2 className="text-2xl font-extrabold tracking-tight text-on-surface sm:text-3xl">
                 {t("landingWhoTitle")}
               </h2>
@@ -663,7 +603,7 @@ export default function LandingPage() {
               </p>
             </div>
             <div className="mx-auto grid max-w-4xl grid-cols-1 gap-6 md:grid-cols-2">
-              <div className="flex flex-col justify-between rounded-2xl border border-outline-variant/60 bg-surface-container-lowest p-6 shadow-sm sm:p-8">
+              <div className="landing-reveal landing-reveal-delay-1 flex flex-col justify-between rounded-2xl border border-outline-variant/60 bg-surface-container-lowest p-6 shadow-sm sm:p-8">
                 <div>
                   <div className="mb-4 flex items-center justify-between">
                     <span className="rounded-full bg-surface-container px-3 py-1 text-xs font-bold uppercase tracking-wider text-on-surface-variant">
@@ -683,13 +623,13 @@ export default function LandingPage() {
                 </div>
                 <Link
                   to="/client"
-                  className="inline-flex w-fit items-center justify-center gap-2 rounded-xl border border-outline-variant/60 bg-surface-container-low px-5 py-2.5 text-xs font-bold text-on-surface transition-all hover:bg-surface-container"
+                  className="landing-btn landing-btn-outline inline-flex w-fit items-center justify-center gap-2 rounded-xl border border-outline-variant/60 bg-surface-container-low px-5 py-2.5 text-xs font-bold text-on-surface"
                 >
                   {t("landingCtaClient")} →
                 </Link>
               </div>
 
-              <div className="relative flex flex-col justify-between overflow-hidden rounded-2xl border-2 border-primary bg-surface-container-lowest p-6 shadow-md sm:p-8">
+              <div className="landing-reveal landing-reveal-delay-2 relative flex flex-col justify-between overflow-hidden rounded-2xl border-2 border-primary bg-surface-container-lowest p-6 shadow-md sm:p-8">
                 <div>
                   <div className="mb-4 flex items-center justify-between">
                     <span className="rounded-full bg-tertiary-container px-3 py-1 text-xs font-bold uppercase tracking-wider text-tertiary">
@@ -709,7 +649,7 @@ export default function LandingPage() {
                 </div>
                 <Link
                   to="/signup"
-                  className="inline-flex w-fit items-center justify-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-xs font-bold text-on-primary shadow-sm transition-all hover:brightness-110"
+                  className="landing-btn inline-flex w-fit items-center justify-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-xs font-bold text-on-primary shadow-sm"
                 >
                   {t("landingCtaCarrier")} →
                 </Link>
@@ -724,7 +664,7 @@ export default function LandingPage() {
           id="pricing"
         >
           <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
-            <div className="mx-auto mb-12 max-w-2xl text-center">
+            <div className="landing-reveal mx-auto mb-12 max-w-2xl text-center">
               <h2 className="text-2xl font-extrabold tracking-tight text-on-surface sm:text-3xl">
                 {t("landingPricingTitle")}
               </h2>
@@ -733,7 +673,7 @@ export default function LandingPage() {
               </p>
             </div>
             <div className="mx-auto grid max-w-4xl grid-cols-1 items-stretch gap-6 md:grid-cols-3">
-              <div className="flex flex-col justify-between rounded-2xl border border-outline-variant/60 bg-surface-container-lowest p-6 shadow-sm">
+              <div className="landing-reveal landing-reveal-delay-1 flex flex-col justify-between rounded-2xl border border-outline-variant/60 bg-surface-container-lowest p-6 shadow-sm">
                 <div>
                   <span className="text-sm font-bold text-on-surface">
                     {t("billingPlanMonthly")}
@@ -767,13 +707,13 @@ export default function LandingPage() {
                 </div>
                 <Link
                   to="/signup"
-                  className="w-full rounded-xl border border-outline-variant/80 bg-surface-container-low px-4 py-2.5 text-center text-xs font-bold text-on-surface transition-colors hover:bg-surface-container"
+                  className="landing-btn landing-btn-outline w-full rounded-xl border border-outline-variant/80 bg-surface-container-low px-4 py-2.5 text-center text-xs font-bold text-on-surface"
                 >
                   {t("landingCtaTrial")}
                 </Link>
               </div>
 
-              <div className="relative flex flex-col justify-between rounded-2xl border-2 border-secondary bg-surface-container-lowest p-6 shadow-md">
+              <div className="landing-reveal landing-reveal-delay-2 relative flex flex-col justify-between rounded-2xl border-2 border-secondary bg-surface-container-lowest p-6 shadow-md">
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-secondary px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-on-secondary">
                   {t("landingPricingPopular")}
                 </div>
@@ -810,13 +750,13 @@ export default function LandingPage() {
                 </div>
                 <Link
                   to="/signup"
-                  className="w-full rounded-xl bg-secondary px-4 py-2.5 text-center text-xs font-bold text-on-secondary shadow-sm transition-colors hover:brightness-95"
+                  className="landing-btn w-full rounded-xl bg-secondary px-4 py-2.5 text-center text-xs font-bold text-on-secondary shadow-sm"
                 >
                   {t("landingCtaTrial")}
                 </Link>
               </div>
 
-              <div className="flex flex-col justify-between rounded-2xl border border-outline-variant/60 bg-surface-container-lowest p-6 shadow-sm">
+              <div className="landing-reveal landing-reveal-delay-3 flex flex-col justify-between rounded-2xl border border-outline-variant/60 bg-surface-container-lowest p-6 shadow-sm">
                 <div>
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-bold text-on-surface">
@@ -855,7 +795,7 @@ export default function LandingPage() {
                 </div>
                 <Link
                   to="/signup"
-                  className="w-full rounded-xl bg-primary px-4 py-2.5 text-center text-xs font-bold text-on-primary transition-colors hover:brightness-110"
+                  className="landing-btn w-full rounded-xl bg-primary px-4 py-2.5 text-center text-xs font-bold text-on-primary"
                 >
                   {t("landingCtaTrial")}
                 </Link>
@@ -869,7 +809,7 @@ export default function LandingPage() {
           className="relative overflow-hidden bg-primary py-14 text-on-primary sm:py-20"
           id="cta"
         >
-          <div className="mx-auto max-w-[1240px] px-4 text-center sm:px-6">
+          <div className="landing-reveal mx-auto max-w-[1240px] px-4 text-center sm:px-6">
             <h2 className="text-2xl font-extrabold tracking-tight sm:text-4xl">
               {t("landingFinalTitle")}
             </h2>
@@ -879,14 +819,14 @@ export default function LandingPage() {
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
                 to="/client"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-tertiary px-6 py-3 text-sm font-bold text-on-tertiary shadow-md transition-all hover:brightness-95 sm:w-auto"
+                className="landing-btn inline-flex w-full items-center justify-center gap-2 rounded-xl bg-tertiary px-6 py-3 text-sm font-bold text-on-tertiary shadow-md sm:w-auto"
               >
                 <Icon name="add_box" className="text-[18px]" />
                 {t("landingCtaClient")}
               </Link>
               <Link
                 to="/login"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-800 px-6 py-3 text-sm font-bold text-slate-100 transition-all hover:bg-slate-700 sm:w-auto"
+                className="landing-btn landing-btn-ghost inline-flex w-full items-center justify-center gap-2 rounded-xl border border-slate-700 bg-slate-800 px-6 py-3 text-sm font-bold text-slate-100 sm:w-auto"
               >
                 <Icon name="login" className="text-[18px]" />
                 {t("operationsLogin")}
@@ -901,49 +841,73 @@ export default function LandingPage() {
       </main>
 
       <footer className="border-t border-outline-variant/40 bg-surface py-8">
-        <div className="mx-auto flex max-w-[1240px] flex-col items-center justify-between gap-4 px-4 sm:flex-row sm:px-6">
-          <div className="flex items-center gap-3">
-            <img
-              src="/logo.svg"
-              alt={t("brandName")}
-              className="h-9 w-9 rounded-lg object-cover shadow-sm"
-            />
-            <div className="flex flex-col">
-              <span className="text-base font-extrabold text-primary">
-                {t("brandName")}
-              </span>
-              <span className="text-xs font-medium text-on-surface-variant">
-                {t("landingCorridor")}
-              </span>
+        <div className="mx-auto flex max-w-[1240px] flex-col items-center justify-between gap-5 px-4 sm:px-6">
+          <div className="flex w-full flex-col items-center justify-between gap-4 sm:flex-row">
+            <div className="flex items-center gap-3">
+              <img
+                src="/logo.svg"
+                alt={t("brandName")}
+                className="h-9 w-9 rounded-lg object-cover shadow-sm"
+              />
+              <div className="flex flex-col">
+                <span className="text-base font-extrabold text-primary">
+                  {t("brandName")}
+                </span>
+                <span className="text-xs font-medium text-on-surface-variant">
+                  {t("landingCorridor")}
+                </span>
+              </div>
             </div>
+            <nav className="flex items-center gap-4 text-xs font-medium text-on-surface-variant">
+              <a
+                className="transition-colors hover:text-on-surface"
+                href="#how-it-works"
+              >
+                {t("landingNavHow")}
+              </a>
+              <a
+                className="transition-colors hover:text-on-surface"
+                href="#who-is-it-for"
+              >
+                {t("landingNavWho")}
+              </a>
+              <a
+                className="transition-colors hover:text-on-surface"
+                href="#pricing"
+              >
+                {t("landingNavPricing")}
+              </a>
+              <Link
+                className="transition-colors hover:text-on-surface"
+                to="/login"
+              >
+                {t("operationsLogin")}
+              </Link>
+            </nav>
+            <div className="text-xs text-outline">{t("landingCopyright")}</div>
           </div>
-          <nav className="flex items-center gap-4 text-xs font-medium text-on-surface-variant">
+
+          <div className="flex w-full flex-col items-center justify-center gap-2 border-t border-outline-variant/40 pt-5 sm:flex-row sm:gap-6">
+            <span className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">
+              {t("landingContactTitle")}
+            </span>
             <a
-              className="transition-colors hover:text-on-surface"
-              href="#how-it-works"
+              href={`mailto:${contactEmail}`}
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-on-surface transition-colors hover:text-secondary"
             >
-              {t("landingNavHow")}
+              <Icon name="mail" className="text-[18px] text-secondary" />
+              {contactEmail}
             </a>
             <a
-              className="transition-colors hover:text-on-surface"
-              href="#who-is-it-for"
+              href={contactWhatsAppHref}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-on-surface transition-colors hover:text-secondary"
             >
-              {t("landingNavWho")}
+              <Icon name="chat" className="text-[18px] text-green-600" />
+              {t("landingContactWhatsApp")} · {contactPhoneDisplay}
             </a>
-            <a
-              className="transition-colors hover:text-on-surface"
-              href="#pricing"
-            >
-              {t("landingNavPricing")}
-            </a>
-            <Link
-              className="transition-colors hover:text-on-surface"
-              to="/login"
-            >
-              {t("operationsLogin")}
-            </Link>
-          </nav>
-          <div className="text-xs text-outline">{t("landingCopyright")}</div>
+          </div>
         </div>
       </footer>
     </div>
