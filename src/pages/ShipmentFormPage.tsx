@@ -272,31 +272,31 @@ export default function ShipmentFormPage() {
             {/* Sender */}
             <section className="space-y-4">
               <h2 className="text-lg font-bold text-tertiary">{t("senderDetails")}</h2>
-              <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-4 sm:grid-cols-2">
                 <label className="app-label sm:col-span-2">
-                  {t("fullName")}
-                  <input
-                    required
-                    value={form.senderName}
+                {t("fullName")}
+                <input
+                  required
+                  value={form.senderName}
                     onChange={(e) =>
                       setForm((c) => ({ ...c, senderName: e.target.value }))
                     }
                     className="app-input"
-                  />
-                </label>
+                />
+              </label>
                 <label className="app-label sm:col-span-2">
-                  {t("phone")}
-                  <input
-                    required
-                    type="tel"
-                    value={form.senderPhone}
+                {t("phone")}
+                <input
+                  required
+                  type="tel"
+                  value={form.senderPhone}
                     onChange={(e) =>
                       setForm((c) => ({ ...c, senderPhone: e.target.value }))
                     }
                     className="app-input"
-                  />
-                </label>
-              </div>
+                />
+              </label>
+            </div>
 
               <div className="rounded-xl border border-outline-variant/60 bg-surface-container-low/50 p-4">
                 <p className="mb-3 text-sm font-bold text-on-surface">{t("idDocTitle")}</p>
@@ -357,29 +357,29 @@ export default function ShipmentFormPage() {
                   {form.idDocType === "cin" ? t("idCinHint") : t("idPassportHint")}
                 </p>
               </div>
-            </section>
+          </section>
 
             {/* Receiver */}
             <section className="space-y-4">
               <h2 className="text-lg font-bold text-secondary">{t("receiverDetails")}</h2>
-              <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-4 sm:grid-cols-2">
                 <label className="app-label sm:col-span-2">
-                  {t("fullName")}
-                  <input
-                    required
-                    value={form.receiverName}
+                {t("fullName")}
+                <input
+                  required
+                  value={form.receiverName}
                     onChange={(e) =>
                       setForm((c) => ({ ...c, receiverName: e.target.value }))
                     }
                     className="app-input"
-                  />
-                </label>
+                />
+              </label>
                 <label className="app-label sm:col-span-2">
-                  {t("phone")}
-                  <input
-                    required
-                    type="tel"
-                    value={form.receiverPhone}
+                {t("phone")}
+                <input
+                  required
+                  type="tel"
+                  value={form.receiverPhone}
                     onChange={(e) =>
                       setForm((c) => ({ ...c, receiverPhone: e.target.value }))
                     }
@@ -478,9 +478,9 @@ export default function ShipmentFormPage() {
             <div className="rounded-xl border border-outline-variant/60 bg-surface-container-low/40 p-4">
               <label className="app-label">
                 {t("streetAddress")}
-                <textarea
-                  required
-                  rows={3}
+              <textarea
+                required
+                rows={3}
                   value={form.streetAddress}
                   onChange={(e) =>
                     setForm((c) => ({ ...c, streetAddress: e.target.value }))
@@ -491,7 +491,7 @@ export default function ShipmentFormPage() {
                 <span className="mt-1 block text-[11px] text-on-surface-variant">
                   {t("streetAddressHelp")}
                 </span>
-              </label>
+            </label>
 
               <div className="mt-4 rounded-lg border border-secondary/25 bg-surface-container-lowest px-3 py-3">
                 <p className="text-[11px] font-semibold uppercase tracking-wide text-secondary">
@@ -513,11 +513,11 @@ export default function ShipmentFormPage() {
               </div>
               <div className="flex flex-wrap gap-3">
                 <label className="app-label min-w-[160px]">
-                  {t("oilVolume")}
-                  <input
-                    required
-                    inputMode="decimal"
-                    value={form.oilLiters}
+              {t("oilVolume")}
+              <input
+                required
+                inputMode="decimal"
+                value={form.oilLiters}
                     onChange={(e) =>
                       setForm((c) => ({ ...c, oilLiters: e.target.value }))
                     }
@@ -576,8 +576,8 @@ export default function ShipmentFormPage() {
                   }}
                   className="app-input"
                   placeholder={t("itemsCustomHint")}
-                />
-              </label>
+              />
+            </label>
               <button
                 type="button"
                 onClick={addCustomItem}

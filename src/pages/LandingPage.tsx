@@ -95,7 +95,10 @@ export default function LandingPage() {
             >
               {t("landingNavHow")}
             </a>
-            <a className="whitespace-nowrap transition-colors hover:text-on-surface" href="#suite">
+            <a
+              className="whitespace-nowrap transition-colors hover:text-on-surface"
+              href="#suite"
+            >
               {t("landingNavSuite")}
             </a>
             <a
@@ -104,7 +107,10 @@ export default function LandingPage() {
             >
               {t("landingNavWho")}
             </a>
-            <a className="whitespace-nowrap transition-colors hover:text-on-surface" href="#pricing">
+            <a
+              className="whitespace-nowrap transition-colors hover:text-on-surface"
+              href="#pricing"
+            >
               {t("landingNavPricing")}
             </a>
             <Link
@@ -135,10 +141,15 @@ export default function LandingPage() {
               className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-outline-variant text-on-surface transition hover:bg-surface-container-low xl:hidden"
               aria-expanded={menuOpen}
               aria-controls="landing-mobile-nav"
-              aria-label={menuOpen ? t("landingMenuClose") : t("landingMenuOpen")}
+              aria-label={
+                menuOpen ? t("landingMenuClose") : t("landingMenuOpen")
+              }
               onClick={() => setMenuOpen((open) => !open)}
             >
-              <Icon name={menuOpen ? "close" : "menu"} className="text-[22px]" />
+              <Icon
+                name={menuOpen ? "close" : "menu"}
+                className="text-[22px]"
+              />
             </button>
           </div>
         </div>
@@ -149,22 +160,46 @@ export default function LandingPage() {
             className="border-t border-outline-variant/40 bg-surface px-3 py-3 sm:px-6 xl:hidden"
           >
             <nav className="mx-auto flex max-w-[1400px] flex-col gap-1 text-sm font-medium text-on-surface">
-              <a className="rounded-lg px-3 py-2.5 hover:bg-surface-container-low" href="#how-it-works" onClick={closeMenu}>
+              <a
+                className="rounded-lg px-3 py-2.5 hover:bg-surface-container-low"
+                href="#how-it-works"
+                onClick={closeMenu}
+              >
                 {t("landingNavHow")}
               </a>
-              <a className="rounded-lg px-3 py-2.5 hover:bg-surface-container-low" href="#suite" onClick={closeMenu}>
+              <a
+                className="rounded-lg px-3 py-2.5 hover:bg-surface-container-low"
+                href="#suite"
+                onClick={closeMenu}
+              >
                 {t("landingNavSuite")}
               </a>
-              <a className="rounded-lg px-3 py-2.5 hover:bg-surface-container-low" href="#who-is-it-for" onClick={closeMenu}>
+              <a
+                className="rounded-lg px-3 py-2.5 hover:bg-surface-container-low"
+                href="#who-is-it-for"
+                onClick={closeMenu}
+              >
                 {t("landingNavWho")}
               </a>
-              <a className="rounded-lg px-3 py-2.5 hover:bg-surface-container-low" href="#pricing" onClick={closeMenu}>
+              <a
+                className="rounded-lg px-3 py-2.5 hover:bg-surface-container-low"
+                href="#pricing"
+                onClick={closeMenu}
+              >
                 {t("landingNavPricing")}
               </a>
-              <Link className="rounded-lg px-3 py-2.5 hover:bg-surface-container-low" to="/login" onClick={closeMenu}>
+              <Link
+                className="rounded-lg px-3 py-2.5 hover:bg-surface-container-low"
+                to="/login"
+                onClick={closeMenu}
+              >
                 {t("operationsLogin")}
               </Link>
-              <Link className="rounded-lg px-3 py-2.5 hover:bg-surface-container-low lg:hidden" to="/client" onClick={closeMenu}>
+              <Link
+                className="rounded-lg px-3 py-2.5 hover:bg-surface-container-low lg:hidden"
+                to="/client"
+                onClick={closeMenu}
+              >
                 {t("landingCtaClient")}
               </Link>
             </nav>
@@ -180,7 +215,9 @@ export default function LandingPage() {
               <h1 className="landing-hero-copy text-3xl font-extrabold leading-[1.15] tracking-tight text-on-surface sm:text-5xl">
                 {t("landingHeroTitle")}
                 <br className="hidden sm:block" />{" "}
-                <span className="text-on-surface">{t("landingHeroReimagined")} </span>
+                <span className="text-on-surface">
+                  {t("landingHeroReimagined")}{" "}
+                </span>
                 <span className="text-secondary">{t("landingHeroSmart")}</span>{" "}
                 <span className="text-tertiary">{t("landingHeroQr")}</span>{" "}
                 <span className="text-accent">{t("landingHeroLogistics")}</span>
@@ -214,18 +251,27 @@ export default function LandingPage() {
                   to="/signup"
                   className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-on-primary shadow-md transition-all hover:brightness-110 lg:w-auto"
                 >
-                  <Icon name="local_shipping" className="text-[18px] text-on-primary" />
+                  <Icon
+                    name="local_shipping"
+                    className="text-[18px] text-on-primary"
+                  />
                   {t("landingCtaCarrierTrial")}
                 </Link>
               </div>
 
               <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-on-surface-variant sm:gap-10">
                 <div className="flex items-center gap-1.5 font-medium">
-                  <Icon name="verified_user" className="text-[18px] text-green-600" />
+                  <Icon
+                    name="verified_user"
+                    className="text-[18px] text-green-600"
+                  />
                   <span>{t("landingTrustOffline")}</span>
                 </div>
                 <div className="flex items-center gap-1.5 font-medium">
-                  <Icon name="qr_code_scanner" className="text-[18px] text-secondary" />
+                  <Icon
+                    name="qr_code_scanner"
+                    className="text-[18px] text-secondary"
+                  />
                   <span>{t("landingTrustQr")}</span>
                 </div>
                 <div className="flex items-center gap-1.5 font-medium">
@@ -277,7 +323,10 @@ export default function LandingPage() {
                 <div className="flex flex-col justify-between rounded-2xl border border-outline-variant/60 bg-surface-container-lowest p-4 shadow-sm transition-all hover:border-secondary/40 md:col-span-4">
                   <div className="flex items-center justify-between border-b border-surface-container pb-3">
                     <div className="flex items-center gap-1.5">
-                      <Icon name="picture_as_pdf" className="text-[18px] text-tertiary" />
+                      <Icon
+                        name="picture_as_pdf"
+                        className="text-[18px] text-tertiary"
+                      />
                       <span className="text-xs font-bold text-on-surface">
                         {t("landingMockPdfTitle")}
                       </span>
@@ -301,7 +350,9 @@ export default function LandingPage() {
                       <span className="truncate font-bold text-on-surface">
                         Shipper: Yassine K. (Lyon)
                       </span>
-                      <span className="text-on-surface-variant">Recipient: Sfax, TN</span>
+                      <span className="text-on-surface-variant">
+                        Recipient: Sfax, TN
+                      </span>
                       <div className="mt-1 flex flex-wrap gap-1">
                         <span className="rounded bg-tertiary-container px-1.5 py-0.5 text-[10px] font-bold text-on-tertiary-fixed">
                           40L Olive Oil
@@ -314,17 +365,25 @@ export default function LandingPage() {
                   </div>
                   <div className="flex items-center justify-between text-[11px] text-on-surface-variant">
                     <span className="flex items-center gap-1">
-                      <Icon name="check_circle" className="text-[14px] text-green-600" />
+                      <Icon
+                        name="check_circle"
+                        className="text-[14px] text-green-600"
+                      />
                       {t("landingMockPdfReady")}
                     </span>
-                    <span className="font-semibold text-secondary">{t("landingMockPdfAffix")}</span>
+                    <span className="font-semibold text-secondary">
+                      {t("landingMockPdfAffix")}
+                    </span>
                   </div>
                 </div>
 
                 <div className="relative flex flex-col justify-between overflow-hidden rounded-2xl bg-primary p-4 text-on-primary shadow-md md:col-span-4">
                   <div className="flex items-center justify-between border-b border-slate-700/60 pb-3">
                     <div className="flex items-center gap-2">
-                      <Icon name="qr_code_scanner" className="text-[18px] text-green-400" />
+                      <Icon
+                        name="qr_code_scanner"
+                        className="text-[18px] text-green-400"
+                      />
                       <span className="text-xs font-bold text-surface-container-lowest">
                         {t("landingMockScanTitle")}
                       </span>
@@ -336,35 +395,53 @@ export default function LandingPage() {
                   </div>
                   <div className="my-4 flex flex-col gap-2 rounded-xl border border-slate-700/80 bg-slate-800/80 p-3">
                     <div className="flex items-center justify-between text-xs">
-                      <span className="font-medium text-slate-300">Scanned: #FR-TN-9402</span>
-                      <span className="font-bold text-green-400">1-Sec Match</span>
+                      <span className="font-medium text-slate-300">
+                        Scanned: #FR-TN-9402
+                      </span>
+                      <span className="font-bold text-green-400">
+                        1-Sec Match
+                      </span>
                     </div>
                     <div className="grid grid-cols-2 gap-2 text-[11px]">
                       <div className="rounded bg-slate-900/60 p-2">
-                        <span className="block text-[10px] text-slate-400">Logged Weight</span>
+                        <span className="block text-[10px] text-slate-400">
+                          Logged Weight
+                        </span>
                         <span className="text-xs font-bold text-surface-container-lowest">
                           32.4 kg
                         </span>
                       </div>
                       <div className="rounded bg-slate-900/60 p-2">
-                        <span className="block text-[10px] text-slate-400">Applied Tariff</span>
-                        <span className="text-xs font-bold text-tertiary">€75.00 COD</span>
+                        <span className="block text-[10px] text-slate-400">
+                          Applied Tariff
+                        </span>
+                        <span className="text-xs font-bold text-tertiary">
+                          €75.00 COD
+                        </span>
                       </div>
                     </div>
                   </div>
                   <div className="flex items-center justify-between text-[11px] text-slate-300">
                     <span className="flex items-center gap-1">
-                      <Icon name="wifi_off" className="text-[14px] text-secondary" />
+                      <Icon
+                        name="wifi_off"
+                        className="text-[14px] text-secondary"
+                      />
                       {t("landingMockScanFerry")}
                     </span>
-                    <span className="font-medium text-slate-400">{t("landingMockScanSync")}</span>
+                    <span className="font-medium text-slate-400">
+                      {t("landingMockScanSync")}
+                    </span>
                   </div>
                 </div>
 
                 <div className="flex flex-col justify-between rounded-2xl border border-outline-variant/60 bg-surface-container-lowest p-4 shadow-sm transition-all hover:border-secondary/40 md:col-span-4">
                   <div className="flex items-center justify-between border-b border-surface-container pb-3">
                     <div className="flex items-center gap-1.5">
-                      <Icon name="monitoring" className="text-[18px] text-secondary" />
+                      <Icon
+                        name="monitoring"
+                        className="text-[18px] text-secondary"
+                      />
                       <span className="text-xs font-bold text-on-surface">
                         {t("landingMockDashTitle")}
                       </span>
@@ -379,13 +456,17 @@ export default function LandingPage() {
                         <span className="block text-[10px] text-on-surface-variant">
                           Today&apos;s Parcels
                         </span>
-                        <span className="text-sm font-extrabold text-on-surface">148 Units</span>
+                        <span className="text-sm font-extrabold text-on-surface">
+                          148 Units
+                        </span>
                       </div>
                       <div className="rounded-lg bg-surface-container-low p-2">
                         <span className="block text-[10px] text-on-surface-variant">
                           Total Olive Oil
                         </span>
-                        <span className="text-sm font-extrabold text-tertiary">380 Liters</span>
+                        <span className="text-sm font-extrabold text-tertiary">
+                          380 Liters
+                        </span>
                       </div>
                     </div>
                     <div className="space-y-1 rounded-lg bg-surface-container-low/70 p-2 text-[11px]">
@@ -393,7 +474,9 @@ export default function LandingPage() {
                         <span className="max-w-[120px] truncate font-medium">
                           K. Benali (Marseille)
                         </span>
-                        <span className="font-bold text-green-700">Scanned (Van 2)</span>
+                        <span className="font-bold text-green-700">
+                          Scanned (Van 2)
+                        </span>
                       </div>
                       <div className="flex justify-between text-[10px] text-on-surface-variant">
                         <span>#TN-8831 • Tunis Dep.</span>
@@ -403,7 +486,10 @@ export default function LandingPage() {
                   </div>
                   <div className="flex items-center justify-between text-[11px] text-on-surface-variant">
                     <span className="flex items-center gap-1">
-                      <Icon name="search" className="text-[14px] text-secondary" />
+                      <Icon
+                        name="search"
+                        className="text-[14px] text-secondary"
+                      />
                       {t("landingMockDashSearch")}
                     </span>
                     <span className="font-semibold text-on-surface">
@@ -439,9 +525,14 @@ export default function LandingPage() {
                       <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-surface-container text-xs font-bold text-on-surface">
                         {String(index + 1).padStart(2, "0")}
                       </span>
-                      <Icon name={step.icon} className={`text-[20px] ${step.iconClass}`} />
+                      <Icon
+                        name={step.icon}
+                        className={`text-[20px] ${step.iconClass}`}
+                      />
                     </div>
-                    <h3 className="mb-2 text-base font-bold text-on-surface">{t(step.title)}</h3>
+                    <h3 className="mb-2 text-base font-bold text-on-surface">
+                      {t(step.title)}
+                    </h3>
                     <p className="text-xs leading-relaxed text-on-surface-variant">
                       {t(step.body)}
                     </p>
@@ -482,7 +573,9 @@ export default function LandingPage() {
               <h2 className="mt-1 text-2xl font-extrabold tracking-tight text-on-surface sm:text-3xl">
                 {t("landingSuiteTitle")}
               </h2>
-              <p className="mt-2 text-sm text-on-surface-variant">{t("landingSuiteSupport")}</p>
+              <p className="mt-2 text-sm text-on-surface-variant">
+                {t("landingSuiteSupport")}
+              </p>
             </div>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               {(
@@ -544,7 +637,10 @@ export default function LandingPage() {
                   <ul className="space-y-2 border-t border-surface-container pt-4 text-xs font-medium text-on-surface">
                     {card.features.map((feature) => (
                       <li key={feature} className="flex items-center gap-2">
-                        <Icon name="check" className="text-[16px] text-green-600" />
+                        <Icon
+                          name="check"
+                          className="text-[16px] text-green-600"
+                        />
                         {t(feature)}
                       </li>
                     ))}
@@ -573,9 +669,14 @@ export default function LandingPage() {
                     <span className="rounded-full bg-surface-container px-3 py-1 text-xs font-bold uppercase tracking-wider text-on-surface-variant">
                       {t("landingForSenders")}
                     </span>
-                    <Icon name="person" className="text-[24px] text-secondary" />
+                    <Icon
+                      name="person"
+                      className="text-[24px] text-secondary"
+                    />
                   </div>
-                  <h3 className="mb-2 text-xl font-bold text-on-surface">{t("roleClient")}</h3>
+                  <h3 className="mb-2 text-xl font-bold text-on-surface">
+                    {t("roleClient")}
+                  </h3>
                   <p className="mb-6 text-sm leading-relaxed text-on-surface-variant">
                     {t("landingClientBody")}
                   </p>
@@ -594,7 +695,10 @@ export default function LandingPage() {
                     <span className="rounded-full bg-tertiary-container px-3 py-1 text-xs font-bold uppercase tracking-wider text-tertiary">
                       {t("landingForTransporters")}
                     </span>
-                    <Icon name="local_shipping" className="text-[24px] text-primary" />
+                    <Icon
+                      name="local_shipping"
+                      className="text-[24px] text-primary"
+                    />
                   </div>
                   <h3 className="mb-2 text-xl font-bold text-on-surface">
                     {t("roleTransporteur")}
@@ -635,21 +739,30 @@ export default function LandingPage() {
                     {t("billingPlanMonthly")}
                   </span>
                   <div className="my-4">
-                    <span className="text-3xl font-extrabold text-on-surface">€20</span>
+                    <span className="text-3xl font-extrabold text-on-surface">
+                      €20
+                    </span>
                     <span className="text-xs font-medium text-on-surface-variant">
                       {" "}
                       {t("billingPerMonth")}
                     </span>
                   </div>
                   <ul className="mb-6 space-y-2 text-xs text-on-surface-variant">
-                    {(["landingPriceF1", "landingPriceF2", "landingPriceF3"] as const).map(
-                      (key) => (
-                        <li key={key} className="flex items-center gap-2">
-                          <Icon name="check" className="text-[16px] text-green-600" />
-                          {t(key)}
-                        </li>
-                      )
-                    )}
+                    {(
+                      [
+                        "landingPriceF1",
+                        "landingPriceF2",
+                        "landingPriceF3",
+                      ] as const
+                    ).map((key) => (
+                      <li key={key} className="flex items-center gap-2">
+                        <Icon
+                          name="check"
+                          className="text-[16px] text-green-600"
+                        />
+                        {t(key)}
+                      </li>
+                    ))}
                   </ul>
                 </div>
                 <Link
@@ -669,21 +782,30 @@ export default function LandingPage() {
                     {t("billingPlanQuarterly")}
                   </span>
                   <div className="my-4">
-                    <span className="text-3xl font-extrabold text-on-surface">€52</span>
+                    <span className="text-3xl font-extrabold text-on-surface">
+                      €52
+                    </span>
                     <span className="text-xs font-medium text-on-surface-variant">
                       {" "}
                       {t("billingPerQuarter")}
                     </span>
                   </div>
                   <ul className="mb-6 space-y-2 text-xs text-on-surface-variant">
-                    {(["landingPriceF4", "landingPriceF5", "landingPriceF6"] as const).map(
-                      (key) => (
-                        <li key={key} className="flex items-center gap-2">
-                          <Icon name="check" className="text-[16px] text-green-600" />
-                          {t(key)}
-                        </li>
-                      )
-                    )}
+                    {(
+                      [
+                        "landingPriceF4",
+                        "landingPriceF5",
+                        "landingPriceF6",
+                      ] as const
+                    ).map((key) => (
+                      <li key={key} className="flex items-center gap-2">
+                        <Icon
+                          name="check"
+                          className="text-[16px] text-green-600"
+                        />
+                        {t(key)}
+                      </li>
+                    ))}
                   </ul>
                 </div>
                 <Link
@@ -705,21 +827,30 @@ export default function LandingPage() {
                     </span>
                   </div>
                   <div className="my-4">
-                    <span className="text-3xl font-extrabold text-on-surface">€192</span>
+                    <span className="text-3xl font-extrabold text-on-surface">
+                      €192
+                    </span>
                     <span className="text-xs font-medium text-on-surface-variant">
                       {" "}
                       {t("billingPerYear")}
                     </span>
                   </div>
                   <ul className="mb-6 space-y-2 text-xs text-on-surface-variant">
-                    {(["landingPriceF7", "landingPriceF8", "landingPriceF9"] as const).map(
-                      (key) => (
-                        <li key={key} className="flex items-center gap-2">
-                          <Icon name="check" className="text-[16px] text-green-600" />
-                          {t(key)}
-                        </li>
-                      )
-                    )}
+                    {(
+                      [
+                        "landingPriceF7",
+                        "landingPriceF8",
+                        "landingPriceF9",
+                      ] as const
+                    ).map((key) => (
+                      <li key={key} className="flex items-center gap-2">
+                        <Icon
+                          name="check"
+                          className="text-[16px] text-green-600"
+                        />
+                        {t(key)}
+                      </li>
+                    ))}
                   </ul>
                 </div>
                 <Link
@@ -734,7 +865,10 @@ export default function LandingPage() {
         </section>
 
         {/* FINAL CTA */}
-        <section className="relative overflow-hidden bg-primary py-14 text-on-primary sm:py-20" id="cta">
+        <section
+          className="relative overflow-hidden bg-primary py-14 text-on-primary sm:py-20"
+          id="cta"
+        >
           <div className="mx-auto max-w-[1240px] px-4 text-center sm:px-6">
             <h2 className="text-2xl font-extrabold tracking-tight sm:text-4xl">
               {t("landingFinalTitle")}
@@ -775,23 +909,37 @@ export default function LandingPage() {
               className="h-9 w-9 rounded-lg object-cover shadow-sm"
             />
             <div className="flex flex-col">
-              <span className="text-base font-extrabold text-primary">{t("brandName")}</span>
+              <span className="text-base font-extrabold text-primary">
+                {t("brandName")}
+              </span>
               <span className="text-xs font-medium text-on-surface-variant">
                 {t("landingCorridor")}
               </span>
             </div>
           </div>
           <nav className="flex items-center gap-4 text-xs font-medium text-on-surface-variant">
-            <a className="transition-colors hover:text-on-surface" href="#how-it-works">
+            <a
+              className="transition-colors hover:text-on-surface"
+              href="#how-it-works"
+            >
               {t("landingNavHow")}
             </a>
-            <a className="transition-colors hover:text-on-surface" href="#who-is-it-for">
+            <a
+              className="transition-colors hover:text-on-surface"
+              href="#who-is-it-for"
+            >
               {t("landingNavWho")}
             </a>
-            <a className="transition-colors hover:text-on-surface" href="#pricing">
+            <a
+              className="transition-colors hover:text-on-surface"
+              href="#pricing"
+            >
               {t("landingNavPricing")}
             </a>
-            <Link className="transition-colors hover:text-on-surface" to="/login">
+            <Link
+              className="transition-colors hover:text-on-surface"
+              to="/login"
+            >
               {t("operationsLogin")}
             </Link>
           </nav>
