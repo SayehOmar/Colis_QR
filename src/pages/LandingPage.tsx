@@ -1,6 +1,6 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { LanguageSwitcher } from "../components/LanguageSwitcher";
-import { PageSkeleton, usePageSkeleton } from "../components/PageSkeleton";
 import { useLanguage } from "../i18n/LanguageContext";
 import type { TranslationKey } from "../i18n/translations";
 
@@ -56,21 +56,28 @@ function Icon({ name, className = "" }: { name: string; className?: string }) {
 
 export default function LandingPage() {
   const { t } = useLanguage();
-  const showSkeleton = usePageSkeleton(true, 450);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  if (showSkeleton) {
-    return <PageSkeleton variant="landing" />;
-  }
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
+
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <div className="landing-page bg-surface font-sans text-on-surface antialiased selection:bg-tertiary/15 selection:text-tertiary">
       <header className="sticky top-0 z-50 w-full border-b border-outline-variant/40 bg-surface/90 backdrop-blur-md">
-        <div className="mx-auto flex h-16 w-full max-w-[1400px] items-center gap-6 px-4 sm:px-8 lg:gap-10">
-          <Link to="/" className="shrink-0 whitespace-nowrap text-lg font-extrabold tracking-tight text-primary">
+        <div className="mx-auto flex h-14 w-full max-w-[1400px] items-center gap-2 px-3 sm:h-16 sm:gap-4 sm:px-6 lg:gap-6 lg:px-8">
+          <Link to="/" className="shrink-0 whitespace-nowrap text-base font-extrabold tracking-tight text-primary sm:text-lg">
             {t("brandName")}
           </Link>
 
-          <nav className="hidden min-w-0 flex-1 items-center justify-evenly gap-4 text-sm font-medium text-on-surface-variant lg:flex">
+          <nav className="hidden min-w-0 flex-1 items-center justify-evenly gap-3 text-sm font-medium text-on-surface-variant xl:flex">
             <a
               className="whitespace-nowrap transition-colors hover:text-on-surface"
               href="#how-it-works"
@@ -97,22 +104,61 @@ export default function LandingPage() {
             </Link>
           </nav>
 
-          <div className="ml-auto flex shrink-0 items-center gap-2 sm:gap-3">
+          <div className="ml-auto flex min-w-0 shrink-0 items-center gap-1.5 sm:gap-2">
             <LanguageSwitcher variant="nav" />
             <Link
               to="/client"
-              className="hidden whitespace-nowrap items-center justify-center rounded-lg border border-outline-variant px-3 py-1.5 text-xs font-semibold text-on-surface transition-all hover:bg-surface-container-low sm:inline-flex"
+              className="hidden whitespace-nowrap items-center justify-center rounded-lg border border-outline-variant px-3 py-1.5 text-xs font-semibold text-on-surface transition-all hover:bg-surface-container-low lg:inline-flex"
             >
               {t("landingCtaClient")}
             </Link>
             <Link
               to="/signup"
-              className="inline-flex whitespace-nowrap items-center justify-center rounded-lg bg-primary px-3.5 py-1.5 text-xs font-semibold text-on-primary shadow-sm transition-all hover:brightness-110"
+              className="inline-flex max-w-[9.5rem] items-center justify-center truncate rounded-lg bg-primary px-2.5 py-1.5 text-xs font-semibold text-on-primary shadow-sm transition-all hover:brightness-110 sm:max-w-none sm:px-3.5"
             >
-              {t("landingCtaCarrier")}
+              <span className="lg:hidden">{t("landingCtaCarrierShort")}</span>
+              <span className="hidden lg:inline">{t("landingCtaCarrier")}</span>
             </Link>
+            <button
+              type="button"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-outline-variant text-on-surface transition hover:bg-surface-container-low xl:hidden"
+              aria-expanded={menuOpen}
+              aria-controls="landing-mobile-nav"
+              aria-label={menuOpen ? t("landingMenuClose") : t("landingMenuOpen")}
+              onClick={() => setMenuOpen((open) => !open)}
+            >
+              <Icon name={menuOpen ? "close" : "menu"} className="text-[22px]" />
+            </button>
           </div>
         </div>
+
+        {menuOpen ? (
+          <div
+            id="landing-mobile-nav"
+            className="border-t border-outline-variant/40 bg-surface px-3 py-3 sm:px-6 xl:hidden"
+          >
+            <nav className="mx-auto flex max-w-[1400px] flex-col gap-1 text-sm font-medium text-on-surface">
+              <a className="rounded-lg px-3 py-2.5 hover:bg-surface-container-low" href="#how-it-works" onClick={closeMenu}>
+                {t("landingNavHow")}
+              </a>
+              <a className="rounded-lg px-3 py-2.5 hover:bg-surface-container-low" href="#suite" onClick={closeMenu}>
+                {t("landingNavSuite")}
+              </a>
+              <a className="rounded-lg px-3 py-2.5 hover:bg-surface-container-low" href="#who-is-it-for" onClick={closeMenu}>
+                {t("landingNavWho")}
+              </a>
+              <a className="rounded-lg px-3 py-2.5 hover:bg-surface-container-low" href="#pricing" onClick={closeMenu}>
+                {t("landingNavPricing")}
+              </a>
+              <Link className="rounded-lg px-3 py-2.5 hover:bg-surface-container-low" to="/login" onClick={closeMenu}>
+                {t("operationsLogin")}
+              </Link>
+              <Link className="rounded-lg px-3 py-2.5 hover:bg-surface-container-low lg:hidden" to="/client" onClick={closeMenu}>
+                {t("landingCtaClient")}
+              </Link>
+            </nav>
+          </div>
+        ) : null}
       </header>
 
       <main className="w-full">
@@ -120,11 +166,6 @@ export default function LandingPage() {
         <section className="relative border-b border-outline-variant/30 bg-gradient-to-b from-surface via-surface-container-low/40 to-surface pb-14 pt-10 sm:pb-20 sm:pt-16">
           <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
             <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-              <div className="landing-hero-copy mb-4 inline-flex items-center gap-2 rounded-full border border-tertiary/20 bg-tertiary-container px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-on-tertiary-fixed shadow-sm">
-                <Icon name="directions_boat" className="text-[15px] text-tertiary" />
-                {t("landingBadge")}
-              </div>
-
               <h1 className="landing-hero-copy text-3xl font-extrabold leading-[1.15] tracking-tight text-on-surface sm:text-5xl">
                 {t("landingHeroTitle")}
                 <br className="hidden sm:block" />{" "}
@@ -150,17 +191,17 @@ export default function LandingPage() {
                 <span>{t("landingSuiteItemDb")}</span>
               </div>
 
-              <div className="landing-hero-cta mt-6 flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row">
+              <div className="landing-hero-cta mt-6 flex w-full max-w-xl flex-col items-stretch gap-3 lg:max-w-none lg:flex-row lg:justify-center">
                 <Link
                   to="/client"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-tertiary px-6 py-3 text-sm font-bold text-on-tertiary shadow-md transition-all hover:brightness-95 sm:w-auto"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-tertiary px-6 py-3 text-sm font-bold text-on-tertiary shadow-md transition-all hover:brightness-95 lg:w-auto"
                 >
                   <Icon name="description" className="text-[18px]" />
                   {t("landingCtaClientFull")}
                 </Link>
                 <Link
                   to="/signup"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-on-primary shadow-md transition-all hover:brightness-110 sm:w-auto"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-on-primary shadow-md transition-all hover:brightness-110 lg:w-auto"
                 >
                   <Icon name="local_shipping" className="text-[18px] text-white" />
                   {t("landingCtaCarrierTrial")}
@@ -583,7 +624,7 @@ export default function LandingPage() {
                     {t("billingPlanMonthly")}
                   </span>
                   <div className="my-4">
-                    <span className="text-3xl font-extrabold text-on-surface">€10</span>
+                    <span className="text-3xl font-extrabold text-on-surface">€20</span>
                     <span className="text-xs font-medium text-on-surface-variant">
                       {" "}
                       {t("billingPerMonth")}
@@ -617,7 +658,7 @@ export default function LandingPage() {
                     {t("billingPlanQuarterly")}
                   </span>
                   <div className="my-4">
-                    <span className="text-3xl font-extrabold text-on-surface">€26</span>
+                    <span className="text-3xl font-extrabold text-on-surface">€52</span>
                     <span className="text-xs font-medium text-on-surface-variant">
                       {" "}
                       {t("billingPerQuarter")}
@@ -653,7 +694,7 @@ export default function LandingPage() {
                     </span>
                   </div>
                   <div className="my-4">
-                    <span className="text-3xl font-extrabold text-on-surface">€96</span>
+                    <span className="text-3xl font-extrabold text-on-surface">€192</span>
                     <span className="text-xs font-medium text-on-surface-variant">
                       {" "}
                       {t("billingPerYear")}

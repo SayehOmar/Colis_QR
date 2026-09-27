@@ -4,6 +4,8 @@ export const SHIPMENTS_QUERY = gql`
   query Shipments {
     shipments {
       id
+      publicCode
+      scannerId
       senderName
       senderPhone
       receiverName
@@ -23,6 +25,12 @@ export const SHIPMENTS_QUERY = gql`
       items
       idDocType
       idDocNumber
+      fieldEdits {
+        field
+        initialValue
+        previousValue
+        editedAt
+      }
     }
   }
 `;

@@ -1,13 +1,16 @@
 import { useMutation } from "@apollo/client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { SHIPMENTS_QUERY, UPDATE_SHIPMENT_CELL } from "../graphql";
 import { useLanguage } from "../i18n/LanguageContext";
+import type { FieldEdit } from "../types";
 
 interface EditableCellProps {
   shipmentId: number;
   field: string;
   value: string | number;
   className?: string;
+  edit?: FieldEdit | null;
 }
 
 export function EditableCell({
@@ -15,11 +18,21 @@ export function EditableCell({
   field,
   value,
   className = "",
+  edit = null,
 }: EditableCellProps) {
   const { t } = useLanguage();
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(String(value));
+  const [tip, setTip] = useState<{ x: number; y: number } | null>(null);
+  const tipAnchorRef = useRef<HTMLSpanElement>(null);
   const [updateCell, { loading }] = useMutation(UPDATE_SHIPMENT_CELL);
+
+  useEffect(() => {
+    if (!tip) return;
+    const hide = () => setTip(null);
+    window.addEventListener("scroll", hide, true);
+    return () => window.removeEventListener("scroll", hide, true);
+  }, [tip]);
 
   const startEdit = () => {
     setDraft(String(value));
@@ -72,13 +85,77 @@ export function EditableCell({
     );
   }
 
+  const displayOrDash = (raw: string | null | undefined) =>
+    raw === "" || raw == null ? "—" : raw;
+
+  const initialDisplay = displayOrDash(
+    edit?.initialValue || edit?.previousValue,
+  );
+  const previousDisplay = displayOrDash(edit?.previousValue);
+  const showSeparatePrevious =
+    Boolean(edit) &&
+    (edit?.initialValue || "") !== (edit?.previousValue || "") &&
+    (edit?.previousValue || "") !== "";
+
+  const showTip = () => {
+    const el = tipAnchorRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    setTip({ x: rect.right, y: rect.bottom + 6 });
+  };
+
   return (
     <td
-      className={`cursor-pointer px-3 py-3 align-top text-sm leading-relaxed text-on-surface hover:bg-amber-50 ${className}`}
+      className={`relative cursor-pointer px-3 py-3 align-top text-sm leading-relaxed text-on-surface hover:bg-amber-50 ${className}`}
       title={t("clickToEdit")}
       onClick={startEdit}
     >
-      <span className="block whitespace-pre-wrap break-words">{value === "" ? "—" : value}</span>
+      <span className="block whitespace-pre-wrap break-words pr-3">
+        {value === "" ? "—" : value}
+      </span>
+      {edit ? (
+        <span
+          ref={tipAnchorRef}
+          className="absolute right-1.5 top-1.5 z-10"
+          onClick={(event) => event.stopPropagation()}
+          onMouseEnter={showTip}
+          onMouseLeave={() => setTip(null)}
+        >
+          <span
+            className="block h-2 w-2 rounded-full bg-orange-500 shadow-sm ring-1 ring-orange-600/40"
+            aria-label={t("cellEdited")}
+          />
+        </span>
+      ) : null}
+      {edit && tip
+        ? createPortal(
+            <div
+              role="tooltip"
+              className="pointer-events-none fixed z-[9999] w-max max-w-[14rem] rounded-md bg-slate-900 px-2.5 py-1.5 text-left text-[11px] leading-snug text-white shadow-lg"
+              style={{
+                top: tip.y,
+                left: tip.x,
+                transform: "translateX(-100%)",
+              }}
+            >
+              <span className="block text-slate-300">{t("initialValue")}</span>
+              <span className="block break-words font-medium">{initialDisplay}</span>
+              {showSeparatePrevious ? (
+                <>
+                  <span className="mt-1 block text-slate-300">
+                    {t("previousValue")}
+                  </span>
+                  <span className="block break-words font-medium">
+                    {previousDisplay}
+                  </span>
+                </>
+              ) : null}
+              <span className="mt-1 block text-slate-400">{t("changedAt")}</span>
+              <span className="block font-medium">{edit.editedAt || "—"}</span>
+            </div>,
+            document.body,
+          )
+        : null}
     </td>
   );
 }

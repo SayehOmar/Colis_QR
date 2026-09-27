@@ -1,3 +1,4 @@
+import { Turnstile } from "@marsidev/react-turnstile";
 import { FormEvent, useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
@@ -9,6 +10,10 @@ import { PasswordField } from "../components/PasswordField";
 import { isAuthBypassIdentity } from "../config";
 import { useLanguage } from "../i18n/LanguageContext";
 
+const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY ?? "";
+const TURNSTILE_ENABLED =
+  (import.meta.env.VITE_TURNSTILE_ENABLED ?? "false").toLowerCase() === "true";
+
 export default function SignupPage() {
   const { t } = useLanguage();
   const { user, loading, register, loginWithGoogle } = useAuth();
@@ -18,6 +23,8 @@ export default function SignupPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const [turnstileKey, setTurnstileKey] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const bypass = isAuthBypassIdentity(email);
@@ -33,15 +40,30 @@ export default function SignupPage() {
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     setError(null);
+
+    if (!bypass && TURNSTILE_ENABLED) {
+      if (!TURNSTILE_SITE_KEY) {
+        setError(t("turnstileMissing"));
+        return;
+      }
+      if (!turnstileToken) {
+        setError(t("turnstileRequired"));
+        return;
+      }
+    }
+
     setSubmitting(true);
     try {
       const nextUser = await register(
         email.trim(),
         bypass ? "" : password,
-        name.trim() || undefined
+        name.trim() || undefined,
+        bypass ? undefined : turnstileToken ?? undefined
       );
       navigate(postAuthPath(nextUser), { replace: true });
     } catch (err) {
+      setTurnstileToken(null);
+      setTurnstileKey((k) => k + 1);
       setError(err instanceof Error ? err.message : t("authError"));
     } finally {
       setSubmitting(false);
@@ -103,13 +125,36 @@ export default function SignupPage() {
             />
           )}
 
+          {!bypass && TURNSTILE_ENABLED ? (
+            <div className="flex justify-center py-1">
+              {TURNSTILE_SITE_KEY ? (
+                <Turnstile
+                  key={turnstileKey}
+                  siteKey={TURNSTILE_SITE_KEY}
+                  onSuccess={setTurnstileToken}
+                  onExpire={() => setTurnstileToken(null)}
+                  options={{ theme: "light", action: "signup" }}
+                />
+              ) : (
+                <p className="text-sm text-red-700">{t("turnstileMissing")}</p>
+              )}
+            </div>
+          ) : null}
+
           {error && (
             <p className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
               {error}
             </p>
           )}
 
-          <button type="submit" disabled={submitting} className="app-btn-navy w-full">
+          <button
+            type="submit"
+            disabled={
+              submitting ||
+              (!bypass && TURNSTILE_ENABLED && !turnstileToken && Boolean(TURNSTILE_SITE_KEY))
+            }
+            className="app-btn-navy w-full"
+          >
             {submitting ? t("authLoading") : t("signupButton")}
           </button>
 

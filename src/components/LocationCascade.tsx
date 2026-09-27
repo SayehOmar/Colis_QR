@@ -6,6 +6,7 @@ import {
   getRegionLabelKey,
   getRegions,
   primaryPostalCode,
+  resolveCountryCode,
 } from "../data/locations";
 import { useLanguage } from "../i18n/LanguageContext";
 
@@ -185,13 +186,13 @@ export function locationFromStored(fields: {
   city?: string;
   postalCode?: string;
 }): LocationSelection {
-  const country = (fields.country ?? "") as CountryCode | "";
+  const country = resolveCountryCode(fields.country);
   const regionName = fields.regionName ?? "";
   const regions = country ? getRegions(country) : [];
   const region =
     regions.find((r) => r.name === regionName || r.id === regionName) ?? null;
   return {
-    country: COUNTRY_OPTIONS.some((o) => o.code === country) ? country : "",
+    country,
     regionId: region?.id ?? "",
     regionName: region?.name ?? regionName,
     city: fields.city ?? "",

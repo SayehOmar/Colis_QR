@@ -144,7 +144,7 @@ export function primaryPostalCode(postalCode: string): string {
 
 export function getRegions(country: CountryCode | ""): LocationRegion[] {
   if (!country) return [];
-  return LOCATION_COUNTRIES[country].regions;
+  return LOCATION_COUNTRIES[country]?.regions ?? [];
 }
 
 export function getCities(
@@ -153,7 +153,7 @@ export function getCities(
 ): LocationCity[] {
   if (!country || !regionId) return [];
   return (
-    LOCATION_COUNTRIES[country].regions.find((region) => region.id === regionId)
+    LOCATION_COUNTRIES[country]?.regions.find((region) => region.id === regionId)
       ?.cities ?? []
   );
 }
@@ -162,5 +162,35 @@ export function getRegionLabelKey(
   country: CountryCode | ""
 ): CountryLocationConfig["regionLabelKey"] {
   if (!country) return "locDepartment";
-  return LOCATION_COUNTRIES[country].regionLabelKey;
+  return LOCATION_COUNTRIES[country]?.regionLabelKey ?? "locDepartment";
+}
+
+/** Map stored DB values (codes or common names) to a known country code. */
+export function resolveCountryCode(raw: string | null | undefined): CountryCode | "" {
+  const value = (raw ?? "").trim();
+  if (!value) return "";
+  const upper = value.toUpperCase();
+  if ((Object.keys(LOCATION_COUNTRIES) as CountryCode[]).includes(upper as CountryCode)) {
+    return upper as CountryCode;
+  }
+  const aliases: Record<string, CountryCode> = {
+    france: "FR",
+    germany: "DE",
+    deutschland: "DE",
+    italy: "IT",
+    italie: "IT",
+    italia: "IT",
+    spain: "ES",
+    espagne: "ES",
+    espana: "ES",
+    españa: "ES",
+    tunisia: "TN",
+    tunisie: "TN",
+    algeria: "DZ",
+    algérie: "DZ",
+    algerie: "DZ",
+    morocco: "MA",
+    maroc: "MA",
+  };
+  return aliases[value.toLowerCase()] ?? "";
 }

@@ -23,7 +23,12 @@ interface AuthContextValue {
   token: string | null;
   loading: boolean;
   login: (email: string, password: string) => Promise<AuthUser>;
-  register: (email: string, password: string, name?: string) => Promise<AuthUser>;
+  register: (
+    email: string,
+    password: string,
+    name?: string,
+    turnstileToken?: string
+  ) => Promise<AuthUser>;
   loginWithGoogle: (input: {
     idToken?: string;
     accessToken?: string;
@@ -89,8 +94,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   );
 
   const register = useCallback(
-    async (email: string, password: string, name?: string) => {
-      const result = await authRegister({ email, password, name });
+    async (
+      email: string,
+      password: string,
+      name?: string,
+      turnstileToken?: string
+    ) => {
+      const result = await authRegister({
+        email,
+        password,
+        name,
+        turnstileToken,
+      });
       applyAuth(result.access_token, result.user);
       return result.user;
     },

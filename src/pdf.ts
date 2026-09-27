@@ -5,6 +5,7 @@ import type { ParsedPayloadFields } from "./types";
 const PDF_LABELS = {
   title: "EXPÉDITION TRANSFRONTALIÈRE",
   subtitle: "Logistique Europe / Afrique du Nord",
+  code: "CODE EXPÉDITION",
   sender: "EXPÉDITEUR",
   receiver: "DESTINATAIRE",
   oilLoad: "CHARGEMENT HUILE",
@@ -48,37 +49,46 @@ export async function generateShipmentPdf(
   doc.setFontSize(14);
   doc.text(PDF_LABELS.subtitle, leftPadding, 28);
 
+  if (fields.publicCode) {
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(11);
+    doc.text(PDF_LABELS.code, leftPadding, 36);
+    doc.setFont("courier", "bold");
+    doc.setFontSize(18);
+    doc.text(fields.publicCode, leftPadding, 44);
+  }
+
   doc.setFont("helvetica", "bold");
   doc.setFontSize(14);
-  doc.text(PDF_LABELS.sender, leftPadding, 40);
+  doc.text(PDF_LABELS.sender, leftPadding, 56);
   doc.setFont("helvetica", "normal");
   doc.setFontSize(20);
-  doc.text(fields.senderName, leftPadding, 50);
+  doc.text(fields.senderName, leftPadding, 66);
   doc.setFontSize(14);
-  doc.text(fields.senderPhone, leftPadding, 58);
+  doc.text(fields.senderPhone, leftPadding, 74);
   if (fields.idDocNumber) {
     doc.setFontSize(12);
     doc.text(
       `${fields.idDocType === "cin" ? "CIN" : "Passport"}: ${fields.idDocNumber}`,
       leftPadding,
-      66
+      82
     );
   }
 
   doc.setFont("helvetica", "bold");
   doc.setFontSize(14);
-  doc.text(PDF_LABELS.receiver, leftPadding, 78);
+  doc.text(PDF_LABELS.receiver, leftPadding, 94);
   doc.setFont("helvetica", "normal");
   doc.setFontSize(20);
-  doc.text(fields.receiverName, leftPadding, 88);
+  doc.text(fields.receiverName, leftPadding, 104);
   doc.setFontSize(14);
-  doc.text(fields.receiverPhone, leftPadding, 96);
+  doc.text(fields.receiverPhone, leftPadding, 112);
   doc.setFontSize(12);
-  doc.text(fields.address, leftPadding, 106, {
+  doc.text(fields.address, leftPadding, 122, {
     maxWidth: dividerX - leftPadding - 10,
   });
 
-  let y = 128;
+  let y = 140;
   doc.setFont("helvetica", "bold");
   doc.setFontSize(14);
   doc.text(PDF_LABELS.items, leftPadding, y);
@@ -100,6 +110,17 @@ export async function generateShipmentPdf(
 
   doc.addImage(qrDataUrl, "PNG", qrX, qrY, qrSize, qrSize);
 
+  if (fields.publicCode) {
+    doc.setFont("courier", "bold");
+    doc.setFontSize(16);
+    doc.text(
+      fields.publicCode,
+      dividerX + pageWidth / 4,
+      qrY - 6,
+      { align: "center" }
+    );
+  }
+
   doc.setFont("helvetica", "normal");
   doc.setFontSize(14);
   doc.text(
@@ -109,5 +130,5 @@ export async function generateShipmentPdf(
     { align: "center" }
   );
 
-  doc.save(`expedition-${Date.now()}.pdf`);
+  doc.save(`expedition-${fields.publicCode || Date.now()}.pdf`);
 }

@@ -16,7 +16,7 @@ const FALLBACK_PLANS: BillingPlan[] = [
   {
     id: "monthly",
     label: "Monthly",
-    price_eur: 10,
+    price_eur: 20,
     interval: "month",
     interval_count: 1,
     configured: true,
@@ -24,7 +24,7 @@ const FALLBACK_PLANS: BillingPlan[] = [
   {
     id: "quarterly",
     label: "3 months",
-    price_eur: 26,
+    price_eur: 52,
     interval: "month",
     interval_count: 3,
     configured: true,
@@ -32,7 +32,7 @@ const FALLBACK_PLANS: BillingPlan[] = [
   {
     id: "yearly",
     label: "Yearly",
-    price_eur: 96,
+    price_eur: 192,
     interval: "year",
     interval_count: 1,
     configured: true,

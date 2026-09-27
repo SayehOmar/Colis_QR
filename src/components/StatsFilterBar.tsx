@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { StatsFilter } from "../dashboardAnalytics";
+import { EMPTY_STATS_FILTER, type StatsFilter } from "../dashboardAnalytics";
 import { useLanguage } from "../i18n/LanguageContext";
 
 interface StatsFilterBarProps {
@@ -8,6 +8,8 @@ interface StatsFilterBarProps {
   countries: string[];
   cities: string[];
   compact?: boolean;
+  /** Extra people / ID fields — used on the shipment table filter. */
+  contactFilters?: boolean;
 }
 
 export function StatsFilterBar({
@@ -16,6 +18,7 @@ export function StatsFilterBar({
   countries,
   cities,
   compact,
+  contactFilters = false,
 }: StatsFilterBarProps) {
   const { t } = useLanguage();
   const [open, setOpen] = useState(false);
@@ -26,7 +29,13 @@ export function StatsFilterBar({
     Boolean(filter.dateFrom) ||
     Boolean(filter.dateTo) ||
     Boolean(filter.country) ||
-    Boolean(filter.city);
+    Boolean(filter.city) ||
+    Boolean(filter.senderName) ||
+    Boolean(filter.receiverName) ||
+    Boolean(filter.senderPhone) ||
+    Boolean(filter.receiverPhone) ||
+    Boolean(filter.idDocType) ||
+    Boolean(filter.idDocNumber);
 
   return (
     <div className={compact ? "mb-2" : "mb-3"}>
@@ -54,9 +63,7 @@ export function StatsFilterBar({
             </span>
             <button
               type="button"
-              onClick={() =>
-                onChange({ dateFrom: "", dateTo: "", country: "", city: "" })
-              }
+              onClick={() => onChange({ ...EMPTY_STATS_FILTER })}
               className="text-[10px] font-semibold text-on-surface-variant hover:text-secondary hover:underline"
             >
               {t("dashFilterClear")}
@@ -123,6 +130,79 @@ export function StatsFilterBar({
               </select>
             </label>
           </div>
+
+          {contactFilters ? (
+            <div
+              className={`mt-2 grid gap-2 border-t border-outline-variant/40 pt-2 ${
+                compact ? "grid-cols-2" : "grid-cols-2 sm:grid-cols-3"
+              }`}
+            >
+              <label className="block text-[10px] font-medium text-on-surface-variant">
+                {t("senderName")}
+                <input
+                  type="text"
+                  value={filter.senderName}
+                  onChange={(e) => set({ senderName: e.target.value })}
+                  className="app-input mt-0.5 !py-1.5 text-xs"
+                  placeholder={t("senderName")}
+                />
+              </label>
+              <label className="block text-[10px] font-medium text-on-surface-variant">
+                {t("receiverName")}
+                <input
+                  type="text"
+                  value={filter.receiverName}
+                  onChange={(e) => set({ receiverName: e.target.value })}
+                  className="app-input mt-0.5 !py-1.5 text-xs"
+                  placeholder={t("receiverName")}
+                />
+              </label>
+              <label className="block text-[10px] font-medium text-on-surface-variant">
+                {t("senderPhone")}
+                <input
+                  type="text"
+                  inputMode="tel"
+                  value={filter.senderPhone}
+                  onChange={(e) => set({ senderPhone: e.target.value })}
+                  className="app-input mt-0.5 !py-1.5 text-xs"
+                  placeholder={t("senderPhone")}
+                />
+              </label>
+              <label className="block text-[10px] font-medium text-on-surface-variant">
+                {t("receiverPhone")}
+                <input
+                  type="text"
+                  inputMode="tel"
+                  value={filter.receiverPhone}
+                  onChange={(e) => set({ receiverPhone: e.target.value })}
+                  className="app-input mt-0.5 !py-1.5 text-xs"
+                  placeholder={t("receiverPhone")}
+                />
+              </label>
+              <label className="block text-[10px] font-medium text-on-surface-variant">
+                {t("dashFilterIdDocType")}
+                <select
+                  value={filter.idDocType}
+                  onChange={(e) => set({ idDocType: e.target.value })}
+                  className="app-input mt-0.5 !py-1.5 text-xs"
+                >
+                  <option value="">{t("dashFilterAll")}</option>
+                  <option value="cin">{t("idCin")}</option>
+                  <option value="passport">{t("idPassport")}</option>
+                </select>
+              </label>
+              <label className="block text-[10px] font-medium text-on-surface-variant">
+                {t("dashFilterIdDocNumber")}
+                <input
+                  type="text"
+                  value={filter.idDocNumber}
+                  onChange={(e) => set({ idDocNumber: e.target.value })}
+                  className="app-input mt-0.5 !py-1.5 text-xs"
+                  placeholder={t("dashFilterIdDocNumber")}
+                />
+              </label>
+            </div>
+          ) : null}
         </div>
       ) : null}
     </div>

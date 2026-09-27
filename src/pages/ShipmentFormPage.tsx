@@ -15,6 +15,7 @@ import { validateShipmentPartyFields } from "../formValidation";
 import { useLanguage } from "../i18n/LanguageContext";
 import { buildAddressLine, buildPayloadString, parsePayloadString } from "../payload";
 import { generateShipmentPdf } from "../pdf";
+import { generateShipmentCode } from "../shipmentCode";
 import {
   cacheCustomShipmentItem,
   loadAllShipmentItems,
@@ -40,6 +41,7 @@ const initialForm: ShipmentFormData = {
   address: "",
   oilLiters: "0",
   estimateWeightKg: "",
+  publicCode: "",
   items: [],
   idDocType: "cin",
   idDocNumber: "",
@@ -221,7 +223,8 @@ export default function ShipmentFormPage() {
 
     setIsGenerating(true);
     try {
-      const payload = buildPayloadString(form);
+      const publicCode = generateShipmentCode();
+      const payload = buildPayloadString({ ...form, publicCode });
       const parsed = parsePayloadString(payload);
       await generateShipmentPdf(payload, parsed);
       setForm(initialForm);

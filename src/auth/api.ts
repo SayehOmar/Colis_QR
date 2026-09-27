@@ -46,11 +46,17 @@ export async function authRegister(input: {
   email: string;
   password: string;
   name?: string;
+  turnstileToken?: string;
 }): Promise<AuthResponse> {
   const response = await fetch(`${apiBaseUrl}/auth/register`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(input),
+    body: JSON.stringify({
+      email: input.email,
+      password: input.password,
+      name: input.name ?? "",
+      turnstile_token: input.turnstileToken ?? "",
+    }),
   });
   if (!response.ok) {
     throw new Error(await parseError(response));

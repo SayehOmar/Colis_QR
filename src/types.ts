@@ -15,6 +15,8 @@ export interface ShipmentFormData {
   oilLiters: string;
   /** Client-declared estimated weight (kg), encoded in QR. */
   estimateWeightKg: string;
+  /** Unique 12-char alphanumeric code printed on PDF / QR. */
+  publicCode: string;
   items: string[];
   idDocType: "passport" | "cin";
   idDocNumber: string;
@@ -28,6 +30,7 @@ export interface ParsedPayloadFields {
   address: string;
   oilLiters: number;
   estimateWeightKg: number;
+  publicCode: string;
   items: string[];
   idDocType: "passport" | "cin" | "";
   idDocNumber: string;
@@ -37,8 +40,17 @@ export interface ParsedPayloadFields {
   postalCode: string;
 }
 
+export interface FieldEdit {
+  field: string;
+  initialValue: string;
+  previousValue: string;
+  editedAt: string;
+}
+
 export interface Shipment {
   id: number;
+  publicCode: string;
+  scannerId: number | null;
   senderName: string;
   senderPhone: string;
   receiverName: string;
@@ -58,6 +70,7 @@ export interface Shipment {
   items: string;
   idDocType: string;
   idDocNumber: string;
+  fieldEdits: FieldEdit[];
 }
 
 export interface ShipmentsQueryResult {

@@ -332,11 +332,15 @@ function OrdersPanel({
   loading: boolean;
 }) {
   const { t } = useLanguage();
+  // Backend already caps at 100; keep a hard UI cap for expand performance.
+  const visible = shipments.slice(0, 100);
   return (
     <div className="h-full min-h-0 overflow-auto">
       <table className="w-max min-w-full border-separate border-spacing-0 text-sm">
         <thead className="bg-primary text-left text-xs uppercase tracking-wide text-white">
           <tr>
+            <th className="sticky top-0 z-10 bg-primary px-3 py-3">{t("shipmentCode")}</th>
+            <th className="sticky top-0 z-10 bg-primary px-3 py-3">{t("scannerId")}</th>
             <th className="sticky top-0 z-10 bg-primary px-3 py-3" colSpan={2}>
               {t("senderDetails")}
             </th>
@@ -359,6 +363,8 @@ function OrdersPanel({
             <th className="sticky top-0 z-10 bg-primary px-3 py-3">{t("editCount")}</th>
           </tr>
           <tr className="bg-slate-800 text-[10px] normal-case text-slate-200">
+            <th className="sticky top-10 z-10 min-w-[8rem] bg-slate-800 px-3 py-2" />
+            <th className="sticky top-10 z-10 min-w-[5rem] bg-slate-800 px-3 py-2" />
             <th className="sticky top-10 z-10 min-w-[9rem] bg-slate-800 px-3 py-2">{t("name")}</th>
             <th className="sticky top-10 z-10 min-w-[8rem] bg-slate-800 px-3 py-2">{t("phone")}</th>
             <th className="sticky top-10 z-10 min-w-[9rem] bg-slate-800 px-3 py-2">{t("name")}</th>
@@ -381,97 +387,123 @@ function OrdersPanel({
           </tr>
         </thead>
         <tbody className="divide-y divide-outline-variant/30 bg-white">
-          {shipments.length === 0 ? (
+          {visible.length === 0 ? (
             <tr>
-              <td colSpan={19} className="px-4 py-10 text-center text-on-surface-variant">
+              <td colSpan={21} className="px-4 py-10 text-center text-on-surface-variant">
                 {loading ? t("loading") : t("noShipments")}
               </td>
             </tr>
           ) : (
-            shipments.map((shipment) => (
+            visible.map((shipment) => {
+              const editByField = Object.fromEntries(
+                (shipment.fieldEdits ?? []).map((e) => [e.field, e]),
+              );
+              return (
               <tr key={shipment.id} className="align-top hover:bg-surface-container-low/60">
+                <td className="whitespace-nowrap px-3 py-3 align-top font-mono text-xs font-bold text-primary">
+                  {shipment.publicCode || "—"}
+                </td>
+                <td className="whitespace-nowrap px-3 py-3 align-top text-on-surface-variant">
+                  {shipment.scannerId ?? "—"}
+                </td>
                 <EditableCell
                   shipmentId={shipment.id}
                   field="senderName"
                   value={shipment.senderName}
+                  edit={editByField.senderName}
                   className="font-medium"
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="senderPhone"
                   value={shipment.senderPhone}
+                  edit={editByField.senderPhone}
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="receiverName"
                   value={shipment.receiverName}
+                  edit={editByField.receiverName}
                   className="font-medium"
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="receiverPhone"
                   value={shipment.receiverPhone}
+                  edit={editByField.receiverPhone}
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="country"
                   value={shipment.country || ""}
+                  edit={editByField.country}
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="regionName"
                   value={shipment.regionName || ""}
+                  edit={editByField.regionName}
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="city"
                   value={shipment.city || ""}
+                  edit={editByField.city}
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="postalCode"
                   value={shipment.postalCode || ""}
+                  edit={editByField.postalCode}
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="address"
                   value={shipment.address}
+                  edit={editByField.address}
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="items"
                   value={(shipment.items || "").replace(/,/g, ", ")}
+                  edit={editByField.items}
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="idDocType"
                   value={shipment.idDocType || ""}
+                  edit={editByField.idDocType}
                   className="uppercase"
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="idDocNumber"
                   value={shipment.idDocNumber || ""}
+                  edit={editByField.idDocNumber}
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="oilLiters"
                   value={shipment.oilLiters}
+                  edit={editByField.oilLiters}
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="estimateWeightKg"
                   value={shipment.estimateWeightKg ?? 0}
+                  edit={editByField.estimateWeightKg}
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="weightKg"
                   value={shipment.weightKg}
+                  edit={editByField.weightKg}
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="tariffAmount"
                   value={shipment.tariffAmount}
+                  edit={editByField.tariffAmount}
                 />
                 <td className="whitespace-nowrap px-3 py-3 align-top text-on-surface-variant">
                   {shipment.timestamp}
@@ -483,7 +515,8 @@ function OrdersPanel({
                   {shipment.editCount}
                 </td>
               </tr>
-            ))
+              );
+            })
           )}
         </tbody>
       </table>
@@ -688,6 +721,7 @@ export default function DashboardPage() {
                 onChange={ordersFilter.setFilter}
                 countries={ordersFilter.countries}
                 cities={ordersFilter.cities}
+                contactFilters
               />
             </div>
             <div className="max-h-[28rem]">
@@ -891,6 +925,7 @@ export default function DashboardPage() {
                     onChange={ordersFilter.setFilter}
                     countries={ordersFilter.countries}
                     cities={ordersFilter.cities}
+                    contactFilters
                   />
                   <div className="min-h-0 flex-1">
                     <OrdersPanel shipments={ordersFilter.filtered} loading={loading} />

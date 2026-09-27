@@ -1,4 +1,9 @@
 import type { ParsedPayloadFields, ShipmentFormData } from "./types";
+import {
+  generateShipmentCode,
+  isValidShipmentCode,
+  normalizeShipmentCode,
+} from "./shipmentCode";
 
 /** Core fields kept for phone-app compatibility; extras are optional trailing fields. */
 const PAYLOAD_CORE_FIELDS = 6;
@@ -26,6 +31,9 @@ export function buildPayloadString(data: ShipmentFormData): string {
   const address = data.address.trim() || buildAddressLine(data);
   const items = data.items.map((item) => item.trim()).filter(Boolean).join(",");
   const idDoc = `${data.idDocType}:${data.idDocNumber.trim()}`;
+  const publicCode = isValidShipmentCode(data.publicCode)
+    ? normalizeShipmentCode(data.publicCode)
+    : generateShipmentCode();
   return [
     data.senderName.trim(),
     data.senderPhone.trim(),
@@ -40,6 +48,7 @@ export function buildPayloadString(data: ShipmentFormData): string {
     data.city.trim(),
     data.postalCode.trim(),
     String(estimateWeightKg),
+    publicCode,
   ].join("|");
 }
 
@@ -68,6 +77,11 @@ export function parsePayloadString(payload: string): ParsedPayloadFields {
     idDocNumber = rest.join(":").trim();
   }
 
+  const rawCode = parts[13]?.trim() ?? "";
+  const publicCode = isValidShipmentCode(rawCode)
+    ? normalizeShipmentCode(rawCode)
+    : "";
+
   return {
     senderName: parts[0]!.trim(),
     senderPhone: parts[1]!.trim(),
@@ -85,6 +99,7 @@ export function parsePayloadString(payload: string): ParsedPayloadFields {
     estimateWeightKg: parts[12]
       ? parseNonNegative(parts[12], "Estimate weight")
       : 0,
+    publicCode,
   };
 }
 

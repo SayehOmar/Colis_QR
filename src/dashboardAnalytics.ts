@@ -42,6 +42,12 @@ export interface StatsFilter {
   dateTo: string;
   country: string;
   city: string;
+  senderName: string;
+  receiverName: string;
+  senderPhone: string;
+  receiverPhone: string;
+  idDocType: string;
+  idDocNumber: string;
 }
 
 export const EMPTY_STATS_FILTER: StatsFilter = {
@@ -49,6 +55,12 @@ export const EMPTY_STATS_FILTER: StatsFilter = {
   dateTo: "",
   country: "",
   city: "",
+  senderName: "",
+  receiverName: "",
+  senderPhone: "",
+  receiverPhone: "",
+  idDocType: "",
+  idDocNumber: "",
 };
 
 function shipmentDay(timestamp: string): string {
@@ -60,12 +72,28 @@ function shipmentDay(timestamp: string): string {
   return trimmed.match(/^(\d{4}-\d{2}-\d{2})/)?.[1] ?? "";
 }
 
+function includesNorm(haystack: string, needle: string): boolean {
+  return haystack.trim().toLowerCase().includes(needle.trim().toLowerCase());
+}
+
+function phoneIncludes(haystack: string, needle: string): boolean {
+  const n = needle.replace(/\D/g, "");
+  if (!n) return includesNorm(haystack, needle);
+  return haystack.replace(/\D/g, "").includes(n);
+}
+
 export function filterShipments(
   shipments: Shipment[],
   filter: StatsFilter
 ): Shipment[] {
   const country = filter.country.trim().toLowerCase();
   const city = filter.city.trim().toLowerCase();
+  const senderName = filter.senderName.trim();
+  const receiverName = filter.receiverName.trim();
+  const senderPhone = filter.senderPhone.trim();
+  const receiverPhone = filter.receiverPhone.trim();
+  const idDocType = filter.idDocType.trim().toLowerCase();
+  const idDocNumber = filter.idDocNumber.trim();
   return shipments.filter((s) => {
     const day = shipmentDay(s.timestamp);
     if (filter.dateFrom && day && day < filter.dateFrom) return false;
@@ -77,6 +105,16 @@ export function filterShipments(
     if (city) {
       const place = resolveShipmentPlace(s);
       if (!place.city.toLowerCase().includes(city)) return false;
+    }
+    if (senderName && !includesNorm(s.senderName, senderName)) return false;
+    if (receiverName && !includesNorm(s.receiverName, receiverName)) return false;
+    if (senderPhone && !phoneIncludes(s.senderPhone, senderPhone)) return false;
+    if (receiverPhone && !phoneIncludes(s.receiverPhone, receiverPhone)) return false;
+    if (idDocType && (s.idDocType || "").trim().toLowerCase() !== idDocType) {
+      return false;
+    }
+    if (idDocNumber && !includesNorm(s.idDocNumber || "", idDocNumber)) {
+      return false;
     }
     return true;
   });
