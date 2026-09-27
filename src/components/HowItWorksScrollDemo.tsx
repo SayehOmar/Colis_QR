@@ -5,10 +5,6 @@ import { useLanguage } from "../i18n/LanguageContext";
 import type { TranslationKey } from "../i18n/translations";
 import "./how-it-works-scroll-demo.css";
 
-const APK_QR_URL =
-  apkDownloadUrl ||
-  "https://www.mediafire.com/file/8i2lx0n87cc6gmh/CrossMed.apk/file";
-
 const STEP_TITLE_KEYS = [
   "hiwAnimStep1",
   "hiwAnimStep2",
@@ -307,9 +303,35 @@ export function HowItWorksScrollDemo() {
                 <img className="get-app-logo" src="/logo.svg" alt="CrossMed" />
                 <div className="get-app-qr-wrap">
                   <div className="get-app-qr">
-                    <QRCodeSVG value={APK_QR_URL} size={156} includeMargin />
+                    {apkDownloadUrl ? (
+                      <QRCodeSVG
+                        value={apkDownloadUrl}
+                        size={148}
+                        includeMargin
+                      />
+                    ) : (
+                      <div className="get-app-qr-placeholder">
+                        <span
+                          className="material-symbols-outlined"
+                          aria-hidden
+                        >
+                          qr_code_2
+                        </span>
+                        <p>{t("profileAppQrPlaceholder")}</p>
+                      </div>
+                    )}
                   </div>
                   <p className="get-app-hint">{t("hiwScanApp")}</p>
+                  {apkDownloadUrl ? (
+                    <a
+                      href={apkDownloadUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="get-app-link"
+                    >
+                      Manual Download Link
+                    </a>
+                  ) : null}
                 </div>
               </div>
             </div>
