@@ -235,7 +235,7 @@ export function HowItWorksScrollDemo() {
               <div className="waybill-data">
                 <div className="row">
                   <span>{t("hiwWaybillSender")}</span>
-                  <b>Omar Essayeh</b>
+                  <b>Omar SAYEH</b>
                 </div>
                 <div className="row">
                   <span>{t("hiwWaybillReceiver")}</span>
@@ -311,10 +311,7 @@ export function HowItWorksScrollDemo() {
                       />
                     ) : (
                       <div className="get-app-qr-placeholder">
-                        <span
-                          className="material-symbols-outlined"
-                          aria-hidden
-                        >
+                        <span className="material-symbols-outlined" aria-hidden>
                           qr_code_2
                         </span>
                         <p>{t("profileAppQrPlaceholder")}</p>
