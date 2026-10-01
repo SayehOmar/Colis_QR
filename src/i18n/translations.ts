@@ -206,7 +206,7 @@ export const translations = {
     landingPricingSupport:
       "Après l’essai gratuit, choisissez le plan qui correspond à votre volume.",
     landingPricingPopular: "Populaire",
-    landingPriceF1: "Scanner codes-barres app mobile",
+    landingPriceF1: "Scanner QR app mobile",
     landingPriceF2: "Tableau de bord opérations live",
     landingPriceF3: "Scans Europe–Afrique du Nord illimités",
     landingPriceF4: "Toutes les fonctionnalités incluses",
@@ -328,6 +328,8 @@ export const translations = {
     cancel: "Annuler",
     clickToEdit: "Cliquer pour modifier",
     saveCell: "Enregistrer",
+    copyCell: "Copier",
+    copiedCell: "Copié",
     cellEdited: "Cellule modifiée",
     initialValue: "Valeur initiale",
     previousValue: "Dernière valeur avant modification",
@@ -422,6 +424,47 @@ export const translations = {
       "Placez le QR sur un téléphone pour installer l’app de scan QR.",
     profileAppQrConfigHint:
       "Configurez VITE_APK_URL pour afficher le vrai lien d’installation.",
+    roleChoiceTitle: "Choisissez votre profil",
+    shipmentFormTitle: "Enregistrer une expédition",
+    breadcrumbHome: "Accueil",
+    breadcrumbStart: "Profil",
+    breadcrumbClient: "Expédition",
+    breadcrumbLogin: "Connexion",
+    breadcrumbSignup: "Inscription",
+    breadcrumbBilling: "Tarifs",
+    breadcrumbProfile: "Profil",
+    breadcrumbDashboard: "Tableau de bord",
+    breadcrumbNotFound: "Page introuvable",
+    notFoundTitle: "Page introuvable",
+    notFoundBody:
+      "Cette adresse n’existe pas ou a été déplacée. Revenez à l’accueil ou utilisez les liens ci-dessous.",
+    notFoundHome: "Retour à l’accueil",
+    seoHomeTitle: "CrossMed — Logistique QR Europe ↔ Afrique du Nord",
+    seoHomeDescription:
+      "Formulaire client, PDF A4 avec QR, scanner chauffeur et tableau de bord transporteur pour le fret utilitaire Europe–Afrique du Nord.",
+    seoStartTitle: "Choisir un profil — Client ou transporteur",
+    seoStartDescription:
+      "Sélectionnez Client pour enregistrer une expédition, ou Transporteur pour accéder au tableau de bord CrossMed.",
+    seoClientTitle: "Enregistrer une expédition — Formulaire client",
+    seoClientDescription:
+      "Créez une expédition Europe–Afrique du Nord et générez un PDF A4 imprimable avec QR CrossMed.",
+    seoLoginTitle: "Connexion transporteur",
+    seoLoginDescription:
+      "Connectez-vous au tableau de bord opérations CrossMed pour suivre et scanner vos expéditions.",
+    seoSignupTitle: "Créer un compte transporteur — Essai 5 jours",
+    seoSignupDescription:
+      "Ouvrez un compte transporteur CrossMed avec 5 jours d’essai gratuit pour le dashboard et l’app téléphone.",
+    seoBillingTitle: "Abonnement transporteur",
+    seoBillingDescription:
+      "Choisissez un plan CrossMed pour accéder au tableau de bord et à l’application téléphone.",
+    seoProfileTitle: "Profil compte",
+    seoProfileDescription:
+      "Gérez votre compte CrossMed, votre abonnement et le téléchargement de l’app téléphone.",
+    seoDashboardTitle: "Tableau de bord opérations",
+    seoDashboardDescription:
+      "Suivi en direct des expéditions CrossMed Europe ↔ Afrique du Nord.",
+    seoNotFoundTitle: "Page introuvable",
+    seoNotFoundDescription: "La page demandée n’existe pas sur CrossMed.",
   },
   en: {
     langName: "English",
@@ -625,7 +668,7 @@ export const translations = {
     landingPricingSupport:
       "After the free trial, pick the plan that matches your volume.",
     landingPricingPopular: "Popular",
-    landingPriceF1: "Mobile app barcode scanner",
+    landingPriceF1: "Mobile app QR code scanner",
     landingPriceF2: "Live operations dashboard",
     landingPriceF3: "Unlimited Europe–North Africa scans",
     landingPriceF4: "All features included",
@@ -747,6 +790,8 @@ export const translations = {
     cancel: "Cancel",
     clickToEdit: "Click to edit",
     saveCell: "Save",
+    copyCell: "Copy",
+    copiedCell: "Copied",
     cellEdited: "Cell edited",
     initialValue: "Initial value",
     previousValue: "Last value before change",
@@ -841,6 +886,47 @@ export const translations = {
       "Point a phone camera at the QR to install the QR scanning app.",
     profileAppQrConfigHint:
       "Set VITE_APK_URL to show the real install link.",
+    roleChoiceTitle: "Choose your profile",
+    shipmentFormTitle: "Register a shipment",
+    breadcrumbHome: "Home",
+    breadcrumbStart: "Role",
+    breadcrumbClient: "Shipment",
+    breadcrumbLogin: "Login",
+    breadcrumbSignup: "Sign up",
+    breadcrumbBilling: "Billing",
+    breadcrumbProfile: "Profile",
+    breadcrumbDashboard: "Dashboard",
+    breadcrumbNotFound: "Not found",
+    notFoundTitle: "Page not found",
+    notFoundBody:
+      "This address does not exist or has moved. Go back home or use the links below.",
+    notFoundHome: "Back to home",
+    seoHomeTitle: "CrossMed — Europe ↔ North Africa QR Logistics",
+    seoHomeDescription:
+      "Client intake, printable A4 QR labels, driver phone scanning, and carrier dashboard for Europe–North Africa van freight.",
+    seoStartTitle: "Choose a profile — Client or carrier",
+    seoStartDescription:
+      "Select Client to register a shipment, or Carrier to open the CrossMed operations dashboard.",
+    seoClientTitle: "Register a shipment — Client form",
+    seoClientDescription:
+      "Create a Europe–North Africa shipment and generate a printable A4 PDF with CrossMed QR.",
+    seoLoginTitle: "Carrier login",
+    seoLoginDescription:
+      "Sign in to the CrossMed operations dashboard to track and scan shipments.",
+    seoSignupTitle: "Create carrier account — 5-day free trial",
+    seoSignupDescription:
+      "Open a CrossMed carrier account with a 5-day free trial for the dashboard and phone app.",
+    seoBillingTitle: "Carrier subscription",
+    seoBillingDescription:
+      "Choose a CrossMed plan for dashboard and phone app access.",
+    seoProfileTitle: "Account profile",
+    seoProfileDescription:
+      "Manage your CrossMed account, subscription, and phone app download.",
+    seoDashboardTitle: "Operations dashboard",
+    seoDashboardDescription:
+      "Live CrossMed shipment tracking for Europe ↔ North Africa corridors.",
+    seoNotFoundTitle: "Page not found",
+    seoNotFoundDescription: "The requested page does not exist on CrossMed.",
   },
   ar: {
     langName: "العربية",
@@ -1037,7 +1123,7 @@ export const translations = {
     landingPricingTitle: "أسعار الناقل",
     landingPricingSupport: "بعد التجربة المجانية، اختر الخطة المناسبة لحجم عملك.",
     landingPricingPopular: "الأكثر شعبية",
-    landingPriceF1: "ماسح باركود لتطبيق الجوال",
+    landingPriceF1: "ماسح QR لتطبيق الجوال",
     landingPriceF2: "لوحة عمليات مباشرة",
     landingPriceF3: "عمليات مسح غير محدودة أوروبا–شمال أفريقيا",
     landingPriceF4: "جميع الميزات مشمولة",
@@ -1159,6 +1245,8 @@ export const translations = {
     cancel: "إلغاء",
     clickToEdit: "انقر للتعديل",
     saveCell: "حفظ",
+    copyCell: "نسخ",
+    copiedCell: "تم النسخ",
     cellEdited: "تم تعديل الخلية",
     initialValue: "القيمة الأصلية",
     previousValue: "آخر قيمة قبل التعديل",
@@ -1253,6 +1341,47 @@ export const translations = {
       "وجّه كاميرا الهاتف إلى الرمز لتثبيت تطبيق مسح QR.",
     profileAppQrConfigHint:
       "اضبط VITE_APK_URL لإظهار رابط التثبيت الحقيقي.",
+    roleChoiceTitle: "اختر ملفك",
+    shipmentFormTitle: "تسجيل شحنة",
+    breadcrumbHome: "الرئيسية",
+    breadcrumbStart: "الملف",
+    breadcrumbClient: "الشحنة",
+    breadcrumbLogin: "تسجيل الدخول",
+    breadcrumbSignup: "إنشاء حساب",
+    breadcrumbBilling: "الفوترة",
+    breadcrumbProfile: "الملف الشخصي",
+    breadcrumbDashboard: "لوحة التحكم",
+    breadcrumbNotFound: "غير موجود",
+    notFoundTitle: "الصفحة غير موجودة",
+    notFoundBody:
+      "هذا العنوان غير موجود أو نُقل. عد إلى الرئيسية أو استخدم الروابط أدناه.",
+    notFoundHome: "العودة إلى الرئيسية",
+    seoHomeTitle: "CrossMed — لوجستيات QR أوروبا ↔ شمال أفريقيا",
+    seoHomeDescription:
+      "نموذج عميل، ملصق PDF A4 مع QR، مسح هاتف السائق ولوحة تحكم الناقل لشحن الشاحنات بين أوروبا وشمال أفريقيا.",
+    seoStartTitle: "اختر ملفًا — عميل أو ناقل",
+    seoStartDescription:
+      "اختر عميلًا لتسجيل شحنة، أو ناقلًا للوصول إلى لوحة عمليات CrossMed.",
+    seoClientTitle: "تسجيل شحنة — نموذج العميل",
+    seoClientDescription:
+      "أنشئ شحنة أوروبا–شمال أفريقيا وأنشئ PDF A4 قابلًا للطباعة مع QR من CrossMed.",
+    seoLoginTitle: "تسجيل دخول الناقل",
+    seoLoginDescription:
+      "سجّل الدخول إلى لوحة عمليات CrossMed لمتابعة ومسح الشحنات.",
+    seoSignupTitle: "إنشاء حساب ناقل — تجربة 5 أيام",
+    seoSignupDescription:
+      "افتح حساب ناقل CrossMed مع تجربة مجانية 5 أيام للوحة التحكم وتطبيق الهاتف.",
+    seoBillingTitle: "اشتراك الناقل",
+    seoBillingDescription:
+      "اختر خطة CrossMed للوصول إلى لوحة التحكم وتطبيق الهاتف.",
+    seoProfileTitle: "ملف الحساب",
+    seoProfileDescription:
+      "أدر حساب CrossMed والاشتراك وتنزيل تطبيق الهاتف.",
+    seoDashboardTitle: "لوحة التحكم التشغيلية",
+    seoDashboardDescription:
+      "متابعة مباشرة لشحنات CrossMed بين أوروبا وشمال أفريقيا.",
+    seoNotFoundTitle: "الصفحة غير موجودة",
+    seoNotFoundDescription: "الصفحة المطلوبة غير موجودة على CrossMed.",
   },
 } as const;
 

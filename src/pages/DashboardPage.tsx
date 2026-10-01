@@ -3,9 +3,12 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
 import { AddShipmentModal } from "../components/AddShipmentModal";
+import { Breadcrumbs } from "../components/Breadcrumbs";
+import { StaticCopyCell } from "../components/CellCopyButton";
 import { EditableCell } from "../components/EditableCell";
 import { ExpandIcon } from "../components/ExpandIcon";
 import { LanguageSwitcher } from "../components/LanguageSwitcher";
+import { PageSeo } from "../components/PageSeo";
 import { PageSkeleton, usePageSkeleton } from "../components/PageSkeleton";
 import { CalendarNotesFab } from "../components/CalendarNotesFab";
 import { DayNotesPreview } from "../components/DayNotesPreview";
@@ -400,12 +403,14 @@ function OrdersPanel({
               );
               return (
               <tr key={shipment.id} className="align-top hover:bg-surface-container-low/60">
-                <td className="whitespace-nowrap px-3 py-3 align-top font-mono text-xs font-bold text-primary">
-                  {shipment.publicCode || "—"}
-                </td>
-                <td className="whitespace-nowrap px-3 py-3 align-top text-on-surface-variant">
-                  {shipment.scannerId ?? "—"}
-                </td>
+                <StaticCopyCell
+                  value={shipment.publicCode || "—"}
+                  className="whitespace-nowrap font-mono text-xs font-bold text-primary"
+                />
+                <StaticCopyCell
+                  value={shipment.scannerId ?? "—"}
+                  className="whitespace-nowrap text-on-surface-variant"
+                />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="senderName"
@@ -505,15 +510,18 @@ function OrdersPanel({
                   value={shipment.tariffAmount}
                   edit={editByField.tariffAmount}
                 />
-                <td className="whitespace-nowrap px-3 py-3 align-top text-on-surface-variant">
-                  {shipment.timestamp}
-                </td>
-                <td className="whitespace-nowrap px-3 py-3 align-top text-on-surface-variant">
-                  {shipment.lastEditedAt ?? t("never")}
-                </td>
-                <td className="px-3 py-3 text-center align-top font-semibold text-tertiary">
-                  {shipment.editCount}
-                </td>
+                <StaticCopyCell
+                  value={shipment.timestamp}
+                  className="whitespace-nowrap text-on-surface-variant"
+                />
+                <StaticCopyCell
+                  value={shipment.lastEditedAt ?? t("never")}
+                  className="whitespace-nowrap text-on-surface-variant"
+                />
+                <StaticCopyCell
+                  value={shipment.editCount}
+                  className="text-center font-semibold text-tertiary"
+                />
               </tr>
               );
             })
@@ -579,6 +587,12 @@ export default function DashboardPage() {
 
   return (
     <div className="app-page relative">
+      <PageSeo
+        title={t("seoDashboardTitle")}
+        description={t("seoDashboardDescription")}
+        path="/dashboard"
+        noindex
+      />
       {/* Left stats drawer */}
       {drawerOpen && (
         <button
@@ -644,13 +658,23 @@ export default function DashboardPage() {
               <Icon name="menu" className="text-[22px]" />
             </button>
             <div>
+              <Breadcrumbs
+                className="mb-1"
+                items={[
+                  { label: t("breadcrumbHome"), to: "/" },
+                  { label: t("breadcrumbDashboard") },
+                ]}
+              />
               <div className="flex items-center gap-2">
-                <span className="text-lg font-extrabold tracking-tight text-primary">
-                  {t("brandName")}
-                </span>
-                <span className="hidden text-xs font-semibold text-on-surface-variant sm:inline">
-                  · {t("dashboardTitle")}
-                </span>
+                <h1 className="text-lg font-extrabold tracking-tight text-on-surface">
+                  <Link to="/" className="text-primary hover:underline">
+                    {t("brandName")}
+                  </Link>
+                  <span className="text-on-surface-variant">
+                    {" "}
+                    · {t("dashboardTitle")}
+                  </span>
+                </h1>
               </div>
               <p className="text-sm text-on-surface-variant">{t("dashboardSubtitle")}</p>
               {user ? (

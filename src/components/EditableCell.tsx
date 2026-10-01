@@ -1,6 +1,7 @@
 import { useMutation } from "@apollo/client";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { CellCopyButton } from "./CellCopyButton";
 import { SHIPMENTS_QUERY, UPDATE_SHIPMENT_CELL } from "../graphql";
 import { useLanguage } from "../i18n/LanguageContext";
 import type { FieldEdit } from "../types";
@@ -106,13 +107,19 @@ export function EditableCell({
 
   return (
     <td
-      className={`relative cursor-pointer px-3 py-3 align-top text-sm leading-relaxed text-on-surface hover:bg-amber-50 ${className}`}
+      className={`group relative cursor-pointer px-3 py-3 align-top text-sm leading-relaxed text-on-surface hover:bg-amber-50 ${className}`}
       title={t("clickToEdit")}
       onClick={startEdit}
     >
-      <span className="block whitespace-pre-wrap break-words pr-3">
-        {value === "" ? "—" : value}
-      </span>
+      <div className="flex items-start gap-1.5 pr-3">
+        <span className="min-w-0 flex-1 whitespace-pre-wrap break-words">
+          {value === "" ? "—" : value}
+        </span>
+        <CellCopyButton
+          text={value}
+          className="opacity-70 group-hover:opacity-100"
+        />
+      </div>
       {edit ? (
         <span
           ref={tipAnchorRef}

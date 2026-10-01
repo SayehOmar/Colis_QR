@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { HowItWorksScrollDemo } from "../components/HowItWorksScrollDemo";
 import { LanguageSwitcher } from "../components/LanguageSwitcher";
+import { PageSeo } from "../components/PageSeo";
 import { useLanguage } from "../i18n/LanguageContext";
 
 function Icon({ name, className = "" }: { name: string; className?: string }) {
@@ -62,6 +63,11 @@ export default function LandingPage() {
 
   return (
     <div className="landing-page bg-surface font-sans text-on-surface antialiased selection:bg-tertiary/15 selection:text-tertiary">
+      <PageSeo
+        title={t("seoHomeTitle")}
+        description={t("seoHomeDescription")}
+        path="/"
+      />
       <header className="sticky top-0 z-50 w-full border-b border-outline-variant/40 bg-surface/90 backdrop-blur-md">
         <div className="mx-auto flex h-14 w-full max-w-[1400px] items-center gap-2 px-3 sm:h-16 sm:gap-4 sm:px-6 lg:gap-6 lg:px-8">
           <Link
@@ -733,8 +739,10 @@ export default function LandingPage() {
                   <ul className="mb-6 space-y-2 text-xs text-on-surface-variant">
                     {(
                       [
+                        "landingPriceF1",
+                        "landingPriceF2",
+                        "landingPriceF3",
                         "landingPriceF4",
-                        "landingPriceF5",
                         "landingPriceF6",
                       ] as const
                     ).map((key) => (
@@ -778,8 +786,10 @@ export default function LandingPage() {
                   <ul className="mb-6 space-y-2 text-xs text-on-surface-variant">
                     {(
                       [
+                        "landingPriceF1",
+                        "landingPriceF2",
+                        "landingPriceF3",
                         "landingPriceF7",
-                        "landingPriceF8",
                         "landingPriceF9",
                       ] as const
                     ).map((key) => (
@@ -858,12 +868,18 @@ export default function LandingPage() {
                 </span>
               </div>
             </div>
-            <nav className="flex items-center gap-4 text-xs font-medium text-on-surface-variant">
+            <nav className="flex flex-wrap items-center justify-center gap-4 text-xs font-medium text-on-surface-variant">
               <a
                 className="transition-colors hover:text-on-surface"
                 href="#how-it-works"
               >
                 {t("landingNavHow")}
+              </a>
+              <a
+                className="transition-colors hover:text-on-surface"
+                href="#suite"
+              >
+                {t("landingNavSuite")}
               </a>
               <a
                 className="transition-colors hover:text-on-surface"
@@ -877,6 +893,24 @@ export default function LandingPage() {
               >
                 {t("landingNavPricing")}
               </a>
+              <Link
+                className="transition-colors hover:text-on-surface"
+                to="/client"
+              >
+                {t("landingCtaClient")}
+              </Link>
+              <Link
+                className="transition-colors hover:text-on-surface"
+                to="/start"
+              >
+                {t("breadcrumbStart")}
+              </Link>
+              <Link
+                className="transition-colors hover:text-on-surface"
+                to="/signup"
+              >
+                {t("signupButton")}
+              </Link>
               <Link
                 className="transition-colors hover:text-on-surface"
                 to="/login"

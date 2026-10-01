@@ -3,7 +3,9 @@ import { FormEvent, useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
 import { changePassword, openBillingPortal, updateProfile } from "../auth/api";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 import { LanguageSwitcher } from "../components/LanguageSwitcher";
+import { PageSeo } from "../components/PageSeo";
 import { PasswordField } from "../components/PasswordField";
 import { apkDownloadUrl } from "../config";
 import { useLanguage } from "../i18n/LanguageContext";
@@ -146,11 +148,27 @@ export default function ProfilePage() {
 
   return (
     <div className="app-page">
+      <PageSeo
+        title={t("seoProfileTitle")}
+        description={t("seoProfileDescription")}
+        path="/profile"
+        noindex
+      />
       <header className="sticky top-0 z-20 border-b border-outline-variant/40 bg-surface/95 backdrop-blur-md">
         <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-3 px-4 py-4 sm:px-6">
           <div>
+            <Breadcrumbs
+              className="mb-1"
+              items={[
+                { label: t("breadcrumbHome"), to: "/" },
+                { label: t("breadcrumbDashboard"), to: "/dashboard" },
+                { label: t("breadcrumbProfile") },
+              ]}
+            />
             <p className="text-xs font-semibold uppercase tracking-wide text-on-surface-variant">
-              {t("brandName")}
+              <Link to="/" className="hover:underline">
+                {t("brandName")}
+              </Link>
             </p>
             <h1 className="text-xl font-extrabold text-on-surface">
               {t("profileTitle")}

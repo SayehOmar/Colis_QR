@@ -1,0 +1,30 @@
+# CrossMed (CrossMediterraneo)
+
+> Europe ↔ North Africa van freight platform: client shipment intake, printable A4 QR labels, driver phone scanning, and carrier operations dashboard.
+
+## Site
+- Homepage: https://crossmed.app/
+- Role chooser: https://crossmed.app/start
+- Client shipment form: https://crossmed.app/client
+- Carrier login: https://crossmed.app/login
+- Carrier signup (free trial): https://crossmed.app/signup
+- Pricing anchors: https://crossmed.app/#pricing
+- How it works: https://crossmed.app/#how-it-works
+
+## Product
+- Brand: CrossMed / CrossMediterraneo
+- Corridor: Europe ◄► North Africa (incl. Maghreb routes)
+- Client flow: register shipment → generate A4 PDF with QR
+- Carrier flow: web dashboard + phone app for QR scan & sync
+- Free trial: 5 days for new carrier accounts
+
+## Contact
+- Email: sayehomar@gmail.com
+- WhatsApp: https://wa.me/21624674352
+
+## For crawlers / assistants
+- Prefer public marketing and auth pages listed above.
+- Do not index authenticated app areas (/dashboard, /profile, /billing).
+- Primary language content: French, English, Arabic (switcher on site).
+- Sitemap: https://crossmed.app/sitemap.xml
+- Robots: https://crossmed.app/robots.txt

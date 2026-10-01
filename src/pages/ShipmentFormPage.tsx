@@ -1,7 +1,9 @@
 import { Turnstile } from "@marsidev/react-turnstile";
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 import { LanguageSwitcher } from "../components/LanguageSwitcher";
+import { PageSeo } from "../components/PageSeo";
 import { PageSkeleton, usePageSkeleton } from "../components/PageSkeleton";
 import {
   COUNTRY_OPTIONS,
@@ -248,19 +250,42 @@ export default function ShipmentFormPage() {
 
   return (
     <div className="app-page">
+      <PageSeo
+        title={t("seoClientTitle")}
+        description={t("seoClientDescription")}
+        path="/client"
+      />
       <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8">
+        <Breadcrumbs
+          className="mb-4"
+          items={[
+            { label: t("breadcrumbHome"), to: "/" },
+            { label: t("breadcrumbStart"), to: "/start" },
+            { label: t("breadcrumbClient") },
+          ]}
+        />
         <header className="mb-6 flex flex-wrap items-start justify-between gap-4">
           <div>
             <p className="text-sm font-extrabold tracking-tight text-primary">
-              {t("brandName")}
+              <Link to="/" className="hover:underline">
+                {t("brandName")}
+              </Link>
             </p>
             <h1 className="mt-1 text-3xl font-bold tracking-tight text-on-surface">
-              {t("title")}
+              {t("shipmentFormTitle")}
             </h1>
             <p className="app-muted mt-1 max-w-2xl text-sm">{t("subtitle")}</p>
-            <Link to="/" className="mt-2 inline-block text-sm text-secondary hover:underline">
-              {t("backToHome")}
-            </Link>
+            <div className="mt-2 flex flex-wrap gap-3 text-sm">
+              <Link to="/" className="text-secondary hover:underline">
+                {t("backToHome")}
+              </Link>
+              <Link to="/start" className="text-secondary hover:underline">
+                {t("breadcrumbStart")}
+              </Link>
+              <Link to="/login" className="text-secondary hover:underline">
+                {t("operationsLogin")}
+              </Link>
+            </div>
           </div>
           <div className="flex items-center gap-2">
             <LanguageSwitcher variant="light" />

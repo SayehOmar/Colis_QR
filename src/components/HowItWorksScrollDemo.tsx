@@ -101,7 +101,7 @@ export function HowItWorksScrollDemo() {
         typeInto(nameBox, "Omar SAYEH ", Math.min(1, play / 0.28));
         typeInto(
           receiverBox,
-          "Amine Ellouze ",
+          "Foulen Fouleni ",
           Math.min(1, (play - 0.22) / 0.28),
         );
         typeInto(
@@ -239,7 +239,7 @@ export function HowItWorksScrollDemo() {
                 </div>
                 <div className="row">
                   <span>{t("hiwWaybillReceiver")}</span>
-                  <b>Amine Ellouze</b>
+                  <b>Foulen Fouleni </b>
                 </div>
                 <div className="row">
                   <span>{t("hiwWaybillPhone")}</span>

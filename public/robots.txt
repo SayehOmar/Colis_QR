@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Allow: /start
+Allow: /client
+Allow: /login
+Allow: /signup
+
+Disallow: /dashboard
+Disallow: /profile
+Disallow: /billing
+
+Sitemap: https://crossmed.app/sitemap.xml

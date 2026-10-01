@@ -3,8 +3,10 @@ import { FormEvent, useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
 import { postAuthPath } from "../auth/api";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 import { GoogleAuthButton } from "../components/GoogleAuthButton";
 import { LanguageSwitcher } from "../components/LanguageSwitcher";
+import { PageSeo } from "../components/PageSeo";
 import { PageSkeleton, usePageSkeleton } from "../components/PageSkeleton";
 import { PasswordField } from "../components/PasswordField";
 import { isAuthBypassIdentity } from "../config";
@@ -83,9 +85,25 @@ export default function SignupPage() {
 
   return (
     <div className="app-page">
+      <PageSeo
+        title={t("seoSignupTitle")}
+        description={t("seoSignupDescription")}
+        path="/signup"
+      />
       <div className="mx-auto max-w-md px-4 py-10">
+        <Breadcrumbs
+          className="mb-4"
+          items={[
+            { label: t("breadcrumbHome"), to: "/" },
+            { label: t("breadcrumbSignup") },
+          ]}
+        />
         <header className="mb-4 text-center">
-          <p className="text-sm font-extrabold tracking-tight text-primary">{t("brandName")}</p>
+          <p className="text-sm font-extrabold tracking-tight text-primary">
+            <Link to="/" className="hover:underline">
+              {t("brandName")}
+            </Link>
+          </p>
           <h1 className="mt-2 text-2xl font-bold text-on-surface">{t("signupTitle")}</h1>
           <p className="app-muted mt-2 text-sm">{t("signupSubtitle")}</p>
         </header>
@@ -175,6 +193,14 @@ export default function SignupPage() {
           <p className="text-center text-sm">
             <Link to="/" className="app-muted hover:text-on-surface hover:underline">
               {t("backToHome")}
+            </Link>
+            {" · "}
+            <Link to="/start" className="app-muted hover:text-on-surface hover:underline">
+              {t("breadcrumbStart")}
+            </Link>
+            {" · "}
+            <Link to="/#pricing" className="app-muted hover:text-on-surface hover:underline">
+              {t("landingNavPricing")}
             </Link>
           </p>
         </form>

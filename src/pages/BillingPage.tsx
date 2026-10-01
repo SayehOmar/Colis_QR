@@ -7,7 +7,9 @@ import {
   openBillingPortal,
   startCheckout,
 } from "../auth/api";
+import { Breadcrumbs } from "../components/Breadcrumbs";
 import { LanguageSwitcher } from "../components/LanguageSwitcher";
+import { PageSeo } from "../components/PageSeo";
 import { PageSkeleton, usePageSkeleton } from "../components/PageSkeleton";
 import { useLanguage } from "../i18n/LanguageContext";
 import type { TranslationKey } from "../i18n/translations";
@@ -219,16 +221,31 @@ export default function BillingPage() {
 
   return (
     <div className="app-page relative overflow-hidden">
+      <PageSeo
+        title={t("seoBillingTitle")}
+        description={t("seoBillingDescription")}
+        path="/billing"
+        noindex
+      />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(255,122,0,0.08),_transparent_55%),radial-gradient(ellipse_at_bottom_right,_rgba(0,168,168,0.08),_transparent_45%)]"
       />
 
       <div className="relative mx-auto max-w-5xl px-4 py-8 sm:py-12">
+        <Breadcrumbs
+          className="mb-4"
+          items={[
+            { label: t("breadcrumbHome"), to: "/" },
+            { label: t("breadcrumbBilling") },
+          ]}
+        />
         <header className="mb-8 flex flex-wrap items-start justify-between gap-4">
           <div className="max-w-xl">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-tertiary">
-              {t("brandName")}
+              <Link to="/" className="hover:underline">
+                {t("brandName")}
+              </Link>
             </p>
             <h1 className="mt-2 text-3xl font-bold tracking-tight text-on-surface sm:text-4xl">
               {t("billingTitle")}
