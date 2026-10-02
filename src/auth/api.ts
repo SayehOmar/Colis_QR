@@ -6,6 +6,9 @@ export interface AuthUser {
   name: string;
   created_at?: string | null;
   has_access?: boolean;
+  email_verified?: boolean;
+  email_verification_required?: boolean;
+  is_admin?: boolean;
   trial_ends_at?: string | null;
   subscription_status?: string | null;
   subscription_plan?: string | null;
@@ -187,7 +190,32 @@ export async function openBillingPortal(token: string): Promise<string> {
   return data.url;
 }
 
+export async function verifyEmail(token: string): Promise<{ status: string; user?: AuthUser }> {
+  const response = await fetch(`${apiBaseUrl}/auth/verify-email`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ token }),
+  });
+  if (!response.ok) {
+    throw new Error(await parseError(response));
+  }
+  return response.json();
+}
+
+export async function resendVerification(token: string): Promise<void> {
+  const response = await fetch(`${apiBaseUrl}/auth/resend-verification`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (!response.ok) {
+    throw new Error(await parseError(response));
+  }
+}
+
 export function postAuthPath(user: AuthUser): string {
+  if (user.email_verification_required && user.email_verified === false) {
+    return "/verify-email";
+  }
   return user.has_access === false ? "/billing" : "/dashboard";
 }
 

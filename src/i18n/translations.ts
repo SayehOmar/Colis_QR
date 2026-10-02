@@ -424,6 +424,13 @@ export const translations = {
       "Placez le QR sur un téléphone pour installer l’app de scan QR.",
     profileAppQrConfigHint:
       "Configurez VITE_APK_URL pour afficher le vrai lien d’installation.",
+    verifyEmailTitle: "Vérifiez votre e-mail",
+    verifyEmailSupport:
+      "Nous avons envoyé un lien de confirmation. Ouvrez-le pour activer votre compte transporteur.",
+    verifyEmailResend: "Renvoyer l’e-mail",
+    verifyEmailResent: "E-mail de vérification renvoyé.",
+    verifyEmailSuccess: "E-mail vérifié. Redirection…",
+    verifyEmailFailed: "Impossible de vérifier l’e-mail.",
     roleChoiceTitle: "Choisissez votre profil",
     shipmentFormTitle: "Enregistrer une expédition",
     breadcrumbHome: "Accueil",
@@ -886,6 +893,13 @@ export const translations = {
       "Point a phone camera at the QR to install the QR scanning app.",
     profileAppQrConfigHint:
       "Set VITE_APK_URL to show the real install link.",
+    verifyEmailTitle: "Verify your email",
+    verifyEmailSupport:
+      "We sent a confirmation link. Open it to activate your carrier account.",
+    verifyEmailResend: "Resend email",
+    verifyEmailResent: "Verification email resent.",
+    verifyEmailSuccess: "Email verified. Redirecting…",
+    verifyEmailFailed: "Unable to verify email.",
     roleChoiceTitle: "Choose your profile",
     shipmentFormTitle: "Register a shipment",
     breadcrumbHome: "Home",
@@ -1341,6 +1355,13 @@ export const translations = {
       "وجّه كاميرا الهاتف إلى الرمز لتثبيت تطبيق مسح QR.",
     profileAppQrConfigHint:
       "اضبط VITE_APK_URL لإظهار رابط التثبيت الحقيقي.",
+    verifyEmailTitle: "تحقق من بريدك",
+    verifyEmailSupport:
+      "أرسلنا رابط تأكيد. افتحه لتفعيل حساب الناقل.",
+    verifyEmailResend: "إعادة إرسال البريد",
+    verifyEmailResent: "أُعيد إرسال رسالة التحقق.",
+    verifyEmailSuccess: "تم التحقق من البريد. جارٍ التحويل…",
+    verifyEmailFailed: "تعذر التحقق من البريد.",
     roleChoiceTitle: "اختر ملفك",
     shipmentFormTitle: "تسجيل شحنة",
     breadcrumbHome: "الرئيسية",

@@ -194,16 +194,18 @@ export function HowItWorksScrollDemo() {
       {/* Force LTR so Arabic RTL does not flip phone → truck → database */}
       <div className="scroll-container" id="container" dir="ltr">
         <div className="stage" dir="ltr">
-          <div className="step-label" id="stepLabel">
-            {t("hiwStepOf").replace("{n}", "1")}
-            <b>{t("hiwAnimStep1")}</b>
-          </div>
-          <div className="step-dots" id="dots">
-            <span className="active" />
-            <span />
-            <span />
-            <span />
-            <span />
+          <div className="stage-chrome">
+            <div className="step-label" id="stepLabel">
+              {t("hiwStepOf").replace("{n}", "1")}
+              <b>{t("hiwAnimStep1")}</b>
+            </div>
+            <div className="step-dots" id="dots">
+              <span className="active" />
+              <span />
+              <span />
+              <span />
+              <span />
+            </div>
           </div>
 
           <div className="panel" data-step="0">

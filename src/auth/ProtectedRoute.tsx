@@ -5,9 +5,13 @@ import { useAuth } from "./AuthContext";
 export function ProtectedRoute({
   children,
   requireAccess = false,
+  requireVerified = false,
+  requireAdmin = false,
 }: {
   children: React.ReactNode;
   requireAccess?: boolean;
+  requireVerified?: boolean;
+  requireAdmin?: boolean;
 }) {
   const { user, loading } = useAuth();
   const location = useLocation();
@@ -20,8 +24,20 @@ export function ProtectedRoute({
     return <Navigate to="/login" replace state={{ from: location.pathname }} />;
   }
 
+  if (
+    (requireVerified || requireAccess) &&
+    user.email_verification_required &&
+    user.email_verified === false
+  ) {
+    return <Navigate to="/verify-email" replace />;
+  }
+
   if (requireAccess && user.has_access === false) {
     return <Navigate to="/billing" replace />;
+  }
+
+  if (requireAdmin && !user.is_admin) {
+    return <Navigate to="/dashboard" replace />;
   }
 
   return <>{children}</>;

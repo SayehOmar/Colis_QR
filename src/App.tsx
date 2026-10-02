@@ -9,6 +9,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import ProfilePage from "./pages/ProfilePage";
 import ShipmentFormPage from "./pages/ShipmentFormPage";
 import SignupPage from "./pages/SignupPage";
+import VerifyEmailPage from "./pages/VerifyEmailPage";
 
 export default function App() {
   return (
@@ -18,10 +19,11 @@ export default function App() {
       <Route path="/client" element={<ShipmentFormPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage />} />
+      <Route path="/verify-email" element={<VerifyEmailPage />} />
       <Route
         path="/billing"
         element={
-          <ProtectedRoute>
+          <ProtectedRoute requireVerified>
             <BillingPage />
           </ProtectedRoute>
         }
@@ -29,7 +31,7 @@ export default function App() {
       <Route
         path="/profile"
         element={
-          <ProtectedRoute requireAccess>
+          <ProtectedRoute requireAccess requireVerified>
             <ProfilePage />
           </ProtectedRoute>
         }
@@ -37,7 +39,7 @@ export default function App() {
       <Route
         path="/dashboard"
         element={
-          <ProtectedRoute requireAccess>
+          <ProtectedRoute requireAccess requireVerified>
             <DashboardPage />
           </ProtectedRoute>
         }

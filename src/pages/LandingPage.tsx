@@ -281,11 +281,11 @@ export default function LandingPage() {
             </div>
 
             {/* Hero banner image */}
-            <div className="relative mx-auto mt-10 max-w-5xl overflow-hidden rounded-2xl border border-outline-variant/60 shadow-md">
+            <div className="group relative mx-auto mt-10 max-w-5xl overflow-hidden rounded-2xl border border-outline-variant/60 shadow-md">
               <img
                 src="/landing-hero.png"
                 alt={t("landingBannerTitle")}
-                className="h-[320px] w-full object-cover sm:h-[440px]"
+                className="h-[320px] w-full object-cover transition-transform duration-700 ease-out will-change-transform group-hover:scale-110 sm:h-[440px]"
               />
               <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-primary/90 via-primary/30 to-transparent p-6 sm:p-8">
                 <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
