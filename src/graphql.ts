@@ -6,6 +6,7 @@ export const SHIPMENTS_QUERY = gql`
       id
       publicCode
       scannerId
+      scannerName
       senderName
       senderPhone
       receiverName
@@ -30,6 +31,8 @@ export const SHIPMENTS_QUERY = gql`
         initialValue
         previousValue
         editedAt
+        editedByUserId
+        editedByName
       }
     }
   }

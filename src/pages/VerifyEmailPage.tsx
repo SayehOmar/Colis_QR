@@ -2,6 +2,7 @@ import { FormEvent, useEffect, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
 import {
+  postAuthPath,
   readStoredToken,
   resendVerification,
   verifyEmail,
@@ -47,9 +48,7 @@ export default function VerifyEmailPage() {
 
   useEffect(() => {
     if (user?.email_verified) {
-      navigate(user.has_access === false ? "/billing" : "/dashboard", {
-        replace: true,
-      });
+      navigate(postAuthPath(user), { replace: true });
     }
   }, [user, navigate]);
 

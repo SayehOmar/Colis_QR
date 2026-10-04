@@ -22,9 +22,11 @@ import {
   formatLiters,
   uniqueCities,
   uniqueCountries,
+  uniqueScanners,
   type DashboardAnalytics,
   type StatsFilter,
 } from "../dashboardAnalytics";
+import { TeamPanel } from "../components/TeamPanel";
 import { SHIPMENTS_QUERY } from "../graphql";
 import { useLanguage } from "../i18n/LanguageContext";
 import type { TranslationKey } from "../i18n/translations";
@@ -55,7 +57,8 @@ function usePanelFilter(allShipments: Shipment[]) {
     () => uniqueCities(allShipments, filter.country),
     [allShipments, filter.country]
   );
-  return { filter, setFilter, filtered, analytics, countries, cities };
+  const scanners = useMemo(() => uniqueScanners(allShipments), [allShipments]);
+  return { filter, setFilter, filtered, analytics, countries, cities, scanners };
 }
 
 function Icon({ name, className = "" }: { name: string; className?: string }) {
@@ -343,7 +346,7 @@ function OrdersPanel({
         <thead className="bg-primary text-left text-xs uppercase tracking-wide text-on-primary">
           <tr>
             <th className="sticky top-0 z-10 bg-primary px-3 py-3">{t("shipmentCode")}</th>
-            <th className="sticky top-0 z-10 bg-primary px-3 py-3">{t("scannerId")}</th>
+            <th className="sticky top-0 z-10 bg-primary px-3 py-3">{t("scannerName")}</th>
             <th className="sticky top-0 z-10 bg-primary px-3 py-3" colSpan={2}>
               {t("senderDetails")}
             </th>
@@ -408,7 +411,12 @@ function OrdersPanel({
                   className="whitespace-nowrap font-mono text-xs font-bold text-primary"
                 />
                 <StaticCopyCell
-                  value={shipment.scannerId ?? "—"}
+                  value={
+                    shipment.scannerName ||
+                    (shipment.scannerId != null
+                      ? `#${shipment.scannerId}`
+                      : "—")
+                  }
                   className="whitespace-nowrap text-on-surface-variant"
                 />
                 <EditableCell
@@ -689,9 +697,11 @@ export default function DashboardPage() {
             <Link to="/profile" className="app-btn-ghost text-xs">
               {t("profileTitle")}
             </Link>
-            <Link to="/billing" className="app-btn-ghost text-xs">
-              {t("billingManage")}
-            </Link>
+            {user?.account_role !== "employee" ? (
+              <Link to="/billing" className="app-btn-ghost text-xs">
+                {t("billingManage")}
+              </Link>
+            ) : null}
             <Link to="/" className="app-btn-ghost text-xs">
               {t("backToHome")}
             </Link>
@@ -729,6 +739,15 @@ export default function DashboardPage() {
         )}
 
         <div className="flex flex-col gap-5">
+          {user?.account_role === "employer" ? <TeamPanel /> : null}
+          {user?.account_role === "employee" && user.employer_name ? (
+            <p className="rounded-xl border border-outline-variant/50 bg-surface-container-low px-4 py-3 text-sm text-on-surface-variant">
+              {t("workerEmployerBanner").replace(
+                "{name}",
+                user.employer_name,
+              )}
+            </p>
+          ) : null}
           {/* 1. Shipments table — full width */}
           <section className="app-card overflow-hidden">
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-outline-variant/40 px-4 py-3">
@@ -748,6 +767,7 @@ export default function DashboardPage() {
                 onChange={ordersFilter.setFilter}
                 countries={ordersFilter.countries}
                 cities={ordersFilter.cities}
+                scanners={ordersFilter.scanners}
                 contactFilters
               />
             </div>
@@ -781,6 +801,7 @@ export default function DashboardPage() {
                   onChange={mapFilter.setFilter}
                   countries={mapFilter.countries}
                   cities={mapFilter.cities}
+                  scanners={mapFilter.scanners}
                 />
               </div>
               {expanded !== null ? (
@@ -811,6 +832,7 @@ export default function DashboardPage() {
                 onChange={placesFilter.setFilter}
                 countries={placesFilter.countries}
                 cities={placesFilter.cities}
+                scanners={placesFilter.scanners}
                 compact
               />
               <PlacesPanel analytics={placesFilter.analytics} />
@@ -839,6 +861,7 @@ export default function DashboardPage() {
                 onChange={tariffFilter.setFilter}
                 countries={tariffFilter.countries}
                 cities={tariffFilter.cities}
+                scanners={tariffFilter.scanners}
                 compact
               />
               <TariffPanel analytics={tariffFilter.analytics} />
@@ -861,6 +884,7 @@ export default function DashboardPage() {
                 onChange={weightFilter.setFilter}
                 countries={weightFilter.countries}
                 cities={weightFilter.cities}
+                scanners={weightFilter.scanners}
                 compact
               />
               <WeightPanel
@@ -899,6 +923,7 @@ export default function DashboardPage() {
                     onChange={weightFilter.setFilter}
                     countries={weightFilter.countries}
                     cities={weightFilter.cities}
+                    scanners={weightFilter.scanners}
                   />
                   <WeightPanel
                     analytics={weightFilter.analytics}
@@ -915,6 +940,7 @@ export default function DashboardPage() {
                     onChange={placesFilter.setFilter}
                     countries={placesFilter.countries}
                     cities={placesFilter.cities}
+                    scanners={placesFilter.scanners}
                   />
                   <PlacesPanel analytics={placesFilter.analytics} expanded />
                 </>
@@ -926,6 +952,7 @@ export default function DashboardPage() {
                     onChange={tariffFilter.setFilter}
                     countries={tariffFilter.countries}
                     cities={tariffFilter.cities}
+                    scanners={tariffFilter.scanners}
                   />
                   <TariffPanel analytics={tariffFilter.analytics} expanded />
                 </>
@@ -937,6 +964,7 @@ export default function DashboardPage() {
                     onChange={mapFilter.setFilter}
                     countries={mapFilter.countries}
                     cities={mapFilter.cities}
+                    scanners={mapFilter.scanners}
                   />
                   <MapPanel
                     analytics={mapFilter.analytics}
@@ -952,6 +980,7 @@ export default function DashboardPage() {
                     onChange={ordersFilter.setFilter}
                     countries={ordersFilter.countries}
                     cities={ordersFilter.cities}
+                    scanners={ordersFilter.scanners}
                     contactFilters
                   />
                   <div className="min-h-0 flex-1">

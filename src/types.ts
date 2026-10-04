@@ -45,12 +45,15 @@ export interface FieldEdit {
   initialValue: string;
   previousValue: string;
   editedAt: string;
+  editedByUserId?: number | null;
+  editedByName?: string;
 }
 
 export interface Shipment {
   id: number;
   publicCode: string;
   scannerId: number | null;
+  scannerName?: string;
   senderName: string;
   senderPhone: string;
   receiverName: string;

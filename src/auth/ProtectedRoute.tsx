@@ -32,7 +32,19 @@ export function ProtectedRoute({
     return <Navigate to="/verify-email" replace />;
   }
 
+  const role = user.account_role ?? "none";
+  if (
+    (requireAccess || requireVerified) &&
+    role === "none" &&
+    location.pathname !== "/choose-role"
+  ) {
+    return <Navigate to="/choose-role" replace />;
+  }
+
   if (requireAccess && user.has_access === false) {
+    if (role === "employee") {
+      return <Navigate to="/billing" replace />;
+    }
     return <Navigate to="/billing" replace />;
   }
 

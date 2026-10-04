@@ -2,8 +2,15 @@ import { QRCodeSVG } from "qrcode.react";
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
-import { changePassword, openBillingPortal, updateProfile } from "../auth/api";
+import {
+  changePassword,
+  joinEmployer,
+  leaveEmployer,
+  openBillingPortal,
+  updateProfile,
+} from "../auth/api";
 import { Breadcrumbs } from "../components/Breadcrumbs";
+import { JoinEmployerCode } from "../components/JoinEmployerCode";
 import { LanguageSwitcher } from "../components/LanguageSwitcher";
 import { PageSeo } from "../components/PageSeo";
 import { PasswordField } from "../components/PasswordField";
@@ -56,8 +63,15 @@ export default function ProfilePage() {
   const [passwordBusy, setPasswordBusy] = useState(false);
 
   const [portalBusy, setPortalBusy] = useState(false);
+  const [showSwitchCode, setShowSwitchCode] = useState(false);
+  const [employerBusy, setEmployerBusy] = useState(false);
+  const [employerError, setEmployerError] = useState<string | null>(null);
+  const [employerStatus, setEmployerStatus] = useState<string | null>(null);
 
   const showPasswordForm = user?.can_change_password === true;
+  const isEmployee = user?.account_role === "employee";
+  const isEmployer = user?.account_role === "employer";
+
 
   const trialRemaining = useMemo(
     () =>
@@ -143,6 +157,43 @@ export default function ProfilePage() {
       navigate("/billing");
     } finally {
       setPortalBusy(false);
+    }
+  };
+
+  const handleSwitchEmployer = async (code: string) => {
+    if (!token) return;
+    setEmployerBusy(true);
+    setEmployerError(null);
+    setEmployerStatus(null);
+    try {
+      await joinEmployer(token, code);
+      await refreshUser();
+      setShowSwitchCode(false);
+      setEmployerStatus(t("profileEmployerSwitched"));
+    } catch (err) {
+      setEmployerError(
+        err instanceof Error ? err.message : t("joinCodeError"),
+      );
+    } finally {
+      setEmployerBusy(false);
+    }
+  };
+
+  const handleLeaveEmployer = async () => {
+    if (!token) return;
+    if (!window.confirm(t("profileLeaveEmployerConfirm"))) return;
+    setEmployerBusy(true);
+    setEmployerError(null);
+    try {
+      await leaveEmployer(token);
+      await refreshUser();
+      navigate("/choose-role", { replace: true });
+    } catch (err) {
+      setEmployerError(
+        err instanceof Error ? err.message : t("profileLeaveEmployerError"),
+      );
+    } finally {
+      setEmployerBusy(false);
     }
   };
 
@@ -277,58 +328,119 @@ export default function ProfilePage() {
           )}
         </section>
 
-        <section className="app-card p-5 sm:p-6">
-          <h2 className="text-sm font-bold uppercase tracking-wide text-on-surface-variant">
-            {t("profileSubscription")}
-          </h2>
-          <div className="mt-3 space-y-2 text-sm">
-            <p>
-              <span className="text-on-surface-variant">
-                {t("billingCurrentPlan")}:{" "}
-              </span>
-              <span className="font-semibold text-on-surface">
-                {user?.subscription_plan ||
-                  (isTrialing ? t("profilePlanTrial") : t("profilePlanNone"))}
-              </span>
+        {isEmployee ? (
+          <section className="app-card p-5 sm:p-6">
+            <h2 className="text-sm font-bold uppercase tracking-wide text-on-surface-variant">
+              {t("profileEmployerSection")}
+            </h2>
+            <p className="mt-2 text-sm text-on-surface">
+              {t("profileEmployerManagedBy").replace(
+                "{name}",
+                user?.employer_name || user?.employer_owner_email || "—",
+              )}
             </p>
-            <p>
-              <span className="text-on-surface-variant">
-                {t("profileStatus")}:{" "}
-              </span>
-              <span className="font-semibold text-on-surface">
-                {user?.subscription_status || "none"}
-              </span>
-            </p>
-            {isTrialing ? (
-              <div className="rounded-xl border border-tertiary/30 bg-tertiary-container/40 px-4 py-3">
-                <p className="text-xs font-bold uppercase tracking-wide text-on-tertiary-fixed">
-                  {t("profileTrialRemaining")}
-                </p>
-                <p className="mt-1 text-lg font-extrabold text-on-surface">
-                  {trialRemaining}
-                </p>
-                {trialDateLabel ? (
-                  <p className="mt-1 text-xs text-on-surface-variant">
-                    {t("billingTrialActive")} {trialDateLabel}
-                  </p>
-                ) : null}
+            {employerStatus ? (
+              <p className="mt-2 text-sm text-secondary">{employerStatus}</p>
+            ) : null}
+            {employerError ? (
+              <p className="mt-2 text-sm text-red-600">{employerError}</p>
+            ) : null}
+            <div className="mt-4 flex flex-wrap gap-2">
+              <button
+                type="button"
+                className="app-btn-navy text-xs"
+                disabled={employerBusy}
+                onClick={() => {
+                  setShowSwitchCode((v) => !v);
+                  setEmployerError(null);
+                }}
+              >
+                {t("profileSwitchEmployer")}
+              </button>
+              <button
+                type="button"
+                className="app-btn-ghost text-xs"
+                disabled={employerBusy}
+                onClick={() => void handleLeaveEmployer()}
+              >
+                {t("profileLeaveEmployer")}
+              </button>
+            </div>
+            {showSwitchCode ? (
+              <div className="mt-5 border-t border-outline-variant/50 pt-5">
+                <JoinEmployerCode
+                  onSubmit={handleSwitchEmployer}
+                  submitting={employerBusy}
+                  error={employerError}
+                  submitLabel={t("profileSwitchEmployer")}
+                />
               </div>
             ) : null}
-          </div>
-          <div className="mt-4 flex flex-wrap gap-2">
-            <button
-              type="button"
-              onClick={() => void handleManageSubscription()}
-              className="app-btn-orange px-4 py-2 text-xs"
-              disabled={portalBusy}
-            >
-              {portalBusy ? t("authLoading") : t("billingManage")}
-            </button>
-            <Link to="/billing" className="app-btn-ghost text-xs">
-              {t("profileViewPlans")}
-            </Link>
-          </div>
-        </section>
+          </section>
+        ) : null}
+
+        {!isEmployee ? (
+          <section className="app-card p-5 sm:p-6">
+            <h2 className="text-sm font-bold uppercase tracking-wide text-on-surface-variant">
+              {t("profileSubscription")}
+            </h2>
+            {isEmployer && user?.join_code ? (
+              <p className="mt-2 text-sm text-on-surface-variant">
+                {t("profileOwnerJoinCode")}:{" "}
+                <span className="font-mono font-bold tracking-widest text-primary">
+                  {user.join_code}
+                </span>
+              </p>
+            ) : null}
+            <div className="mt-3 space-y-2 text-sm">
+              <p>
+                <span className="text-on-surface-variant">
+                  {t("billingCurrentPlan")}:{" "}
+                </span>
+                <span className="font-semibold text-on-surface">
+                  {user?.subscription_plan ||
+                    (isTrialing ? t("profilePlanTrial") : t("profilePlanNone"))}
+                </span>
+              </p>
+              <p>
+                <span className="text-on-surface-variant">
+                  {t("profileStatus")}:{" "}
+                </span>
+                <span className="font-semibold text-on-surface">
+                  {user?.subscription_status || "none"}
+                </span>
+              </p>
+              {isTrialing ? (
+                <div className="rounded-xl border border-tertiary/30 bg-tertiary-container/40 px-4 py-3">
+                  <p className="text-xs font-bold uppercase tracking-wide text-on-tertiary-fixed">
+                    {t("profileTrialRemaining")}
+                  </p>
+                  <p className="mt-1 text-lg font-extrabold text-on-surface">
+                    {trialRemaining}
+                  </p>
+                  {trialDateLabel ? (
+                    <p className="mt-1 text-xs text-on-surface-variant">
+                      {t("billingTrialActive")} {trialDateLabel}
+                    </p>
+                  ) : null}
+                </div>
+              ) : null}
+            </div>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={() => void handleManageSubscription()}
+                className="app-btn-orange px-4 py-2 text-xs"
+                disabled={portalBusy}
+              >
+                {portalBusy ? t("authLoading") : t("billingManage")}
+              </button>
+              <Link to="/billing" className="app-btn-ghost text-xs">
+                {t("profileViewPlans")}
+              </Link>
+            </div>
+          </section>
+        ) : null}
 
         <section className="app-card p-5 sm:p-6">
           <h2 className="text-sm font-bold uppercase tracking-wide text-on-surface-variant">

@@ -159,6 +159,14 @@ export function EditableCell({
               ) : null}
               <span className="mt-1 block text-slate-400">{t("changedAt")}</span>
               <span className="block font-medium">{edit.editedAt || "—"}</span>
+              {edit.editedByName ? (
+                <>
+                  <span className="mt-1 block text-slate-400">
+                    {t("editedBy")}
+                  </span>
+                  <span className="block font-medium">{edit.editedByName}</span>
+                </>
+              ) : null}
             </div>,
             document.body,
           )

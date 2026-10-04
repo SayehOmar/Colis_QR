@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { ProtectedRoute } from "./auth/ProtectedRoute";
 import BillingPage from "./pages/BillingPage";
+import ChooseRolePage from "./pages/ChooseRolePage";
 import DashboardPage from "./pages/DashboardPage";
 import HomeRolePage from "./pages/HomeRolePage";
 import LandingPage from "./pages/LandingPage";
@@ -21,6 +22,14 @@ export default function App() {
       <Route path="/signup" element={<SignupPage />} />
       <Route path="/verify-email" element={<VerifyEmailPage />} />
       <Route
+        path="/choose-role"
+        element={
+          <ProtectedRoute requireVerified>
+            <ChooseRolePage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
         path="/billing"
         element={
           <ProtectedRoute requireVerified>
@@ -31,7 +40,7 @@ export default function App() {
       <Route
         path="/profile"
         element={
-          <ProtectedRoute requireAccess requireVerified>
+          <ProtectedRoute requireVerified>
             <ProfilePage />
           </ProtectedRoute>
         }

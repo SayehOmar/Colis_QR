@@ -219,6 +219,49 @@ export default function BillingPage() {
     return <PageSkeleton variant="billing" />;
   }
 
+  if (user?.account_role === "employee") {
+    return (
+      <div className="app-page">
+        <PageSeo
+          title={t("seoBillingTitle")}
+          description={t("seoBillingDescription")}
+          path="/billing"
+          noindex
+        />
+        <div className="mx-auto max-w-lg px-4 py-12">
+          <Breadcrumbs
+            className="mb-4"
+            items={[
+              { label: t("breadcrumbHome"), to: "/" },
+              { label: t("breadcrumbBilling") },
+            ]}
+          />
+          <div className="app-card p-6 text-center">
+            <h1 className="text-2xl font-bold text-on-surface">
+              {t("billingTitle")}
+            </h1>
+            <p className="app-muted mt-3 text-sm">
+              {t("billingManagedByEmployer").replace(
+                "{name}",
+                user.employer_name || user.employer_owner_email || "—",
+              )}
+            </p>
+            <div className="mt-6 flex flex-wrap justify-center gap-2">
+              {user.has_access ? (
+                <Link to="/dashboard" className="app-btn-navy">
+                  {t("billingGoDashboard")}
+                </Link>
+              ) : null}
+              <Link to="/profile" className="app-btn-ghost">
+                {t("profileTitle")}
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="app-page relative overflow-hidden">
       <PageSeo

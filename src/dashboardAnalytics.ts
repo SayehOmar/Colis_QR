@@ -42,6 +42,7 @@ export interface StatsFilter {
   dateTo: string;
   country: string;
   city: string;
+  scannedBy: string;
   senderName: string;
   receiverName: string;
   senderPhone: string;
@@ -55,6 +56,7 @@ export const EMPTY_STATS_FILTER: StatsFilter = {
   dateTo: "",
   country: "",
   city: "",
+  scannedBy: "",
   senderName: "",
   receiverName: "",
   senderPhone: "",
@@ -62,6 +64,14 @@ export const EMPTY_STATS_FILTER: StatsFilter = {
   idDocType: "",
   idDocNumber: "",
 };
+
+/** Display label used in filters / table for who scanned a shipment. */
+export function scannerLabel(shipment: Shipment): string {
+  const name = (shipment.scannerName || "").trim();
+  if (name) return name;
+  if (shipment.scannerId != null) return `#${shipment.scannerId}`;
+  return "";
+}
 
 function shipmentDay(timestamp: string): string {
   const trimmed = timestamp.trim();
@@ -88,6 +98,7 @@ export function filterShipments(
 ): Shipment[] {
   const country = filter.country.trim().toLowerCase();
   const city = filter.city.trim().toLowerCase();
+  const scannedBy = filter.scannedBy.trim().toLowerCase();
   const senderName = filter.senderName.trim();
   const receiverName = filter.receiverName.trim();
   const senderPhone = filter.senderPhone.trim();
@@ -106,6 +117,7 @@ export function filterShipments(
       const place = resolveShipmentPlace(s);
       if (!place.city.toLowerCase().includes(city)) return false;
     }
+    if (scannedBy && scannerLabel(s).toLowerCase() !== scannedBy) return false;
     if (senderName && !includesNorm(s.senderName, senderName)) return false;
     if (receiverName && !includesNorm(s.receiverName, receiverName)) return false;
     if (senderPhone && !phoneIncludes(s.senderPhone, senderPhone)) return false;
@@ -136,6 +148,15 @@ export function uniqueCities(shipments: Shipment[], country?: string): string[] 
     const place = resolveShipmentPlace(s);
     if (countryNorm && place.country.toLowerCase() !== countryNorm) continue;
     if (place.city && place.city.toLowerCase() !== "unknown") set.add(place.city);
+  }
+  return [...set].sort((a, b) => a.localeCompare(b));
+}
+
+export function uniqueScanners(shipments: Shipment[]): string[] {
+  const set = new Set<string>();
+  for (const s of shipments) {
+    const label = scannerLabel(s);
+    if (label) set.add(label);
   }
   return [...set].sort((a, b) => a.localeCompare(b));
 }

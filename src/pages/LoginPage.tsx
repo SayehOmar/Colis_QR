@@ -34,12 +34,15 @@ export default function LoginPage() {
   }
 
   if (!loading && user) {
+    const rolePath = postAuthPath(user);
     const dest =
-      user.has_access === false
-        ? "/billing"
-        : requestedFrom && requestedFrom !== "/billing"
+      rolePath === "/choose-role" || rolePath === "/verify-email"
+        ? rolePath
+        : requestedFrom &&
+            requestedFrom !== "/billing" &&
+            requestedFrom !== "/choose-role"
           ? requestedFrom
-          : postAuthPath(user);
+          : rolePath;
     return <Navigate to={dest} replace />;
   }
 

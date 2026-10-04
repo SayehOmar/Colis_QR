@@ -7,6 +7,7 @@ interface StatsFilterBarProps {
   onChange: (next: StatsFilter) => void;
   countries: string[];
   cities: string[];
+  scanners?: string[];
   compact?: boolean;
   /** Extra people / ID fields — used on the shipment table filter. */
   contactFilters?: boolean;
@@ -17,6 +18,7 @@ export function StatsFilterBar({
   onChange,
   countries,
   cities,
+  scanners = [],
   compact,
   contactFilters = false,
 }: StatsFilterBarProps) {
@@ -30,6 +32,7 @@ export function StatsFilterBar({
     Boolean(filter.dateTo) ||
     Boolean(filter.country) ||
     Boolean(filter.city) ||
+    Boolean(filter.scannedBy) ||
     Boolean(filter.senderName) ||
     Boolean(filter.receiverName) ||
     Boolean(filter.senderPhone) ||
@@ -125,6 +128,21 @@ export function StatsFilterBar({
                 {cities.map((c) => (
                   <option key={c} value={c}>
                     {c}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className="block text-[10px] font-medium text-on-surface-variant">
+              {t("dashFilterScannedBy")}
+              <select
+                value={filter.scannedBy}
+                onChange={(e) => set({ scannedBy: e.target.value })}
+                className="app-input mt-0.5 !py-1.5 text-xs"
+              >
+                <option value="">{t("dashFilterAll")}</option>
+                {scanners.map((name) => (
+                  <option key={name} value={name}>
+                    {name}
                   </option>
                 ))}
               </select>

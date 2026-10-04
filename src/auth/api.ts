@@ -1,5 +1,7 @@
 import { AUTH_TOKEN_KEY, apiBaseUrl } from "../config";
 
+export type AccountRole = "none" | "employer" | "employee";
+
 export interface AuthUser {
   id: number;
   email: string;
@@ -15,6 +17,27 @@ export interface AuthUser {
   subscription_ends_at?: string | null;
   can_change_password?: boolean;
   auth_provider?: "password" | "google" | string;
+  account_role?: AccountRole;
+  employer_id?: number | null;
+  join_code?: string | null;
+  employer_name?: string | null;
+  employer_owner_email?: string | null;
+}
+
+export interface EmployerWorker {
+  id: number;
+  email: string;
+  name: string;
+  joined_at: string;
+}
+
+export interface EmployerInfo {
+  role: AccountRole;
+  employer_id?: number | null;
+  join_code?: string | null;
+  employer_name?: string | null;
+  employer_owner_email?: string | null;
+  workers?: EmployerWorker[];
 }
 
 export interface AuthResponse {
@@ -212,9 +235,70 @@ export async function resendVerification(token: string): Promise<void> {
   }
 }
 
+export async function becomeEmployer(
+  token: string,
+): Promise<{ status: string; user: AuthUser }> {
+  const response = await fetch(`${apiBaseUrl}/auth/become-employer`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (!response.ok) {
+    throw new Error(await parseError(response));
+  }
+  return response.json();
+}
+
+export async function joinEmployer(
+  token: string,
+  code: string,
+): Promise<{ status: string; user: AuthUser }> {
+  const response = await fetch(`${apiBaseUrl}/auth/join-employer`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ code }),
+  });
+  if (!response.ok) {
+    throw new Error(await parseError(response));
+  }
+  return response.json();
+}
+
+export async function leaveEmployer(
+  token: string,
+): Promise<{ status: string; user: AuthUser }> {
+  const response = await fetch(`${apiBaseUrl}/auth/leave-employer`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (!response.ok) {
+    throw new Error(await parseError(response));
+  }
+  return response.json();
+}
+
+export async function fetchEmployer(token: string): Promise<EmployerInfo> {
+  const response = await fetch(`${apiBaseUrl}/auth/employer`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (!response.ok) {
+    throw new Error(await parseError(response));
+  }
+  return response.json();
+}
+
 export function postAuthPath(user: AuthUser): string {
   if (user.email_verification_required && user.email_verified === false) {
     return "/verify-email";
+  }
+  const role = user.account_role ?? "none";
+  if (role === "none") {
+    return "/choose-role";
+  }
+  if (role === "employee") {
+    return user.has_access === false ? "/billing" : "/dashboard";
   }
   return user.has_access === false ? "/billing" : "/dashboard";
 }
