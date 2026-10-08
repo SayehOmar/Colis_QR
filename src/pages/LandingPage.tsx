@@ -58,8 +58,16 @@ export default function LandingPage() {
   const closeMenu = () => setMenuOpen(false);
 
   const contactEmail = "sayehomar@gmail.com";
-  const contactPhoneDisplay = "216-24674352";
-  const contactWhatsAppHref = "https://wa.me/21624674352";
+  const contactWhatsApps = [
+    {
+      label: "216-24674352",
+      href: "https://wa.me/21624674352",
+    },
+    {
+      label: "+84 814 259 756",
+      href: "https://wa.me/84814259756",
+    },
+  ] as const;
 
   return (
     <div className="landing-page bg-surface font-sans text-on-surface antialiased selection:bg-tertiary/15 selection:text-tertiary">
@@ -932,15 +940,18 @@ export default function LandingPage() {
               <Icon name="mail" className="text-[18px] text-secondary" />
               {contactEmail}
             </a>
-            <a
-              href={contactWhatsAppHref}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-on-surface transition-colors hover:text-secondary"
-            >
-              <Icon name="chat" className="text-[18px] text-green-600" />
-              {t("landingContactWhatsApp")} · {contactPhoneDisplay}
-            </a>
+            {contactWhatsApps.map((wa) => (
+              <a
+                key={wa.href}
+                href={wa.href}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-on-surface transition-colors hover:text-secondary"
+              >
+                <Icon name="chat" className="text-[18px] text-green-600" />
+                {t("landingContactWhatsApp")} · {wa.label}
+              </a>
+            ))}
           </div>
         </div>
       </footer>
