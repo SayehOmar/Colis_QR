@@ -57,7 +57,7 @@ export default function LandingPage() {
 
   const closeMenu = () => setMenuOpen(false);
 
-  const contactEmail = "sayehomar@gmail.com";
+  const contactEmail = "sayehomar03@gmail.com";
   const contactWhatsApps = [
     {
       label: "216-24674352",
