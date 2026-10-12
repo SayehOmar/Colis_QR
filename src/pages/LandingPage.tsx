@@ -119,6 +119,12 @@ export default function LandingPage() {
               {t("landingNavPricing")}
             </a>
             <Link
+              to="/about"
+              className="whitespace-nowrap transition-colors hover:text-on-surface"
+            >
+              {t("landingNavAbout")}
+            </Link>
+            <Link
               to="/login"
               className="whitespace-nowrap transition-colors hover:text-on-surface"
             >
@@ -193,6 +199,13 @@ export default function LandingPage() {
               >
                 {t("landingNavPricing")}
               </a>
+              <Link
+                className="rounded-lg px-3 py-2.5 hover:bg-surface-container-low"
+                to="/about"
+                onClick={closeMenu}
+              >
+                {t("landingNavAbout")}
+              </Link>
               <Link
                 className="rounded-lg px-3 py-2.5 hover:bg-surface-container-low"
                 to="/login"
@@ -901,6 +914,12 @@ export default function LandingPage() {
               >
                 {t("landingNavPricing")}
               </a>
+              <Link
+                className="transition-colors hover:text-on-surface"
+                to="/about"
+              >
+                {t("landingNavAbout")}
+              </Link>
               <Link
                 className="transition-colors hover:text-on-surface"
                 to="/client"

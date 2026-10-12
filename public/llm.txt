@@ -4,6 +4,7 @@
 
 ## Site
 - Homepage: https://crossmed.app/
+- About / founder: https://crossmed.app/about
 - Role chooser: https://crossmed.app/start
 - Client shipment form: https://crossmed.app/client
 - Carrier login: https://crossmed.app/login
@@ -17,6 +18,11 @@
 - Client flow: register shipment → generate A4 PDF with QR
 - Carrier flow: web dashboard + phone app for QR scan & sync
 - Free trial: 5 days for new carrier accounts
+
+## Founder
+- Name: ESSAYEH Omar
+- Tunisian solo entrepreneur based in Hanoi, Vietnam
+- Address: 21 Ng. 472 Đ. Lạc Long Quân, Tây Hồ, Hà Nội, Vietnam
 
 ## Contact
 - Email: sayehomar03@gmail.com

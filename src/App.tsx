@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { ProtectedRoute } from "./auth/ProtectedRoute";
+import AboutPage from "./pages/AboutPage";
 import BillingPage from "./pages/BillingPage";
 import ChooseRolePage from "./pages/ChooseRolePage";
 import DashboardPage from "./pages/DashboardPage";
@@ -16,6 +17,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
+      <Route path="/about" element={<AboutPage />} />
       <Route path="/start" element={<HomeRolePage />} />
       <Route path="/client" element={<ShipmentFormPage />} />
       <Route path="/login" element={<LoginPage />} />
