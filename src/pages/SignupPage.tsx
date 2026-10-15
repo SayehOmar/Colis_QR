@@ -9,12 +9,11 @@ import { LanguageSwitcher } from "../components/LanguageSwitcher";
 import { PageSeo } from "../components/PageSeo";
 import { PageSkeleton, usePageSkeleton } from "../components/PageSkeleton";
 import { PasswordField } from "../components/PasswordField";
-import { isAuthBypassIdentity } from "../config";
+import { isAuthBypassIdentity, turnstileEnabled, turnstileSiteKey } from "../config";
 import { useLanguage } from "../i18n/LanguageContext";
 
-const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY ?? "";
-const TURNSTILE_ENABLED =
-  (import.meta.env.VITE_TURNSTILE_ENABLED ?? "false").toLowerCase() === "true";
+const TURNSTILE_SITE_KEY = turnstileSiteKey;
+const TURNSTILE_ENABLED = turnstileEnabled;
 
 export default function SignupPage() {
   const { t } = useLanguage();

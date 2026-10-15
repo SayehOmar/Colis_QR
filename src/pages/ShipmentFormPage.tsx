@@ -23,11 +23,11 @@ import {
   loadAllShipmentItems,
 } from "../shipmentItems";
 import type { TranslationKey } from "../i18n/translations";
+import { turnstileEnabled, turnstileSiteKey } from "../config";
 import type { ShipmentFormData } from "../types";
 
-const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY ?? "";
-const TURNSTILE_ENABLED =
-  (import.meta.env.VITE_TURNSTILE_ENABLED ?? "false").toLowerCase() === "true";
+const TURNSTILE_SITE_KEY = turnstileSiteKey;
+const TURNSTILE_ENABLED = turnstileEnabled;
 
 const initialForm: ShipmentFormData = {
   senderName: "",

@@ -2,7 +2,9 @@
 
 interface ImportMetaEnv {
   readonly VITE_TURNSTILE_SITE_KEY: string;
+  readonly TURNSTILE_SITE_KEY?: string;
   readonly VITE_TURNSTILE_ENABLED: string;
+  readonly TURNSTILE_ENABLED?: string;
   readonly VITE_GRAPHQL_URI: string;
   readonly GRAPHQL_URI?: string;
   readonly VITE_API_URL: string;

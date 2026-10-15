@@ -13,6 +13,19 @@ export const googleClientId =
   import.meta.env.VITE_GOOGLE_CLIENT_ID ??
   "";
 
+/** Public Turnstile site key. The secret stays on the backend. */
+export const turnstileSiteKey =
+  import.meta.env.TURNSTILE_SITE_KEY ??
+  import.meta.env.VITE_TURNSTILE_SITE_KEY ??
+  "";
+
+export const turnstileEnabled =
+  (
+    import.meta.env.TURNSTILE_ENABLED ??
+    import.meta.env.VITE_TURNSTILE_ENABLED ??
+    "false"
+  ).toLowerCase() === "true";
+
 /** Quick-access code; must match pc-backend BYPASS. */
 export const authBypass =
   (import.meta.env.VITE_BYPASS ?? import.meta.env.VITE_bypass ?? "").trim();
