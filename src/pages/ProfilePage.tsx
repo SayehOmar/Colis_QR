@@ -153,7 +153,7 @@ export default function ProfilePage() {
       const url = await openBillingPortal(token);
       window.location.href = url;
     } catch {
-      // No Stripe customer yet — fall back to plan picker.
+      // No billing customer yet — fall back to plan picker.
       navigate("/billing");
     } finally {
       setPortalBusy(false);

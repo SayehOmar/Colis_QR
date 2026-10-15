@@ -7,12 +7,14 @@ import {
   openBillingPortal,
   startCheckout,
 } from "../auth/api";
+import { openPaddleCheckout } from "../billing/paddle";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import { LanguageSwitcher } from "../components/LanguageSwitcher";
 import { PageSeo } from "../components/PageSeo";
 import { PageSkeleton, usePageSkeleton } from "../components/PageSkeleton";
 import { useLanguage } from "../i18n/LanguageContext";
 import type { TranslationKey } from "../i18n/translations";
+import { getRuntimeOrigin } from "../seo/site";
 
 const FALLBACK_PLANS: BillingPlan[] = [
   {
@@ -106,7 +108,8 @@ export default function BillingPage() {
   const [portalBusy, setPortalBusy] = useState(false);
   const showSkeleton = usePageSkeleton(!loadingPlans, 400);
 
-  const success = searchParams.get("success") === "1";
+  const success =
+    searchParams.get("success") === "1" || Boolean(searchParams.get("_ptxn"));
   const canceled = searchParams.get("canceled") === "1";
 
   useEffect(() => {
@@ -181,8 +184,23 @@ export default function BillingPage() {
     setError(null);
     setBusyPlan(planId);
     try {
-      const url = await startCheckout(token, planId);
-      window.location.href = url;
+      const session = await startCheckout(token, planId);
+      const successUrl = `${getRuntimeOrigin()}/billing?success=1`;
+      if (session.transaction_id && session.client_token) {
+        await openPaddleCheckout({
+          clientToken: session.client_token,
+          environment: session.environment === "production" ? "production" : "sandbox",
+          transactionId: session.transaction_id,
+          successUrl,
+        });
+        setBusyPlan(null);
+        return;
+      }
+      if (session.url) {
+        window.location.href = session.url;
+        return;
+      }
+      throw new Error(t("billingCheckoutError"));
     } catch (err) {
       setError(err instanceof Error ? err.message : t("billingCheckoutError"));
       setBusyPlan(null);

@@ -55,6 +55,13 @@ export interface BillingPlan {
   configured: boolean;
 }
 
+export interface CheckoutSession {
+  url: string;
+  transaction_id?: string;
+  client_token?: string | null;
+  environment?: "sandbox" | "production";
+}
+
 async function parseError(response: Response): Promise<string> {
   try {
     const data = await response.json();
@@ -185,7 +192,10 @@ export async function fetchBillingPlans(): Promise<BillingPlan[]> {
   return data.plans ?? [];
 }
 
-export async function startCheckout(token: string, plan: string): Promise<string> {
+export async function startCheckout(
+  token: string,
+  plan: string,
+): Promise<CheckoutSession> {
   const response = await fetch(`${apiBaseUrl}/billing/checkout`, {
     method: "POST",
     headers: {
@@ -197,8 +207,11 @@ export async function startCheckout(token: string, plan: string): Promise<string
   if (!response.ok) {
     throw new Error(await parseError(response));
   }
-  const data = (await response.json()) as { url: string };
-  return data.url;
+  const data = (await response.json()) as CheckoutSession;
+  if (!data.url && !data.transaction_id) {
+    throw new Error("Checkout session missing URL");
+  }
+  return data;
 }
 
 export async function openBillingPortal(token: string): Promise<string> {
