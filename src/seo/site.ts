@@ -1,6 +1,8 @@
-/** Canonical production origin (no trailing slash). Override with VITE_SITE_URL. */
+/** Canonical production origin (no trailing slash). Override with SITE_URL or VITE_SITE_URL. */
 export const siteUrl = (
-  import.meta.env.VITE_SITE_URL ?? "https://crossmed.app"
+  import.meta.env.SITE_URL ??
+  import.meta.env.VITE_SITE_URL ??
+  "https://www.crossmediterraneo.com"
 ).trim().replace(/\/$/, "");
 
 export function absoluteUrl(path = "/"): string {

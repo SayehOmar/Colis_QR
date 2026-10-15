@@ -9,4 +9,4 @@ Disallow: /dashboard
 Disallow: /profile
 Disallow: /billing
 
-Sitemap: https://crossmed.app/sitemap.xml
+Sitemap: https://www.crossmediterraneo.com/sitemap.xml

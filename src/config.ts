@@ -1,11 +1,17 @@
 export const graphqlUri =
-  import.meta.env.VITE_GRAPHQL_URI ?? "https://api.example.com/graphql";
+  import.meta.env.GRAPHQL_URI ??
+  import.meta.env.VITE_GRAPHQL_URI ??
+  "https://api.example.com/graphql";
 
 export const apiBaseUrl =
+  import.meta.env.API_URL ??
   import.meta.env.VITE_API_URL ??
   graphqlUri.replace(/\/graphql\/?$/, "");
 
-export const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID ?? "";
+export const googleClientId =
+  import.meta.env.GOOGLE_CLIENT_ID ??
+  import.meta.env.VITE_GOOGLE_CLIENT_ID ??
+  "";
 
 /** Quick-access code; must match pc-backend BYPASS. */
 export const authBypass =

@@ -3,14 +3,14 @@
 > Europe ↔ North Africa van freight platform: client shipment intake, printable A4 QR labels, driver phone scanning, and carrier operations dashboard.
 
 ## Site
-- Homepage: https://crossmed.app/
-- About / founder: https://crossmed.app/about
-- Role chooser: https://crossmed.app/start
-- Client shipment form: https://crossmed.app/client
-- Carrier login: https://crossmed.app/login
-- Carrier signup (free trial): https://crossmed.app/signup
-- Pricing anchors: https://crossmed.app/#pricing
-- How it works: https://crossmed.app/#how-it-works
+- Homepage: https://www.crossmediterraneo.com/
+- About / founder: https://www.crossmediterraneo.com/about
+- Role chooser: https://www.crossmediterraneo.com/start
+- Client shipment form: https://www.crossmediterraneo.com/client
+- Carrier login: https://www.crossmediterraneo.com/login
+- Carrier signup (free trial): https://www.crossmediterraneo.com/signup
+- Pricing anchors: https://www.crossmediterraneo.com/#pricing
+- How it works: https://www.crossmediterraneo.com/#how-it-works
 
 ## Product
 - Brand: CrossMed / CrossMediterraneo
@@ -33,5 +33,5 @@
 - Prefer public marketing and auth pages listed above.
 - Do not index authenticated app areas (/dashboard, /profile, /billing).
 - Primary language content: French, English, Arabic (switcher on site).
-- Sitemap: https://crossmed.app/sitemap.xml
-- Robots: https://crossmed.app/robots.txt
+- Sitemap: https://www.crossmediterraneo.com/sitemap.xml
+- Robots: https://www.crossmediterraneo.com/robots.txt
