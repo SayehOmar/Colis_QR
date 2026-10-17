@@ -243,6 +243,20 @@ export async function syncBillingSubscription(
   return (await response.json()) as AuthUser;
 }
 
+export async function deleteAccount(token: string, name: string): Promise<void> {
+  const response = await fetch(`${apiBaseUrl}/auth/account/delete`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ name }),
+  });
+  if (!response.ok) {
+    throw new Error(await parseError(response));
+  }
+}
+
 export async function verifyEmail(token: string): Promise<{ status: string; user?: AuthUser }> {
   const response = await fetch(`${apiBaseUrl}/auth/verify-email`, {
     method: "POST",

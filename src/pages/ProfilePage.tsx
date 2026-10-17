@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
 import {
   changePassword,
+  deleteAccount,
   joinEmployer,
   leaveEmployer,
   openBillingPortal,
@@ -49,6 +50,9 @@ export default function ProfilePage() {
   const [employerBusy, setEmployerBusy] = useState(false);
   const [employerError, setEmployerError] = useState<string | null>(null);
   const [employerStatus, setEmployerStatus] = useState<string | null>(null);
+  const [deleteName, setDeleteName] = useState("");
+  const [deleteError, setDeleteError] = useState<string | null>(null);
+  const [deleteBusy, setDeleteBusy] = useState(false);
 
   const showPasswordForm = user?.can_change_password === true;
   const isEmployee = user?.account_role === "employee";
@@ -200,6 +204,26 @@ export default function ProfilePage() {
       );
     } finally {
       setEmployerBusy(false);
+    }
+  };
+
+  const handleDeleteAccount = async (event: FormEvent) => {
+    event.preventDefault();
+    if (!token || !user) return;
+    const expected = (user.name || "").trim();
+    if (deleteName.trim() !== expected) {
+      setDeleteError(t("profileDeleteMismatch"));
+      return;
+    }
+    setDeleteBusy(true);
+    setDeleteError(null);
+    try {
+      await deleteAccount(token, deleteName.trim());
+      logout();
+      navigate("/", { replace: true });
+    } catch (err) {
+      setDeleteError(err instanceof Error ? err.message : t("profileDeleteError"));
+      setDeleteBusy(false);
     }
   };
 
@@ -485,6 +509,41 @@ export default function ProfilePage() {
               )}
             </div>
           </div>
+        </section>
+
+        <section className="app-card border border-red-200 p-5 sm:p-6">
+          <h2 className="text-sm font-bold uppercase tracking-wide text-red-700">
+            {t("profileDeleteTitle")}
+          </h2>
+          <p className="mt-2 text-sm text-on-surface-variant">{t("profileDeleteHint")}</p>
+          <form className="mt-4 space-y-3" onSubmit={(event) => void handleDeleteAccount(event)}>
+            <label className="block text-sm">
+              <span className="mb-1 block font-medium text-on-surface">
+                {t("profileDeleteName")}
+              </span>
+              <input
+                type="text"
+                value={deleteName}
+                onChange={(event) => {
+                  setDeleteName(event.target.value);
+                  setDeleteError(null);
+                }}
+                autoComplete="off"
+                className="app-input w-full"
+                disabled={deleteBusy}
+              />
+            </label>
+            {deleteError ? (
+              <p className="text-sm text-red-700">{deleteError}</p>
+            ) : null}
+            <button
+              type="submit"
+              className="rounded-xl bg-red-700 px-4 py-2 text-sm font-semibold text-white disabled:opacity-50"
+              disabled={deleteBusy || deleteName.trim().length === 0}
+            >
+              {deleteBusy ? t("authLoading") : t("profileDeleteConfirm")}
+            </button>
+          </form>
         </section>
       </main>
     </div>

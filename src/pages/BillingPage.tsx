@@ -318,6 +318,7 @@ export default function BillingPage() {
           <div className="mb-5 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
             {t("billingTrialActive")}{" "}
             <span className="font-semibold">{trialLabel}</span>
+            <p className="mt-1">{t("billingTrialSubscribe")}</p>
           </div>
         ) : null}
 
@@ -364,7 +365,7 @@ export default function BillingPage() {
           {plans.map((plan, index) => {
             const isFeatured = plan.id === "yearly";
             const isCurrent = user?.subscription_plan === plan.id;
-            const disabled = busyPlan !== null || plan.configured === false;
+            const disabled = busyPlan !== null;
 
             return (
               <article
@@ -414,11 +415,7 @@ export default function BillingPage() {
                       : "bg-primary text-on-primary hover:brightness-110"
                   }`}
                 >
-                  {plan.configured === false
-                    ? t("billingNotConfigured")
-                    : busyPlan === plan.id
-                      ? t("authLoading")
-                      : t("billingSubscribe")}
+                  {busyPlan === plan.id ? t("authLoading") : t("billingSubscribe")}
                 </button>
               </article>
             );
@@ -427,7 +424,6 @@ export default function BillingPage() {
 
         <footer className="mt-10 flex flex-col gap-4 border-t border-outline-variant/60 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-2">
-            <p className="text-xs text-on-surface-variant">{t("billingSecurePay")}</p>
             <nav className="flex flex-wrap gap-3 text-xs font-medium text-on-surface-variant">
               <Link to="/terms" className="hover:text-on-surface">
                 {t("navTerms")}
