@@ -1,5 +1,3 @@
-import { absoluteUrl, getRuntimeOrigin } from "./seo/site";
-
 export const graphqlUri =
   import.meta.env.GRAPHQL_URI ??
   import.meta.env.VITE_GRAPHQL_URI ??
@@ -38,18 +36,25 @@ export const AUTH_TOKEN_KEY = "transporteur-auth-token";
 export { siteUrl, absoluteUrl, getRuntimeOrigin } from "./seo/site";
 
 /**
- * Public APK install URL. Defaults to the file served from this site
- * (`/crossmed.apk`). Override with VITE_APK_URL if needed.
+ * GitHub raw download for `public/crossmed.apk` in Colis_QR.
+ * Scanning / opening this URL starts the APK download (no MediaFire).
+ */
+export const GITHUB_APK_DOWNLOAD_URL =
+  "https://github.com/SayehOmar/Colis_QR/raw/main/public/crossmed.apk";
+
+/**
+ * Public APK install URL. Defaults to the GitHub file link.
+ * Optional override: VITE_APK_URL (ignored if it still points at MediaFire).
  */
 export function getApkDownloadUrl(): string {
   const configured = (import.meta.env.VITE_APK_URL ?? "").trim();
-  if (configured) {
+  if (
+    configured &&
+    !configured.toLowerCase().includes("mediafire.com")
+  ) {
     return configured;
   }
-  if (typeof window !== "undefined") {
-    return `${getRuntimeOrigin()}/crossmed.apk`;
-  }
-  return absoluteUrl("/crossmed.apk");
+  return GITHUB_APK_DOWNLOAD_URL;
 }
 
 /** Resolved at module load; prefer getApkDownloadUrl() when origin may change. */

@@ -472,7 +472,7 @@ export const translations = {
     profileAppQrSupport:
       "Placez le QR sur un téléphone pour installer l’app de scan QR.",
     profileAppQrConfigHint:
-      "Le fichier APK est servi depuis ce site (/crossmed.apk).",
+      "Téléchargement direct depuis GitHub (public/crossmed.apk).",
     verifyEmailTitle: "Vérifiez votre e-mail",
     verifyEmailSupport:
       "Nous avons envoyé un lien de confirmation. Ouvrez-le pour activer votre compte transporteur.",
@@ -1104,7 +1104,7 @@ export const translations = {
     profileAppQrSupport:
       "Point a phone camera at the QR to install the QR scanning app.",
     profileAppQrConfigHint:
-      "The APK is served from this site (/crossmed.apk).",
+      "Direct download from GitHub (public/crossmed.apk).",
     verifyEmailTitle: "Verify your email",
     verifyEmailSupport:
       "We sent a confirmation link. Open it to activate your carrier account.",
@@ -1728,7 +1728,7 @@ export const translations = {
     profileAppQrSupport:
       "وجّه كاميرا الهاتف إلى الرمز لتثبيت تطبيق مسح QR.",
     profileAppQrConfigHint:
-      "يُقدَّم ملف APK من هذا الموقع (/crossmed.apk).",
+      "تنزيل مباشر من GitHub (public/crossmed.apk).",
     verifyEmailTitle: "تحقق من بريدك",
     verifyEmailSupport:
       "أرسلنا رابط تأكيد. افتحه لتفعيل حساب الناقل.",

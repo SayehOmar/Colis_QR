@@ -4,24 +4,5 @@
       "source": "/((?!robots\\.txt|sitemap\\.xml|llm\\.txt|site\\.webmanifest|.*\\..*).*)",
       "destination": "/index.html"
     }
-  ],
-  "headers": [
-    {
-      "source": "/crossmed.apk",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/vnd.android.package-archive"
-        },
-        {
-          "key": "Content-Disposition",
-          "value": "attachment; filename=\"crossmed.apk\""
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600"
-        }
-      ]
-    }
   ]
 }
