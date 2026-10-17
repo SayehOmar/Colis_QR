@@ -398,8 +398,8 @@ export const translations = {
     billingSubscribe: "S'abonner",
     billingManage: "Gérer l'abonnement",
     billingGoDashboard: "Tableau de bord",
-    billingCheckoutError: "Impossible d'ouvrir le paiement Paddle",
-    billingPortalError: "Impossible d'ouvrir le portail Paddle",
+    billingCheckoutError: "Impossible d'ouvrir le paiement Stripe",
+    billingPortalError: "Impossible d'ouvrir le portail Stripe",
     billingBrand: "Logistique transfrontalière",
     billingChoosePlan: "Choisissez votre plan",
     billingFeatureOps: "Tableau de bord opérations web",
@@ -408,7 +408,7 @@ export const translations = {
     billingBestValue: "Meilleure offre",
     billingSaveVsMonthly: "Économisez {percent}% vs mensuel",
     billingEquivalent: "Soit {amount} € / mois",
-    billingSecurePay: "Paiement sécurisé via Paddle",
+    billingSecurePay: "Paiement sécurisé via Stripe",
     billingLoadingPlans: "Chargement des plans…",
     billingCurrentPlan: "Plan actuel",
     billingNotConfigured: "Plan non disponible",
@@ -530,7 +530,7 @@ export const translations = {
       "Vous êtes responsable de la confidentialité de vos identifiants et de l’exactitude des informations fournies. Les comptes employés rejoignent une entreprise via un code ; la facturation reste à la charge du propriétaire.",
     legalTermsS3Title: "3. Abonnements et paiements",
     legalTermsS3Body:
-      "Les abonnements sont facturés via Paddle. Les prix affichés s’entendent selon le plan choisi (mensuel, trimestriel ou annuel). L’accès est maintenu pendant la période payée tant que le paiement est valide.",
+      "Les abonnements sont facturés via Stripe. Les prix affichés s’entendent selon le plan choisi (mensuel, trimestriel ou annuel). L’accès est maintenu pendant la période payée tant que le paiement est valide.",
     legalTermsS4Title: "4. Utilisation acceptable",
     legalTermsS4Body:
       "Vous ne devez pas abuser du service, tenter d’accéder sans autorisation aux données d’autrui, ni utiliser CrossMed à des fins illégales. Nous pouvons suspendre un compte en cas d’abus.",
@@ -545,13 +545,13 @@ export const translations = {
       "Cette politique décrit comment CrossMed traite les données personnelles lorsque vous utilisez le site, le tableau de bord et l’application téléphone.",
     legalPrivacyS1Title: "1. Données collectées",
     legalPrivacyS1Body:
-      "Nous pouvons collecter l’e-mail, le nom, les données de compte, les informations d’expédition que vous saisissez, les journaux techniques nécessaires au fonctionnement, et les données de paiement traitées par Paddle (nous ne stockons pas les numéros de carte complets).",
+      "Nous pouvons collecter l’e-mail, le nom, les données de compte, les informations d’expédition que vous saisissez, les journaux techniques nécessaires au fonctionnement, et les données de paiement traitées par Stripe (nous ne stockons pas les numéros de carte complets).",
     legalPrivacyS2Title: "2. Finalités",
     legalPrivacyS2Body:
       "Les données servent à fournir le service, gérer les abonnements, assurer la sécurité, communiquer avec vous au sujet du compte, et améliorer CrossMed.",
     legalPrivacyS3Title: "3. Partage",
     legalPrivacyS3Body:
-      "Nous partageons des données avec des prestataires nécessaires (hébergement, e-mail transactionnel, Paddle pour les paiements) et lorsque la loi l’exige. Nous ne vendons pas vos données personnelles.",
+      "Nous partageons des données avec des prestataires nécessaires (hébergement, e-mail transactionnel, Stripe pour les paiements) et lorsque la loi l’exige. Nous ne vendons pas vos données personnelles.",
     legalPrivacyS4Title: "4. Conservation",
     legalPrivacyS4Body:
       "Nous conservons les données aussi longtemps que nécessaire pour le compte, les obligations légales et la résolution des litiges, puis nous les supprimons ou anonymisons lorsque cela est raisonnable.",
@@ -563,13 +563,13 @@ export const translations = {
       "Responsable : ESSAYEH Omar — 21 Ng. 472 Đ. Lạc Long Quân, Tây Hồ, Hà Nội, Vietnam — sayehomar03@gmail.com.",
     legalRefundTitle: "Politique de remboursement",
     legalRefundIntro:
-      "Cette politique explique quand un remboursement peut être demandé pour les abonnements CrossMed facturés via Paddle.",
+      "Cette politique explique quand un remboursement peut être demandé pour les abonnements CrossMed facturés via Stripe.",
     legalRefundS1Title: "1. Essai gratuit",
     legalRefundS1Body:
       "Les nouveaux comptes transporteur bénéficient d’un essai gratuit (durée indiquée à l’inscription). Aucun paiement n’est dû pendant l’essai si vous n’activez pas d’abonnement.",
     legalRefundS2Title: "2. Annulation",
     legalRefundS2Body:
-      "Vous pouvez annuler via le portail Paddle (« Gérer l’abonnement »). L’annulation arrête les renouvellements futurs ; l’accès reste généralement actif jusqu’à la fin de la période déjà payée.",
+      "Vous pouvez annuler via le portail Stripe (« Gérer l’abonnement »). L’annulation arrête les renouvellements futurs ; l’accès reste généralement actif jusqu’à la fin de la période déjà payée.",
     legalRefundS3Title: "3. Remboursements",
     legalRefundS3Body:
       "Si vous n’avez pas pu utiliser le service pour une panne de notre côté, ou en cas de double facturation, contactez-nous sous 14 jours après le paiement. Les remboursements discrétionnaires peuvent être accordés au cas par cas.",
@@ -1016,8 +1016,8 @@ export const translations = {
     billingSubscribe: "Subscribe",
     billingManage: "Manage subscription",
     billingGoDashboard: "Dashboard",
-    billingCheckoutError: "Unable to open Paddle checkout",
-    billingPortalError: "Unable to open Paddle portal",
+    billingCheckoutError: "Unable to open Stripe checkout",
+    billingPortalError: "Unable to open Stripe portal",
     billingBrand: "Cross-Border Logistics",
     billingChoosePlan: "Choose your plan",
     billingFeatureOps: "Web operations dashboard",
@@ -1026,7 +1026,7 @@ export const translations = {
     billingBestValue: "Best value",
     billingSaveVsMonthly: "Save {percent}% vs monthly",
     billingEquivalent: "About {amount} € / month",
-    billingSecurePay: "Secure payment via Paddle",
+    billingSecurePay: "Secure payment via Stripe",
     billingLoadingPlans: "Loading plans…",
     billingCurrentPlan: "Current plan",
     billingNotConfigured: "Plan unavailable",
@@ -1146,7 +1146,7 @@ export const translations = {
       "You are responsible for keeping your credentials confidential and for the accuracy of information you provide. Worker accounts join a business via a code; billing remains with the owner.",
     legalTermsS3Title: "3. Subscriptions and payments",
     legalTermsS3Body:
-      "Subscriptions are billed through Paddle. Displayed prices follow the plan you choose (monthly, quarterly, or yearly). Access continues for the paid period while payment remains valid.",
+      "Subscriptions are billed through Stripe. Displayed prices follow the plan you choose (monthly, quarterly, or yearly). Access continues for the paid period while payment remains valid.",
     legalTermsS4Title: "4. Acceptable use",
     legalTermsS4Body:
       "You must not abuse the service, attempt unauthorized access to others’ data, or use CrossMed for illegal purposes. We may suspend accounts in case of abuse.",
@@ -1161,13 +1161,13 @@ export const translations = {
       "This policy describes how CrossMed handles personal data when you use the website, dashboard, and phone app.",
     legalPrivacyS1Title: "1. Data we collect",
     legalPrivacyS1Body:
-      "We may collect email, name, account data, shipment information you enter, technical logs needed to operate the service, and payment data processed by Paddle (we do not store full card numbers).",
+      "We may collect email, name, account data, shipment information you enter, technical logs needed to operate the service, and payment data processed by Stripe (we do not store full card numbers).",
     legalPrivacyS2Title: "2. Purposes",
     legalPrivacyS2Body:
       "Data is used to provide the service, manage subscriptions, maintain security, contact you about your account, and improve CrossMed.",
     legalPrivacyS3Title: "3. Sharing",
     legalPrivacyS3Body:
-      "We share data with necessary providers (hosting, transactional email, Paddle for payments) and when required by law. We do not sell your personal data.",
+      "We share data with necessary providers (hosting, transactional email, Stripe for payments) and when required by law. We do not sell your personal data.",
     legalPrivacyS4Title: "4. Retention",
     legalPrivacyS4Body:
       "We keep data as long as needed for the account, legal obligations, and dispute resolution, then delete or anonymize it when reasonable.",
@@ -1179,13 +1179,13 @@ export const translations = {
       "Controller: ESSAYEH Omar — 21 Ng. 472 Đ. Lạc Long Quân, Tây Hồ, Hà Nội, Vietnam — sayehomar03@gmail.com.",
     legalRefundTitle: "Refund policy",
     legalRefundIntro:
-      "This policy explains when a refund may be requested for CrossMed subscriptions billed through Paddle.",
+      "This policy explains when a refund may be requested for CrossMed subscriptions billed through Stripe.",
     legalRefundS1Title: "1. Free trial",
     legalRefundS1Body:
       "New carrier accounts include a free trial (duration shown at signup). No payment is due during the trial unless you activate a subscription.",
     legalRefundS2Title: "2. Cancellation",
     legalRefundS2Body:
-      "You can cancel via the Paddle portal (“Manage subscription”). Cancellation stops future renewals; access usually continues until the end of the period already paid.",
+      "You can cancel via the Stripe portal (“Manage subscription”). Cancellation stops future renewals; access usually continues until the end of the period already paid.",
     legalRefundS3Title: "3. Refunds",
     legalRefundS3Body:
       "If you could not use the service due to an outage on our side, or in case of duplicate billing, contact us within 14 days of payment. Discretionary refunds may be granted case by case.",
@@ -1625,8 +1625,8 @@ export const translations = {
     billingSubscribe: "اشترك",
     billingManage: "إدارة الاشتراك",
     billingGoDashboard: "لوحة التحكم",
-    billingCheckoutError: "تعذر فتح دفع Paddle",
-    billingPortalError: "تعذر فتح بوابة Paddle",
+    billingCheckoutError: "تعذر فتح دفع Stripe",
+    billingPortalError: "تعذر فتح بوابة Stripe",
     billingBrand: "اللوجستيات العابرة للحدود",
     billingChoosePlan: "اختر خطتك",
     billingFeatureOps: "لوحة تحكم العمليات على الويب",
@@ -1635,7 +1635,7 @@ export const translations = {
     billingBestValue: "أفضل قيمة",
     billingSaveVsMonthly: "وفّر {percent}% مقارنة بالشهري",
     billingEquivalent: "حوالي {amount} € / شهر",
-    billingSecurePay: "دفع آمن عبر Paddle",
+    billingSecurePay: "دفع آمن عبر Stripe",
     billingLoadingPlans: "جارٍ تحميل الخطط…",
     billingCurrentPlan: "الخطة الحالية",
     billingNotConfigured: "الخطة غير متاحة",
@@ -1754,7 +1754,7 @@ export const translations = {
       "أنت مسؤول عن سرية بيانات الدخول ودقة المعلومات المقدمة. تنضم حسابات الموظفين عبر رمز؛ وتبقى الفوترة على عاتق المالك.",
     legalTermsS3Title: "3. الاشتراكات والمدفوعات",
     legalTermsS3Body:
-      "تُفوتر الاشتراكات عبر Paddle وفق الخطة المختارة (شهرية أو ربع سنوية أو سنوية). يستمر الوصول خلال الفترة المدفوعة ما دام الدفع صالحًا.",
+      "تُفوتر الاشتراكات عبر Stripe وفق الخطة المختارة (شهرية أو ربع سنوية أو سنوية). يستمر الوصول خلال الفترة المدفوعة ما دام الدفع صالحًا.",
     legalTermsS4Title: "4. الاستخدام المقبول",
     legalTermsS4Body:
       "يُمنع إساءة استخدام الخدمة أو محاولة الوصول غير المصرح به إلى بيانات الآخرين أو استخدام CrossMed لأغراض غير قانونية. قد نعلّق الحساب عند الإساءة.",
@@ -1769,13 +1769,13 @@ export const translations = {
       "توضح هذه السياسة كيف تتعامل CrossMed مع البيانات الشخصية عند استخدام الموقع ولوحة التحكم وتطبيق الهاتف.",
     legalPrivacyS1Title: "1. البيانات المجمّعة",
     legalPrivacyS1Body:
-      "قد نجمع البريد والاسم وبيانات الحساب ومعلومات الشحن التي تدخلها وسجلات تقنية للتشغيل وبيانات الدفع التي يعالجها Paddle (لا نخزن أرقام البطاقات كاملة).",
+      "قد نجمع البريد والاسم وبيانات الحساب ومعلومات الشحن التي تدخلها وسجلات تقنية للتشغيل وبيانات الدفع التي يعالجها Stripe (لا نخزن أرقام البطاقات كاملة).",
     legalPrivacyS2Title: "2. الأغراض",
     legalPrivacyS2Body:
       "تُستخدم البيانات لتقديم الخدمة وإدارة الاشتراكات وتأمين المنصة والتواصل بشأن الحساب وتحسين CrossMed.",
     legalPrivacyS3Title: "3. المشاركة",
     legalPrivacyS3Body:
-      "نشارك البيانات مع مقدمي الخدمات الضروريين (الاستضافة والبريد وPaddle للدفع) وعند اقتضاء القانون. لا نبيع بياناتك الشخصية.",
+      "نشارك البيانات مع مقدمي الخدمات الضروريين (الاستضافة والبريد وStripe للدفع) وعند اقتضاء القانون. لا نبيع بياناتك الشخصية.",
     legalPrivacyS4Title: "4. الاحتفاظ",
     legalPrivacyS4Body:
       "نحتفظ بالبيانات طالما لزم للحساب والالتزامات القانونية وحل النزاعات، ثم نحذفها أو نجهّلها عند الإمكان.",
@@ -1787,13 +1787,13 @@ export const translations = {
       "المسؤول: ESSAYEH Omar — 21 Ng. 472 Đ. Lạc Long Quân, Tây Hồ, Hà Nội, Vietnam — sayehomar03@gmail.com.",
     legalRefundTitle: "سياسة الاسترداد",
     legalRefundIntro:
-      "توضح هذه السياسة متى يمكن طلب استرداد لاشتراكات CrossMed المفوترة عبر Paddle.",
+      "توضح هذه السياسة متى يمكن طلب استرداد لاشتراكات CrossMed المفوترة عبر Stripe.",
     legalRefundS1Title: "1. التجربة المجانية",
     legalRefundS1Body:
       "تشمل حسابات الناقل الجديدة تجربة مجانية (المدة تظهر عند التسجيل). لا يُستحق دفع خلال التجربة ما لم تفعّل اشتراكًا.",
     legalRefundS2Title: "2. الإلغاء",
     legalRefundS2Body:
-      "يمكنك الإلغاء عبر بوابة Paddle («إدارة الاشتراك»). يوقف الإلغاء التجديدات المستقبلية؛ ويبقى الوصول عادة حتى نهاية الفترة المدفوعة.",
+      "يمكنك الإلغاء عبر بوابة Stripe («إدارة الاشتراك»). يوقف الإلغاء التجديدات المستقبلية؛ ويبقى الوصول عادة حتى نهاية الفترة المدفوعة.",
     legalRefundS3Title: "3. الاسترداد",
     legalRefundS3Body:
       "إذا تعذّر استخدام الخدمة بسبب عطل من جانبنا، أو عند فاتورة مزدوجة، راسلنا خلال 14 يومًا من الدفع. قد تُمنح استردادات تقديرية حسب الحالة.",

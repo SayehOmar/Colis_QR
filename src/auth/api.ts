@@ -228,8 +228,12 @@ export async function openBillingPortal(token: string): Promise<string> {
   return data.url;
 }
 
-export async function syncBillingSubscription(token: string): Promise<AuthUser> {
-  const response = await fetch(`${apiBaseUrl}/billing/sync`, {
+export async function syncBillingSubscription(
+  token: string,
+  sessionId?: string,
+): Promise<AuthUser> {
+  const query = sessionId ? `?session_id=${encodeURIComponent(sessionId)}` : "";
+  const response = await fetch(`${apiBaseUrl}/billing/sync${query}`, {
     method: "POST",
     headers: { Authorization: `Bearer ${token}` },
   });

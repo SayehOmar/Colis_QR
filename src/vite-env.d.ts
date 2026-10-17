@@ -12,16 +12,6 @@ interface ImportMetaEnv {
   readonly VITE_GOOGLE_CLIENT_ID: string;
   readonly GOOGLE_CLIENT_ID?: string;
   readonly VITE_BYPASS: string;
-  readonly VITE_PADDLE_CLIENT_TOKEN: string;
-  readonly PADDLE_ENV?: string;
-  readonly VITE_PADDLE_ENV?: string;
-  readonly PADDLE_CLIENT_TOKEN?: string;
-  readonly PADDLE_PRICE_MONTHLY?: string;
-  readonly PADDLE_PRICE_QUARTERLY?: string;
-  readonly PADDLE_PRICE_YEARLY?: string;
-  readonly VITE_PADDLE_PRICE_MONTHLY?: string;
-  readonly VITE_PADDLE_PRICE_QUARTERLY?: string;
-  readonly VITE_PADDLE_PRICE_YEARLY?: string;
   readonly VITE_SITE_URL: string;
   readonly SITE_URL?: string;
   readonly VITE_APK_URL: string;

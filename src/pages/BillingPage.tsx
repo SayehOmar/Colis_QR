@@ -5,12 +5,10 @@ import {
   BillingPlan,
   fetchBillingPlans,
   openBillingPortal,
+  startCheckout,
   syncBillingSubscription,
 } from "../auth/api";
 import { hasPaidSubscription } from "../billing/billingPeriod";
-import { openSandboxCheckout } from "../billing/paddle";
-import type { PlanId } from "../billing/paddleConfig";
-import { useSandboxCheckout } from "../billing/usePaddlePrices";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import { LanguageSwitcher } from "../components/LanguageSwitcher";
 import { PageSeo } from "../components/PageSeo";
@@ -69,7 +67,6 @@ const PLAN_SUFFIX_KEYS: Record<
 export default function BillingPage() {
   const { t } = useLanguage();
   const { user, token, logout, refreshUser } = useAuth();
-  const { error: priceError, formattedPrice, ready } = useSandboxCheckout();
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [plans, setPlans] = useState<BillingPlan[]>(FALLBACK_PLANS);
@@ -80,8 +77,8 @@ export default function BillingPage() {
   const [portalBusy, setPortalBusy] = useState(false);
   const showSkeleton = usePageSkeleton(!loadingPlans, 400);
 
-  const success =
-    searchParams.get("success") === "1" || Boolean(searchParams.get("_ptxn"));
+  const success = searchParams.get("success") === "1";
+  const checkoutSessionId = searchParams.get("session_id");
   const canceled = searchParams.get("canceled") === "1";
 
   useEffect(() => {
@@ -123,18 +120,18 @@ export default function BillingPage() {
     let cancelled = false;
     void (async () => {
       try {
-        await syncBillingSubscription(token);
+        await syncBillingSubscription(token, checkoutSessionId || undefined);
         if (!cancelled) {
           await refreshUser();
         }
       } catch {
-        // Keep local profile if Paddle sync is unavailable.
+        // Keep local profile if Stripe sync is unavailable.
       }
     })();
     return () => {
       cancelled = true;
     };
-  }, [token, success, user?.subscription_plan, user?.subscription_status, refreshUser]);
+  }, [token, success, checkoutSessionId, user?.subscription_plan, user?.subscription_status, refreshUser]);
 
   useEffect(() => {
     if (!success) {
@@ -168,18 +165,20 @@ export default function BillingPage() {
     }
   }, [user?.trial_ends_at]);
 
-  const handleCheckout = async (planId: PlanId) => {
+  const handleCheckout = async (planId: string) => {
+    if (!token) {
+      return;
+    }
     setError(null);
     setBusyPlan(planId);
     try {
-      await openSandboxCheckout({
-        plan: planId,
-        email: user?.email,
-        userId: user?.id,
-      });
+      const session = await startCheckout(token, planId);
+      if (!session.url) {
+        throw new Error(t("billingCheckoutError"));
+      }
+      window.location.href = session.url;
     } catch (err) {
       setError(err instanceof Error ? err.message : t("billingCheckoutError"));
-    } finally {
       setBusyPlan(null);
     }
   };
@@ -339,9 +338,9 @@ export default function BillingPage() {
 
         <SubscriptionPeriodCard user={user} className="mb-5" />
 
-        {priceError || error ? (
+        {error ? (
           <div className="mb-5 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
-            {priceError || error}
+            {error}
           </div>
         ) : null}
 
@@ -365,7 +364,7 @@ export default function BillingPage() {
           {plans.map((plan, index) => {
             const isFeatured = plan.id === "yearly";
             const isCurrent = user?.subscription_plan === plan.id;
-            const disabled = !ready || busyPlan !== null;
+            const disabled = busyPlan !== null || plan.configured === false;
 
             return (
               <article
@@ -398,7 +397,7 @@ export default function BillingPage() {
 
                 <p className="mt-4 flex items-baseline gap-1">
                   <span className="text-4xl font-bold tracking-tight text-primary">
-                    {formattedPrice(plan.id as PlanId)}
+                    {`€${plan.price_eur}`}
                   </span>
                   <span className="text-sm text-on-surface-variant">
                     {t(PLAN_SUFFIX_KEYS[plan.id] ?? "billingPerMonth")}
@@ -408,14 +407,14 @@ export default function BillingPage() {
                 <button
                   type="button"
                   disabled={disabled}
-                  onClick={() => void handleCheckout(plan.id as PlanId)}
+                  onClick={() => void handleCheckout(plan.id)}
                   className={`mt-6 rounded-xl px-4 py-3 font-semibold transition disabled:cursor-not-allowed disabled:opacity-50 ${
                     isFeatured
                       ? "bg-tertiary text-on-tertiary hover:brightness-95"
                       : "bg-primary text-on-primary hover:brightness-110"
                   }`}
                 >
-                  {!ready
+                  {plan.configured === false
                     ? t("billingNotConfigured")
                     : busyPlan === plan.id
                       ? t("authLoading")
