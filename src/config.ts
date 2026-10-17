@@ -1,3 +1,5 @@
+import { absoluteUrl, getRuntimeOrigin } from "./seo/site";
+
 export const graphqlUri =
   import.meta.env.GRAPHQL_URI ??
   import.meta.env.VITE_GRAPHQL_URI ??
@@ -32,11 +34,26 @@ export const authBypass =
 
 export const AUTH_TOKEN_KEY = "transporteur-auth-token";
 
-/** Public APK / install URL for the phone app QR on the profile page. */
-export const apkDownloadUrl = (import.meta.env.VITE_APK_URL ?? "").trim();
-
 /** Canonical site origin for SEO (sitemap / llm.txt should match). */
-export { siteUrl, absoluteUrl } from "./seo/site";
+export { siteUrl, absoluteUrl, getRuntimeOrigin } from "./seo/site";
+
+/**
+ * Public APK install URL. Defaults to the file served from this site
+ * (`/crossmed.apk`). Override with VITE_APK_URL if needed.
+ */
+export function getApkDownloadUrl(): string {
+  const configured = (import.meta.env.VITE_APK_URL ?? "").trim();
+  if (configured) {
+    return configured;
+  }
+  if (typeof window !== "undefined") {
+    return `${getRuntimeOrigin()}/crossmed.apk`;
+  }
+  return absoluteUrl("/crossmed.apk");
+}
+
+/** Resolved at module load; prefer getApkDownloadUrl() when origin may change. */
+export const apkDownloadUrl = getApkDownloadUrl();
 
 export function isAuthBypassIdentity(value: string): boolean {
   return Boolean(authBypass) && value.trim().toLowerCase() === authBypass.toLowerCase();

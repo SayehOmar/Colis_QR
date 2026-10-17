@@ -206,6 +206,12 @@ export const translations = {
     landingPricingSupport:
       "Après l’essai gratuit, choisissez le plan qui correspond à votre volume.",
     landingPricingPopular: "Populaire",
+    landingAppTitle: "Télécharger l’app téléphone",
+    landingAppSupport:
+      "Scannez le QR avec votre téléphone Android — le téléchargement de l’APK démarre tout de suite.",
+    landingAppDownload: "Télécharger l’APK",
+    landingAppAndroidHint: "Android · installation hors Play Store",
+    landingNavApp: "App",
     landingPriceF1: "Scanner QR app mobile",
     landingPriceF2: "Tableau de bord opérations live",
     landingPriceF3: "Scans Europe–Afrique du Nord illimités",
@@ -466,7 +472,7 @@ export const translations = {
     profileAppQrSupport:
       "Placez le QR sur un téléphone pour installer l’app de scan QR.",
     profileAppQrConfigHint:
-      "Configurez VITE_APK_URL pour afficher le vrai lien d’installation.",
+      "Le fichier APK est servi depuis ce site (/crossmed.apk).",
     verifyEmailTitle: "Vérifiez votre e-mail",
     verifyEmailSupport:
       "Nous avons envoyé un lien de confirmation. Ouvrez-le pour activer votre compte transporteur.",
@@ -833,6 +839,12 @@ export const translations = {
     landingPricingSupport:
       "After the free trial, pick the plan that matches your volume.",
     landingPricingPopular: "Popular",
+    landingAppTitle: "Download the phone app",
+    landingAppSupport:
+      "Scan the QR with your Android phone — the APK download starts immediately.",
+    landingAppDownload: "Download APK",
+    landingAppAndroidHint: "Android · sideload install",
+    landingNavApp: "App",
     landingPriceF1: "Mobile app QR code scanner",
     landingPriceF2: "Live operations dashboard",
     landingPriceF3: "Unlimited Europe–North Africa scans",
@@ -1092,7 +1104,7 @@ export const translations = {
     profileAppQrSupport:
       "Point a phone camera at the QR to install the QR scanning app.",
     profileAppQrConfigHint:
-      "Set VITE_APK_URL to show the real install link.",
+      "The APK is served from this site (/crossmed.apk).",
     verifyEmailTitle: "Verify your email",
     verifyEmailSupport:
       "We sent a confirmation link. Open it to activate your carrier account.",
@@ -1451,6 +1463,12 @@ export const translations = {
     landingPricingTitle: "أسعار الناقل",
     landingPricingSupport: "بعد التجربة المجانية، اختر الخطة المناسبة لحجم عملك.",
     landingPricingPopular: "الأكثر شعبية",
+    landingAppTitle: "تنزيل تطبيق الهاتف",
+    landingAppSupport:
+      "امسح رمز QR بهاتف Android — يبدأ تنزيل ملف APK فورًا.",
+    landingAppDownload: "تنزيل APK",
+    landingAppAndroidHint: "Android · تثبيت خارج Play Store",
+    landingNavApp: "التطبيق",
     landingPriceF1: "ماسح QR لتطبيق الجوال",
     landingPriceF2: "لوحة عمليات مباشرة",
     landingPriceF3: "عمليات مسح غير محدودة أوروبا–شمال أفريقيا",
@@ -1710,7 +1728,7 @@ export const translations = {
     profileAppQrSupport:
       "وجّه كاميرا الهاتف إلى الرمز لتثبيت تطبيق مسح QR.",
     profileAppQrConfigHint:
-      "اضبط VITE_APK_URL لإظهار رابط التثبيت الحقيقي.",
+      "يُقدَّم ملف APK من هذا الموقع (/crossmed.apk).",
     verifyEmailTitle: "تحقق من بريدك",
     verifyEmailSupport:
       "أرسلنا رابط تأكيد. افتحه لتفعيل حساب الناقل.",

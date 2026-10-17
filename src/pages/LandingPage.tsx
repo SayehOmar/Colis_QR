@@ -1,8 +1,10 @@
+import { QRCodeSVG } from "qrcode.react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { HowItWorksScrollDemo } from "../components/HowItWorksScrollDemo";
 import { LanguageSwitcher } from "../components/LanguageSwitcher";
 import { PageSeo } from "../components/PageSeo";
+import { getApkDownloadUrl } from "../config";
 import { useLanguage } from "../i18n/LanguageContext";
 
 function Icon({ name, className = "" }: { name: string; className?: string }) {
@@ -16,6 +18,7 @@ function Icon({ name, className = "" }: { name: string; className?: string }) {
 export default function LandingPage() {
   const { t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
+  const apkUrl = getApkDownloadUrl();
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -118,6 +121,12 @@ export default function LandingPage() {
             >
               {t("landingNavPricing")}
             </a>
+            <a
+              className="whitespace-nowrap transition-colors hover:text-on-surface"
+              href="#app"
+            >
+              {t("landingNavApp")}
+            </a>
             <Link
               to="/about"
               className="whitespace-nowrap transition-colors hover:text-on-surface"
@@ -198,6 +207,13 @@ export default function LandingPage() {
                 onClick={closeMenu}
               >
                 {t("landingNavPricing")}
+              </a>
+              <a
+                className="rounded-lg px-3 py-2.5 hover:bg-surface-container-low"
+                href="#app"
+                onClick={closeMenu}
+              >
+                {t("landingNavApp")}
               </a>
               <Link
                 className="rounded-lg px-3 py-2.5 hover:bg-surface-container-low"
@@ -835,6 +851,45 @@ export default function LandingPage() {
           </div>
         </section>
 
+        {/* APP DOWNLOAD */}
+        <section
+          className="border-t border-outline-variant/30 bg-surface py-14 sm:py-20"
+          id="app"
+        >
+          <div className="landing-reveal mx-auto flex max-w-[1240px] flex-col items-center gap-8 px-4 sm:flex-row sm:items-start sm:justify-center sm:gap-12 sm:px-6">
+            <div className="max-w-md text-center sm:text-start">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-tertiary">
+                Android
+              </p>
+              <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-on-surface sm:text-3xl">
+                {t("landingAppTitle")}
+              </h2>
+              <p className="mt-3 text-sm text-on-surface-variant sm:text-base">
+                {t("landingAppSupport")}
+              </p>
+              <p className="mt-2 text-xs font-medium text-on-surface-variant">
+                {t("landingAppAndroidHint")}
+              </p>
+              <a
+                href={apkUrl}
+                download="crossmed.apk"
+                className="landing-btn mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-xs font-bold text-on-primary shadow-sm"
+              >
+                <Icon name="download" className="text-[18px]" />
+                {t("landingAppDownload")}
+              </a>
+            </div>
+            <div className="flex flex-col items-center gap-3">
+              <div className="rounded-2xl border border-outline-variant/60 bg-surface-container-lowest p-4 shadow-sm">
+                <QRCodeSVG value={apkUrl} size={168} includeMargin />
+              </div>
+              <p className="text-center text-xs font-medium text-on-surface-variant">
+                {t("landingAppAndroidHint")}
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* FINAL CTA */}
         <section
           className="relative overflow-hidden bg-primary py-14 text-on-primary sm:py-20"
@@ -913,6 +968,12 @@ export default function LandingPage() {
                 href="#pricing"
               >
                 {t("landingNavPricing")}
+              </a>
+              <a
+                className="transition-colors hover:text-on-surface"
+                href="#app"
+              >
+                {t("landingNavApp")}
               </a>
               <Link
                 className="transition-colors hover:text-on-surface"

@@ -1,6 +1,6 @@
 import { QRCodeSVG } from "qrcode.react";
 import { useEffect, useRef } from "react";
-import { apkDownloadUrl } from "../config";
+import { getApkDownloadUrl } from "../config";
 import { useLanguage } from "../i18n/LanguageContext";
 import type { TranslationKey } from "../i18n/translations";
 import "./how-it-works-scroll-demo.css";
@@ -19,6 +19,7 @@ const STEP_TITLE_KEYS = [
 export function HowItWorksScrollDemo() {
   const { t, language } = useLanguage();
   const rootRef = useRef<HTMLDivElement>(null);
+  const apkUrl = getApkDownloadUrl();
 
   useEffect(() => {
     const root = rootRef.current;
@@ -305,32 +306,16 @@ export function HowItWorksScrollDemo() {
                 <img className="get-app-logo" src="/logo.svg" alt="CrossMed" />
                 <div className="get-app-qr-wrap">
                   <div className="get-app-qr">
-                    {apkDownloadUrl ? (
-                      <QRCodeSVG
-                        value={apkDownloadUrl}
-                        size={148}
-                        includeMargin
-                      />
-                    ) : (
-                      <div className="get-app-qr-placeholder">
-                        <span className="material-symbols-outlined" aria-hidden>
-                          qr_code_2
-                        </span>
-                        <p>{t("profileAppQrPlaceholder")}</p>
-                      </div>
-                    )}
+                    <QRCodeSVG value={apkUrl} size={148} includeMargin />
                   </div>
                   <p className="get-app-hint">{t("hiwScanApp")}</p>
-                  {apkDownloadUrl ? (
-                    <a
-                      href={apkDownloadUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="get-app-link"
-                    >
-                      Manual Download Link
-                    </a>
-                  ) : null}
+                  <a
+                    href={apkUrl}
+                    download="crossmed.apk"
+                    className="get-app-link"
+                  >
+                    {t("landingAppDownload")}
+                  </a>
                 </div>
               </div>
             </div>

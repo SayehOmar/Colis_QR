@@ -18,7 +18,7 @@ import { LanguageSwitcher } from "../components/LanguageSwitcher";
 import { PageSeo } from "../components/PageSeo";
 import { PasswordField } from "../components/PasswordField";
 import { SubscriptionPeriodCard } from "../components/SubscriptionPeriodCard";
-import { apkDownloadUrl } from "../config";
+import { getApkDownloadUrl } from "../config";
 import { formatLocalDateTime } from "../i18n/formatDateTime";
 import { useLanguage } from "../i18n/LanguageContext";
 
@@ -58,6 +58,7 @@ export default function ProfilePage() {
   const showPasswordForm = user?.can_change_password === true;
   const isEmployee = user?.account_role === "employee";
   const isEmployer = user?.account_role === "employer";
+  const apkUrl = getApkDownloadUrl();
 
 
   useEffect(() => {
@@ -477,33 +478,18 @@ export default function ProfilePage() {
           <p className="app-muted mt-1 text-sm">{t("profileAppQrHint")}</p>
           <div className="mt-5 flex flex-col items-center gap-4 sm:flex-row sm:items-start">
             <div className="flex h-44 w-44 items-center justify-center rounded-2xl border border-dashed border-outline-variant bg-surface-container-low p-3">
-              {apkDownloadUrl ? (
-                <QRCodeSVG value={apkDownloadUrl} size={148} includeMargin />
-              ) : (
-                <div className="px-3 text-center">
-                  <span className="material-symbols-outlined text-3xl text-on-surface-variant">
-                    qr_code_2
-                  </span>
-                  <p className="mt-2 text-xs font-medium text-on-surface-variant">
-                    {t("profileAppQrPlaceholder")}
-                  </p>
-                </div>
-              )}
+              <QRCodeSVG value={apkUrl} size={148} includeMargin />
             </div>
             <div className="flex-1 text-sm text-on-surface-variant">
               <p>{t("profileAppQrSupport")}</p>
-              {apkDownloadUrl ? (
-                <a
-                  href={apkDownloadUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="app-link mt-3 inline-block break-all text-xs"
-                >
-                  Manual Download Link
-                </a>
-              ) : (
-                <p className="mt-3 text-xs">{t("profileAppQrConfigHint")}</p>
-              )}
+              <a
+                href={apkUrl}
+                download="crossmed.apk"
+                className="app-link mt-3 inline-block break-all text-xs"
+              >
+                {t("landingAppDownload")}
+              </a>
+              <p className="mt-2 text-xs">{t("profileAppQrConfigHint")}</p>
             </div>
           </div>
         </section>
