@@ -19,6 +19,7 @@ import { PageSeo } from "../components/PageSeo";
 import { PasswordField } from "../components/PasswordField";
 import { SubscriptionPeriodCard } from "../components/SubscriptionPeriodCard";
 import { apkDownloadUrl } from "../config";
+import { formatLocalDateTime } from "../i18n/formatDateTime";
 import { useLanguage } from "../i18n/LanguageContext";
 
 export default function ProfilePage() {
@@ -96,11 +97,7 @@ export default function ProfilePage() {
 
   const trialDateLabel = useMemo(() => {
     if (!user?.trial_ends_at) return null;
-    try {
-      return new Date(user.trial_ends_at).toLocaleString(locale);
-    } catch {
-      return user.trial_ends_at;
-    }
+    return formatLocalDateTime(user.trial_ends_at, locale, user.trial_ends_at);
   }, [user?.trial_ends_at, locale]);
 
   const isTrialing =

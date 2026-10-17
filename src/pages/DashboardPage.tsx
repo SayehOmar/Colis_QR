@@ -28,6 +28,7 @@ import {
 } from "../dashboardAnalytics";
 import { TeamPanel } from "../components/TeamPanel";
 import { SHIPMENTS_QUERY } from "../graphql";
+import { formatLocalDateTime } from "../i18n/formatDateTime";
 import { useLanguage } from "../i18n/LanguageContext";
 import type { TranslationKey } from "../i18n/translations";
 import type { Shipment, ShipmentsQueryResult } from "../types";
@@ -337,7 +338,9 @@ function OrdersPanel({
   shipments: Shipment[];
   loading: boolean;
 }) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const locale =
+    language === "ar" ? "ar" : language === "en" ? "en-GB" : "fr-FR";
   // Backend already caps at 100; keep a hard UI cap for expand performance.
   const visible = shipments.slice(0, 100);
   return (
@@ -519,11 +522,15 @@ function OrdersPanel({
                   edit={editByField.tariffAmount}
                 />
                 <StaticCopyCell
-                  value={shipment.timestamp}
+                  value={formatLocalDateTime(shipment.timestamp, locale)}
                   className="whitespace-nowrap text-on-surface-variant"
                 />
                 <StaticCopyCell
-                  value={shipment.lastEditedAt ?? t("never")}
+                  value={
+                    shipment.lastEditedAt
+                      ? formatLocalDateTime(shipment.lastEditedAt, locale)
+                      : t("never")
+                  }
                   className="whitespace-nowrap text-on-surface-variant"
                 />
                 <StaticCopyCell

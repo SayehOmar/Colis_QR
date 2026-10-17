@@ -1,3 +1,4 @@
+import { localDayKey } from "./i18n/formatDateTime";
 import type { Shipment } from "./types";
 
 export interface CityStat {
@@ -74,12 +75,8 @@ export function scannerLabel(shipment: Shipment): string {
 }
 
 function shipmentDay(timestamp: string): string {
-  const trimmed = timestamp.trim();
-  if (!trimmed) return "";
-  const isoLike = trimmed.replace(" UTC", "Z").replace(" ", "T");
-  const d = new Date(isoLike);
-  if (!Number.isNaN(d.getTime())) return d.toISOString().slice(0, 10);
-  return trimmed.match(/^(\d{4}-\d{2}-\d{2})/)?.[1] ?? "";
+  // Group by the viewer's local calendar day (browser/PC timezone).
+  return localDayKey(timestamp);
 }
 
 function includesNorm(haystack: string, needle: string): boolean {

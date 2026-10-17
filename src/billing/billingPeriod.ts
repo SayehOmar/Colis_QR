@@ -1,15 +1,14 @@
+import { formatLocalDate, parseServerDate } from "../i18n/formatDateTime";
+
 export function formatBillingDate(
   value: string | null | undefined,
   locale: string,
 ): string | null {
   if (!value) return null;
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return value;
-  return date.toLocaleDateString(locale, {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+  if (!parseServerDate(value) && Number.isNaN(new Date(value).getTime())) {
+    return value;
+  }
+  return formatLocalDate(value, locale, value);
 }
 
 export function formatDurationUntil(

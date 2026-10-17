@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useAuth } from "../auth/AuthContext";
 import { EmployerInfo, fetchEmployer } from "../auth/api";
+import { formatLocalDateTime } from "../i18n/formatDateTime";
 import { useLanguage } from "../i18n/LanguageContext";
 
 export function TeamPanel() {
@@ -99,7 +100,7 @@ export function TeamPanel() {
                   </td>
                   <td className="px-2 py-2 text-on-surface-variant">
                     {worker.joined_at
-                      ? new Date(worker.joined_at).toLocaleString(locale)
+                      ? formatLocalDateTime(worker.joined_at, locale)
                       : "—"}
                   </td>
                 </tr>

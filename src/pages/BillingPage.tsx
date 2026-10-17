@@ -14,6 +14,7 @@ import { LanguageSwitcher } from "../components/LanguageSwitcher";
 import { PageSeo } from "../components/PageSeo";
 import { PageSkeleton, usePageSkeleton } from "../components/PageSkeleton";
 import { SubscriptionPeriodCard } from "../components/SubscriptionPeriodCard";
+import { formatLocalDateTime } from "../i18n/formatDateTime";
 import { useLanguage } from "../i18n/LanguageContext";
 import type { TranslationKey } from "../i18n/translations";
 
@@ -65,7 +66,9 @@ const PLAN_SUFFIX_KEYS: Record<
 };
 
 export default function BillingPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const locale =
+    language === "ar" ? "ar" : language === "en" ? "en-GB" : "fr-FR";
   const { user, token, logout, refreshUser } = useAuth();
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -158,12 +161,8 @@ export default function BillingPage() {
     if (!user?.trial_ends_at) {
       return null;
     }
-    try {
-      return new Date(user.trial_ends_at).toLocaleString();
-    } catch {
-      return user.trial_ends_at;
-    }
-  }, [user?.trial_ends_at]);
+    return formatLocalDateTime(user.trial_ends_at, locale, user.trial_ends_at);
+  }, [user?.trial_ends_at, locale]);
 
   const handleCheckout = async (planId: string) => {
     if (!token) {
