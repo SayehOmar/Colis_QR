@@ -471,8 +471,7 @@ export const translations = {
     profileAppQrPlaceholder: "QR bientôt disponible",
     profileAppQrSupport:
       "Placez le QR sur un téléphone pour installer l’app de scan QR.",
-    profileAppQrConfigHint:
-      "Téléchargement direct depuis GitHub (public/crossmed.apk).",
+    profileAppQrConfigHint: "Téléchargement direct.",
     verifyEmailTitle: "Vérifiez votre e-mail",
     verifyEmailSupport:
       "Nous avons envoyé un lien de confirmation. Ouvrez-le pour activer votre compte transporteur.",
@@ -1103,8 +1102,7 @@ export const translations = {
     profileAppQrPlaceholder: "QR coming soon",
     profileAppQrSupport:
       "Point a phone camera at the QR to install the QR scanning app.",
-    profileAppQrConfigHint:
-      "Direct download from GitHub (public/crossmed.apk).",
+    profileAppQrConfigHint: "Direct download.",
     verifyEmailTitle: "Verify your email",
     verifyEmailSupport:
       "We sent a confirmation link. Open it to activate your carrier account.",
@@ -1727,8 +1725,7 @@ export const translations = {
     profileAppQrPlaceholder: "رمز QR قريباً",
     profileAppQrSupport:
       "وجّه كاميرا الهاتف إلى الرمز لتثبيت تطبيق مسح QR.",
-    profileAppQrConfigHint:
-      "تنزيل مباشر من GitHub (public/crossmed.apk).",
+    profileAppQrConfigHint: "تنزيل مباشر.",
     verifyEmailTitle: "تحقق من بريدك",
     verifyEmailSupport:
       "أرسلنا رابط تأكيد. افتحه لتفعيل حساب الناقل.",
