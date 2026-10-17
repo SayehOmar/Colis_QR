@@ -1,6 +1,11 @@
 import type { Paddle, PricePreviewParams } from "@paddle/paddle-js";
 import { useEffect, useMemo, useState } from "react";
-import { readPaddleBrowserConfig, type PlanId, type Tier } from "./paddleConfig";
+import {
+  FALLBACK_PLAN_PRICES,
+  readPaddleBrowserConfig,
+  type PlanId,
+  type Tier,
+} from "./paddleConfig";
 import { loadPaddle } from "./paddle";
 
 export type PaddlePrices = Record<string, string>;
@@ -113,17 +118,17 @@ export function useSandboxCheckout() {
       });
   }, [paddle, country, countryReady, tiers]);
 
-  function formattedPrice(plan: PlanId): string | null {
+  function formattedPrice(plan: PlanId): string {
     const tier = tiers.find((item) => item.id === plan);
-    if (!tier) {
-      return null;
+    if (tier && prices[tier.priceId]) {
+      return prices[tier.priceId];
     }
-    return prices[tier.priceId] ?? null;
+    return FALLBACK_PLAN_PRICES[plan];
   }
 
   return {
-    loading,
-    error,
+    loading: loading && tiers.length > 0,
+    error: config.error ? null : error,
     formattedPrice,
     ready: Boolean(paddle) && tiers.length > 0,
   };

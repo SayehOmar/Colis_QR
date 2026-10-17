@@ -69,7 +69,7 @@ const PLAN_SUFFIX_KEYS: Record<
 export default function BillingPage() {
   const { t } = useLanguage();
   const { user, token, logout, refreshUser } = useAuth();
-  const { loading: pricesLoading, error: priceError, formattedPrice, ready } = useSandboxCheckout();
+  const { error: priceError, formattedPrice, ready } = useSandboxCheckout();
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [plans, setPlans] = useState<BillingPlan[]>(FALLBACK_PLANS);
@@ -398,9 +398,7 @@ export default function BillingPage() {
 
                 <p className="mt-4 flex items-baseline gap-1">
                   <span className="text-4xl font-bold tracking-tight text-primary">
-                    {pricesLoading || !formattedPrice(plan.id as PlanId)
-                      ? "…"
-                      : formattedPrice(plan.id as PlanId)}
+                    {formattedPrice(plan.id as PlanId)}
                   </span>
                   <span className="text-sm text-on-surface-variant">
                     {t(PLAN_SUFFIX_KEYS[plan.id] ?? "billingPerMonth")}

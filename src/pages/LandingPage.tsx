@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useAuth } from "../auth/AuthContext";
-import { openSandboxCheckout } from "../billing/paddle";
-import type { PlanId } from "../billing/paddleConfig";
-import { useSandboxCheckout } from "../billing/usePaddlePrices";
 import { HowItWorksScrollDemo } from "../components/HowItWorksScrollDemo";
 import { LanguageSwitcher } from "../components/LanguageSwitcher";
 import { PageSeo } from "../components/PageSeo";
@@ -19,27 +15,7 @@ function Icon({ name, className = "" }: { name: string; className?: string }) {
 
 export default function LandingPage() {
   const { t } = useLanguage();
-  const { user } = useAuth();
-  const { loading: pricesLoading, error: priceError, formattedPrice, ready } = useSandboxCheckout();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [busyPlan, setBusyPlan] = useState<PlanId | null>(null);
-  const [checkoutError, setCheckoutError] = useState<string | null>(null);
-
-  async function subscribe(plan: PlanId) {
-    setCheckoutError(null);
-    setBusyPlan(plan);
-    try {
-      await openSandboxCheckout({
-        plan,
-        email: user?.email,
-        userId: user?.id,
-      });
-    } catch (err) {
-      setCheckoutError(err instanceof Error ? err.message : "Checkout failed");
-    } finally {
-      setBusyPlan(null);
-    }
-  }
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -722,11 +698,6 @@ export default function LandingPage() {
               <p className="mt-2 text-sm text-on-surface-variant sm:text-base">
                 {t("landingPricingSupport")}
               </p>
-              {priceError || checkoutError ? (
-                <p className="mt-3 text-sm text-red-700" role="alert">
-                  {priceError || checkoutError}
-                </p>
-              ) : null}
             </div>
             <div className="mx-auto grid max-w-4xl grid-cols-1 items-stretch gap-6 md:grid-cols-3">
               <div className="landing-reveal landing-reveal-delay-1 flex flex-col justify-between rounded-2xl border border-outline-variant/60 bg-surface-container-lowest p-6 shadow-sm">
@@ -736,9 +707,7 @@ export default function LandingPage() {
                   </span>
                   <div className="my-4">
                     <span className="text-3xl font-extrabold text-on-surface">
-                      {pricesLoading || !formattedPrice("monthly")
-                        ? "…"
-                        : formattedPrice("monthly")}
+                      €20
                     </span>
                     <span className="text-xs font-medium text-on-surface-variant">
                       {" "}
@@ -763,14 +732,12 @@ export default function LandingPage() {
                     ))}
                   </ul>
                 </div>
-                <button
-                  type="button"
-                  disabled={!ready || busyPlan !== null}
-                  onClick={() => void subscribe("monthly")}
-                  className="landing-btn landing-btn-outline w-full rounded-xl border border-outline-variant/80 bg-surface-container-low px-4 py-2.5 text-center text-xs font-bold text-on-surface disabled:opacity-50"
+                <Link
+                  to="/signup"
+                  className="landing-btn landing-btn-outline w-full rounded-xl border border-outline-variant/80 bg-surface-container-low px-4 py-2.5 text-center text-xs font-bold text-on-surface"
                 >
-                  {busyPlan === "monthly" ? t("authLoading") : t("billingSubscribe")}
-                </button>
+                  {t("billingSubscribe")}
+                </Link>
               </div>
 
               <div className="landing-reveal landing-reveal-delay-2 relative flex flex-col justify-between rounded-2xl border-2 border-secondary bg-surface-container-lowest p-6 shadow-md">
@@ -783,9 +750,7 @@ export default function LandingPage() {
                   </span>
                   <div className="my-4">
                     <span className="text-3xl font-extrabold text-on-surface">
-                      {pricesLoading || !formattedPrice("quarterly")
-                        ? "…"
-                        : formattedPrice("quarterly")}
+                      €52
                     </span>
                     <span className="text-xs font-medium text-on-surface-variant">
                       {" "}
@@ -812,14 +777,12 @@ export default function LandingPage() {
                     ))}
                   </ul>
                 </div>
-                <button
-                  type="button"
-                  disabled={!ready || busyPlan !== null}
-                  onClick={() => void subscribe("quarterly")}
-                  className="landing-btn w-full rounded-xl bg-secondary px-4 py-2.5 text-center text-xs font-bold text-on-secondary shadow-sm disabled:opacity-50"
+                <Link
+                  to="/signup"
+                  className="landing-btn w-full rounded-xl bg-secondary px-4 py-2.5 text-center text-xs font-bold text-on-secondary shadow-sm"
                 >
-                  {busyPlan === "quarterly" ? t("authLoading") : t("billingSubscribe")}
-                </button>
+                  {t("billingSubscribe")}
+                </Link>
               </div>
 
               <div className="landing-reveal landing-reveal-delay-3 flex flex-col justify-between rounded-2xl border border-outline-variant/60 bg-surface-container-lowest p-6 shadow-sm">
@@ -834,9 +797,7 @@ export default function LandingPage() {
                   </div>
                   <div className="my-4">
                     <span className="text-3xl font-extrabold text-on-surface">
-                      {pricesLoading || !formattedPrice("yearly")
-                        ? "…"
-                        : formattedPrice("yearly")}
+                      €192
                     </span>
                     <span className="text-xs font-medium text-on-surface-variant">
                       {" "}
@@ -863,14 +824,12 @@ export default function LandingPage() {
                     ))}
                   </ul>
                 </div>
-                <button
-                  type="button"
-                  disabled={!ready || busyPlan !== null}
-                  onClick={() => void subscribe("yearly")}
-                  className="landing-btn w-full rounded-xl bg-primary px-4 py-2.5 text-center text-xs font-bold text-on-primary disabled:opacity-50"
+                <Link
+                  to="/signup"
+                  className="landing-btn w-full rounded-xl bg-primary px-4 py-2.5 text-center text-xs font-bold text-on-primary"
                 >
-                  {busyPlan === "yearly" ? t("authLoading") : t("billingSubscribe")}
-                </button>
+                  {t("billingSubscribe")}
+                </Link>
               </div>
             </div>
           </div>
