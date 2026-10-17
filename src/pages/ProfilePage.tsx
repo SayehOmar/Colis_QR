@@ -7,36 +7,18 @@ import {
   joinEmployer,
   leaveEmployer,
   openBillingPortal,
+  syncBillingSubscription,
   updateProfile,
 } from "../auth/api";
+import { formatDurationUntil, hasPaidSubscription } from "../billing/billingPeriod";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import { JoinEmployerCode } from "../components/JoinEmployerCode";
 import { LanguageSwitcher } from "../components/LanguageSwitcher";
 import { PageSeo } from "../components/PageSeo";
 import { PasswordField } from "../components/PasswordField";
+import { SubscriptionPeriodCard } from "../components/SubscriptionPeriodCard";
 import { apkDownloadUrl } from "../config";
 import { useLanguage } from "../i18n/LanguageContext";
-
-function formatTrialRemaining(
-  trialEndsAt: string | null | undefined,
-  labels: {
-    ended: string;
-    days: (n: number) => string;
-    hours: (n: number) => string;
-    soon: string;
-  },
-): string {
-  if (!trialEndsAt) return "—";
-  const end = new Date(trialEndsAt).getTime();
-  if (Number.isNaN(end)) return trialEndsAt;
-  const ms = end - Date.now();
-  if (ms <= 0) return labels.ended;
-  const hours = Math.floor(ms / (1000 * 60 * 60));
-  const days = Math.floor(hours / 24);
-  if (days >= 1) return labels.days(days);
-  if (hours >= 1) return labels.hours(hours);
-  return labels.soon;
-}
 
 export default function ProfilePage() {
   const { t, language } = useLanguage();
@@ -73,14 +55,38 @@ export default function ProfilePage() {
   const isEmployer = user?.account_role === "employer";
 
 
+  useEffect(() => {
+    if (!token || isEmployee || !hasPaidSubscription(user)) return;
+    let cancelled = false;
+    void (async () => {
+      try {
+        await syncBillingSubscription(token);
+        if (!cancelled) {
+          await refreshUser();
+        }
+      } catch {
+        // Keep local profile if sync fails.
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [
+    token,
+    isEmployee,
+    user?.subscription_plan,
+    user?.subscription_status,
+    refreshUser,
+  ]);
+
   const trialRemaining = useMemo(
     () =>
-      formatTrialRemaining(user?.trial_ends_at, {
+      formatDurationUntil(user?.trial_ends_at, {
         ended: t("profileTrialEnded"),
         days: (n) => t("profileTrialDays").replace("{n}", String(n)),
         hours: (n) => t("profileTrialHours").replace("{n}", String(n)),
         soon: t("profileTrialSoon"),
-      }),
+      }) ?? "—",
     [user?.trial_ends_at, t],
   );
 
@@ -426,6 +432,7 @@ export default function ProfilePage() {
                 </div>
               ) : null}
             </div>
+            <SubscriptionPeriodCard user={user} className="mt-4" />
             <div className="mt-4 flex flex-wrap gap-2">
               <button
                 type="button"

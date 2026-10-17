@@ -218,6 +218,15 @@ export default function AboutPage() {
             <Link to="/" className="hover:text-on-surface">
               {t("breadcrumbHome")}
             </Link>
+            <Link to="/terms" className="hover:text-on-surface">
+              {t("navTerms")}
+            </Link>
+            <Link to="/privacy" className="hover:text-on-surface">
+              {t("navPrivacy")}
+            </Link>
+            <Link to="/refund" className="hover:text-on-surface">
+              {t("navRefund")}
+            </Link>
             <Link to="/client" className="hover:text-on-surface">
               {t("landingCtaClient")}
             </Link>

@@ -414,6 +414,15 @@ export const translations = {
     billingNotConfigured: "Plan non disponible",
     billingManagedByEmployer:
       "L’abonnement est géré par votre employeur ({name}).",
+    billingPeriodTitle: "Période de facturation",
+    billingLastBilled: "Dernière facturation",
+    billingNextBilling: "Prochaine facturation",
+    billingUntilNext: "Temps restant",
+    billingPeriodEnded: "Échéance atteinte",
+    billingPeriodDays: "{n} jour(s)",
+    billingPeriodHours: "{n} heure(s)",
+    billingPeriodSoon: "Moins d’une heure",
+    billingPeriodUnknown: "—",
     profileTitle: "Profil",
     profileBackDashboard: "Tableau de bord",
     profileAccount: "Compte",
@@ -500,7 +509,76 @@ export const translations = {
     breadcrumbBilling: "Tarifs",
     breadcrumbProfile: "Profil",
     breadcrumbDashboard: "Tableau de bord",
+    breadcrumbTerms: "Conditions d’utilisation",
+    breadcrumbPrivacy: "Politique de confidentialité",
+    breadcrumbRefund: "Politique de remboursement",
     breadcrumbNotFound: "Page introuvable",
+    navTerms: "Conditions",
+    navPrivacy: "Confidentialité",
+    navRefund: "Remboursements",
+    legalUpdated: "Dernière mise à jour : 16 octobre 2026",
+    legalContactHint:
+      "Questions : contactez-nous à sayehomar03@gmail.com.",
+    legalTermsTitle: "Conditions d’utilisation",
+    legalTermsIntro:
+      "Ces conditions régissent l’utilisation de CrossMed (CrossMediterraneo), la plateforme de logistique QR Europe ↔ Afrique du Nord opérée par ESSAYEH Omar.",
+    legalTermsS1Title: "1. Service",
+    legalTermsS1Body:
+      "CrossMed fournit un formulaire d’expédition client, des étiquettes PDF A4 avec QR, une application téléphone de scan et un tableau de bord transporteur. L’accès aux fonctions transporteur nécessite un compte et, hors essai, un abonnement actif.",
+    legalTermsS2Title: "2. Comptes",
+    legalTermsS2Body:
+      "Vous êtes responsable de la confidentialité de vos identifiants et de l’exactitude des informations fournies. Les comptes employés rejoignent une entreprise via un code ; la facturation reste à la charge du propriétaire.",
+    legalTermsS3Title: "3. Abonnements et paiements",
+    legalTermsS3Body:
+      "Les abonnements sont facturés via Paddle. Les prix affichés s’entendent selon le plan choisi (mensuel, trimestriel ou annuel). L’accès est maintenu pendant la période payée tant que le paiement est valide.",
+    legalTermsS4Title: "4. Utilisation acceptable",
+    legalTermsS4Body:
+      "Vous ne devez pas abuser du service, tenter d’accéder sans autorisation aux données d’autrui, ni utiliser CrossMed à des fins illégales. Nous pouvons suspendre un compte en cas d’abus.",
+    legalTermsS5Title: "5. Responsabilité",
+    legalTermsS5Body:
+      "CrossMed est fourni « en l’état ». Dans les limites autorisées par la loi, nous ne sommes pas responsables des dommages indirects liés au transport physique des colis, qui restent sous la responsabilité des parties concernées.",
+    legalTermsS6Title: "6. Modifications",
+    legalTermsS6Body:
+      "Nous pouvons mettre à jour ces conditions. La poursuite d’utilisation après publication vaut acceptation des changements importants, dans la mesure permise par la loi applicable.",
+    legalPrivacyTitle: "Politique de confidentialité",
+    legalPrivacyIntro:
+      "Cette politique décrit comment CrossMed traite les données personnelles lorsque vous utilisez le site, le tableau de bord et l’application téléphone.",
+    legalPrivacyS1Title: "1. Données collectées",
+    legalPrivacyS1Body:
+      "Nous pouvons collecter l’e-mail, le nom, les données de compte, les informations d’expédition que vous saisissez, les journaux techniques nécessaires au fonctionnement, et les données de paiement traitées par Paddle (nous ne stockons pas les numéros de carte complets).",
+    legalPrivacyS2Title: "2. Finalités",
+    legalPrivacyS2Body:
+      "Les données servent à fournir le service, gérer les abonnements, assurer la sécurité, communiquer avec vous au sujet du compte, et améliorer CrossMed.",
+    legalPrivacyS3Title: "3. Partage",
+    legalPrivacyS3Body:
+      "Nous partageons des données avec des prestataires nécessaires (hébergement, e-mail transactionnel, Paddle pour les paiements) et lorsque la loi l’exige. Nous ne vendons pas vos données personnelles.",
+    legalPrivacyS4Title: "4. Conservation",
+    legalPrivacyS4Body:
+      "Nous conservons les données aussi longtemps que nécessaire pour le compte, les obligations légales et la résolution des litiges, puis nous les supprimons ou anonymisons lorsque cela est raisonnable.",
+    legalPrivacyS5Title: "5. Vos droits",
+    legalPrivacyS5Body:
+      "Selon votre juridiction, vous pouvez demander l’accès, la correction ou la suppression de vos données. Contactez sayehomar03@gmail.com pour exercer ces droits.",
+    legalPrivacyS6Title: "6. Contact",
+    legalPrivacyS6Body:
+      "Responsable : ESSAYEH Omar — 21 Ng. 472 Đ. Lạc Long Quân, Tây Hồ, Hà Nội, Vietnam — sayehomar03@gmail.com.",
+    legalRefundTitle: "Politique de remboursement",
+    legalRefundIntro:
+      "Cette politique explique quand un remboursement peut être demandé pour les abonnements CrossMed facturés via Paddle.",
+    legalRefundS1Title: "1. Essai gratuit",
+    legalRefundS1Body:
+      "Les nouveaux comptes transporteur bénéficient d’un essai gratuit (durée indiquée à l’inscription). Aucun paiement n’est dû pendant l’essai si vous n’activez pas d’abonnement.",
+    legalRefundS2Title: "2. Annulation",
+    legalRefundS2Body:
+      "Vous pouvez annuler via le portail Paddle (« Gérer l’abonnement »). L’annulation arrête les renouvellements futurs ; l’accès reste généralement actif jusqu’à la fin de la période déjà payée.",
+    legalRefundS3Title: "3. Remboursements",
+    legalRefundS3Body:
+      "Si vous n’avez pas pu utiliser le service pour une panne de notre côté, ou en cas de double facturation, contactez-nous sous 14 jours après le paiement. Les remboursements discrétionnaires peuvent être accordés au cas par cas.",
+    legalRefundS4Title: "4. Exclusions",
+    legalRefundS4Body:
+      "En règle générale, les périodes déjà consommées, les changements d’avis après usage prolongé, et les problèmes liés au transport physique des marchandises (hors défaut logiciel CrossMed) ne donnent pas lieu à remboursement automatique.",
+    legalRefundS5Title: "5. Demande",
+    legalRefundS5Body:
+      "Envoyez votre demande à sayehomar03@gmail.com avec l’e-mail du compte, la date de paiement et le motif. Nous répondons dans un délai raisonnable.",
     notFoundTitle: "Page introuvable",
     notFoundBody:
       "Cette adresse n’existe pas ou a été déplacée. Revenez à l’accueil ou utilisez les liens ci-dessous.",
@@ -532,6 +610,15 @@ export const translations = {
     seoDashboardTitle: "Tableau de bord opérations",
     seoDashboardDescription:
       "Suivi en direct des expéditions CrossMed Europe ↔ Afrique du Nord.",
+    seoTermsTitle: "Conditions d’utilisation — CrossMed",
+    seoTermsDescription:
+      "Conditions d’utilisation de la plateforme CrossMed (CrossMediterraneo).",
+    seoPrivacyTitle: "Politique de confidentialité — CrossMed",
+    seoPrivacyDescription:
+      "Comment CrossMed collecte et utilise vos données personnelles.",
+    seoRefundTitle: "Politique de remboursement — CrossMed",
+    seoRefundDescription:
+      "Règles de remboursement et d’annulation des abonnements CrossMed.",
     seoNotFoundTitle: "Page introuvable",
     seoNotFoundDescription: "La page demandée n’existe pas sur CrossMed.",
   },
@@ -944,6 +1031,15 @@ export const translations = {
     billingCurrentPlan: "Current plan",
     billingNotConfigured: "Plan unavailable",
     billingManagedByEmployer: "Billing is managed by your employer ({name}).",
+    billingPeriodTitle: "Billing period",
+    billingLastBilled: "Last billing",
+    billingNextBilling: "Next billing",
+    billingUntilNext: "Time until next",
+    billingPeriodEnded: "Period ended",
+    billingPeriodDays: "{n} day(s)",
+    billingPeriodHours: "{n} hour(s)",
+    billingPeriodSoon: "Less than an hour",
+    billingPeriodUnknown: "—",
     profileTitle: "Profile",
     profileBackDashboard: "Dashboard",
     profileAccount: "Account",
@@ -1030,7 +1126,75 @@ export const translations = {
     breadcrumbBilling: "Billing",
     breadcrumbProfile: "Profile",
     breadcrumbDashboard: "Dashboard",
+    breadcrumbTerms: "Terms of service",
+    breadcrumbPrivacy: "Privacy policy",
+    breadcrumbRefund: "Refund policy",
     breadcrumbNotFound: "Not found",
+    navTerms: "Terms",
+    navPrivacy: "Privacy",
+    navRefund: "Refunds",
+    legalUpdated: "Last updated: 16 October 2026",
+    legalContactHint: "Questions: contact us at sayehomar03@gmail.com.",
+    legalTermsTitle: "Terms of service",
+    legalTermsIntro:
+      "These terms govern use of CrossMed (CrossMediterraneo), the Europe ↔ North Africa QR logistics platform operated by ESSAYEH Omar.",
+    legalTermsS1Title: "1. Service",
+    legalTermsS1Body:
+      "CrossMed provides a client shipment form, printable A4 QR labels, a phone scanning app, and a carrier dashboard. Carrier features require an account and, outside the trial, an active subscription.",
+    legalTermsS2Title: "2. Accounts",
+    legalTermsS2Body:
+      "You are responsible for keeping your credentials confidential and for the accuracy of information you provide. Worker accounts join a business via a code; billing remains with the owner.",
+    legalTermsS3Title: "3. Subscriptions and payments",
+    legalTermsS3Body:
+      "Subscriptions are billed through Paddle. Displayed prices follow the plan you choose (monthly, quarterly, or yearly). Access continues for the paid period while payment remains valid.",
+    legalTermsS4Title: "4. Acceptable use",
+    legalTermsS4Body:
+      "You must not abuse the service, attempt unauthorized access to others’ data, or use CrossMed for illegal purposes. We may suspend accounts in case of abuse.",
+    legalTermsS5Title: "5. Liability",
+    legalTermsS5Body:
+      "CrossMed is provided “as is”. To the extent allowed by law, we are not liable for indirect damages related to the physical transport of goods, which remains the responsibility of the parties involved.",
+    legalTermsS6Title: "6. Changes",
+    legalTermsS6Body:
+      "We may update these terms. Continued use after publication constitutes acceptance of material changes where permitted by applicable law.",
+    legalPrivacyTitle: "Privacy policy",
+    legalPrivacyIntro:
+      "This policy describes how CrossMed handles personal data when you use the website, dashboard, and phone app.",
+    legalPrivacyS1Title: "1. Data we collect",
+    legalPrivacyS1Body:
+      "We may collect email, name, account data, shipment information you enter, technical logs needed to operate the service, and payment data processed by Paddle (we do not store full card numbers).",
+    legalPrivacyS2Title: "2. Purposes",
+    legalPrivacyS2Body:
+      "Data is used to provide the service, manage subscriptions, maintain security, contact you about your account, and improve CrossMed.",
+    legalPrivacyS3Title: "3. Sharing",
+    legalPrivacyS3Body:
+      "We share data with necessary providers (hosting, transactional email, Paddle for payments) and when required by law. We do not sell your personal data.",
+    legalPrivacyS4Title: "4. Retention",
+    legalPrivacyS4Body:
+      "We keep data as long as needed for the account, legal obligations, and dispute resolution, then delete or anonymize it when reasonable.",
+    legalPrivacyS5Title: "5. Your rights",
+    legalPrivacyS5Body:
+      "Depending on your jurisdiction, you may request access, correction, or deletion of your data. Contact sayehomar03@gmail.com to exercise these rights.",
+    legalPrivacyS6Title: "6. Contact",
+    legalPrivacyS6Body:
+      "Controller: ESSAYEH Omar — 21 Ng. 472 Đ. Lạc Long Quân, Tây Hồ, Hà Nội, Vietnam — sayehomar03@gmail.com.",
+    legalRefundTitle: "Refund policy",
+    legalRefundIntro:
+      "This policy explains when a refund may be requested for CrossMed subscriptions billed through Paddle.",
+    legalRefundS1Title: "1. Free trial",
+    legalRefundS1Body:
+      "New carrier accounts include a free trial (duration shown at signup). No payment is due during the trial unless you activate a subscription.",
+    legalRefundS2Title: "2. Cancellation",
+    legalRefundS2Body:
+      "You can cancel via the Paddle portal (“Manage subscription”). Cancellation stops future renewals; access usually continues until the end of the period already paid.",
+    legalRefundS3Title: "3. Refunds",
+    legalRefundS3Body:
+      "If you could not use the service due to an outage on our side, or in case of duplicate billing, contact us within 14 days of payment. Discretionary refunds may be granted case by case.",
+    legalRefundS4Title: "4. Exclusions",
+    legalRefundS4Body:
+      "As a rule, periods already consumed, change of mind after extended use, and issues related to physical transport of goods (outside a CrossMed software defect) are not automatically refundable.",
+    legalRefundS5Title: "5. How to request",
+    legalRefundS5Body:
+      "Email sayehomar03@gmail.com with the account email, payment date, and reason. We respond within a reasonable time.",
     notFoundTitle: "Page not found",
     notFoundBody:
       "This address does not exist or has moved. Go back home or use the links below.",
@@ -1062,6 +1226,15 @@ export const translations = {
     seoDashboardTitle: "Operations dashboard",
     seoDashboardDescription:
       "Live CrossMed shipment tracking for Europe ↔ North Africa corridors.",
+    seoTermsTitle: "Terms of service — CrossMed",
+    seoTermsDescription:
+      "Terms of service for the CrossMed (CrossMediterraneo) platform.",
+    seoPrivacyTitle: "Privacy policy — CrossMed",
+    seoPrivacyDescription:
+      "How CrossMed collects and uses your personal data.",
+    seoRefundTitle: "Refund policy — CrossMed",
+    seoRefundDescription:
+      "Refund and cancellation rules for CrossMed subscriptions.",
     seoNotFoundTitle: "Page not found",
     seoNotFoundDescription: "The requested page does not exist on CrossMed.",
   },
@@ -1467,6 +1640,15 @@ export const translations = {
     billingCurrentPlan: "الخطة الحالية",
     billingNotConfigured: "الخطة غير متاحة",
     billingManagedByEmployer: "الفوترة يديرها صاحب عملك ({name}).",
+    billingPeriodTitle: "فترة الفوترة",
+    billingLastBilled: "آخر فاتورة",
+    billingNextBilling: "الفاتورة التالية",
+    billingUntilNext: "المتبقي حتى التالية",
+    billingPeriodEnded: "انتهت الفترة",
+    billingPeriodDays: "{n} يوم/أيام",
+    billingPeriodHours: "{n} ساعة/ساعات",
+    billingPeriodSoon: "أقل من ساعة",
+    billingPeriodUnknown: "—",
     profileTitle: "الملف الشخصي",
     profileBackDashboard: "لوحة التحكم",
     profileAccount: "الحساب",
@@ -1552,7 +1734,75 @@ export const translations = {
     breadcrumbBilling: "الفوترة",
     breadcrumbProfile: "الملف الشخصي",
     breadcrumbDashboard: "لوحة التحكم",
+    breadcrumbTerms: "شروط الخدمة",
+    breadcrumbPrivacy: "سياسة الخصوصية",
+    breadcrumbRefund: "سياسة الاسترداد",
     breadcrumbNotFound: "غير موجود",
+    navTerms: "الشروط",
+    navPrivacy: "الخصوصية",
+    navRefund: "الاسترداد",
+    legalUpdated: "آخر تحديث: 16 أكتوبر 2026",
+    legalContactHint: "للاستفسار: راسلنا على sayehomar03@gmail.com.",
+    legalTermsTitle: "شروط الخدمة",
+    legalTermsIntro:
+      "تحكم هذه الشروط استخدام CrossMed (CrossMediterraneo)، منصة اللوجستيات بـ QR بين أوروبا وشمال أفريقيا التي يديرها ESSAYEH Omar.",
+    legalTermsS1Title: "1. الخدمة",
+    legalTermsS1Body:
+      "توفر CrossMed نموذج شحن للعميل، وملصقات PDF A4 مع QR، وتطبيق هاتف للمسح، ولوحة تحكم للناقل. تتطلب ميزات الناقل حسابًا، وخارج الفترة التجريبية، اشتراكًا نشطًا.",
+    legalTermsS2Title: "2. الحسابات",
+    legalTermsS2Body:
+      "أنت مسؤول عن سرية بيانات الدخول ودقة المعلومات المقدمة. تنضم حسابات الموظفين عبر رمز؛ وتبقى الفوترة على عاتق المالك.",
+    legalTermsS3Title: "3. الاشتراكات والمدفوعات",
+    legalTermsS3Body:
+      "تُفوتر الاشتراكات عبر Paddle وفق الخطة المختارة (شهرية أو ربع سنوية أو سنوية). يستمر الوصول خلال الفترة المدفوعة ما دام الدفع صالحًا.",
+    legalTermsS4Title: "4. الاستخدام المقبول",
+    legalTermsS4Body:
+      "يُمنع إساءة استخدام الخدمة أو محاولة الوصول غير المصرح به إلى بيانات الآخرين أو استخدام CrossMed لأغراض غير قانونية. قد نعلّق الحساب عند الإساءة.",
+    legalTermsS5Title: "5. المسؤولية",
+    legalTermsS5Body:
+      "تُقدَّم CrossMed «كما هي». وفي حدود القانون، لسنا مسؤولين عن أضرار غير مباشرة تتعلق بالنقل الفعلي للبضائع، والذي يبقى مسؤولية الأطراف المعنية.",
+    legalTermsS6Title: "6. التعديلات",
+    legalTermsS6Body:
+      "قد نحدّث هذه الشروط. استمرار الاستخدام بعد النشر يعني قبول التغييرات الجوهرية حيث يسمح القانون بذلك.",
+    legalPrivacyTitle: "سياسة الخصوصية",
+    legalPrivacyIntro:
+      "توضح هذه السياسة كيف تتعامل CrossMed مع البيانات الشخصية عند استخدام الموقع ولوحة التحكم وتطبيق الهاتف.",
+    legalPrivacyS1Title: "1. البيانات المجمّعة",
+    legalPrivacyS1Body:
+      "قد نجمع البريد والاسم وبيانات الحساب ومعلومات الشحن التي تدخلها وسجلات تقنية للتشغيل وبيانات الدفع التي يعالجها Paddle (لا نخزن أرقام البطاقات كاملة).",
+    legalPrivacyS2Title: "2. الأغراض",
+    legalPrivacyS2Body:
+      "تُستخدم البيانات لتقديم الخدمة وإدارة الاشتراكات وتأمين المنصة والتواصل بشأن الحساب وتحسين CrossMed.",
+    legalPrivacyS3Title: "3. المشاركة",
+    legalPrivacyS3Body:
+      "نشارك البيانات مع مقدمي الخدمات الضروريين (الاستضافة والبريد وPaddle للدفع) وعند اقتضاء القانون. لا نبيع بياناتك الشخصية.",
+    legalPrivacyS4Title: "4. الاحتفاظ",
+    legalPrivacyS4Body:
+      "نحتفظ بالبيانات طالما لزم للحساب والالتزامات القانونية وحل النزاعات، ثم نحذفها أو نجهّلها عند الإمكان.",
+    legalPrivacyS5Title: "5. حقوقك",
+    legalPrivacyS5Body:
+      "بحسب ولايتك القضائية، يمكنك طلب الوصول أو التصحيح أو الحذف. راسل sayehomar03@gmail.com لممارسة هذه الحقوق.",
+    legalPrivacyS6Title: "6. التواصل",
+    legalPrivacyS6Body:
+      "المسؤول: ESSAYEH Omar — 21 Ng. 472 Đ. Lạc Long Quân, Tây Hồ, Hà Nội, Vietnam — sayehomar03@gmail.com.",
+    legalRefundTitle: "سياسة الاسترداد",
+    legalRefundIntro:
+      "توضح هذه السياسة متى يمكن طلب استرداد لاشتراكات CrossMed المفوترة عبر Paddle.",
+    legalRefundS1Title: "1. التجربة المجانية",
+    legalRefundS1Body:
+      "تشمل حسابات الناقل الجديدة تجربة مجانية (المدة تظهر عند التسجيل). لا يُستحق دفع خلال التجربة ما لم تفعّل اشتراكًا.",
+    legalRefundS2Title: "2. الإلغاء",
+    legalRefundS2Body:
+      "يمكنك الإلغاء عبر بوابة Paddle («إدارة الاشتراك»). يوقف الإلغاء التجديدات المستقبلية؛ ويبقى الوصول عادة حتى نهاية الفترة المدفوعة.",
+    legalRefundS3Title: "3. الاسترداد",
+    legalRefundS3Body:
+      "إذا تعذّر استخدام الخدمة بسبب عطل من جانبنا، أو عند فاتورة مزدوجة، راسلنا خلال 14 يومًا من الدفع. قد تُمنح استردادات تقديرية حسب الحالة.",
+    legalRefundS4Title: "4. الاستثناءات",
+    legalRefundS4Body:
+      "كقاعدة عامة، الفترات المستهلكة وتغيير الرأي بعد استخدام مطوّل ومشكلات النقل الفعلي للبضائع (خارج عيب برمجي في CrossMed) لا تُسترد تلقائيًا.",
+    legalRefundS5Title: "5. كيفية الطلب",
+    legalRefundS5Body:
+      "أرسل طلبك إلى sayehomar03@gmail.com مع بريد الحساب وتاريخ الدفع والسبب. نرد خلال وقت معقول.",
     notFoundTitle: "الصفحة غير موجودة",
     notFoundBody:
       "هذا العنوان غير موجود أو نُقل. عد إلى الرئيسية أو استخدم الروابط أدناه.",
@@ -1584,6 +1834,12 @@ export const translations = {
     seoDashboardTitle: "لوحة التحكم التشغيلية",
     seoDashboardDescription:
       "متابعة مباشرة لشحنات CrossMed بين أوروبا وشمال أفريقيا.",
+    seoTermsTitle: "شروط الخدمة — CrossMed",
+    seoTermsDescription: "شروط استخدام منصة CrossMed (CrossMediterraneo).",
+    seoPrivacyTitle: "سياسة الخصوصية — CrossMed",
+    seoPrivacyDescription: "كيف تجمع CrossMed بياناتك الشخصية وتستخدمها.",
+    seoRefundTitle: "سياسة الاسترداد — CrossMed",
+    seoRefundDescription: "قواعد الاسترداد والإلغاء لاشتراكات CrossMed.",
     seoNotFoundTitle: "الصفحة غير موجودة",
     seoNotFoundDescription: "الصفحة المطلوبة غير موجودة على CrossMed.",
   },

@@ -5,16 +5,19 @@ import {
   BillingPlan,
   fetchBillingPlans,
   openBillingPortal,
-  startCheckout,
+  syncBillingSubscription,
 } from "../auth/api";
-import { openPaddleCheckout } from "../billing/paddle";
+import { hasPaidSubscription } from "../billing/billingPeriod";
+import { openSandboxCheckout } from "../billing/paddle";
+import type { PlanId } from "../billing/paddleConfig";
+import { useSandboxCheckout } from "../billing/usePaddlePrices";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import { LanguageSwitcher } from "../components/LanguageSwitcher";
 import { PageSeo } from "../components/PageSeo";
 import { PageSkeleton, usePageSkeleton } from "../components/PageSkeleton";
+import { SubscriptionPeriodCard } from "../components/SubscriptionPeriodCard";
 import { useLanguage } from "../i18n/LanguageContext";
 import type { TranslationKey } from "../i18n/translations";
-import { getRuntimeOrigin } from "../seo/site";
 
 const FALLBACK_PLANS: BillingPlan[] = [
   {
@@ -63,41 +66,10 @@ const PLAN_SUFFIX_KEYS: Record<
   yearly: "billingPerYear",
 };
 
-function formatTemplate(template: string, values: Record<string, string | number>): string {
-  return Object.entries(values).reduce(
-    (text, [key, value]) => text.replace(`{${key}}`, String(value)),
-    template
-  );
-}
-
-function monthsCovered(plan: BillingPlan): number {
-  if (plan.id === "yearly" || plan.interval === "year") {
-    return 12 * (plan.interval_count || 1);
-  }
-  return plan.interval_count || 1;
-}
-
-function savingsPercent(plan: BillingPlan): number | null {
-  const months = monthsCovered(plan);
-  if (months <= 1) {
-    return null;
-  }
-  const full = 10 * months;
-  const saved = Math.round(((full - plan.price_eur) / full) * 100);
-  return saved > 0 ? saved : null;
-}
-
-function monthlyEquivalent(plan: BillingPlan): string | null {
-  const months = monthsCovered(plan);
-  if (months <= 1) {
-    return null;
-  }
-  return (plan.price_eur / months).toFixed(2);
-}
-
 export default function BillingPage() {
   const { t } = useLanguage();
   const { user, token, logout, refreshUser } = useAuth();
+  const { loading: pricesLoading, error: priceError, formattedPrice, ready } = useSandboxCheckout();
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [plans, setPlans] = useState<BillingPlan[]>(FALLBACK_PLANS);
@@ -146,6 +118,25 @@ export default function BillingPage() {
   }, [t]);
 
   useEffect(() => {
+    if (!token) return;
+    if (!success && !hasPaidSubscription(user)) return;
+    let cancelled = false;
+    void (async () => {
+      try {
+        await syncBillingSubscription(token);
+        if (!cancelled) {
+          await refreshUser();
+        }
+      } catch {
+        // Keep local profile if Paddle sync is unavailable.
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [token, success, user?.subscription_plan, user?.subscription_status, refreshUser]);
+
+  useEffect(() => {
     if (!success) {
       return;
     }
@@ -177,32 +168,18 @@ export default function BillingPage() {
     }
   }, [user?.trial_ends_at]);
 
-  const handleCheckout = async (planId: string) => {
-    if (!token) {
-      return;
-    }
+  const handleCheckout = async (planId: PlanId) => {
     setError(null);
     setBusyPlan(planId);
     try {
-      const session = await startCheckout(token, planId);
-      const successUrl = `${getRuntimeOrigin()}/billing?success=1`;
-      if (session.transaction_id && session.client_token) {
-        await openPaddleCheckout({
-          clientToken: session.client_token,
-          environment: session.environment === "production" ? "production" : "sandbox",
-          transactionId: session.transaction_id,
-          successUrl,
-        });
-        setBusyPlan(null);
-        return;
-      }
-      if (session.url) {
-        window.location.href = session.url;
-        return;
-      }
-      throw new Error(t("billingCheckoutError"));
+      await openSandboxCheckout({
+        plan: planId,
+        email: user?.email,
+        userId: user?.id,
+      });
     } catch (err) {
       setError(err instanceof Error ? err.message : t("billingCheckoutError"));
+    } finally {
       setBusyPlan(null);
     }
   };
@@ -250,7 +227,7 @@ export default function BillingPage() {
           <Breadcrumbs
             className="mb-4"
             items={[
-              { label: t("breadcrumbHome"), to: "/" },
+              { label: t("breadcrumbDashboard"), to: "/dashboard" },
               { label: t("breadcrumbBilling") },
             ]}
           />
@@ -297,14 +274,14 @@ export default function BillingPage() {
         <Breadcrumbs
           className="mb-4"
           items={[
-            { label: t("breadcrumbHome"), to: "/" },
+            { label: t("breadcrumbDashboard"), to: "/dashboard" },
             { label: t("breadcrumbBilling") },
           ]}
         />
         <header className="mb-8 flex flex-wrap items-start justify-between gap-4">
           <div className="max-w-xl">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-tertiary">
-              <Link to="/" className="hover:underline">
+              <Link to="/dashboard" className="hover:underline">
                 {t("brandName")}
               </Link>
             </p>
@@ -360,9 +337,11 @@ export default function BillingPage() {
           </div>
         ) : null}
 
-        {error ? (
+        <SubscriptionPeriodCard user={user} className="mb-5" />
+
+        {priceError || error ? (
           <div className="mb-5 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
-            {error}
+            {priceError || error}
           </div>
         ) : null}
 
@@ -386,9 +365,7 @@ export default function BillingPage() {
           {plans.map((plan, index) => {
             const isFeatured = plan.id === "yearly";
             const isCurrent = user?.subscription_plan === plan.id;
-            const save = savingsPercent(plan);
-            const equiv = monthlyEquivalent(plan);
-            const disabled = !plan.configured || busyPlan !== null;
+            const disabled = !ready || busyPlan !== null;
 
             return (
               <article
@@ -421,40 +398,26 @@ export default function BillingPage() {
 
                 <p className="mt-4 flex items-baseline gap-1">
                   <span className="text-4xl font-bold tracking-tight text-primary">
-                    €{plan.price_eur}
+                    {pricesLoading || !formattedPrice(plan.id as PlanId)
+                      ? "…"
+                      : formattedPrice(plan.id as PlanId)}
                   </span>
                   <span className="text-sm text-on-surface-variant">
                     {t(PLAN_SUFFIX_KEYS[plan.id] ?? "billingPerMonth")}
                   </span>
                 </p>
 
-                {save != null ? (
-                  <p className="mt-2 text-sm font-medium text-secondary">
-                    {formatTemplate(t("billingSaveVsMonthly"), { percent: save })}
-                  </p>
-                ) : (
-                  <p className="mt-2 text-sm text-on-surface-variant">&nbsp;</p>
-                )}
-
-                {equiv ? (
-                  <p className="mt-1 text-xs text-on-surface-variant">
-                    {formatTemplate(t("billingEquivalent"), { amount: equiv })}
-                  </p>
-                ) : (
-                  <p className="mt-1 text-xs text-on-surface-variant">&nbsp;</p>
-                )}
-
                 <button
                   type="button"
                   disabled={disabled}
-                  onClick={() => void handleCheckout(plan.id)}
+                  onClick={() => void handleCheckout(plan.id as PlanId)}
                   className={`mt-6 rounded-xl px-4 py-3 font-semibold transition disabled:cursor-not-allowed disabled:opacity-50 ${
                     isFeatured
                       ? "bg-tertiary text-on-tertiary hover:brightness-95"
                       : "bg-primary text-on-primary hover:brightness-110"
                   }`}
                 >
-                  {!plan.configured
+                  {!ready
                     ? t("billingNotConfigured")
                     : busyPlan === plan.id
                       ? t("authLoading")
@@ -466,7 +429,20 @@ export default function BillingPage() {
         </div>
 
         <footer className="mt-10 flex flex-col gap-4 border-t border-outline-variant/60 pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs text-on-surface-variant">{t("billingSecurePay")}</p>
+          <div className="space-y-2">
+            <p className="text-xs text-on-surface-variant">{t("billingSecurePay")}</p>
+            <nav className="flex flex-wrap gap-3 text-xs font-medium text-on-surface-variant">
+              <Link to="/terms" className="hover:text-on-surface">
+                {t("navTerms")}
+              </Link>
+              <Link to="/privacy" className="hover:text-on-surface">
+                {t("navPrivacy")}
+              </Link>
+              <Link to="/refund" className="hover:text-on-surface">
+                {t("navRefund")}
+              </Link>
+            </nav>
+          </div>
           <button
             type="button"
             disabled={portalBusy || !token}

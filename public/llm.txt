@@ -5,6 +5,9 @@
 ## Site
 - Homepage: https://www.crossmediterraneo.com/
 - About / founder: https://www.crossmediterraneo.com/about
+- Terms of service: https://www.crossmediterraneo.com/terms
+- Privacy policy: https://www.crossmediterraneo.com/privacy
+- Refund policy: https://www.crossmediterraneo.com/refund
 - Role chooser: https://www.crossmediterraneo.com/start
 - Client shipment form: https://www.crossmediterraneo.com/client
 - Carrier login: https://www.crossmediterraneo.com/login

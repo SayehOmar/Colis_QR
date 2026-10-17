@@ -15,6 +15,8 @@ export interface AuthUser {
   subscription_status?: string | null;
   subscription_plan?: string | null;
   subscription_ends_at?: string | null;
+  /** Start of the current billing period (last charge / renew). */
+  subscription_period_starts_at?: string | null;
   can_change_password?: boolean;
   auth_provider?: "password" | "google" | string;
   account_role?: AccountRole;
@@ -224,6 +226,17 @@ export async function openBillingPortal(token: string): Promise<string> {
   }
   const data = (await response.json()) as { url: string };
   return data.url;
+}
+
+export async function syncBillingSubscription(token: string): Promise<AuthUser> {
+  const response = await fetch(`${apiBaseUrl}/billing/sync`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (!response.ok) {
+    throw new Error(await parseError(response));
+  }
+  return (await response.json()) as AuthUser;
 }
 
 export async function verifyEmail(token: string): Promise<{ status: string; user?: AuthUser }> {
