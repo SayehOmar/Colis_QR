@@ -108,10 +108,10 @@ export const translations = {
     landingCtaClientFull: "Enregistrer une expédition (Client)",
     landingCtaCarrier: "Créer un compte transporteur",
     landingCtaCarrierShort: "S'inscrire",
-    landingCtaCarrierTrial: "Créer un compte transporteur (essai 5 jours)",
+    landingCtaCarrierTrial: "Créer un compte transporteur (essai 7 jours)",
     landingMenuOpen: "Ouvrir le menu",
     landingMenuClose: "Fermer le menu",
-    landingCtaTrial: "Essai gratuit 5 jours",
+    landingCtaTrial: "Essai gratuit 7 jours",
     landingTrustOffline: "Données sécurisées et analyses faciles à comprendre",
     landingTrustQr: "Scans QR en moins d’une seconde",
     landingTrustRating: "4,9/5 satisfaction transporteurs",
@@ -201,7 +201,7 @@ export const translations = {
     landingClientBody:
       "Pas de compte requis. Remplissez le formulaire, imprimez le PDF et remettez le QR au transporteur.",
     landingCarrierBody:
-      "Compte avec essai 5 jours, puis abonnement. Dashboard web + app téléphone pour scanner et synchroniser.",
+      "Compte avec essai 7 jours, puis abonnement. Dashboard web + app téléphone pour scanner et synchroniser.",
     landingPricingTitle: "Tarifs transporteur",
     landingPricingSupport:
       "Après l’essai gratuit, choisissez le plan qui correspond à votre volume.",
@@ -609,9 +609,9 @@ export const translations = {
     seoLoginTitle: "Connexion transporteur",
     seoLoginDescription:
       "Connectez-vous au tableau de bord opérations CrossMed pour suivre et scanner vos expéditions.",
-    seoSignupTitle: "Créer un compte transporteur — Essai 5 jours",
+    seoSignupTitle: "Créer un compte transporteur — Essai 7 jours",
     seoSignupDescription:
-      "Ouvrez un compte transporteur CrossMed avec 5 jours d’essai gratuit pour le dashboard et l’app téléphone.",
+      "Ouvrez un compte transporteur CrossMed avec 7 jours d’essai gratuit pour le dashboard et l’app téléphone.",
     seoBillingTitle: "Abonnement transporteur",
     seoBillingDescription:
       "Choisissez un plan CrossMed pour accéder au tableau de bord et à l’application téléphone.",
@@ -740,10 +740,10 @@ export const translations = {
     landingCtaClientFull: "Register a Shipment (Client)",
     landingCtaCarrier: "Create carrier account",
     landingCtaCarrierShort: "Sign up",
-    landingCtaCarrierTrial: "Create Carrier Account (5-Day Free Trial)",
+    landingCtaCarrierTrial: "Create Carrier Account (7-Day Free Trial)",
     landingMenuOpen: "Open menu",
     landingMenuClose: "Close menu",
-    landingCtaTrial: "Start 5-day free trial",
+    landingCtaTrial: "Start 7-day free trial",
     landingTrustOffline: "Secured data and easy to understand analysis",
     landingTrustQr: "Sub-second QR Barcode Scans",
     landingTrustRating: "4.9/5 Transporter Satisfaction",
@@ -833,7 +833,7 @@ export const translations = {
     landingClientBody:
       "No account needed. Fill the form, print the PDF, hand the QR to your carrier.",
     landingCarrierBody:
-      "Account with a 5-day trial, then subscription. Web dashboard + phone app to scan and sync.",
+      "Account with a 7-day trial, then subscription. Web dashboard + phone app to scan and sync.",
     landingPricingTitle: "Carrier pricing",
     landingPricingSupport:
       "After the free trial, pick the plan that matches your volume.",
@@ -1239,9 +1239,9 @@ export const translations = {
     seoLoginTitle: "Carrier login",
     seoLoginDescription:
       "Sign in to the CrossMed operations dashboard to track and scan shipments.",
-    seoSignupTitle: "Create carrier account — 5-day free trial",
+    seoSignupTitle: "Create carrier account — 7-day free trial",
     seoSignupDescription:
-      "Open a CrossMed carrier account with a 5-day free trial for the dashboard and phone app.",
+      "Open a CrossMed carrier account with a 7-day free trial for the dashboard and phone app.",
     seoBillingTitle: "Carrier subscription",
     seoBillingDescription:
       "Choose a CrossMed plan for dashboard and phone app access.",
@@ -1370,10 +1370,10 @@ export const translations = {
     landingCtaClientFull: "تسجيل شحنة (عميل)",
     landingCtaCarrier: "إنشاء حساب ناقل",
     landingCtaCarrierShort: "تسجيل",
-    landingCtaCarrierTrial: "إنشاء حساب ناقل (تجربة 5 أيام)",
+    landingCtaCarrierTrial: "إنشاء حساب ناقل (تجربة 7 أيام)",
     landingMenuOpen: "فتح القائمة",
     landingMenuClose: "إغلاق القائمة",
-    landingCtaTrial: "تجربة مجانية 5 أيام",
+    landingCtaTrial: "تجربة مجانية 7 أيام",
     landingTrustOffline: "بيانات مؤمّنة وتحليلات سهلة الفهم",
     landingTrustQr: "مسح رموز QR في أقل من ثانية",
     landingTrustRating: "4.9/5 رضا الناقلين",
@@ -1457,7 +1457,7 @@ export const translations = {
     landingClientBody:
       "لا حاجة لحساب. املأ النموذج، اطبع PDF، وسلّم رمز QR للناقل.",
     landingCarrierBody:
-      "حساب مع تجربة 5 أيام ثم اشتراك. لوحة ويب + تطبيق هاتف للمسح والمزامنة.",
+      "حساب مع تجربة 7 أيام ثم اشتراك. لوحة ويب + تطبيق هاتف للمسح والمزامنة.",
     landingPricingTitle: "أسعار الناقل",
     landingPricingSupport: "بعد التجربة المجانية، اختر الخطة المناسبة لحجم عملك.",
     landingPricingPopular: "الأكثر شعبية",
@@ -1861,9 +1861,9 @@ export const translations = {
     seoLoginTitle: "تسجيل دخول الناقل",
     seoLoginDescription:
       "سجّل الدخول إلى لوحة عمليات CrossMed لمتابعة ومسح الشحنات.",
-    seoSignupTitle: "إنشاء حساب ناقل — تجربة 5 أيام",
+    seoSignupTitle: "إنشاء حساب ناقل — تجربة 7 أيام",
     seoSignupDescription:
-      "افتح حساب ناقل CrossMed مع تجربة مجانية 5 أيام للوحة التحكم وتطبيق الهاتف.",
+      "افتح حساب ناقل CrossMed مع تجربة مجانية 7 أيام للوحة التحكم وتطبيق الهاتف.",
     seoBillingTitle: "اشتراك الناقل",
     seoBillingDescription:
       "اختر خطة CrossMed للوصول إلى لوحة التحكم وتطبيق الهاتف.",

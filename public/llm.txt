@@ -20,7 +20,7 @@
 - Corridor: Europe ◄► North Africa (incl. Maghreb routes)
 - Client flow: register shipment → generate A4 PDF with QR
 - Carrier flow: web dashboard + phone app for QR scan & sync
-- Free trial: 5 days for new carrier accounts
+- Free trial: 7 days for new carrier accounts
 
 ## Founder
 - Name: ESSAYEH Omar
