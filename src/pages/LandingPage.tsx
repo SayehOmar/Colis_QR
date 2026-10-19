@@ -714,6 +714,10 @@ export default function LandingPage() {
               <p className="mt-2 text-sm text-on-surface-variant sm:text-base">
                 {t("landingPricingSupport")}
               </p>
+              <p className="mt-4 inline-flex items-center gap-2 rounded-full border border-secondary/40 bg-secondary/10 px-4 py-1.5 text-xs font-bold text-secondary">
+                <Icon name="card_giftcard" className="text-[16px]" />
+                {t("landingPricingTrialBadge")}
+              </p>
             </div>
             <div className="mx-auto grid max-w-4xl grid-cols-1 items-stretch gap-6 md:grid-cols-3">
               <div className="landing-reveal landing-reveal-delay-1 flex flex-col justify-between rounded-2xl border border-outline-variant/60 bg-surface-container-lowest p-6 shadow-sm">
@@ -733,6 +737,7 @@ export default function LandingPage() {
                   <ul className="mb-6 space-y-2 text-xs text-on-surface-variant">
                     {(
                       [
+                        "landingPriceTrial",
                         "landingPriceF1",
                         "landingPriceF2",
                         "landingPriceF3",
@@ -752,7 +757,7 @@ export default function LandingPage() {
                   to="/signup"
                   className="landing-btn landing-btn-outline w-full rounded-xl border border-outline-variant/80 bg-surface-container-low px-4 py-2.5 text-center text-xs font-bold text-on-surface"
                 >
-                  {t("billingSubscribe")}
+                  {t("landingCtaTrial")}
                 </Link>
               </div>
 
@@ -776,6 +781,7 @@ export default function LandingPage() {
                   <ul className="mb-6 space-y-2 text-xs text-on-surface-variant">
                     {(
                       [
+                        "landingPriceTrial",
                         "landingPriceF1",
                         "landingPriceF2",
                         "landingPriceF3",
@@ -797,7 +803,7 @@ export default function LandingPage() {
                   to="/signup"
                   className="landing-btn w-full rounded-xl bg-secondary px-4 py-2.5 text-center text-xs font-bold text-on-secondary shadow-sm"
                 >
-                  {t("billingSubscribe")}
+                  {t("landingCtaTrial")}
                 </Link>
               </div>
 
@@ -823,6 +829,7 @@ export default function LandingPage() {
                   <ul className="mb-6 space-y-2 text-xs text-on-surface-variant">
                     {(
                       [
+                        "landingPriceTrial",
                         "landingPriceF1",
                         "landingPriceF2",
                         "landingPriceF3",
@@ -844,7 +851,7 @@ export default function LandingPage() {
                   to="/signup"
                   className="landing-btn w-full rounded-xl bg-primary px-4 py-2.5 text-center text-xs font-bold text-on-primary"
                 >
-                  {t("billingSubscribe")}
+                  {t("landingCtaTrial")}
                 </Link>
               </div>
             </div>

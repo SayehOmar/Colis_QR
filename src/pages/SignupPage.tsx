@@ -3,6 +3,10 @@ import { FormEvent, useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/AuthContext";
 import { postAuthPath } from "../auth/api";
+import {
+  isRecentlyCreatedAccount,
+  markWelcomeTrustPending,
+} from "../auth/welcomeTrust";
 import { Breadcrumbs } from "../components/Breadcrumbs";
 import { GoogleAuthButton } from "../components/GoogleAuthButton";
 import { LanguageSwitcher } from "../components/LanguageSwitcher";
@@ -61,6 +65,7 @@ export default function SignupPage() {
         name.trim() || undefined,
         bypass ? undefined : turnstileToken ?? undefined
       );
+      markWelcomeTrustPending();
       navigate(postAuthPath(nextUser), { replace: true });
     } catch (err) {
       setTurnstileToken(null);
@@ -76,6 +81,9 @@ export default function SignupPage() {
     setSubmitting(true);
     try {
       const nextUser = await loginWithGoogle({ idToken });
+      if (isRecentlyCreatedAccount(nextUser)) {
+        markWelcomeTrustPending();
+      }
       navigate(postAuthPath(nextUser), { replace: true });
     } finally {
       setSubmitting(false);

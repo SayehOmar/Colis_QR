@@ -204,7 +204,8 @@ export const translations = {
       "Compte avec essai 7 jours, puis abonnement. Dashboard web + app téléphone pour scanner et synchroniser.",
     landingPricingTitle: "Tarifs transporteur",
     landingPricingSupport:
-      "Après l’essai gratuit, choisissez le plan qui correspond à votre volume.",
+      "Créez un compte et recevez 7 jours d’essai gratuit — puis choisissez le plan adapté à votre volume.",
+    landingPricingTrialBadge: "7 jours d’essai gratuit à la création du compte",
     landingPricingPopular: "Populaire",
     landingAppTitle: "Télécharger l’app téléphone",
     landingAppSupport:
@@ -212,6 +213,7 @@ export const translations = {
     landingAppDownload: "Télécharger l’APK",
     landingAppAndroidHint: "Android · installation hors Play Store",
     landingNavApp: "App",
+    landingPriceTrial: "7 jours d’essai gratuit inclus",
     landingPriceF1: "Scanner QR app mobile",
     landingPriceF2: "Tableau de bord opérations live",
     landingPriceF3: "Scans Europe–Afrique du Nord illimités",
@@ -257,7 +259,17 @@ export const translations = {
     loginTitle: "Connexion transporteur",
     loginSubtitle: "Accédez au tableau de bord des expéditions",
     signupTitle: "Créer un compte",
-    signupSubtitle: "Compte transporteur pour le tableau de bord",
+    signupSubtitle:
+      "Compte transporteur avec 7 jours d’essai gratuit offerts",
+    welcomeTrustTitle: "Bienvenue chez CrossMed",
+    welcomeTrustBody:
+      "Merci pour votre confiance. Je suis ESSAYEH Omar — si vous avez besoin de quoi que ce soit, contactez-moi directement.",
+    welcomeTrustGiftLabel: "Cadeau de bienvenue",
+    welcomeTrustGift: "7 jours d’essai gratuit activés sur votre compte",
+    welcomeTrustExtend:
+      "Besoin de prolonger l’essai ? Contactez-moi et on trouve une solution.",
+    welcomeTrustContact: "Me joindre",
+    welcomeTrustContinue: "Continuer",
     email: "E-mail",
     password: "Mot de passe",
     nameOptional: "Nom (optionnel)",
@@ -841,7 +853,8 @@ export const translations = {
       "Account with a 7-day trial, then subscription. Web dashboard + phone app to scan and sync.",
     landingPricingTitle: "Carrier pricing",
     landingPricingSupport:
-      "After the free trial, pick the plan that matches your volume.",
+      "Create an account and get a 7-day free trial — then pick the plan that matches your volume.",
+    landingPricingTrialBadge: "7-day free trial when you create an account",
     landingPricingPopular: "Popular",
     landingAppTitle: "Download the phone app",
     landingAppSupport:
@@ -849,6 +862,7 @@ export const translations = {
     landingAppDownload: "Download APK",
     landingAppAndroidHint: "Android · sideload install",
     landingNavApp: "App",
+    landingPriceTrial: "7-day free trial included",
     landingPriceF1: "Mobile app QR code scanner",
     landingPriceF2: "Live operations dashboard",
     landingPriceF3: "Unlimited Europe–North Africa scans",
@@ -894,7 +908,16 @@ export const translations = {
     loginTitle: "Carrier login",
     loginSubtitle: "Sign in to the shipments dashboard",
     signupTitle: "Create account",
-    signupSubtitle: "Carrier account for the dashboard",
+    signupSubtitle: "Carrier account with a complimentary 7-day free trial",
+    welcomeTrustTitle: "Welcome to CrossMed",
+    welcomeTrustBody:
+      "Thank you for your trust. I’m ESSAYEH Omar — if you need anything, reach me directly.",
+    welcomeTrustGiftLabel: "Welcome gift",
+    welcomeTrustGift: "7-day free trial activated on your account",
+    welcomeTrustExtend:
+      "Need a longer trial? Contact me and we’ll work something out.",
+    welcomeTrustContact: "Contact me",
+    welcomeTrustContinue: "Continue",
     email: "Email",
     password: "Password",
     nameOptional: "Name (optional)",
@@ -1469,7 +1492,9 @@ export const translations = {
     landingCarrierBody:
       "حساب مع تجربة 7 أيام ثم اشتراك. لوحة ويب + تطبيق هاتف للمسح والمزامنة.",
     landingPricingTitle: "أسعار الناقل",
-    landingPricingSupport: "بعد التجربة المجانية، اختر الخطة المناسبة لحجم عملك.",
+    landingPricingSupport:
+      "أنشئ حسابًا واحصل على تجربة مجانية 7 أيام — ثم اختر الخطة المناسبة لحجم عملك.",
+    landingPricingTrialBadge: "تجربة مجانية 7 أيام عند إنشاء الحساب",
     landingPricingPopular: "الأكثر شعبية",
     landingAppTitle: "تنزيل تطبيق الهاتف",
     landingAppSupport:
@@ -1477,6 +1502,7 @@ export const translations = {
     landingAppDownload: "تنزيل APK",
     landingAppAndroidHint: "Android · تثبيت خارج Play Store",
     landingNavApp: "التطبيق",
+    landingPriceTrial: "تجربة مجانية 7 أيام مشمولة",
     landingPriceF1: "ماسح QR لتطبيق الجوال",
     landingPriceF2: "لوحة عمليات مباشرة",
     landingPriceF3: "عمليات مسح غير محدودة أوروبا–شمال أفريقيا",
@@ -1522,7 +1548,16 @@ export const translations = {
     loginTitle: "تسجيل دخول الناقل",
     loginSubtitle: "ادخل إلى لوحة متابعة الشحنات",
     signupTitle: "إنشاء حساب",
-    signupSubtitle: "حساب ناقل للوحة التحكم",
+    signupSubtitle: "حساب ناقل مع تجربة مجانية 7 أيام هدية",
+    welcomeTrustTitle: "مرحبًا بك في CrossMed",
+    welcomeTrustBody:
+      "شكرًا لثقتك. أنا ESSAYEH Omar — إن احتجت أي شيء، تواصل معي مباشرة.",
+    welcomeTrustGiftLabel: "هدية ترحيب",
+    welcomeTrustGift: "تم تفعيل تجربة مجانية 7 أيام على حسابك",
+    welcomeTrustExtend:
+      "تحتاج تمديد التجربة؟ راسلني وسنجد حلًا.",
+    welcomeTrustContact: "تواصل معي",
+    welcomeTrustContinue: "متابعة",
     email: "البريد الإلكتروني",
     password: "كلمة المرور",
     nameOptional: "الاسم (اختياري)",
