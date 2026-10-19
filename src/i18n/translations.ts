@@ -356,6 +356,7 @@ export const translations = {
     save: "Enregistrer",
     cancel: "Annuler",
     clickToEdit: "Cliquer pour modifier",
+    editOwnScansOnly: "Vous ne pouvez modifier que vos propres scans",
     saveCell: "Enregistrer",
     copyCell: "Copier",
     copiedCell: "Copié",
@@ -462,6 +463,10 @@ export const translations = {
     profileDeleteTitle: "Supprimer le compte",
     profileDeleteHint:
       "Cette action supprime le profil, les expéditions et les données associées. Saisissez votre nom de profil, puis confirmez.",
+    profileDeleteHintEmployee:
+      "Cette action supprime uniquement votre compte employé. Les scans que vous avez saisis restent dans l’équipe.",
+    profileDeleteTypeOnly:
+      "Saisissez votre nom au clavier — le collage (Ctrl+V) est désactivé.",
     profileDeleteName: "Nom du profil",
     profileDeleteConfirm: "Êtes-vous sûr ?",
     profileDeleteMismatch: "Le nom saisi ne correspond pas au nom du profil.",
@@ -988,6 +993,7 @@ export const translations = {
     save: "Save",
     cancel: "Cancel",
     clickToEdit: "Click to edit",
+    editOwnScansOnly: "You can only edit scans you entered",
     saveCell: "Save",
     copyCell: "Copy",
     copiedCell: "Copied",
@@ -1093,6 +1099,10 @@ export const translations = {
     profileDeleteTitle: "Delete account",
     profileDeleteHint:
       "This deletes the profile, shipments, and related data. Type your profile name, then confirm.",
+    profileDeleteHintEmployee:
+      "This only deletes your employee account. Scans you entered stay with the team.",
+    profileDeleteTypeOnly:
+      "Type your name on the keyboard — paste (Ctrl+V) is disabled.",
     profileDeleteName: "Profile name",
     profileDeleteConfirm: "Are you sure?",
     profileDeleteMismatch: "That name does not match your profile name.",
@@ -1611,6 +1621,7 @@ export const translations = {
     save: "حفظ",
     cancel: "إلغاء",
     clickToEdit: "انقر للتعديل",
+    editOwnScansOnly: "يمكنك تعديل عمليات المسح التي أدخلتها فقط",
     saveCell: "حفظ",
     copyCell: "نسخ",
     copiedCell: "تم النسخ",
@@ -1716,6 +1727,10 @@ export const translations = {
     profileDeleteTitle: "حذف الحساب",
     profileDeleteHint:
       "يحذف هذا الملف والشحنات والبيانات المرتبطة. اكتب اسم الملف ثم أكّد.",
+    profileDeleteHintEmployee:
+      "يحذف هذا حساب الموظف فقط. تبقى عمليات المسح التي أدخلتها مع الفريق.",
+    profileDeleteTypeOnly:
+      "اكتب اسمك لوحة المفاتيح — اللصق (Ctrl+V) معطّل.",
     profileDeleteName: "اسم الملف",
     profileDeleteConfirm: "هل أنت متأكد؟",
     profileDeleteMismatch: "الاسم المكتوب لا يطابق اسم الملف.",

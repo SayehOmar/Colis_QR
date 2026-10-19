@@ -339,8 +339,10 @@ function OrdersPanel({
   loading: boolean;
 }) {
   const { t, language } = useLanguage();
+  const { user } = useAuth();
   const locale =
     language === "ar" ? "ar" : language === "en" ? "en-GB" : "fr-FR";
+  const isEmployee = user?.account_role === "employee";
   // Backend already caps at 100; keep a hard UI cap for expand performance.
   const visible = shipments.slice(0, 100);
   return (
@@ -407,6 +409,9 @@ function OrdersPanel({
               const editByField = Object.fromEntries(
                 (shipment.fieldEdits ?? []).map((e) => [e.field, e]),
               );
+              const canEdit =
+                !isEmployee ||
+                (user?.id != null && shipment.scannerId === user.id);
               return (
               <tr key={shipment.id} className="align-top hover:bg-surface-container-low/60">
                 <StaticCopyCell
@@ -428,12 +433,14 @@ function OrdersPanel({
                   value={shipment.senderName}
                   edit={editByField.senderName}
                   className="font-medium"
+                  readOnly={!canEdit}
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="senderPhone"
                   value={shipment.senderPhone}
                   edit={editByField.senderPhone}
+                  readOnly={!canEdit}
                 />
                 <EditableCell
                   shipmentId={shipment.id}
@@ -441,48 +448,56 @@ function OrdersPanel({
                   value={shipment.receiverName}
                   edit={editByField.receiverName}
                   className="font-medium"
+                  readOnly={!canEdit}
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="receiverPhone"
                   value={shipment.receiverPhone}
                   edit={editByField.receiverPhone}
+                  readOnly={!canEdit}
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="country"
                   value={shipment.country || ""}
                   edit={editByField.country}
+                  readOnly={!canEdit}
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="regionName"
                   value={shipment.regionName || ""}
                   edit={editByField.regionName}
+                  readOnly={!canEdit}
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="city"
                   value={shipment.city || ""}
                   edit={editByField.city}
+                  readOnly={!canEdit}
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="postalCode"
                   value={shipment.postalCode || ""}
                   edit={editByField.postalCode}
+                  readOnly={!canEdit}
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="address"
                   value={shipment.address}
                   edit={editByField.address}
+                  readOnly={!canEdit}
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="items"
                   value={(shipment.items || "").replace(/,/g, ", ")}
                   edit={editByField.items}
+                  readOnly={!canEdit}
                 />
                 <EditableCell
                   shipmentId={shipment.id}
@@ -490,36 +505,42 @@ function OrdersPanel({
                   value={shipment.idDocType || ""}
                   edit={editByField.idDocType}
                   className="uppercase"
+                  readOnly={!canEdit}
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="idDocNumber"
                   value={shipment.idDocNumber || ""}
                   edit={editByField.idDocNumber}
+                  readOnly={!canEdit}
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="oilLiters"
                   value={shipment.oilLiters}
                   edit={editByField.oilLiters}
+                  readOnly={!canEdit}
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="estimateWeightKg"
                   value={shipment.estimateWeightKg ?? 0}
                   edit={editByField.estimateWeightKg}
+                  readOnly={!canEdit}
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="weightKg"
                   value={shipment.weightKg}
                   edit={editByField.weightKg}
+                  readOnly={!canEdit}
                 />
                 <EditableCell
                   shipmentId={shipment.id}
                   field="tariffAmount"
                   value={shipment.tariffAmount}
                   edit={editByField.tariffAmount}
+                  readOnly={!canEdit}
                 />
                 <StaticCopyCell
                   value={formatLocalDateTime(shipment.timestamp, locale)}

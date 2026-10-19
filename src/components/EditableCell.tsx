@@ -12,6 +12,8 @@ interface EditableCellProps {
   value: string | number;
   className?: string;
   edit?: FieldEdit | null;
+  /** When true, cell is display-only (e.g. employee viewing someone else's scan). */
+  readOnly?: boolean;
 }
 
 export function EditableCell({
@@ -20,6 +22,7 @@ export function EditableCell({
   value,
   className = "",
   edit = null,
+  readOnly = false,
 }: EditableCellProps) {
   const { t } = useLanguage();
   const [editing, setEditing] = useState(false);
@@ -36,6 +39,7 @@ export function EditableCell({
   }, [tip]);
 
   const startEdit = () => {
+    if (readOnly) return;
     setDraft(String(value));
     setEditing(true);
   };
@@ -56,7 +60,7 @@ export function EditableCell({
     setEditing(false);
   };
 
-  if (editing) {
+  if (editing && !readOnly) {
     return (
       <td className={`px-3 py-2 align-top ${className}`}>
         <textarea
@@ -107,8 +111,12 @@ export function EditableCell({
 
   return (
     <td
-      className={`group relative cursor-pointer px-3 py-3 align-top text-sm leading-relaxed text-on-surface hover:bg-amber-50 ${className}`}
-      title={t("clickToEdit")}
+      className={`group relative px-3 py-3 align-top text-sm leading-relaxed text-on-surface ${
+        readOnly
+          ? "cursor-default"
+          : "cursor-pointer hover:bg-amber-50"
+      } ${className}`}
+      title={readOnly ? t("editOwnScansOnly") : t("clickToEdit")}
       onClick={startEdit}
     >
       <div className="flex items-start gap-1.5 pr-3">

@@ -498,7 +498,14 @@ export default function ProfilePage() {
           <h2 className="text-sm font-bold uppercase tracking-wide text-red-700">
             {t("profileDeleteTitle")}
           </h2>
-          <p className="mt-2 text-sm text-on-surface-variant">{t("profileDeleteHint")}</p>
+          <p className="mt-2 text-sm text-on-surface-variant">
+            {isEmployee
+              ? t("profileDeleteHintEmployee")
+              : t("profileDeleteHint")}
+          </p>
+          <p className="mt-1 text-xs text-on-surface-variant">
+            {t("profileDeleteTypeOnly")}
+          </p>
           <form className="mt-4 space-y-3" onSubmit={(event) => void handleDeleteAccount(event)}>
             <label className="block text-sm">
               <span className="mb-1 block font-medium text-on-surface">
@@ -511,7 +518,36 @@ export default function ProfilePage() {
                   setDeleteName(event.target.value);
                   setDeleteError(null);
                 }}
+                onPaste={(event) => {
+                  event.preventDefault();
+                }}
+                onDrop={(event) => {
+                  event.preventDefault();
+                }}
+                onCopy={(event) => {
+                  event.preventDefault();
+                }}
+                onCut={(event) => {
+                  event.preventDefault();
+                }}
+                onBeforeInput={(event) => {
+                  const native = event.nativeEvent as InputEvent;
+                  if (native.inputType === "insertFromPaste") {
+                    event.preventDefault();
+                  }
+                }}
+                onKeyDown={(event) => {
+                  if (
+                    (event.ctrlKey || event.metaKey) &&
+                    event.key.toLowerCase() === "v"
+                  ) {
+                    event.preventDefault();
+                  }
+                }}
                 autoComplete="off"
+                autoCorrect="off"
+                spellCheck={false}
+                inputMode="text"
                 className="app-input w-full"
                 disabled={deleteBusy}
               />
