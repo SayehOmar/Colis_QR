@@ -5,9 +5,12 @@ interface PasswordFieldProps {
   value: string;
   onChange: (value: string) => void;
   autoComplete?: string;
+  name?: string;
   minLength?: number;
   required?: boolean;
   label?: string;
+  /** Block paste/drop so the user must type the password. */
+  typeOnly?: boolean;
 }
 
 function EyeIcon({ open }: { open: boolean }) {
@@ -59,9 +62,11 @@ export function PasswordField({
   value,
   onChange,
   autoComplete = "current-password",
+  name,
   minLength,
   required = true,
   label,
+  typeOnly = false,
 }: PasswordFieldProps) {
   const { t } = useLanguage();
   const [visible, setVisible] = useState(false);
@@ -73,10 +78,39 @@ export function PasswordField({
         <input
           required={required}
           type={visible ? "text" : "password"}
+          name={name}
           autoComplete={autoComplete}
+          autoCorrect="off"
+          spellCheck={false}
+          data-lpignore={typeOnly || autoComplete === "off" ? "true" : undefined}
+          data-1p-ignore={typeOnly || autoComplete === "off" ? "true" : undefined}
           minLength={minLength}
           value={value}
           onChange={(e) => onChange(e.target.value)}
+          onPaste={typeOnly ? (event) => event.preventDefault() : undefined}
+          onDrop={typeOnly ? (event) => event.preventDefault() : undefined}
+          onBeforeInput={
+            typeOnly
+              ? (event) => {
+                  const native = event.nativeEvent as InputEvent;
+                  if (native.inputType === "insertFromPaste") {
+                    event.preventDefault();
+                  }
+                }
+              : undefined
+          }
+          onKeyDown={
+            typeOnly
+              ? (event) => {
+                  if (
+                    (event.ctrlKey || event.metaKey) &&
+                    event.key.toLowerCase() === "v"
+                  ) {
+                    event.preventDefault();
+                  }
+                }
+              : undefined
+          }
           className="w-full rounded-lg border border-outline-variant bg-surface-container-lowest px-3 py-2 pr-11 text-on-surface outline-none transition focus:border-secondary focus:ring-2 focus:ring-secondary/20"
         />
         <button

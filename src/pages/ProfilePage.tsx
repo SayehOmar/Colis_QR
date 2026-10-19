@@ -310,29 +310,47 @@ export default function ProfilePage() {
             <form
               onSubmit={(e) => void handleChangePassword(e)}
               className="mt-8 space-y-3 border-t border-outline-variant/50 pt-6"
+              autoComplete="off"
             >
               <h3 className="text-sm font-bold text-on-surface">
                 {t("profilePasswordTitle")}
               </h3>
+              {/* Hidden decoy reduces browser password autofill on this form. */}
+              <input
+                type="text"
+                name="username"
+                autoComplete="username"
+                tabIndex={-1}
+                aria-hidden
+                className="hidden"
+                defaultValue=""
+                readOnly
+              />
               <PasswordField
                 label={t("profileCurrentPassword")}
                 value={currentPassword}
                 onChange={setCurrentPassword}
-                autoComplete="current-password"
+                name="profile-current-password"
+                autoComplete="off"
+                typeOnly
                 required
               />
               <PasswordField
                 label={t("profileNewPassword")}
                 value={newPassword}
                 onChange={setNewPassword}
-                autoComplete="new-password"
+                name="profile-new-password"
+                autoComplete="off"
+                typeOnly
                 required
               />
               <PasswordField
                 label={t("profileConfirmPassword")}
                 value={confirmPassword}
                 onChange={setConfirmPassword}
-                autoComplete="new-password"
+                name="profile-confirm-password"
+                autoComplete="off"
+                typeOnly
                 required
               />
               {passwordError ? (
@@ -502,9 +520,6 @@ export default function ProfilePage() {
             {isEmployee
               ? t("profileDeleteHintEmployee")
               : t("profileDeleteHint")}
-          </p>
-          <p className="mt-1 text-xs text-on-surface-variant">
-            {t("profileDeleteTypeOnly")}
           </p>
           <form className="mt-4 space-y-3" onSubmit={(event) => void handleDeleteAccount(event)}>
             <label className="block text-sm">
