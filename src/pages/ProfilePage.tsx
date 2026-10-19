@@ -315,42 +315,40 @@ export default function ProfilePage() {
               <h3 className="text-sm font-bold text-on-surface">
                 {t("profilePasswordTitle")}
               </h3>
-              {/* Hidden decoy reduces browser password autofill on this form. */}
-              <input
-                type="text"
-                name="username"
-                autoComplete="username"
-                tabIndex={-1}
-                aria-hidden
-                className="hidden"
-                defaultValue=""
-                readOnly
-              />
+              {/* Absorb browser autofill so it does not land on the current-password field. */}
+              <div className="hidden" aria-hidden>
+                <input type="text" name="username" autoComplete="username" tabIndex={-1} />
+                <input
+                  type="password"
+                  name="password"
+                  autoComplete="current-password"
+                  tabIndex={-1}
+                />
+              </div>
               <PasswordField
                 label={t("profileCurrentPassword")}
                 value={currentPassword}
                 onChange={setCurrentPassword}
-                name="profile-current-password"
-                autoComplete="off"
+                name={`cm-verify-${user?.id ?? "pw"}`}
+                autoComplete="one-time-code"
                 typeOnly
+                blockAutofill
                 required
               />
               <PasswordField
                 label={t("profileNewPassword")}
                 value={newPassword}
                 onChange={setNewPassword}
-                name="profile-new-password"
-                autoComplete="off"
-                typeOnly
+                name="new-password"
+                autoComplete="new-password"
                 required
               />
               <PasswordField
                 label={t("profileConfirmPassword")}
                 value={confirmPassword}
                 onChange={setConfirmPassword}
-                name="profile-confirm-password"
-                autoComplete="off"
-                typeOnly
+                name="confirm-new-password"
+                autoComplete="new-password"
                 required
               />
               {passwordError ? (

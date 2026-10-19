@@ -11,6 +11,11 @@ interface PasswordFieldProps {
   label?: string;
   /** Block paste/drop so the user must type the password. */
   typeOnly?: boolean;
+  /**
+   * Start read-only and unlock on focus so browsers cannot autofill
+   * the saved password into this field.
+   */
+  blockAutofill?: boolean;
 }
 
 function EyeIcon({ open }: { open: boolean }) {
@@ -67,9 +72,12 @@ export function PasswordField({
   required = true,
   label,
   typeOnly = false,
+  blockAutofill = false,
 }: PasswordFieldProps) {
   const { t } = useLanguage();
   const [visible, setVisible] = useState(false);
+  const [locked, setLocked] = useState(blockAutofill);
+  const suppressAutofill = blockAutofill || typeOnly || autoComplete === "off";
 
   return (
     <label className="app-label">
@@ -82,10 +90,15 @@ export function PasswordField({
           autoComplete={autoComplete}
           autoCorrect="off"
           spellCheck={false}
-          data-lpignore={typeOnly || autoComplete === "off" ? "true" : undefined}
-          data-1p-ignore={typeOnly || autoComplete === "off" ? "true" : undefined}
+          readOnly={locked}
+          data-lpignore={suppressAutofill ? "true" : undefined}
+          data-1p-ignore={suppressAutofill ? "true" : undefined}
+          data-form-type={suppressAutofill ? "other" : undefined}
           minLength={minLength}
           value={value}
+          onFocus={() => {
+            if (locked) setLocked(false);
+          }}
           onChange={(e) => onChange(e.target.value)}
           onPaste={typeOnly ? (event) => event.preventDefault() : undefined}
           onDrop={typeOnly ? (event) => event.preventDefault() : undefined}
