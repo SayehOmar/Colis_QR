@@ -171,6 +171,7 @@ export function CalendarNotesFab() {
           setPanelOpen((v) => !v);
           setDayOpen(false);
         }}
+        data-tour="calendar-fab"
         className={`fixed bottom-5 right-5 z-[4000] flex h-14 w-14 items-center justify-center overflow-hidden rounded-full p-2.5 shadow-lg transition hover:scale-105 ${
           panelOpen ? "bg-primary text-on-primary" : "bg-tertiary text-on-tertiary"
         }`}

@@ -21,12 +21,14 @@ import { SubscriptionPeriodCard } from "../components/SubscriptionPeriodCard";
 import { getApkDownloadUrl } from "../config";
 import { formatLocalDateTime } from "../i18n/formatDateTime";
 import { useLanguage } from "../i18n/LanguageContext";
+import { useDashboardTour } from "../onboarding/DashboardTourProvider";
 
 export default function ProfilePage() {
   const { t, language } = useLanguage();
   const locale =
     language === "ar" ? "ar" : language === "en" ? "en-GB" : "fr-FR";
   const { user, token, refreshUser, logout } = useAuth();
+  const { startTour } = useDashboardTour();
   const navigate = useNavigate();
 
   const [name, setName] = useState(user?.name ?? "");
@@ -305,6 +307,25 @@ export default function ProfilePage() {
               {nameBusy ? t("authLoading") : t("profileSaveName")}
             </button>
           </form>
+
+          <div className="mt-8 space-y-3 border-t border-outline-variant/50 pt-6">
+            <h3 className="text-sm font-bold text-on-surface">
+              {t("profileTourTitle")}
+            </h3>
+            <p className="text-sm text-on-surface-variant">
+              {t("profileTourHint")}
+            </p>
+            <button
+              type="button"
+              className="app-btn-ghost inline-flex items-center gap-2 text-sm"
+              onClick={() => startTour()}
+            >
+              <span className="material-symbols-outlined text-[20px]" aria-hidden>
+                school
+              </span>
+              {t("profileTourRedo")}
+            </button>
+          </div>
 
           {showPasswordForm ? (
             <form

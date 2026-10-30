@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { ProtectedRoute } from "./auth/ProtectedRoute";
 import { WelcomeTrustModal } from "./components/WelcomeTrustModal";
+import { DashboardTourProvider } from "./onboarding/DashboardTourProvider";
 import AboutPage from "./pages/AboutPage";
 import BillingPage from "./pages/BillingPage";
 import ChooseRolePage from "./pages/ChooseRolePage";
@@ -18,7 +19,7 @@ import WelcomePage from "./pages/WelcomePage";
 
 export default function App() {
   return (
-    <>
+    <DashboardTourProvider>
     <WelcomeTrustModal />
     <Routes>
       <Route path="/" element={<LandingPage />} />
@@ -66,6 +67,6 @@ export default function App() {
       />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
-    </>
+    </DashboardTourProvider>
   );
 }

@@ -379,3 +379,41 @@ body {
     @apply text-on-surface-variant;
   }
 }
+
+/* App-guidance tour (driver.js) above FABs / modals */
+.driver-overlay,
+.driver-active-element,
+#driver-dummy-element {
+  z-index: 10040 !important;
+}
+.driver-popover,
+.crossmed-tour-popover {
+  z-index: 10050 !important;
+  max-width: 20rem;
+}
+
+.driver-popover .driver-popover-footer button,
+.crossmed-tour-popover .driver-popover-footer button {
+  min-height: 2.5rem;
+  min-width: 5.5rem;
+  padding: 0.55rem 1rem !important;
+  font-size: 0.9375rem !important;
+  font-weight: 700 !important;
+  border-radius: 0.5rem !important;
+  line-height: 1.2 !important;
+}
+
+.driver-popover .driver-popover-next-btn,
+.crossmed-tour-popover .driver-popover-next-btn {
+  background: #0f2744 !important;
+  color: #fff !important;
+  text-shadow: none !important;
+}
+
+.driver-popover .driver-popover-prev-btn,
+.crossmed-tour-popover .driver-popover-prev-btn {
+  border: 1px solid #c5cdd8 !important;
+  background: #f8fafc !important;
+  color: #0f2744 !important;
+  text-shadow: none !important;
+}

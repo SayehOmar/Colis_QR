@@ -48,6 +48,7 @@ import { useLanguage } from "../i18n/LanguageContext";
 import type { TranslationKey } from "../i18n/translations";
 import type { Shipment, ShipmentsQueryResult } from "../types";
 import { ShipmentHeatMap } from "../components/ShipmentHeatMap";
+import { useDashboardTour } from "../onboarding/DashboardTourProvider";
 
 const POLL_INTERVAL_MS = 5000;
 /** Silent full-tenant aggregates for weight / places / tariff / map. */
@@ -1793,7 +1794,10 @@ function OrdersPanel({
       <table className="w-max min-w-full border-separate border-spacing-0 text-sm">
         <thead className="bg-primary text-left text-xs uppercase tracking-wide text-on-primary">
           <tr>
-            <th className="sticky top-0 z-10 bg-primary px-2 py-3 text-center">
+            <th
+              className="sticky top-0 z-10 bg-primary px-2 py-3 text-center"
+              data-tour="delivered"
+            >
               {t("deliveredCol")}
             </th>
             <th className="sticky top-0 z-10 bg-primary px-3 py-3">{t("shipmentCode")}</th>
@@ -2034,6 +2038,7 @@ function OrdersPanel({
 export default function DashboardPage() {
   const { t } = useLanguage();
   const { user, logout } = useAuth();
+  const { startTour } = useDashboardTour();
   const navigate = useNavigate();
   const [showAddModal, setShowAddModal] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -2193,6 +2198,19 @@ export default function DashboardPage() {
           </div>
           <div className="flex flex-wrap items-center gap-2 sm:gap-3">
             <LanguageSwitcher variant="nav" />
+            <button
+              type="button"
+              data-tour="guide"
+              onClick={() => startTour()}
+              className="app-btn-ghost inline-flex items-center gap-1 text-xs"
+              title={t("tourGuide")}
+              aria-label={t("tourGuide")}
+            >
+              <span className="material-symbols-outlined text-[18px]" aria-hidden>
+                help
+              </span>
+              {t("tourGuide")}
+            </button>
             <Link to="/profile" className="app-btn-ghost text-xs">
               {t("profileTitle")}
             </Link>
@@ -2209,6 +2227,7 @@ export default function DashboardPage() {
             </button>
             <button
               type="button"
+              data-tour="add-shipment"
               onClick={() => setShowAddModal(true)}
               className="app-btn-orange px-3 py-2 text-xs"
             >
@@ -2248,7 +2267,7 @@ export default function DashboardPage() {
             </p>
           ) : null}
           {/* 1. Shipments table — full width */}
-          <section className="app-card overflow-hidden">
+          <section className="app-card overflow-hidden" data-tour="orders">
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-outline-variant/40 px-4 py-3">
               <h2 className="text-sm font-bold text-on-surface">{t("dashOrdersTitle")}</h2>
               <div className="flex items-center gap-3">
@@ -2281,7 +2300,7 @@ export default function DashboardPage() {
 
           {/* 2. Map + most frequent places */}
           <div className="grid gap-5 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
-            <section className="app-card relative overflow-hidden p-0">
+            <section className="app-card relative overflow-hidden p-0" data-tour="map">
               <div className="flex items-center justify-between gap-3 border-b border-outline-variant/40 px-4 py-3">
                 <div>
                   <h2 className="text-sm font-bold text-on-surface">{t("dashMapTitle")}</h2>
@@ -2318,7 +2337,7 @@ export default function DashboardPage() {
               )}
             </section>
 
-            <section className="app-card p-5">
+            <section className="app-card p-5" data-tour="places">
               <div className="mb-3 flex items-center justify-between gap-2">
                 <h2 className="text-sm font-bold text-on-surface">{t("dashPlacesTitle")}</h2>
                 <div className="flex items-center gap-1.5">
@@ -2347,7 +2366,7 @@ export default function DashboardPage() {
 
           {/* 4. Tariff + weight */}
           <div className="grid gap-5 md:grid-cols-2">
-            <section className="app-card p-5">
+            <section className="app-card p-5" data-tour="tariff">
               <div className="mb-3 flex items-center justify-between gap-2">
                 <h2 className="text-sm font-bold text-on-surface">{t("dashTariffTitle")}</h2>
                 <div className="flex items-center gap-1.5">
@@ -2370,7 +2389,7 @@ export default function DashboardPage() {
               <TariffPanel analytics={tariffFilter.analytics} />
             </section>
 
-            <section className="app-card p-5">
+            <section className="app-card p-5" data-tour="weight">
               <div className="mb-3 flex items-center justify-between gap-2">
                 <h2 className="text-sm font-bold text-on-surface">{t("dashWeightTitle")}</h2>
                 <div className="flex items-center gap-1.5">

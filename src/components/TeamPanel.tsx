@@ -44,7 +44,7 @@ export function TeamPanel() {
   };
 
   return (
-    <section className="app-card p-4 sm:p-5">
+    <section className="app-card p-4 sm:p-5" data-tour="team">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <h2 className="text-sm font-bold text-on-surface">{t("teamTitle")}</h2>

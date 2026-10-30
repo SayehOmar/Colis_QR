@@ -270,6 +270,59 @@ export const translations = {
       "Besoin de prolonger l’essai ? Contactez-moi et on trouve une solution.",
     welcomeTrustContact: "Me joindre",
     welcomeTrustContinue: "Continuer",
+    tourInviteTitle: "Visite guidée ?",
+    tourInviteBody:
+      "Souhaitez-vous un court tutoriel des fonctions principales du tableau de bord ?",
+    tourInviteYes: "Oui, montrer le guide",
+    tourInviteNo: "Non merci",
+    tourGuide: "Guide",
+    profileTourTitle: "Tutoriel du tableau de bord",
+    profileTourHint:
+      "Relancez la visite guidée depuis le début pour revoir chaque fonction.",
+    profileTourRedo: "Recommencer le tutoriel",
+    tourNext: "Suivant",
+    tourBack: "Retour",
+    tourDone: "Terminé",
+    tourProgress: "{{current}} / {{total}}",
+    tourStepOrdersTitle: "Table des expéditions",
+    tourStepOrdersBody:
+      "Liste en direct des scans récents. Faites défiler horizontalement pour voir tous les champs.",
+    tourStepDeliveredTitle: "Marquer comme livré",
+    tourStepDeliveredBody:
+      "Cochez une ligne pour confirmer la livraison. Les lignes livrées passent en vert ; le point orange montre qui a modifié quoi.",
+    tourStepFilterTitle: "Filtres",
+    tourStepFilterBody:
+      "Filtrez par date, lieu, scanner, code ou contacts. Un filtre actif cherche dans tout l’historique, pas seulement les 500 dernières lignes.",
+    tourStepAddTitle: "Ajouter une expédition",
+    tourStepAddBody:
+      "Créez une entrée manuelle quand il n’y a pas de scan QR.",
+    tourStepWeightTitle: "Poids et huile",
+    tourStepWeightBody:
+      "Totaux et tendance quotidienne du poids, de l’estimation et de l’huile.",
+    tourStepPlacesTitle: "Lieux",
+    tourStepPlacesBody:
+      "Villes les plus fréquentes et part du volume.",
+    tourStepTariffTitle: "Tarifs",
+    tourStepTariffBody:
+      "Totaux de revenus et courbe journalière.",
+    tourStepMapTitle: "Carte",
+    tourStepMapBody:
+      "Carte thermique des régions de destination.",
+    tourStepDayNotesTitle: "Notes du jour",
+    tourStepDayNotesBody:
+      "Aperçu des notes logistiques d’aujourd’hui et de demain.",
+    tourStepCalendarTitle: "Calendrier de notes",
+    tourStepCalendarBody:
+      "Bouton en bas à droite : ouvrez le calendrier pour écrire des notes liées à des jours et des lieux.",
+    tourStepExportTitle: "Export Excel",
+    tourStepExportBody:
+      "Bouton en bas à gauche : exportez l’historique complet, choisissez les feuilles, appliquez des filtres au téléchargement, y compris l’historique des modifications.",
+    tourStepTeamTitle: "Équipe",
+    tourStepTeamBody:
+      "Le code affiché ici est destiné à vos employés : ils le saisissent dans l’application téléphone pour se lier à votre compte, scanner les QR et envoyer les expéditions directement chez vous.",
+    tourStepGuideTitle: "Rejouer le guide",
+    tourStepGuideBody:
+      "Vous pourrez relancer cette visite à tout moment avec le bouton Guide.",
     email: "E-mail",
     password: "Mot de passe",
     nameOptional: "Nom (optionnel)",
@@ -991,6 +1044,59 @@ export const translations = {
       "Need a longer trial? Contact me and we’ll work something out.",
     welcomeTrustContact: "Contact me",
     welcomeTrustContinue: "Continue",
+    tourInviteTitle: "Take a quick tour?",
+    tourInviteBody:
+      "Would you like a short walkthrough of the main dashboard features?",
+    tourInviteYes: "Yes, show me",
+    tourInviteNo: "No thanks",
+    tourGuide: "Guide",
+    profileTourTitle: "Dashboard tutorial",
+    profileTourHint:
+      "Replay the guided tour from the beginning to review each feature.",
+    profileTourRedo: "Restart the tutorial",
+    tourNext: "Next",
+    tourBack: "Back",
+    tourDone: "Done",
+    tourProgress: "{{current}} / {{total}}",
+    tourStepOrdersTitle: "Shipments table",
+    tourStepOrdersBody:
+      "Live list of recent scans. Scroll horizontally to see every field.",
+    tourStepDeliveredTitle: "Mark as delivered",
+    tourStepDeliveredBody:
+      "Check a row to confirm delivery. Delivered rows turn green; the orange tip shows who changed what.",
+    tourStepFilterTitle: "Filters",
+    tourStepFilterBody:
+      "Filter by date, place, scanner, code, or contacts. An active filter searches full history, not only the latest 500 rows.",
+    tourStepAddTitle: "Add a shipment",
+    tourStepAddBody:
+      "Create a manual entry when there is no QR scan.",
+    tourStepWeightTitle: "Weight and oil",
+    tourStepWeightBody:
+      "Totals and daily trend for weight, estimate, and oil.",
+    tourStepPlacesTitle: "Places",
+    tourStepPlacesBody:
+      "Top cities and their share of volume.",
+    tourStepTariffTitle: "Tariff",
+    tourStepTariffBody:
+      "Revenue totals and the daily curve.",
+    tourStepMapTitle: "Map",
+    tourStepMapBody:
+      "Heat map of destination regions.",
+    tourStepDayNotesTitle: "Day notes",
+    tourStepDayNotesBody:
+      "Preview of today’s and tomorrow’s logistics notes.",
+    tourStepCalendarTitle: "Notes calendar",
+    tourStepCalendarBody:
+      "Bottom-right button: open the calendar to write notes tied to days and places.",
+    tourStepExportTitle: "Excel export",
+    tourStepExportBody:
+      "Bottom-left button: export full history, pick sheets, apply filters on download, including change history.",
+    tourStepTeamTitle: "Team",
+    tourStepTeamBody:
+      "The code shown here is for your employees: they enter it in the phone app to link to your account, scan QR codes, and load shipment data straight to you.",
+    tourStepGuideTitle: "Replay the guide",
+    tourStepGuideBody:
+      "You can restart this tour anytime with the Guide button.",
     email: "Email",
     password: "Password",
     nameOptional: "Name (optional)",
@@ -1704,6 +1810,59 @@ export const translations = {
       "تحتاج تمديد التجربة؟ راسلني وسنجد حلًا.",
     welcomeTrustContact: "تواصل معي",
     welcomeTrustContinue: "متابعة",
+    tourInviteTitle: "جولة سريعة؟",
+    tourInviteBody:
+      "هل تريد شرحًا قصيرًا لأهم ميزات لوحة التحكم؟",
+    tourInviteYes: "نعم، أرني",
+    tourInviteNo: "لا شكرًا",
+    tourGuide: "الدليل",
+    profileTourTitle: "دليل لوحة التحكم",
+    profileTourHint:
+      "أعد تشغيل الجولة الإرشادية من البداية لمراجعة كل ميزة.",
+    profileTourRedo: "إعادة بدء الدليل",
+    tourNext: "التالي",
+    tourBack: "رجوع",
+    tourDone: "تم",
+    tourProgress: "{{current}} / {{total}}",
+    tourStepOrdersTitle: "جدول الشحنات",
+    tourStepOrdersBody:
+      "قائمة مباشرة بأحدث عمليات المسح. مرّر أفقيًا لرؤية كل الحقول.",
+    tourStepDeliveredTitle: "تعيين كمُسلَّم",
+    tourStepDeliveredBody:
+      "ضع علامة على الصف لتأكيد التسليم. الصفوف المسلَّمة تصبح خضراء؛ والنقطة البرتقالية تُظهر من غيّر ماذا.",
+    tourStepFilterTitle: "التصفية",
+    tourStepFilterBody:
+      "صفِّ حسب التاريخ أو المكان أو الماسح أو الرمز أو جهات الاتصال. عند تفعيل التصفية يتم البحث في السجل الكامل وليس آخر 500 صف فقط.",
+    tourStepAddTitle: "إضافة شحنة",
+    tourStepAddBody:
+      "أنشئ إدخالًا يدويًا عندما لا يوجد مسح QR.",
+    tourStepWeightTitle: "الوزن والزيت",
+    tourStepWeightBody:
+      "المجاميع والاتجاه اليومي للوزن والتقدير والزيت.",
+    tourStepPlacesTitle: "الأماكن",
+    tourStepPlacesBody:
+      "أكثر المدن تكرارًا وحصتها من الحجم.",
+    tourStepTariffTitle: "التعريفة",
+    tourStepTariffBody:
+      "إجمالي الإيرادات والمنحنى اليومي.",
+    tourStepMapTitle: "الخريطة",
+    tourStepMapBody:
+      "خريطة حرارية لمناطق الوجهة.",
+    tourStepDayNotesTitle: "ملاحظات اليوم",
+    tourStepDayNotesBody:
+      "معاينة ملاحظات اللوجستيات لليوم وغدًا.",
+    tourStepCalendarTitle: "تقويم الملاحظات",
+    tourStepCalendarBody:
+      "الزر أسفل اليمين: افتح التقويم لكتابة ملاحظات مرتبطة بأيام وأماكن.",
+    tourStepExportTitle: "تصدير Excel",
+    tourStepExportBody:
+      "الزر أسفل اليسار: صدّر السجل الكامل واختر الأوراق وطبّق التصفية عند التنزيل، بما في ذلك سجل التعديلات.",
+    tourStepTeamTitle: "الفريق",
+    tourStepTeamBody:
+      "الرمز الظاهر هنا لموظفيك: يُدخلونه في تطبيق الهاتف للارتباط بحسابك ومسح رموز QR وتحميل بيانات الشحنات إليك مباشرة.",
+    tourStepGuideTitle: "إعادة الدليل",
+    tourStepGuideBody:
+      "يمكنك إعادة هذه الجولة في أي وقت عبر زر الدليل.",
     email: "البريد الإلكتروني",
     password: "كلمة المرور",
     nameOptional: "الاسم (اختياري)",

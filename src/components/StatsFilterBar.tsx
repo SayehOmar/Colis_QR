@@ -53,6 +53,7 @@ export function StatsFilterBar({
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
+          data-tour="filter"
           className={`inline-flex h-8 w-8 items-center justify-center rounded-lg border transition ${
             open || hasActive
               ? "border-secondary bg-secondary-container text-secondary"

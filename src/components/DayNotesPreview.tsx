@@ -83,7 +83,7 @@ export function DayNotesPreview() {
   };
 
   return (
-    <div className="grid gap-5 md:grid-cols-2">
+    <div className="grid gap-5 md:grid-cols-2" data-tour="day-notes">
       <NoteCard
         title={t("dashNoteToday")}
         dateLabel={formatDate(todayKey)}

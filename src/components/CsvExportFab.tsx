@@ -226,6 +226,7 @@ export function CsvExportFab({
           setStatus(null);
           setProgress(null);
         }}
+        data-tour="export-fab"
         className="fixed bottom-5 left-5 z-[4000] flex h-14 w-14 items-center justify-center overflow-hidden rounded-full p-2.5 shadow-lg transition hover:scale-105"
         style={{ backgroundColor: EXCEL_GREEN }}
         aria-label={t("dashExportTitle")}

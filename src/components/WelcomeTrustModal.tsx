@@ -6,6 +6,10 @@ import {
   WELCOME_CONTACT,
 } from "../auth/welcomeTrust";
 import { useLanguage } from "../i18n/LanguageContext";
+import {
+  hasSeenDashboardTour,
+  requestDashboardTourInvite,
+} from "../onboarding/tourStorage";
 
 export function WelcomeTrustModal() {
   const { t } = useLanguage();
@@ -25,6 +29,9 @@ export function WelcomeTrustModal() {
   const dismiss = () => {
     markWelcomeTrustSeen(user.id);
     setOpen(false);
+    if (!hasSeenDashboardTour(user.id)) {
+      requestDashboardTourInvite();
+    }
   };
 
   return (
