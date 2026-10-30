@@ -271,7 +271,7 @@ export function ShipmentHeatMap({
   }, [selectedCountry]);
 
   const heightClass = expanded
-    ? "h-[calc(100vh-7rem)] min-h-[480px]"
+    ? "h-full min-h-0"
     : "h-72 sm:h-80";
 
   const mapReady =
@@ -353,13 +353,13 @@ export function ShipmentHeatMap({
         )}
       </div>
 
-      {/* Legend in document flow — cannot clip outside the card */}
-      <div className="flex shrink-0 items-center justify-between gap-3 border-t border-outline-variant/40 bg-surface-container-lowest px-3 py-2">
-        <div className="min-w-0">
+      {/* Footer stays in flow so city label is never clipped by the map pane */}
+      <div className="flex shrink-0 items-center justify-between gap-3 border-t border-outline-variant/40 bg-surface-container-lowest px-3 py-2.5 sm:px-4">
+        <div className="min-w-0 flex-1 pr-2">
           <p className="text-[10px] font-bold uppercase tracking-wide text-on-surface-variant">
             {t(countryLabelKey)}
           </p>
-          <p className="truncate text-xs font-semibold text-on-surface">
+          <p className="truncate text-sm font-semibold leading-snug text-on-surface">
             {focusCity
               ? `${focusCity.name}${
                   focusCity.postalCode ? ` (${focusCity.postalCode})` : ""

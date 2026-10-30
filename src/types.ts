@@ -54,6 +54,10 @@ export interface Shipment {
   publicCode: string;
   scannerId: number | null;
   scannerName?: string;
+  delivered: boolean;
+  deliveredAt?: string | null;
+  deliveredByUserId?: number | null;
+  deliveredByName?: string;
   senderName: string;
   senderPhone: string;
   receiverName: string;

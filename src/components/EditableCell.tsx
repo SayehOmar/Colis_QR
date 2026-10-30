@@ -1,6 +1,5 @@
 import { useMutation } from "@apollo/client";
-import { useEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
+import { useState } from "react";
 import { CellCopyButton } from "./CellCopyButton";
 import { SHIPMENTS_QUERY, UPDATE_SHIPMENT_CELL } from "../graphql";
 import { useLanguage } from "../i18n/LanguageContext";
@@ -27,16 +26,8 @@ export function EditableCell({
   const { t } = useLanguage();
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(String(value));
-  const [tip, setTip] = useState<{ x: number; y: number } | null>(null);
-  const tipAnchorRef = useRef<HTMLSpanElement>(null);
+  const [tipOpen, setTipOpen] = useState(false);
   const [updateCell, { loading }] = useMutation(UPDATE_SHIPMENT_CELL);
-
-  useEffect(() => {
-    if (!tip) return;
-    const hide = () => setTip(null);
-    window.addEventListener("scroll", hide, true);
-    return () => window.removeEventListener("scroll", hide, true);
-  }, [tip]);
 
   const startEdit = () => {
     if (readOnly) return;
@@ -102,13 +93,6 @@ export function EditableCell({
     (edit?.initialValue || "") !== (edit?.previousValue || "") &&
     (edit?.previousValue || "") !== "";
 
-  const showTip = () => {
-    const el = tipAnchorRef.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    setTip({ x: rect.right, y: rect.bottom + 6 });
-  };
-
   return (
     <td
       className={`group relative px-3 py-3 align-top text-sm leading-relaxed text-on-surface ${
@@ -130,31 +114,24 @@ export function EditableCell({
       </div>
       {edit ? (
         <span
-          ref={tipAnchorRef}
           className="absolute right-1.5 top-1.5 z-10"
           onClick={(event) => event.stopPropagation()}
-          onMouseEnter={showTip}
-          onMouseLeave={() => setTip(null)}
+          onMouseEnter={() => setTipOpen(true)}
+          onMouseLeave={() => setTipOpen(false)}
         >
           <span
             className="block h-2 w-2 rounded-full bg-orange-500 shadow-sm ring-1 ring-orange-600/40"
             aria-label={t("cellEdited")}
           />
-        </span>
-      ) : null}
-      {edit && tip
-        ? createPortal(
+          {tipOpen ? (
             <div
               role="tooltip"
-              className="pointer-events-none fixed z-[9999] w-max max-w-[14rem] rounded-md bg-slate-900 px-2.5 py-1.5 text-left text-[11px] leading-snug text-white shadow-lg"
-              style={{
-                top: tip.y,
-                left: tip.x,
-                transform: "translateX(-100%)",
-              }}
+              className="pointer-events-none absolute right-0 top-full z-20 mt-1.5 w-max max-w-[14rem] rounded-md bg-slate-900 px-2.5 py-1.5 text-left text-[11px] leading-snug text-white shadow-lg"
             >
               <span className="block text-slate-300">{t("initialValue")}</span>
-              <span className="block break-words font-medium">{initialDisplay}</span>
+              <span className="block break-words font-medium">
+                {initialDisplay}
+              </span>
               {showSeparatePrevious ? (
                 <>
                   <span className="mt-1 block text-slate-300">
@@ -175,10 +152,10 @@ export function EditableCell({
                   <span className="block font-medium">{edit.editedByName}</span>
                 </>
               ) : null}
-            </div>,
-            document.body,
-          )
-        : null}
+            </div>
+          ) : null}
+        </span>
+      ) : null}
     </td>
   );
 }

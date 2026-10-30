@@ -11,6 +11,10 @@ interface StatsFilterBarProps {
   compact?: boolean;
   /** Extra people / ID fields — used on the shipment table filter. */
   contactFilters?: boolean;
+  /** Start with filter fields expanded (e.g. export dialog). */
+  defaultOpen?: boolean;
+  /** Matching / total row count shown next to the filter control. */
+  matchCount?: number;
 }
 
 export function StatsFilterBar({
@@ -21,9 +25,11 @@ export function StatsFilterBar({
   scanners = [],
   compact,
   contactFilters = false,
+  defaultOpen = false,
+  matchCount,
 }: StatsFilterBarProps) {
   const { t } = useLanguage();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(defaultOpen);
 
   const set = (patch: Partial<StatsFilter>) => onChange({ ...filter, ...patch });
 
@@ -33,6 +39,7 @@ export function StatsFilterBar({
     Boolean(filter.country) ||
     Boolean(filter.city) ||
     Boolean(filter.scannedBy) ||
+    Boolean(filter.publicCode) ||
     Boolean(filter.senderName) ||
     Boolean(filter.receiverName) ||
     Boolean(filter.senderPhone) ||
@@ -42,7 +49,7 @@ export function StatsFilterBar({
 
   return (
     <div className={compact ? "mb-2" : "mb-3"}>
-      <div className="flex items-center gap-2">
+      <div className="flex flex-wrap items-center gap-2">
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
@@ -59,6 +66,15 @@ export function StatsFilterBar({
             filter_list
           </span>
         </button>
+        {typeof matchCount === "number" ? (
+          <span
+            className={`text-[11px] font-semibold tabular-nums ${
+              hasActive ? "text-secondary" : "text-on-surface-variant"
+            }`}
+          >
+            {t("dashOrdersLineCount").replace("{n}", String(matchCount))}
+          </span>
+        ) : null}
         {hasActive ? (
           <>
             <span className="text-[10px] font-semibold text-secondary">
@@ -146,6 +162,18 @@ export function StatsFilterBar({
                   </option>
                 ))}
               </select>
+            </label>
+            <label className="block text-[10px] font-medium text-on-surface-variant">
+              {t("shipmentCode")}
+              <input
+                type="text"
+                value={filter.publicCode}
+                onChange={(e) => set({ publicCode: e.target.value })}
+                className="app-input mt-0.5 !py-1.5 font-mono text-xs"
+                placeholder={t("shipmentCode")}
+                autoComplete="off"
+                spellCheck={false}
+              />
             </label>
           </div>
 

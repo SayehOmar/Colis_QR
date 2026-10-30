@@ -171,13 +171,16 @@ export function CalendarNotesFab() {
           setPanelOpen((v) => !v);
           setDayOpen(false);
         }}
-        className={`fixed bottom-5 right-5 z-[4000] flex h-14 w-14 items-center justify-center rounded-full shadow-lg transition hover:scale-105 ${
+        className={`fixed bottom-5 right-5 z-[4000] flex h-14 w-14 items-center justify-center overflow-hidden rounded-full p-2.5 shadow-lg transition hover:scale-105 ${
           panelOpen ? "bg-primary text-on-primary" : "bg-tertiary text-on-tertiary"
         }`}
         aria-label={t("dashCalendarTitle")}
         title={t("dashCalendarTitle")}
       >
-        <span className="material-symbols-outlined text-[28px]" aria-hidden>
+        <span
+          className="material-symbols-outlined flex h-full w-full items-center justify-center text-[36px] leading-none"
+          aria-hidden
+        >
           {panelOpen ? "close" : "calendar_month"}
         </span>
       </button>

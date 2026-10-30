@@ -23,6 +23,14 @@ export interface TariffPoint {
   total: number;
 }
 
+export interface WeightPoint {
+  date: string;
+  weight: number;
+  oil: number;
+  estimate: number;
+  count: number;
+}
+
 export interface DashboardAnalytics {
   shipmentCount: number;
   totalTariff: number;
@@ -36,6 +44,7 @@ export interface DashboardAnalytics {
   regions: RegionStat[];
   topCity: CityStat | null;
   tariffSeries: TariffPoint[];
+  weightSeries?: WeightPoint[];
 }
 
 export interface StatsFilter {
@@ -44,6 +53,7 @@ export interface StatsFilter {
   country: string;
   city: string;
   scannedBy: string;
+  publicCode: string;
   senderName: string;
   receiverName: string;
   senderPhone: string;
@@ -58,6 +68,7 @@ export const EMPTY_STATS_FILTER: StatsFilter = {
   country: "",
   city: "",
   scannedBy: "",
+  publicCode: "",
   senderName: "",
   receiverName: "",
   senderPhone: "",
@@ -65,6 +76,23 @@ export const EMPTY_STATS_FILTER: StatsFilter = {
   idDocType: "",
   idDocNumber: "",
 };
+
+export function isStatsFilterActive(filter: StatsFilter): boolean {
+  return (
+    Boolean(filter.dateFrom) ||
+    Boolean(filter.dateTo) ||
+    Boolean(filter.country) ||
+    Boolean(filter.city) ||
+    Boolean(filter.scannedBy) ||
+    Boolean(filter.publicCode) ||
+    Boolean(filter.senderName) ||
+    Boolean(filter.receiverName) ||
+    Boolean(filter.senderPhone) ||
+    Boolean(filter.receiverPhone) ||
+    Boolean(filter.idDocType) ||
+    Boolean(filter.idDocNumber)
+  );
+}
 
 /** Display label used in filters / table for who scanned a shipment. */
 export function scannerLabel(shipment: Shipment): string {
@@ -96,6 +124,7 @@ export function filterShipments(
   const country = filter.country.trim().toLowerCase();
   const city = filter.city.trim().toLowerCase();
   const scannedBy = filter.scannedBy.trim().toLowerCase();
+  const publicCode = filter.publicCode.trim();
   const senderName = filter.senderName.trim();
   const receiverName = filter.receiverName.trim();
   const senderPhone = filter.senderPhone.trim();
@@ -115,6 +144,7 @@ export function filterShipments(
       if (!place.city.toLowerCase().includes(city)) return false;
     }
     if (scannedBy && scannerLabel(s).toLowerCase() !== scannedBy) return false;
+    if (publicCode && !includesNorm(s.publicCode || "", publicCode)) return false;
     if (senderName && !includesNorm(s.senderName, senderName)) return false;
     if (receiverName && !includesNorm(s.receiverName, receiverName)) return false;
     if (senderPhone && !phoneIncludes(s.senderPhone, senderPhone)) return false;
@@ -216,7 +246,11 @@ export function resolveShipmentPlace(shipment: Shipment): {
   };
 }
 
-export function computeDashboardAnalytics(shipments: Shipment[]): DashboardAnalytics {
+export function computeDashboardAnalytics(
+  shipments: Shipment[],
+  options?: { cityLimit?: number }
+): DashboardAnalytics {
+  const cityLimit = options?.cityLimit ?? 12;
   const shipmentCount = shipments.length;
   const totalTariff = shipments.reduce((sum, s) => sum + (Number(s.tariffAmount) || 0), 0);
   const totalWeight = shipments.reduce((sum, s) => sum + (Number(s.weightKg) || 0), 0);
@@ -226,15 +260,29 @@ export function computeDashboardAnalytics(shipments: Shipment[]): DashboardAnaly
     0
   );
 
-  const byDay = new Map<string, number>();
+  const byDayTariff = new Map<string, number>();
+  const byDayWeight = new Map<
+    string,
+    { weight: number; oil: number; estimate: number; count: number }
+  >();
   for (const s of shipments) {
     const day = shipmentDay(s.timestamp) || "unknown";
-    byDay.set(day, (byDay.get(day) ?? 0) + (Number(s.tariffAmount) || 0));
+    byDayTariff.set(day, (byDayTariff.get(day) ?? 0) + (Number(s.tariffAmount) || 0));
+    const w = byDayWeight.get(day) ?? { weight: 0, oil: 0, estimate: 0, count: 0 };
+    w.weight += Number(s.weightKg) || 0;
+    w.oil += Number(s.oilLiters) || 0;
+    w.estimate += Number(s.estimateWeightKg) || 0;
+    w.count += 1;
+    byDayWeight.set(day, w);
   }
-  const tariffSeries = [...byDay.entries()]
+  const tariffSeries = [...byDayTariff.entries()]
     .filter(([date]) => date !== "unknown")
     .sort((a, b) => a[0].localeCompare(b[0]))
     .map(([date, total]) => ({ date, total }));
+  const weightSeries = [...byDayWeight.entries()]
+    .filter(([date]) => date !== "unknown")
+    .sort((a, b) => a[0].localeCompare(b[0]))
+    .map(([date, v]) => ({ date, ...v }));
 
   const cityCounts = new Map<
     string,
@@ -303,10 +351,11 @@ export function computeDashboardAnalytics(shipments: Shipment[]): DashboardAnaly
     avgTariff: shipmentCount > 0 ? totalTariff / shipmentCount : 0,
     avgWeight: shipmentCount > 0 ? totalWeight / shipmentCount : 0,
     avgEstimateWeight: shipmentCount > 0 ? totalEstimateWeight / shipmentCount : 0,
-    cities: cities.slice(0, 12),
+    cities: Number.isFinite(cityLimit) ? cities.slice(0, cityLimit) : cities,
     regions,
     topCity: cities[0] ?? null,
     tariffSeries,
+    weightSeries,
   };
 }
 

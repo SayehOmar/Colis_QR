@@ -7,6 +7,10 @@ export const SHIPMENTS_QUERY = gql`
       publicCode
       scannerId
       scannerName
+      delivered
+      deliveredAt
+      deliveredByUserId
+      deliveredByName
       senderName
       senderPhone
       receiverName
@@ -33,6 +37,131 @@ export const SHIPMENTS_QUERY = gql`
         editedAt
         editedByUserId
         editedByName
+      }
+    }
+  }
+`;
+
+/** Full-history search when the orders table filter is active. */
+export const SHIPMENTS_FILTERED_QUERY = gql`
+  query ShipmentsFiltered(
+    $dateFrom: String
+    $dateTo: String
+    $country: String
+    $city: String
+    $scannedBy: String
+    $publicCode: String
+    $senderName: String
+    $receiverName: String
+    $senderPhone: String
+    $receiverPhone: String
+    $idDocType: String
+    $idDocNumber: String
+    $timeZone: String
+    $limit: Int
+  ) {
+    shipmentsFiltered(
+      dateFrom: $dateFrom
+      dateTo: $dateTo
+      country: $country
+      city: $city
+      scannedBy: $scannedBy
+      publicCode: $publicCode
+      senderName: $senderName
+      receiverName: $receiverName
+      senderPhone: $senderPhone
+      receiverPhone: $receiverPhone
+      idDocType: $idDocType
+      idDocNumber: $idDocNumber
+      timeZone: $timeZone
+      limit: $limit
+    ) {
+      totalCount
+      nodes {
+        id
+        publicCode
+        scannerId
+        scannerName
+        delivered
+        deliveredAt
+        deliveredByUserId
+        deliveredByName
+        senderName
+        senderPhone
+        receiverName
+        receiverPhone
+        address
+        country
+        regionName
+        city
+        postalCode
+        oilLiters
+        weightKg
+        estimateWeightKg
+        tariffAmount
+        timestamp
+        lastEditedAt
+        editCount
+        items
+        idDocType
+        idDocNumber
+        fieldEdits {
+          field
+          initialValue
+          previousValue
+          editedAt
+          editedByUserId
+          editedByName
+        }
+      }
+    }
+  }
+`;
+
+/** Full-tenant aggregates for dashboard cards (silent poll / page refresh). */
+export const DASHBOARD_STATS_QUERY = gql`
+  query DashboardStats {
+    dashboardStats {
+      shipmentCount
+      totalTariff
+      totalWeight
+      totalOil
+      totalEstimateWeight
+      avgTariff
+      avgWeight
+      avgEstimateWeight
+      cities {
+        name
+        count
+        share
+        country
+        regionName
+        postalCode
+      }
+      regions {
+        name
+        count
+        share
+        country
+      }
+      topCity {
+        name
+        count
+        share
+        country
+        regionName
+        postalCode
+      }
+      tariffSeries {
+        date
+        total
+      }
+      weightSeries {
+        date
+        weight
+        oil
+        estimate
+        count
       }
     }
   }
