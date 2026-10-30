@@ -348,7 +348,7 @@ export const translations = {
     backendUnreachable: "Backend inaccessible",
     backendUrl: "URL backend (GraphQL)",
     backendError: "Impossible de joindre pc-backend. Démarrez le serveur sur le port 8000.",
-    livePolling: "Actualisation en direct (5s)",
+    livePolling: "5s",
     name: "Nom",
     address: "Adresse",
     oil: "Huile (L)",

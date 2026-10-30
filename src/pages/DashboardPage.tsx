@@ -75,25 +75,36 @@ function useDebouncedValue<T>(value: T, delayMs: number): T {
 
 function usePanelFilter(
   allShipments: Shipment[],
-  fullStats: DashboardAnalytics | null = null
+  fullStats: DashboardAnalytics | null = null,
 ) {
   const [filter, setFilter] = useState<StatsFilter>(EMPTY_STATS_FILTER);
   const filtered = useMemo(
     () => filterShipments(allShipments, filter),
-    [allShipments, filter]
+    [allShipments, filter],
   );
   const filterActive = isStatsFilterActive(filter);
   const analytics = useMemo(() => {
     if (!filterActive && fullStats) return fullStats;
     return computeDashboardAnalytics(filtered, { cityLimit: Infinity });
   }, [filtered, filterActive, fullStats]);
-  const countries = useMemo(() => uniqueCountries(allShipments), [allShipments]);
+  const countries = useMemo(
+    () => uniqueCountries(allShipments),
+    [allShipments],
+  );
   const cities = useMemo(
     () => uniqueCities(allShipments, filter.country),
-    [allShipments, filter.country]
+    [allShipments, filter.country],
   );
   const scanners = useMemo(() => uniqueScanners(allShipments), [allShipments]);
-  return { filter, setFilter, filtered, analytics, countries, cities, scanners };
+  return {
+    filter,
+    setFilter,
+    filtered,
+    analytics,
+    countries,
+    cities,
+    scanners,
+  };
 }
 
 /**
@@ -101,7 +112,7 @@ function usePanelFilter(
  */
 function useOrdersFilter(
   recentShipments: Shipment[],
-  fullStats: DashboardAnalytics | null = null
+  fullStats: DashboardAnalytics | null = null,
 ) {
   const [filter, setFilter] = useState<StatsFilter>(EMPTY_STATS_FILTER);
   const filterActive = isStatsFilterActive(filter);
@@ -109,7 +120,7 @@ function useOrdersFilter(
   const debouncedActive = isStatsFilterActive(debouncedFilter);
   const timeZone = useMemo(
     () => Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC",
-    []
+    [],
   );
 
   const { data, loading } = useQuery<{
@@ -152,7 +163,7 @@ function useOrdersFilter(
       .map((c) => c.country)
       .filter(Boolean);
     return Array.from(new Set([...fromLoaded, ...fromStats])).sort((a, b) =>
-      a.localeCompare(b)
+      a.localeCompare(b),
     );
   }, [recentShipments, fullStats]);
   const cities = useMemo(() => {
@@ -162,12 +173,12 @@ function useOrdersFilter(
       .map((c) => c.name)
       .filter(Boolean);
     return Array.from(new Set([...fromLoaded, ...fromStats])).sort((a, b) =>
-      a.localeCompare(b)
+      a.localeCompare(b),
     );
   }, [recentShipments, filter.country, fullStats]);
   const scanners = useMemo(
     () => uniqueScanners(recentShipments),
-    [recentShipments]
+    [recentShipments],
   );
 
   return {
@@ -310,7 +321,8 @@ function WeightGauge({
     arc.style.strokeDashoffset = `${len}`;
     let raf = requestAnimationFrame(() => {
       raf = requestAnimationFrame(() => {
-        arc.style.transition = "stroke-dashoffset 1.25s cubic-bezier(0.22, 1, 0.36, 1)";
+        arc.style.transition =
+          "stroke-dashoffset 1.25s cubic-bezier(0.22, 1, 0.36, 1)";
         arc.style.strokeDashoffset = `${offset}`;
       });
     });
@@ -383,7 +395,7 @@ function WeightPanel({
   }, [analytics.weightSeries, shipments]);
   const extras = useMemo(
     () => weightExtraStats(series, analytics.totalWeight),
-    [series, analytics.totalWeight]
+    [series, analytics.totalWeight],
   );
 
   const totalWeight = useCountUp(analytics.totalWeight, animate);
@@ -393,7 +405,9 @@ function WeightPanel({
   const avgEstimate = useCountUp(analytics.avgEstimateWeight, animate);
   const shipmentCount = useCountUp(analytics.shipmentCount, animate);
   const avgOil =
-    analytics.shipmentCount > 0 ? analytics.totalOil / analytics.shipmentCount : 0;
+    analytics.shipmentCount > 0
+      ? analytics.totalOil / analytics.shipmentCount
+      : 0;
   const avgOilAnim = useCountUp(avgOil, animate);
   const peakVal = useCountUp(extras.peak?.weight ?? 0, animate);
   const quietVal = useCountUp(extras.quiet?.weight ?? 0, animate);
@@ -417,7 +431,8 @@ function WeightPanel({
           </span>
           {analytics.totalEstimateWeight > 0 ? (
             <span className="rounded-full bg-primary/10 px-2.5 py-1 text-[11px] font-semibold text-primary">
-              {t("estimateWeightCol")}: {formatKg(analytics.totalEstimateWeight)}
+              {t("estimateWeightCol")}:{" "}
+              {formatKg(analytics.totalEstimateWeight)}
             </span>
           ) : null}
         </div>
@@ -505,7 +520,9 @@ function WeightPanel({
           </p>
           <p
             className={`mt-1 text-2xl font-extrabold tabular-nums sm:text-3xl ${
-              (extras.periodDeltaPct ?? 0) >= 0 ? "text-emerald-600" : "text-red-600"
+              (extras.periodDeltaPct ?? 0) >= 0
+                ? "text-emerald-600"
+                : "text-red-600"
             }`}
           >
             {deltaLabel}
@@ -556,7 +573,9 @@ function WeightTrendChart({
   const oilLineRef = useRef<SVGPathElement | null>(null);
   const areaRef = useRef<SVGPathElement | null>(null);
   const [focus, setFocus] = useState<WeightFocus>("all");
-  const seriesKey = series.map((p) => `${p.date}:${p.weight}:${p.oil}`).join("|");
+  const seriesKey = series
+    .map((p) => `${p.date}:${p.weight}:${p.oil}`)
+    .join("|");
 
   const showWeight = focus === "all" || focus === "weight";
   const showOil = focus === "all" || focus === "oil";
@@ -581,7 +600,8 @@ function WeightTrendChart({
     let raf = requestAnimationFrame(() => {
       raf = requestAnimationFrame(() => {
         for (const line of lines) {
-          line.style.transition = "stroke-dashoffset 1.35s cubic-bezier(0.22, 1, 0.36, 1)";
+          line.style.transition =
+            "stroke-dashoffset 1.35s cubic-bezier(0.22, 1, 0.36, 1)";
           line.style.strokeDashoffset = "0";
         }
         if (area) {
@@ -595,7 +615,9 @@ function WeightTrendChart({
 
   if (series.length < 2) {
     return (
-      <p className="mt-3 text-xs text-on-surface-variant">{t("dashWeightNoTrend")}</p>
+      <p className="mt-3 text-xs text-on-surface-variant">
+        {t("dashWeightNoTrend")}
+      </p>
     );
   }
 
@@ -677,7 +699,13 @@ function WeightTrendChart({
         onClick={() => setFocus("all")}
       >
         <defs>
-          <linearGradient id={`weightFill-${gradId}`} x1="0" y1="0" x2="0" y2="1">
+          <linearGradient
+            id={`weightFill-${gradId}`}
+            x1="0"
+            y1="0"
+            x2="0"
+            y2="1"
+          >
             <stop offset="0%" stopColor="#00A8A8" stopOpacity="0.32" />
             <stop offset="100%" stopColor="#00A8A8" stopOpacity="0" />
           </linearGradient>
@@ -807,7 +835,9 @@ function PlacesPanel({
   if (!expanded) {
     const cities = analytics.cities.slice(0, 5);
     if (cities.length === 0) {
-      return <p className="text-xs text-on-surface-variant">{t("dashNoCities")}</p>;
+      return (
+        <p className="text-xs text-on-surface-variant">{t("dashNoCities")}</p>
+      );
     }
     return (
       <ul className="space-y-3">
@@ -818,7 +848,9 @@ function PlacesPanel({
                 {city.name}
                 {(city.regionName || city.country) && (
                   <span className="ml-1 font-normal text-on-surface-variant">
-                    ({[city.regionName, city.country].filter(Boolean).join(", ")})
+                    (
+                    {[city.regionName, city.country].filter(Boolean).join(", ")}
+                    )
                   </span>
                 )}
               </span>
@@ -835,7 +867,9 @@ function PlacesPanel({
                 <span
                   key={i}
                   className={`h-full flex-1 rounded-sm ${
-                    i < Math.round(city.share * 20) ? "bg-tertiary" : "bg-transparent"
+                    i < Math.round(city.share * 20)
+                      ? "bg-tertiary"
+                      : "bg-transparent"
                   }`}
                 />
               ))}
@@ -875,7 +909,9 @@ function PlacesExpandedPanel({ analytics }: { analytics: DashboardAnalytics }) {
   const top3ShareAnim = useCountUp(top3Share * 100, true);
 
   if (cities.length === 0) {
-    return <p className="text-sm text-on-surface-variant">{t("dashNoCities")}</p>;
+    return (
+      <p className="text-sm text-on-surface-variant">{t("dashNoCities")}</p>
+    );
   }
 
   const cityKey = (c: (typeof cities)[number]) =>
@@ -1004,7 +1040,11 @@ function PlacesExpandedPanel({ analytics }: { analytics: DashboardAnalytics }) {
                         {city.name}
                         {(city.regionName || city.country) && (
                           <span className="ml-1 font-normal text-on-surface-variant">
-                            ({[city.regionName, city.country].filter(Boolean).join(", ")})
+                            (
+                            {[city.regionName, city.country]
+                              .filter(Boolean)
+                              .join(", ")}
+                            )
                           </span>
                         )}
                       </span>
@@ -1038,7 +1078,9 @@ function PlacesExpandedPanel({ analytics }: { analytics: DashboardAnalytics }) {
           </p>
           <ul className="min-h-0 flex-1 space-y-2.5 overflow-y-auto pr-1">
             {regions.length === 0 ? (
-              <li className="text-xs text-on-surface-variant">{t("dashNoCities")}</li>
+              <li className="text-xs text-on-surface-variant">
+                {t("dashNoCities")}
+              </li>
             ) : (
               regions.map((region, index) => {
                 const key = `region|${region.name}|${region.country}`;
@@ -1095,7 +1137,7 @@ function PlacesExpandedPanel({ analytics }: { analytics: DashboardAnalytics }) {
           </ul>
         </div>
 
-          <PlacesPieChart
+        <PlacesPieChart
           cities={cities}
           shipmentTotal={analytics.shipmentCount}
           focusKey={focusKey}
@@ -1142,7 +1184,7 @@ function slicePath(
   cy: number,
   r: number,
   start: number,
-  end: number
+  end: number,
 ): string {
   const span = end - start;
   if (span <= 0.0001) return "";
@@ -1255,9 +1297,7 @@ function PlacesPieChart({
   const cy = size / 2;
   const baseR = 86;
   const selected = slices.find((s) => s.key === focusKey) ?? null;
-  const popup = selected
-    ? polar(cx, cy, baseR * 0.42, selected.mid)
-    : null;
+  const popup = selected ? polar(cx, cy, baseR * 0.42, selected.mid) : null;
 
   return (
     <div
@@ -1299,7 +1339,13 @@ function PlacesPieChart({
                 const ox = Math.cos(slice.mid) * explode;
                 const oy = Math.sin(slice.mid) * explode;
                 const r = focused ? baseR + 6 : baseR;
-                const d = slicePath(cx + ox, cy + oy, r, slice.start, slice.end);
+                const d = slicePath(
+                  cx + ox,
+                  cy + oy,
+                  r,
+                  slice.start,
+                  slice.end,
+                );
                 if (!d) return null;
                 return (
                   <path
@@ -1322,7 +1368,12 @@ function PlacesPieChart({
               })}
             </g>
             {/* Soft hole for donut look */}
-            <circle cx={cx} cy={cy} r={34} fill="rgb(var(--color-surface-container-lowest))" />
+            <circle
+              cx={cx}
+              cy={cy}
+              r={34}
+              fill="rgb(var(--color-surface-container-lowest))"
+            />
             {selected && popup && revealed ? (
               <foreignObject
                 x={Math.min(Math.max(popup.x - 72, 4), size - 148)}
@@ -1427,7 +1478,10 @@ function useCountUp(target: number, enabled: boolean, durationMs = 1100) {
   return value;
 }
 
-function tariffExtraStats(series: DashboardAnalytics["tariffSeries"], totalTariff: number) {
+function tariffExtraStats(
+  series: DashboardAnalytics["tariffSeries"],
+  totalTariff: number,
+) {
   if (series.length === 0) {
     return {
       peak: null as { date: string; total: number } | null,
@@ -1477,7 +1531,7 @@ function TariffPanel({
   const shipmentCount = useCountUp(analytics.shipmentCount, animate);
   const extras = useMemo(
     () => tariffExtraStats(analytics.tariffSeries, analytics.totalTariff),
-    [analytics.tariffSeries, analytics.totalTariff]
+    [analytics.tariffSeries, analytics.totalTariff],
   );
   const peakVal = useCountUp(extras.peak?.total ?? 0, animate);
   const quietVal = useCountUp(extras.quiet?.total ?? 0, animate);
@@ -1598,7 +1652,9 @@ function TariffPanel({
           </p>
           <p
             className={`mt-1 text-2xl font-extrabold tabular-nums sm:text-3xl ${
-              (extras.periodDeltaPct ?? 0) >= 0 ? "text-emerald-600" : "text-red-600"
+              (extras.periodDeltaPct ?? 0) >= 0
+                ? "text-emerald-600"
+                : "text-red-600"
             }`}
           >
             {deltaLabel}
@@ -1648,7 +1704,8 @@ function TariffTrendChart({
 
     let raf = requestAnimationFrame(() => {
       raf = requestAnimationFrame(() => {
-        line.style.transition = "stroke-dashoffset 1.35s cubic-bezier(0.22, 1, 0.36, 1)";
+        line.style.transition =
+          "stroke-dashoffset 1.35s cubic-bezier(0.22, 1, 0.36, 1)";
         line.style.strokeDashoffset = "0";
         if (area) {
           area.style.transition = "opacity 0.85s ease 0.45s";
@@ -1661,7 +1718,9 @@ function TariffTrendChart({
 
   if (series.length < 2) {
     return (
-      <p className="mt-3 text-xs text-on-surface-variant">{t("dashTariffNoTrend")}</p>
+      <p className="mt-3 text-xs text-on-surface-variant">
+        {t("dashTariffNoTrend")}
+      </p>
     );
   }
 
@@ -1675,14 +1734,18 @@ function TariffTrendChart({
     const y = h - padY - (p.total / max) * (h - padY * 2);
     return { x, y, ...p };
   });
-  const line = points.map((p, i) => `${i === 0 ? "M" : "L"}${p.x} ${p.y}`).join(" ");
+  const line = points
+    .map((p, i) => `${i === 0 ? "M" : "L"}${p.x} ${p.y}`)
+    .join(" ");
   const area = `${line} L${points[points.length - 1]!.x} ${h} L${points[0]!.x} ${h} Z`;
   const first = series[0]!;
   const last = series[series.length - 1]!;
   const strokeW = expanded ? 3.5 : 2.5;
 
   return (
-    <div className={`flex min-h-0 flex-col ${expanded ? "h-full" : "mt-4 h-20"}`}>
+    <div
+      className={`flex min-h-0 flex-col ${expanded ? "h-full" : "mt-4 h-20"}`}
+    >
       <p className="mb-1 shrink-0 text-[10px] font-medium uppercase tracking-wide text-on-surface-variant">
         {t("dashTariffTrend")}
       </p>
@@ -1692,7 +1755,13 @@ function TariffTrendChart({
         preserveAspectRatio="none"
       >
         <defs>
-          <linearGradient id={`tariffFill-${gradId}`} x1="0" y1="0" x2="0" y2="1">
+          <linearGradient
+            id={`tariffFill-${gradId}`}
+            x1="0"
+            y1="0"
+            x2="0"
+            y2="1"
+          >
             <stop offset="0%" stopColor="#FF7A00" stopOpacity="0.35" />
             <stop offset="100%" stopColor="#FF7A00" stopOpacity="0" />
           </linearGradient>
@@ -1800,8 +1869,12 @@ function OrdersPanel({
             >
               {t("deliveredCol")}
             </th>
-            <th className="sticky top-0 z-10 bg-primary px-3 py-3">{t("shipmentCode")}</th>
-            <th className="sticky top-0 z-10 bg-primary px-3 py-3">{t("scannerName")}</th>
+            <th className="sticky top-0 z-10 bg-primary px-3 py-3">
+              {t("shipmentCode")}
+            </th>
+            <th className="sticky top-0 z-10 bg-primary px-3 py-3">
+              {t("scannerName")}
+            </th>
             <th className="sticky top-0 z-10 bg-primary px-3 py-3" colSpan={2}>
               {t("senderDetails")}
             </th>
@@ -1811,34 +1884,74 @@ function OrdersPanel({
             <th className="sticky top-0 z-10 bg-primary px-3 py-3" colSpan={5}>
               {t("deliveryAddress")}
             </th>
-            <th className="sticky top-0 z-10 bg-primary px-3 py-3">{t("itemsTitle")}</th>
+            <th className="sticky top-0 z-10 bg-primary px-3 py-3">
+              {t("itemsTitle")}
+            </th>
             <th className="sticky top-0 z-10 bg-primary px-3 py-3" colSpan={2}>
               {t("idDocTitle")}
             </th>
-            <th className="sticky top-0 z-10 bg-primary px-3 py-3">{t("oil")}</th>
-            <th className="sticky top-0 z-10 bg-primary px-3 py-3">{t("estimateWeightCol")}</th>
-            <th className="sticky top-0 z-10 bg-primary px-3 py-3">{t("weight")}</th>
-            <th className="sticky top-0 z-10 bg-primary px-3 py-3">{t("tariff")}</th>
-            <th className="sticky top-0 z-10 bg-primary px-3 py-3">{t("loggedTime")}</th>
-            <th className="sticky top-0 z-10 bg-primary px-3 py-3">{t("lastEdited")}</th>
-            <th className="sticky top-0 z-10 bg-primary px-3 py-3">{t("editCount")}</th>
+            <th className="sticky top-0 z-10 bg-primary px-3 py-3">
+              {t("oil")}
+            </th>
+            <th className="sticky top-0 z-10 bg-primary px-3 py-3">
+              {t("estimateWeightCol")}
+            </th>
+            <th className="sticky top-0 z-10 bg-primary px-3 py-3">
+              {t("weight")}
+            </th>
+            <th className="sticky top-0 z-10 bg-primary px-3 py-3">
+              {t("tariff")}
+            </th>
+            <th className="sticky top-0 z-10 bg-primary px-3 py-3">
+              {t("loggedTime")}
+            </th>
+            <th className="sticky top-0 z-10 bg-primary px-3 py-3">
+              {t("lastEdited")}
+            </th>
+            <th className="sticky top-0 z-10 bg-primary px-3 py-3">
+              {t("editCount")}
+            </th>
           </tr>
           <tr className="bg-slate-800 text-[10px] normal-case text-slate-200">
             <th className="sticky top-10 z-10 min-w-[3.5rem] bg-slate-800 px-2 py-2" />
             <th className="sticky top-10 z-10 min-w-[8rem] bg-slate-800 px-3 py-2" />
             <th className="sticky top-10 z-10 min-w-[5rem] bg-slate-800 px-3 py-2" />
-            <th className="sticky top-10 z-10 min-w-[9rem] bg-slate-800 px-3 py-2">{t("name")}</th>
-            <th className="sticky top-10 z-10 min-w-[8rem] bg-slate-800 px-3 py-2">{t("phone")}</th>
-            <th className="sticky top-10 z-10 min-w-[9rem] bg-slate-800 px-3 py-2">{t("name")}</th>
-            <th className="sticky top-10 z-10 min-w-[8rem] bg-slate-800 px-3 py-2">{t("phone")}</th>
-            <th className="sticky top-10 z-10 min-w-[5rem] bg-slate-800 px-3 py-2">{t("locCountry")}</th>
-            <th className="sticky top-10 z-10 min-w-[9rem] bg-slate-800 px-3 py-2">{t("locRegion")}</th>
-            <th className="sticky top-10 z-10 min-w-[8rem] bg-slate-800 px-3 py-2">{t("locCity")}</th>
-            <th className="sticky top-10 z-10 min-w-[6rem] bg-slate-800 px-3 py-2">{t("locPostal")}</th>
-            <th className="sticky top-10 z-10 min-w-[16rem] bg-slate-800 px-3 py-2">{t("address")}</th>
-            <th className="sticky top-10 z-10 min-w-[14rem] bg-slate-800 px-3 py-2">{t("itemsTitle")}</th>
-            <th className="sticky top-10 z-10 min-w-[5rem] bg-slate-800 px-3 py-2">{t("idCin")} / {t("idPassport")}</th>
-            <th className="sticky top-10 z-10 min-w-[8rem] bg-slate-800 px-3 py-2">N°</th>
+            <th className="sticky top-10 z-10 min-w-[9rem] bg-slate-800 px-3 py-2">
+              {t("name")}
+            </th>
+            <th className="sticky top-10 z-10 min-w-[8rem] bg-slate-800 px-3 py-2">
+              {t("phone")}
+            </th>
+            <th className="sticky top-10 z-10 min-w-[9rem] bg-slate-800 px-3 py-2">
+              {t("name")}
+            </th>
+            <th className="sticky top-10 z-10 min-w-[8rem] bg-slate-800 px-3 py-2">
+              {t("phone")}
+            </th>
+            <th className="sticky top-10 z-10 min-w-[5rem] bg-slate-800 px-3 py-2">
+              {t("locCountry")}
+            </th>
+            <th className="sticky top-10 z-10 min-w-[9rem] bg-slate-800 px-3 py-2">
+              {t("locRegion")}
+            </th>
+            <th className="sticky top-10 z-10 min-w-[8rem] bg-slate-800 px-3 py-2">
+              {t("locCity")}
+            </th>
+            <th className="sticky top-10 z-10 min-w-[6rem] bg-slate-800 px-3 py-2">
+              {t("locPostal")}
+            </th>
+            <th className="sticky top-10 z-10 min-w-[16rem] bg-slate-800 px-3 py-2">
+              {t("address")}
+            </th>
+            <th className="sticky top-10 z-10 min-w-[14rem] bg-slate-800 px-3 py-2">
+              {t("itemsTitle")}
+            </th>
+            <th className="sticky top-10 z-10 min-w-[5rem] bg-slate-800 px-3 py-2">
+              {t("idCin")} / {t("idPassport")}
+            </th>
+            <th className="sticky top-10 z-10 min-w-[8rem] bg-slate-800 px-3 py-2">
+              N°
+            </th>
             <th className="sticky top-10 z-10 min-w-[5rem] bg-slate-800 px-3 py-2" />
             <th className="sticky top-10 z-10 min-w-[5rem] bg-slate-800 px-3 py-2" />
             <th className="sticky top-10 z-10 min-w-[5rem] bg-slate-800 px-3 py-2" />
@@ -1851,7 +1964,10 @@ function OrdersPanel({
         <tbody className="divide-y divide-outline-variant/30 bg-surface-container-lowest">
           {visible.length === 0 ? (
             <tr>
-              <td colSpan={22} className="px-4 py-10 text-center text-on-surface-variant">
+              <td
+                colSpan={22}
+                className="px-4 py-10 text-center text-on-surface-variant"
+              >
                 {loading ? t("loading") : t("noShipments")}
               </td>
             </tr>
@@ -1865,167 +1981,167 @@ function OrdersPanel({
                 (user?.id != null && shipment.scannerId === user.id);
               const isDelivered = Boolean(shipment.delivered);
               return (
-              <tr
-                key={shipment.id}
-                className={`align-top ${
-                  isDelivered
-                    ? "bg-emerald-200/55 hover:bg-emerald-200/70 [&_td]:bg-emerald-200/55"
-                    : "hover:bg-surface-container-low/60"
-                }`}
-              >
-                <DeliveredCell
-                  shipmentId={shipment.id}
-                  delivered={isDelivered}
-                  deliveredAt={shipment.deliveredAt}
-                  deliveredByName={shipment.deliveredByName}
-                  edit={editByField.delivered}
-                  readOnly={!canEdit}
-                />
-                <StaticCopyCell
-                  value={shipment.publicCode || "—"}
-                  className="whitespace-nowrap font-mono text-xs font-bold text-primary"
-                />
-                <StaticCopyCell
-                  value={
-                    shipment.scannerName ||
-                    (shipment.scannerId != null
-                      ? `#${shipment.scannerId}`
-                      : "—")
-                  }
-                  className="whitespace-nowrap text-on-surface-variant"
-                />
-                <EditableCell
-                  shipmentId={shipment.id}
-                  field="senderName"
-                  value={shipment.senderName}
-                  edit={editByField.senderName}
-                  className="font-medium"
-                  readOnly={!canEdit}
-                />
-                <EditableCell
-                  shipmentId={shipment.id}
-                  field="senderPhone"
-                  value={shipment.senderPhone}
-                  edit={editByField.senderPhone}
-                  readOnly={!canEdit}
-                />
-                <EditableCell
-                  shipmentId={shipment.id}
-                  field="receiverName"
-                  value={shipment.receiverName}
-                  edit={editByField.receiverName}
-                  className="font-medium"
-                  readOnly={!canEdit}
-                />
-                <EditableCell
-                  shipmentId={shipment.id}
-                  field="receiverPhone"
-                  value={shipment.receiverPhone}
-                  edit={editByField.receiverPhone}
-                  readOnly={!canEdit}
-                />
-                <EditableCell
-                  shipmentId={shipment.id}
-                  field="country"
-                  value={shipment.country || ""}
-                  edit={editByField.country}
-                  readOnly={!canEdit}
-                />
-                <EditableCell
-                  shipmentId={shipment.id}
-                  field="regionName"
-                  value={shipment.regionName || ""}
-                  edit={editByField.regionName}
-                  readOnly={!canEdit}
-                />
-                <EditableCell
-                  shipmentId={shipment.id}
-                  field="city"
-                  value={shipment.city || ""}
-                  edit={editByField.city}
-                  readOnly={!canEdit}
-                />
-                <EditableCell
-                  shipmentId={shipment.id}
-                  field="postalCode"
-                  value={shipment.postalCode || ""}
-                  edit={editByField.postalCode}
-                  readOnly={!canEdit}
-                />
-                <EditableCell
-                  shipmentId={shipment.id}
-                  field="address"
-                  value={shipment.address}
-                  edit={editByField.address}
-                  readOnly={!canEdit}
-                />
-                <EditableCell
-                  shipmentId={shipment.id}
-                  field="items"
-                  value={(shipment.items || "").replace(/,/g, ", ")}
-                  edit={editByField.items}
-                  readOnly={!canEdit}
-                />
-                <EditableCell
-                  shipmentId={shipment.id}
-                  field="idDocType"
-                  value={shipment.idDocType || ""}
-                  edit={editByField.idDocType}
-                  className="uppercase"
-                  readOnly={!canEdit}
-                />
-                <EditableCell
-                  shipmentId={shipment.id}
-                  field="idDocNumber"
-                  value={shipment.idDocNumber || ""}
-                  edit={editByField.idDocNumber}
-                  readOnly={!canEdit}
-                />
-                <EditableCell
-                  shipmentId={shipment.id}
-                  field="oilLiters"
-                  value={shipment.oilLiters}
-                  edit={editByField.oilLiters}
-                  readOnly={!canEdit}
-                />
-                <EditableCell
-                  shipmentId={shipment.id}
-                  field="estimateWeightKg"
-                  value={shipment.estimateWeightKg ?? 0}
-                  edit={editByField.estimateWeightKg}
-                  readOnly={!canEdit}
-                />
-                <EditableCell
-                  shipmentId={shipment.id}
-                  field="weightKg"
-                  value={shipment.weightKg}
-                  edit={editByField.weightKg}
-                  readOnly={!canEdit}
-                />
-                <EditableCell
-                  shipmentId={shipment.id}
-                  field="tariffAmount"
-                  value={shipment.tariffAmount}
-                  edit={editByField.tariffAmount}
-                  readOnly={!canEdit}
-                />
-                <StaticCopyCell
-                  value={formatLocalDateTime(shipment.timestamp, locale)}
-                  className="whitespace-nowrap text-on-surface-variant"
-                />
-                <StaticCopyCell
-                  value={
-                    shipment.lastEditedAt
-                      ? formatLocalDateTime(shipment.lastEditedAt, locale)
-                      : t("never")
-                  }
-                  className="whitespace-nowrap text-on-surface-variant"
-                />
-                <StaticCopyCell
-                  value={shipment.editCount}
-                  className="text-center font-semibold text-tertiary"
-                />
-              </tr>
+                <tr
+                  key={shipment.id}
+                  className={`align-top ${
+                    isDelivered
+                      ? "bg-emerald-200/55 hover:bg-emerald-200/70 [&_td]:bg-emerald-200/55"
+                      : "hover:bg-surface-container-low/60"
+                  }`}
+                >
+                  <DeliveredCell
+                    shipmentId={shipment.id}
+                    delivered={isDelivered}
+                    deliveredAt={shipment.deliveredAt}
+                    deliveredByName={shipment.deliveredByName}
+                    edit={editByField.delivered}
+                    readOnly={!canEdit}
+                  />
+                  <StaticCopyCell
+                    value={shipment.publicCode || "—"}
+                    className="whitespace-nowrap font-mono text-xs font-bold text-primary"
+                  />
+                  <StaticCopyCell
+                    value={
+                      shipment.scannerName ||
+                      (shipment.scannerId != null
+                        ? `#${shipment.scannerId}`
+                        : "—")
+                    }
+                    className="whitespace-nowrap text-on-surface-variant"
+                  />
+                  <EditableCell
+                    shipmentId={shipment.id}
+                    field="senderName"
+                    value={shipment.senderName}
+                    edit={editByField.senderName}
+                    className="font-medium"
+                    readOnly={!canEdit}
+                  />
+                  <EditableCell
+                    shipmentId={shipment.id}
+                    field="senderPhone"
+                    value={shipment.senderPhone}
+                    edit={editByField.senderPhone}
+                    readOnly={!canEdit}
+                  />
+                  <EditableCell
+                    shipmentId={shipment.id}
+                    field="receiverName"
+                    value={shipment.receiverName}
+                    edit={editByField.receiverName}
+                    className="font-medium"
+                    readOnly={!canEdit}
+                  />
+                  <EditableCell
+                    shipmentId={shipment.id}
+                    field="receiverPhone"
+                    value={shipment.receiverPhone}
+                    edit={editByField.receiverPhone}
+                    readOnly={!canEdit}
+                  />
+                  <EditableCell
+                    shipmentId={shipment.id}
+                    field="country"
+                    value={shipment.country || ""}
+                    edit={editByField.country}
+                    readOnly={!canEdit}
+                  />
+                  <EditableCell
+                    shipmentId={shipment.id}
+                    field="regionName"
+                    value={shipment.regionName || ""}
+                    edit={editByField.regionName}
+                    readOnly={!canEdit}
+                  />
+                  <EditableCell
+                    shipmentId={shipment.id}
+                    field="city"
+                    value={shipment.city || ""}
+                    edit={editByField.city}
+                    readOnly={!canEdit}
+                  />
+                  <EditableCell
+                    shipmentId={shipment.id}
+                    field="postalCode"
+                    value={shipment.postalCode || ""}
+                    edit={editByField.postalCode}
+                    readOnly={!canEdit}
+                  />
+                  <EditableCell
+                    shipmentId={shipment.id}
+                    field="address"
+                    value={shipment.address}
+                    edit={editByField.address}
+                    readOnly={!canEdit}
+                  />
+                  <EditableCell
+                    shipmentId={shipment.id}
+                    field="items"
+                    value={(shipment.items || "").replace(/,/g, ", ")}
+                    edit={editByField.items}
+                    readOnly={!canEdit}
+                  />
+                  <EditableCell
+                    shipmentId={shipment.id}
+                    field="idDocType"
+                    value={shipment.idDocType || ""}
+                    edit={editByField.idDocType}
+                    className="uppercase"
+                    readOnly={!canEdit}
+                  />
+                  <EditableCell
+                    shipmentId={shipment.id}
+                    field="idDocNumber"
+                    value={shipment.idDocNumber || ""}
+                    edit={editByField.idDocNumber}
+                    readOnly={!canEdit}
+                  />
+                  <EditableCell
+                    shipmentId={shipment.id}
+                    field="oilLiters"
+                    value={shipment.oilLiters}
+                    edit={editByField.oilLiters}
+                    readOnly={!canEdit}
+                  />
+                  <EditableCell
+                    shipmentId={shipment.id}
+                    field="estimateWeightKg"
+                    value={shipment.estimateWeightKg ?? 0}
+                    edit={editByField.estimateWeightKg}
+                    readOnly={!canEdit}
+                  />
+                  <EditableCell
+                    shipmentId={shipment.id}
+                    field="weightKg"
+                    value={shipment.weightKg}
+                    edit={editByField.weightKg}
+                    readOnly={!canEdit}
+                  />
+                  <EditableCell
+                    shipmentId={shipment.id}
+                    field="tariffAmount"
+                    value={shipment.tariffAmount}
+                    edit={editByField.tariffAmount}
+                    readOnly={!canEdit}
+                  />
+                  <StaticCopyCell
+                    value={formatLocalDateTime(shipment.timestamp, locale)}
+                    className="whitespace-nowrap text-on-surface-variant"
+                  />
+                  <StaticCopyCell
+                    value={
+                      shipment.lastEditedAt
+                        ? formatLocalDateTime(shipment.lastEditedAt, locale)
+                        : t("never")
+                    }
+                    className="whitespace-nowrap text-on-surface-variant"
+                  />
+                  <StaticCopyCell
+                    value={shipment.editCount}
+                    className="text-center font-semibold text-tertiary"
+                  />
+                </tr>
               );
             })
           )}
@@ -2043,15 +2159,18 @@ export default function DashboardPage() {
   const [showAddModal, setShowAddModal] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [expanded, setExpanded] = useState<StatPanel | null>(null);
-  const { data, loading, error } = useQuery<ShipmentsQueryResult>(SHIPMENTS_QUERY, {
-    pollInterval: POLL_INTERVAL_MS,
-  });
+  const { data, loading, error } = useQuery<ShipmentsQueryResult>(
+    SHIPMENTS_QUERY,
+    {
+      pollInterval: POLL_INTERVAL_MS,
+    },
+  );
   const { data: statsData } = useQuery<{ dashboardStats: DashboardAnalytics }>(
     DASHBOARD_STATS_QUERY,
     {
       pollInterval: STATS_POLL_INTERVAL_MS,
       fetchPolicy: "cache-and-network",
-    }
+    },
   );
 
   const shipments = data?.shipments ?? [];
@@ -2065,11 +2184,11 @@ export default function DashboardPage() {
 
   const weightGoal = Math.max(
     1000,
-    Math.ceil(weightFilter.analytics.totalWeight / 500) * 500 || 1000
+    Math.ceil(weightFilter.analytics.totalWeight / 500) * 500 || 1000,
   );
   const weightPct = Math.min(
     100,
-    Math.round((weightFilter.analytics.totalWeight / weightGoal) * 100)
+    Math.round((weightFilter.analytics.totalWeight / weightGoal) * 100),
   );
 
   useEffect(() => {
@@ -2095,7 +2214,8 @@ export default function DashboardPage() {
     return <PageSkeleton variant="dashboard" />;
   }
 
-  const panelTitle = (id: StatPanel) => t(PANEL_ITEMS.find((p) => p.id === id)!.label);
+  const panelTitle = (id: StatPanel) =>
+    t(PANEL_ITEMS.find((p) => p.id === id)!.label);
 
   return (
     <div className="app-page relative">
@@ -2124,7 +2244,9 @@ export default function DashboardPage() {
             <p className="text-xs font-bold uppercase tracking-wide text-secondary">
               {t("dashDrawerTitle")}
             </p>
-            <p className="text-sm font-semibold text-on-surface">{t("dashDrawerHint")}</p>
+            <p className="text-sm font-semibold text-on-surface">
+              {t("dashDrawerHint")}
+            </p>
           </div>
           <button
             type="button"
@@ -2150,7 +2272,10 @@ export default function DashboardPage() {
               <Icon name={item.icon} className="text-[20px]" />
               {t(item.label)}
               <span className="ml-auto opacity-70">
-                <ExpandIcon expanded={expanded === item.id} className="h-3.5 w-3.5" />
+                <ExpandIcon
+                  expanded={expanded === item.id}
+                  className="h-3.5 w-3.5"
+                />
               </span>
             </button>
           ))}
@@ -2188,7 +2313,9 @@ export default function DashboardPage() {
                   </span>
                 </h1>
               </div>
-              <p className="text-sm text-on-surface-variant">{t("dashboardSubtitle")}</p>
+              <p className="text-sm text-on-surface-variant">
+                {t("dashboardSubtitle")}
+              </p>
               {user ? (
                 <p className="mt-0.5 text-xs text-on-surface-variant">
                   {user.name || user.email}
@@ -2206,7 +2333,10 @@ export default function DashboardPage() {
               title={t("tourGuide")}
               aria-label={t("tourGuide")}
             >
-              <span className="material-symbols-outlined text-[18px]" aria-hidden>
+              <span
+                className="material-symbols-outlined text-[18px]"
+                aria-hidden
+              >
                 help
               </span>
               {t("tourGuide")}
@@ -2222,7 +2352,11 @@ export default function DashboardPage() {
             <Link to="/" className="app-btn-ghost text-xs">
               {t("backToHome")}
             </Link>
-            <button type="button" onClick={handleLogout} className="app-btn-ghost text-xs">
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="app-btn-ghost text-xs"
+            >
               {t("logout")}
             </button>
             <button
@@ -2260,18 +2394,19 @@ export default function DashboardPage() {
           {user?.account_role === "employer" ? <TeamPanel /> : null}
           {user?.account_role === "employee" && user.employer_name ? (
             <p className="rounded-xl border border-outline-variant/50 bg-surface-container-low px-4 py-3 text-sm text-on-surface-variant">
-              {t("workerEmployerBanner").replace(
-                "{name}",
-                user.employer_name,
-              )}
+              {t("workerEmployerBanner").replace("{name}", user.employer_name)}
             </p>
           ) : null}
           {/* 1. Shipments table — full width */}
           <section className="app-card overflow-hidden" data-tour="orders">
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-outline-variant/40 px-4 py-3">
-              <h2 className="text-sm font-bold text-on-surface">{t("dashOrdersTitle")}</h2>
+              <h2 className="text-sm font-bold text-on-surface">
+                {t("dashOrdersTitle")}
+              </h2>
               <div className="flex items-center gap-3">
-                <p className="text-xs text-on-surface-variant">{t("autoRefresh")}</p>
+                <p className="text-xs text-on-surface-variant">
+                  {t("autoRefresh")}
+                </p>
                 <ExpandButton
                   expanded={false}
                   onClick={() => toggleExpand("orders")}
@@ -2300,11 +2435,18 @@ export default function DashboardPage() {
 
           {/* 2. Map + most frequent places */}
           <div className="grid gap-5 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
-            <section className="app-card relative overflow-hidden p-0" data-tour="map">
+            <section
+              className="app-card relative overflow-hidden p-0"
+              data-tour="map"
+            >
               <div className="flex items-center justify-between gap-3 border-b border-outline-variant/40 px-4 py-3">
                 <div>
-                  <h2 className="text-sm font-bold text-on-surface">{t("dashMapTitle")}</h2>
-                  <p className="text-xs text-on-surface-variant">{t("dashMapSupport")}</p>
+                  <h2 className="text-sm font-bold text-on-surface">
+                    {t("dashMapTitle")}
+                  </h2>
+                  <p className="text-xs text-on-surface-variant">
+                    {t("dashMapSupport")}
+                  </p>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="rounded-full bg-secondary-container px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-secondary">
@@ -2333,15 +2475,23 @@ export default function DashboardPage() {
                     : t("dashMapPausedHint")}
                 </div>
               ) : (
-                <MapPanel analytics={mapFilter.analytics} mapInstanceKey="card" />
+                <MapPanel
+                  analytics={mapFilter.analytics}
+                  mapInstanceKey="card"
+                />
               )}
             </section>
 
             <section className="app-card p-5" data-tour="places">
               <div className="mb-3 flex items-center justify-between gap-2">
-                <h2 className="text-sm font-bold text-on-surface">{t("dashPlacesTitle")}</h2>
+                <h2 className="text-sm font-bold text-on-surface">
+                  {t("dashPlacesTitle")}
+                </h2>
                 <div className="flex items-center gap-1.5">
-                  <Icon name="location_on" className="text-[18px] text-tertiary" />
+                  <Icon
+                    name="location_on"
+                    className="text-[18px] text-tertiary"
+                  />
                   <ExpandButton
                     expanded={false}
                     onClick={() => toggleExpand("places")}
@@ -2368,7 +2518,9 @@ export default function DashboardPage() {
           <div className="grid gap-5 md:grid-cols-2">
             <section className="app-card p-5" data-tour="tariff">
               <div className="mb-3 flex items-center justify-between gap-2">
-                <h2 className="text-sm font-bold text-on-surface">{t("dashTariffTitle")}</h2>
+                <h2 className="text-sm font-bold text-on-surface">
+                  {t("dashTariffTitle")}
+                </h2>
                 <div className="flex items-center gap-1.5">
                   <Icon name="payments" className="text-[18px] text-primary" />
                   <ExpandButton
@@ -2391,7 +2543,9 @@ export default function DashboardPage() {
 
             <section className="app-card p-5" data-tour="weight">
               <div className="mb-3 flex items-center justify-between gap-2">
-                <h2 className="text-sm font-bold text-on-surface">{t("dashWeightTitle")}</h2>
+                <h2 className="text-sm font-bold text-on-surface">
+                  {t("dashWeightTitle")}
+                </h2>
                 <div className="flex items-center gap-1.5">
                   <Icon name="scale" className="text-[18px] text-secondary" />
                   <ExpandButton
@@ -2427,7 +2581,9 @@ export default function DashboardPage() {
         <div className="fixed inset-0 z-[5000] flex bg-primary/50 backdrop-blur-sm">
           <div className="stat-expand-overlay flex h-full w-full flex-col overflow-hidden bg-surface-container-lowest shadow-2xl">
             <div className="flex shrink-0 items-center justify-between gap-3 border-b border-outline-variant/40 px-4 py-3 sm:px-6">
-              <h2 className="text-lg font-extrabold text-on-surface">{panelTitle(expanded)}</h2>
+              <h2 className="text-lg font-extrabold text-on-surface">
+                {panelTitle(expanded)}
+              </h2>
               <ExpandButton
                 expanded
                 onClick={() => setExpanded(null)}
@@ -2536,7 +2692,9 @@ export default function DashboardPage() {
         </div>
       )}
 
-      {showAddModal && <AddShipmentModal onClose={() => setShowAddModal(false)} />}
+      {showAddModal && (
+        <AddShipmentModal onClose={() => setShowAddModal(false)} />
+      )}
     </div>
   );
 }
