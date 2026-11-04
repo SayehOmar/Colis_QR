@@ -72,6 +72,25 @@ export default function LandingPage() {
     },
   ] as const;
 
+  const partners = [
+    {
+      name: "STS Souga Transport",
+      image: "/Partners/STS_Souga.jpeg",
+      phones: [
+        { display: "+33 6 17 92 66 51", e164: "33617926651" },
+        { display: "+216 27 451 103", e164: "21627451103" },
+      ],
+    },
+    {
+      name: "Adam Transport",
+      image: "/Partners/Adam_Transport.jpeg",
+      phones: [
+        { display: "+33 7 89 29 22 84", e164: "33789292284" },
+        { display: "+216 48 186 500", e164: "21648186500" },
+      ],
+    },
+  ] as const;
+
   return (
     <div className="landing-page bg-surface font-sans text-on-surface antialiased selection:bg-tertiary/15 selection:text-tertiary">
       <PageSeo
@@ -114,6 +133,12 @@ export default function LandingPage() {
               href="#who-is-it-for"
             >
               {t("landingNavWho")}
+            </a>
+            <a
+              className="whitespace-nowrap transition-colors hover:text-on-surface"
+              href="#partners"
+            >
+              {t("landingNavPartners")}
             </a>
             <a
               className="whitespace-nowrap transition-colors hover:text-on-surface"
@@ -200,6 +225,13 @@ export default function LandingPage() {
                 onClick={closeMenu}
               >
                 {t("landingNavWho")}
+              </a>
+              <a
+                className="rounded-lg px-3 py-2.5 hover:bg-surface-container-low"
+                href="#partners"
+                onClick={closeMenu}
+              >
+                {t("landingNavPartners")}
               </a>
               <a
                 className="rounded-lg px-3 py-2.5 hover:bg-surface-container-low"
@@ -701,6 +733,74 @@ export default function LandingPage() {
           </div>
         </section>
 
+        {/* PARTNERS */}
+        <section
+          className="border-t border-outline-variant/30 bg-surface-container-low/50 py-14 sm:py-20"
+          id="partners"
+        >
+          <div className="mx-auto max-w-[1240px] px-4 sm:px-6">
+            <div className="landing-reveal mx-auto mb-12 max-w-2xl text-center">
+              <h2 className="text-2xl font-extrabold tracking-tight text-on-surface sm:text-3xl">
+                {t("landingPartnersTitle")}
+              </h2>
+              <p className="mt-2 text-sm text-on-surface-variant sm:text-base">
+                {t("landingPartnersSupport")}
+              </p>
+            </div>
+            <div className="mx-auto grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-2">
+              {partners.map((partner, index) => (
+                <article
+                  key={partner.name}
+                  tabIndex={0}
+                  className={`landing-reveal landing-reveal-delay-${index + 1} group relative aspect-square overflow-hidden rounded-2xl border border-outline-variant/70 bg-white shadow-sm outline-none ring-primary/30 transition focus-visible:ring-2`}
+                >
+                  <img
+                    src={partner.image}
+                    alt={partner.name}
+                    className="h-full w-full object-contain p-4 sm:p-6"
+                    loading="lazy"
+                  />
+                  <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/70 px-4 opacity-0 transition-opacity duration-300 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
+                    <p className="text-center text-sm font-bold tracking-wide text-white">
+                      {partner.name}
+                    </p>
+                    <ul className="flex w-full max-w-xs flex-col gap-3">
+                      {partner.phones.map((phone) => (
+                        <li
+                          key={phone.e164}
+                          className="rounded-xl border border-white/20 bg-black/35 px-3 py-2.5 backdrop-blur-sm"
+                        >
+                          <p className="text-center text-sm font-semibold text-white">
+                            {phone.display}
+                          </p>
+                          <div className="mt-2 flex items-center justify-center gap-2">
+                            <a
+                              href={`tel:+${phone.e164}`}
+                              className="inline-flex items-center gap-1 rounded-lg bg-white/15 px-2.5 py-1.5 text-[11px] font-bold text-white transition hover:bg-white/25"
+                            >
+                              <Icon name="call" className="text-[14px]" />
+                              {t("landingPartnerCall")}
+                            </a>
+                            <a
+                              href={`https://wa.me/${phone.e164}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 rounded-lg bg-emerald-500/90 px-2.5 py-1.5 text-[11px] font-bold text-white transition hover:bg-emerald-500"
+                            >
+                              <Icon name="chat" className="text-[14px]" />
+                              {t("landingPartnerWhatsApp")}
+                            </a>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* PRICING */}
         <section
           className="border-t border-outline-variant/30 bg-surface-container-low/60 py-14 sm:py-20"
@@ -969,6 +1069,12 @@ export default function LandingPage() {
                 href="#who-is-it-for"
               >
                 {t("landingNavWho")}
+              </a>
+              <a
+                className="transition-colors hover:text-on-surface"
+                href="#partners"
+              >
+                {t("landingNavPartners")}
               </a>
               <a
                 className="transition-colors hover:text-on-surface"
