@@ -3,15 +3,24 @@ export interface ShipmentFormData {
   senderPhone: string;
   receiverName: string;
   receiverPhone: string;
-  /** Free-form street / building line. */
+  /** Free-form street / building line (delivery). */
   streetAddress: string;
   country: string;
   regionId: string;
   regionName: string;
   city: string;
   postalCode: string;
-  /** Composed display/QR address. */
+  /** Composed delivery display/QR address. */
   address: string;
+  /** Free-form street / building line (departure). */
+  departureStreetAddress: string;
+  departureCountry: string;
+  departureRegionId: string;
+  departureRegionName: string;
+  departureCity: string;
+  departurePostalCode: string;
+  /** Composed departure display/QR address. */
+  departureAddress: string;
   oilLiters: string;
   /** Client-declared estimated weight (kg), encoded in QR. */
   estimateWeightKg: string;
@@ -38,6 +47,11 @@ export interface ParsedPayloadFields {
   regionName: string;
   city: string;
   postalCode: string;
+  departureAddress: string;
+  departureCountry: string;
+  departureRegionName: string;
+  departureCity: string;
+  departurePostalCode: string;
 }
 
 export interface FieldEdit {
@@ -67,6 +81,11 @@ export interface Shipment {
   regionName: string;
   city: string;
   postalCode: string;
+  departureAddress: string;
+  departureCountry: string;
+  departureRegionName: string;
+  departureCity: string;
+  departurePostalCode: string;
   oilLiters: number;
   weightKg: number;
   estimateWeightKg: number;

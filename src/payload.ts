@@ -29,6 +29,15 @@ export function buildPayloadString(data: ShipmentFormData): string {
   const oilLiters = parseNonNegative(data.oilLiters, "Oil liters");
   const estimateWeightKg = parseNonNegative(data.estimateWeightKg, "Estimate weight");
   const address = data.address.trim() || buildAddressLine(data);
+  const departureAddress =
+    data.departureAddress.trim() ||
+    buildAddressLine({
+      streetAddress: data.departureStreetAddress,
+      city: data.departureCity,
+      postalCode: data.departurePostalCode,
+      regionName: data.departureRegionName,
+      country: data.departureCountry,
+    });
   const items = data.items.map((item) => item.trim()).filter(Boolean).join(",");
   const idDoc = `${data.idDocType}:${data.idDocNumber.trim()}`;
   const publicCode = isValidShipmentCode(data.publicCode)
@@ -49,6 +58,12 @@ export function buildPayloadString(data: ShipmentFormData): string {
     data.postalCode.trim(),
     String(estimateWeightKg),
     publicCode,
+    // Trailing departure fields (backward-compatible for older scanners).
+    departureAddress,
+    data.departureCountry.trim(),
+    data.departureRegionName.trim(),
+    data.departureCity.trim(),
+    data.departurePostalCode.trim(),
   ].join("|");
 }
 
@@ -100,6 +115,11 @@ export function parsePayloadString(payload: string): ParsedPayloadFields {
       ? parseNonNegative(parts[12], "Estimate weight")
       : 0,
     publicCode,
+    departureAddress: parts[14]?.trim() ?? "",
+    departureCountry: parts[15]?.trim() ?? "",
+    departureRegionName: parts[16]?.trim() ?? "",
+    departureCity: parts[17]?.trim() ?? "",
+    departurePostalCode: parts[18]?.trim() ?? "",
   };
 }
 

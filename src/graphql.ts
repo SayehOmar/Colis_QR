@@ -20,6 +20,11 @@ export const SHIPMENTS_QUERY = gql`
       regionName
       city
       postalCode
+      departureAddress
+      departureCountry
+      departureRegionName
+      departureCity
+      departurePostalCode
       oilLiters
       weightKg
       estimateWeightKg
@@ -95,6 +100,11 @@ export const SHIPMENTS_FILTERED_QUERY = gql`
         regionName
         city
         postalCode
+        departureAddress
+        departureCountry
+        departureRegionName
+        departureCity
+        departurePostalCode
         oilLiters
         weightKg
         estimateWeightKg
